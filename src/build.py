@@ -131,8 +131,8 @@ def footer(prefix=""):
 """
 
 
-def row(t):
-    tags = "".join(f'<span class="tag">{e(CAT_LABEL[c])}</span>' for c in t["cats"] if c != "goal")
+def row(t, anchor=True):
+    """anchor=False のときは id を付けない（同じ作品が2つのリストに出るため）"""
     detail = ""
     if not t["goal"]:
         events = "".join(f"<li>{e(x)}</li>" for x in t["events"])
@@ -154,13 +154,12 @@ def row(t):
       {ad_buttons(t)}
     </div>
   </details>"""
-    return f"""<li class="row{' must' if t['must'] else ''}{' goal' if t['goal'] else ''}" id="{t["slug"]}" data-slug="{t["slug"]}" data-order="{t["order"]}">
+    return f"""<li class="row{' must' if t['must'] else ''}{' goal' if t['goal'] else ''}"{f' id="{t["slug"]}"' if anchor else ''} data-slug="{t["slug"]}" data-order="{t["order"]}">
   <label class="check"><input type="checkbox" data-watch="{t["slug"]}" aria-label="{e(t["title"])}を観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 {t["order"]:02d}</span><span>作中 {e(t["era"])}</span><span>{e(t["year"])}年・{e(t["kind"])}</span></span>
     <h3 class="title">{e(t["title"])}</h3>
     <p class="desc">{e(t["line"])}</p>
-    <span class="tags">{tags}</span>
   </div>
   <span class="pill {imp_class(t)}">{e(imp_text(t))}</span>{detail}
 </li>"""
@@ -172,7 +171,9 @@ def build_index():
     desc = (f"『アベンジャーズ／ドゥームズデイ』の前に観るべきMCU作品を、10点満点の重要度つきで視聴順に整理。"
             f"重要度5以上の{must_total}本は必ず観たい作品。全{total}本の各作品にあらすじ・ドゥームズデイとの関連性・ポストクレジットの解説つき。")
     articles = "".join(f'<li><a href="articles/{a["slug"]}.html">{e(a["title"])}</a></li>' for a in ARTICLES)
-    rows_html = "".join(row(t) for t in TITLES)
+    # ① に出る作品は ① に id を付け、② では ① に出ない作品だけに id を付ける（記事からのリンク先）
+    must_rows = "".join(row(t) for t in TITLES if t["must"] or t["goal"])
+    all_rows = "".join(row(t, anchor=not (t["must"] or t["goal"])) for t in TITLES)
 
     return head("ドゥームズデイ予習ガイド｜観る順番と重要度つき全作品リスト", desc, "") + f"""
 <header class="hero">
@@ -213,10 +214,10 @@ def build_index():
 
 {banner("middle")}
 <section class="tier-section">
-  <header><h2>視聴リスト</h2><p>作品は物語の視聴順に並んでいます。『ロキ』シーズン1は『エンドゲーム』の直後に観るのがおすすめです。</p></header>
-  <div class="controls" role="group" aria-label="表示するリスト">
-    <button class="chip" data-view="must" aria-pressed="true">① 必ず観るべき（{must_total}本）</button>
-    <button class="chip" data-view="all" aria-pressed="false">② 全作品（{total}本）</button>
+  <header><h2>チェックリスト</h2><p>どちらのリストも物語の視聴順に並んでいます。『ロキ』シーズン1は『エンドゲーム』の直後に観るのがおすすめです。チェックは①と②で共通です。</p></header>
+  <div class="controls">
+    <a class="chip" href="#list-must">① 必ず観るべき（{must_total}本）</a>
+    <a class="chip" href="#list-all">② 全作品（{total}本）</a>
     <label class="toggle"><input type="checkbox" id="hide-done"> 観た作品を隠す</label>
   </div>
   <div class="legend" aria-label="重要度の見方">
@@ -226,7 +227,16 @@ def build_index():
     <span><span class="pill p0">4以下</span>余裕があれば</span>
     <span><span class="pill ref">参考</span>別の宇宙・番外</span>
   </div>
-  <ol class="list" id="title-list">{rows_html}</ol>
+</section>
+
+<section class="tier-section" id="list-must">
+  <header><h2><span class="step">①</span>必ず観るべき作品<span class="count">重要度5以上・{must_total}本</span></h2><p>ドゥームズデイをちゃんと楽しむために、必ず観てほしい作品です。</p></header>
+  <ol class="list">{must_rows}</ol>
+</section>
+
+<section class="tier-section" id="list-all">
+  <header><h2><span class="step">②</span>全作品<span class="count">{total}本</span></h2><p>重要度4以下や参考作品も含めた全作品です。時間がある人はこちらで。</p></header>
+  <ol class="list">{all_rows}</ol>
 </section>
 """ + footer() + '<script src="assets/app.js"></script>\n</body>\n</html>\n'
 

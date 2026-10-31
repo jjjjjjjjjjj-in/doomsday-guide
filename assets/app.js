@@ -7,19 +7,18 @@
 
   const rows = [...document.querySelectorAll(".row[data-slug]")];
   const hideDone = document.getElementById("hide-done");
-  let view = "must";
 
   function paint() {
     rows.forEach((r) => {
       const done = watched.has(r.dataset.slug);
       r.classList.toggle("done", done);
-      r.hidden = (view === "must" && !r.matches(".must, .goal")) || (hideDone.checked && done);
+      r.hidden = hideDone.checked && done;
       const box = r.querySelector("input[type=checkbox]");
       if (box) box.checked = done;
     });
     const count = (sel) => {
-      const list = rows.filter((r) => r.matches(sel));
-      return [list.filter((r) => watched.has(r.dataset.slug)).length, list.length];
+      const slugs = [...new Set(rows.filter((r) => r.matches(sel)).map((r) => r.dataset.slug))];
+      return [slugs.filter((s) => watched.has(s)).length, slugs.length];
     };
     [["must", ".row.must"], ["all", ".row:not(.goal)"]].forEach(([key, sel]) => {
       const [done, total] = count(sel);
@@ -37,22 +36,11 @@
   });
   hideDone.addEventListener("change", paint);
 
-  // ① 必ず観るべき（重要度5以上） ⇔ ② 全作品
-  function setView(next) {
-    view = next === "all" ? "all" : "must";
-    document.querySelectorAll("[data-view]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
-    try { localStorage.setItem("doomsday-list", view); } catch (e) {}
-    paint();
-  }
-  document.querySelectorAll("[data-view]").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
-  try { view = localStorage.getItem("doomsday-list") === "all" ? "all" : "must"; } catch (e) {}
-
   // 記事から作品へのリンクで飛んできたら詳細を開く
   function openFromHash() {
     const id = decodeURIComponent(location.hash.slice(1));
     const el = id && document.getElementById(id);
     if (el && el.classList.contains("row")) {
-      if (el.hidden) setView("all");
       const d = el.querySelector("details");
       if (d) d.open = true;
       el.scrollIntoView({ block: "start" });
@@ -65,6 +53,6 @@
   const days = Math.ceil((release - new Date()) / 86400000);
   document.getElementById("countdown").innerHTML = days > 0 ? `${days}<span>日</span>` : "公開中";
 
-  setView(view);
+  paint();
   openFromHash();
 })();

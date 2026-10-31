@@ -63,10 +63,10 @@
 
 
 <section class="tier-section">
-  <header><h2>視聴リスト</h2><p>作品は物語の視聴順に並んでいます。『ロキ』シーズン1は『エンドゲーム』の直後に観るのがおすすめです。</p></header>
-  <div class="controls" role="group" aria-label="表示するリスト">
-    <button class="chip" data-view="must" aria-pressed="true">① 必ず観るべき（43本）</button>
-    <button class="chip" data-view="all" aria-pressed="false">② 全作品（67本）</button>
+  <header><h2>チェックリスト</h2><p>どちらのリストも物語の視聴順に並んでいます。『ロキ』シーズン1は『エンドゲーム』の直後に観るのがおすすめです。チェックは①と②で共通です。</p></header>
+  <div class="controls">
+    <a class="chip" href="#list-must">① 必ず観るべき（43本）</a>
+    <a class="chip" href="#list-all">② 全作品（67本）</a>
     <label class="toggle"><input type="checkbox" id="hide-done"> 観た作品を隠す</label>
   </div>
   <div class="legend" aria-label="重要度の見方">
@@ -76,13 +76,16 @@
     <span><span class="pill p0">4以下</span>余裕があれば</span>
     <span><span class="pill ref">参考</span>別の宇宙・番外</span>
   </div>
-  <ol class="list" id="title-list"><li class="row must" id="captain-america-first-avenger" data-slug="captain-america-first-avenger" data-order="1">
+</section>
+
+<section class="tier-section" id="list-must">
+  <header><h2><span class="step">①</span>必ず観るべき作品<span class="count">重要度5以上・43本</span></h2><p>ドゥームズデイをちゃんと楽しむために、必ず観てほしい作品です。</p></header>
+  <ol class="list"><li class="row must" id="captain-america-first-avenger" data-slug="captain-america-first-avenger" data-order="1">
   <label class="check"><input type="checkbox" data-watch="captain-america-first-avenger" aria-label="キャプテン・アメリカ／ザ・ファースト・アベンジャーを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 01</span><span>作中 1940年代</span><span>2011年・映画</span></span>
     <h3 class="title">キャプテン・アメリカ／ザ・ファースト・アベンジャー</h3>
     <p class="desc">スティーブ誕生とペギーとの約束。ドゥームズデイに戻ってくる2人の出発点。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p8">重要度 8/10</span>
   <details>
@@ -108,7 +111,6 @@
     <span class="meta"><span>視聴順 02</span><span>作中 1995年</span><span>2019年・映画</span></span>
     <h3 class="title">キャプテン・マーベル</h3>
     <p class="desc">キャロルと若きフューリー。宇宙勢力とスクラルの背景。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -134,7 +136,6 @@
     <span class="meta"><span>視聴順 03</span><span>作中 2010年</span><span>2008年・映画</span></span>
     <h3 class="title">アイアンマン</h3>
     <p class="desc">MCUの出発点。ロバート・ダウニー・Jr.とMCUの始まり。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p8">重要度 9/10</span>
   <details>
@@ -160,7 +161,6 @@
     <span class="meta"><span>視聴順 04</span><span>作中 2011年</span><span>2010年・映画</span></span>
     <h3 class="title">アイアンマン2</h3>
     <p class="desc">ウォーマシン、ナターシャ登場。アベンジャーズ結成前夜。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -180,39 +180,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%9E%E3%83%B32%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="incredible-hulk" data-slug="incredible-hulk" data-order="5">
-  <label class="check"><input type="checkbox" data-watch="incredible-hulk" aria-label="インクレディブル・ハルクを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 05</span><span>作中 2011年</span><span>2008年・映画</span></span>
-    <h3 class="title">インクレディブル・ハルク</h3>
-    <p class="desc">ハルクの基本設定とロス将軍。『ブレイブ・ニュー・ワールド』の伏線。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
-  </div>
-  <span class="pill p0">重要度 4/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>ブルース・バナーは軍に追われながら、ハルクになる体質を治す方法を探す。ロス将軍は彼を兵器として捕らえようとする。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>バナーとロス将軍の対立</li><li>サミュエル・スターンズ（リーダー）が変異し始める</li><li>アボミネーションとハルクの戦い</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>ブルース・バナー、ベティ・ロス、サディアス・ロス将軍、エミル・ブロンスキー、サミュエル・スターンズ</dd></div>
-        <div><dt>他作品との関係</dt><dd>ロス将軍とスターンズは『キャプテン・アメリカ：ブレイブ・ニュー・ワールド』で再登場する。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイの公式キャストとの直接のつながりはない。『ブレイブ・ニュー・ワールド』を深く理解したい人向け。</dd></div>
-        <div><dt>観るメリット</dt><dd>ロス将軍がなぜレッドハルクになるのか、スターンズが誰なのかが分かる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくても『ブレイブ・ニュー・ワールド』の中で必要な説明はされる。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>本編最後（クレジット前）にトニー・スタークがロス将軍に話しかける。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AC%E3%83%87%E3%82%A3%E3%83%96%E3%83%AB%E3%83%BB%E3%83%8F%E3%83%AB%E3%82%AF%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="thor" data-slug="thor" data-order="6">
   <label class="check"><input type="checkbox" data-watch="thor" aria-label="マイティ・ソーを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 06</span><span>作中 2011年</span><span>2011年・映画</span></span>
     <h3 class="title">マイティ・ソー</h3>
     <p class="desc">ソーとロキの兄弟関係の原点。2人ともドゥームズデイに出演。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p5">重要度 6/10</span>
   <details>
@@ -238,7 +211,6 @@
     <span class="meta"><span>視聴順 07</span><span>作中 2012年</span><span>2012年・映画</span></span>
     <h3 class="title">アベンジャーズ</h3>
     <p class="desc">ヒーロー初結集。ロキ S1は「この映画の2012年」から始まる。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -264,7 +236,6 @@
     <span class="meta"><span>視聴順 08</span><span>作中 2013年</span><span>2013年・映画</span></span>
     <h3 class="title">マイティ・ソー／ダーク・ワールド</h3>
     <p class="desc">ソーとロキが手を組む。母フリッガの死。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -290,7 +261,6 @@
     <span class="meta"><span>視聴順 09</span><span>作中 2013年</span><span>2013年・映画</span></span>
     <h3 class="title">アイアンマン3</h3>
     <p class="desc">ニューヨーク決戦後のトニーの不安を描く個人編。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -316,7 +286,6 @@
     <span class="meta"><span>視聴順 10</span><span>作中 2014年</span><span>2014年・映画</span></span>
     <h3 class="title">キャプテン・アメリカ／ウィンター・ソルジャー</h3>
     <p class="desc">サム初登場とバッキー再登場。次世代の2人の原点。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span><span class="tag">次世代ヒーロー</span></span>
   </div>
   <span class="pill p8">重要度 8/10</span>
   <details>
@@ -342,7 +311,6 @@
     <span class="meta"><span>視聴順 11</span><span>作中 2014年</span><span>2014年・映画</span></span>
     <h3 class="title">ガーディアンズ・オブ・ギャラクシー</h3>
     <p class="desc">宇宙側のチーム結成。パワー・ストーン登場。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p5">重要度 6/10</span>
   <details>
@@ -368,7 +336,6 @@
     <span class="meta"><span>視聴順 12</span><span>作中 2014年</span><span>2017年・映画</span></span>
     <h3 class="title">ガーディアンズ・オブ・ギャラクシー：リミックス</h3>
     <p class="desc">クイルの父エゴとヨンドゥ。ガーディアンズの家族の物語。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -388,65 +355,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%82%AE%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%BC%EF%BC%9A%E3%83%AA%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="i-am-groot-1" data-slug="i-am-groot-1" data-order="13">
-  <label class="check"><input type="checkbox" data-watch="i-am-groot-1" aria-label="アイ・アム・グルート シーズン1を観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 13</span><span>作中 2014年（リミックス後）</span><span>2022年・短編アニメ</span></span>
-    <h3 class="title">アイ・アム・グルート シーズン1</h3>
-    <p class="desc">ベビー・グルートの短編集。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 2/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>ベビー・グルートの日常を描く数分の短編アニメ集。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>本筋に関わる出来事はない</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>グルート</dd></div>
-        <div><dt>他作品との関係</dt><dd>ガーディアンズ作品の番外編。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>気軽に楽しめる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもまったく問題ない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>特になし。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%83%BB%E3%82%A2%E3%83%A0%E3%83%BB%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%88%20%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B31%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
-</li><li class="row" id="i-am-groot-2" data-slug="i-am-groot-2" data-order="14">
-  <label class="check"><input type="checkbox" data-watch="i-am-groot-2" aria-label="アイ・アム・グルート シーズン2を観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 14</span><span>作中 2014年（リミックス後）</span><span>2023年・短編アニメ</span></span>
-    <h3 class="title">アイ・アム・グルート シーズン2</h3>
-    <p class="desc">短編アニメ第2弾。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 2/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>ベビー・グルートの短編アニメ第2弾。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>本筋に関わる出来事はない</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>グルート</dd></div>
-        <div><dt>他作品との関係</dt><dd>ガーディアンズ作品の番外編。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>気軽に楽しめる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもまったく問題ない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>特になし。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%83%BB%E3%82%A2%E3%83%A0%E3%83%BB%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%88%20%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B32%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="age-of-ultron" data-slug="age-of-ultron" data-order="15">
   <label class="check"><input type="checkbox" data-watch="age-of-ultron" aria-label="アベンジャーズ／エイジ・オブ・ウルトロンを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 15</span><span>作中 2015年</span><span>2015年・映画</span></span>
     <h3 class="title">アベンジャーズ／エイジ・オブ・ウルトロン</h3>
     <p class="desc">ウルトロン事件。チーム分裂（シビル・ウォー）の種。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span><span class="tag">次世代ヒーロー</span></span>
   </div>
   <span class="pill p8">重要度 9/10</span>
   <details>
@@ -472,7 +386,6 @@
     <span class="meta"><span>視聴順 16</span><span>作中 2015年</span><span>2015年・映画</span></span>
     <h3 class="title">アントマン</h3>
     <p class="desc">スコットと娘キャシー、量子世界の入口。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -498,7 +411,6 @@
     <span class="meta"><span>視聴順 17</span><span>作中 2016年</span><span>2016年・映画</span></span>
     <h3 class="title">シビル・ウォー／キャプテン・アメリカ</h3>
     <p class="desc">アベンジャーズ分裂。スティーブとトニーの決裂。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span><span class="tag">次世代ヒーロー</span></span>
   </div>
   <span class="pill p8">重要度 9/10</span>
   <details>
@@ -518,39 +430,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B7%E3%83%93%E3%83%AB%E3%83%BB%E3%82%A6%E3%82%A9%E3%83%BC%EF%BC%8F%E3%82%AD%E3%83%A3%E3%83%97%E3%83%86%E3%83%B3%E3%83%BB%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="black-widow" data-slug="black-widow" data-order="18">
-  <label class="check"><input type="checkbox" data-watch="black-widow" aria-label="ブラック・ウィドウを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 18</span><span>作中 2016年</span><span>2021年・映画</span></span>
-    <h3 class="title">ブラック・ウィドウ</h3>
-    <p class="desc">エレーナとアレクセイの原点。サンダーボルツ*の前提。</p>
-    <span class="tags"><span class="tag">次世代ヒーロー</span></span>
-  </div>
-  <span class="pill p0">重要度 4/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>協定に背いて逃亡中のナターシャが、かつて「家族」として暮らした妹エレーナ、父親役のアレクセイと再会し、自分を育てた組織レッドルームと戦う。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>エレーナとアレクセイの初登場</li><li>ナターシャと偽の家族の再会</li><li>レッドルームの壊滅</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>ナターシャ、エレーナ、アレクセイ（レッド・ガーディアン）、メリーナ、タスクマスター</dd></div>
-        <div><dt>他作品との関係</dt><dd>エレーナの物語は『ホークアイ』『サンダーボルツ*』へ続く。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>エレーナ（フローレンス・ピュー）とアレクセイ（デヴィッド・ハーバー）はどちらも公式キャスト。</dd></div>
-        <div><dt>観るメリット</dt><dd>エレーナがナターシャをどれほど大事に思っていたかが分かり、『サンダーボルツ*』の感情の重みが増す。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観ない場合、『サンダーボルツ*』でのエレーナとアレクセイの関係がつかみにくい。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>エレーナがナターシャの墓を訪れ、ヴァレンティーナから「姉を殺したのはクリント・バートン」と吹き込まれる。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%82%A6%E3%82%A3%E3%83%89%E3%82%A6%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="black-panther" data-slug="black-panther" data-order="19">
   <label class="check"><input type="checkbox" data-watch="black-panther" aria-label="ブラックパンサーを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 19</span><span>作中 2016年</span><span>2018年・映画</span></span>
     <h3 class="title">ブラックパンサー</h3>
     <p class="desc">ワカンダとシュリ、エムバクの原点。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span><span class="tag">次世代ヒーロー</span></span>
   </div>
   <span class="pill p5">重要度 6/10</span>
   <details>
@@ -576,7 +461,6 @@
     <span class="meta"><span>視聴順 20</span><span>作中 2016年</span><span>2017年・映画</span></span>
     <h3 class="title">スパイダーマン：ホームカミング</h3>
     <p class="desc">MCU版ピーターの成長。</p>
-    <span class="tags"><span class="tag">スパイダーマン関連</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -602,7 +486,6 @@
     <span class="meta"><span>視聴順 21</span><span>作中 2016-17年</span><span>2016年・映画</span></span>
     <h3 class="title">ドクター・ストレンジ</h3>
     <p class="desc">魔術とマルチバースという考え方の入口。</p>
-    <span class="tags"><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p8">重要度 8/10</span>
   <details>
@@ -628,7 +511,6 @@
     <span class="meta"><span>視聴順 22</span><span>作中 2017年</span><span>2017年・映画</span></span>
     <h3 class="title">マイティ・ソー バトルロイヤル</h3>
     <p class="desc">アスガルド崩壊。ソーとロキの和解。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p5">重要度 7/10</span>
   <details>
@@ -654,7 +536,6 @@
     <span class="meta"><span>視聴順 23</span><span>作中 2018年</span><span>2018年・映画</span></span>
     <h3 class="title">アントマン＆ワスプ</h3>
     <p class="desc">量子世界の掘り下げ。エンドゲームのタイムトラベルの鍵。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p5">重要度 6/10</span>
   <details>
@@ -680,7 +561,6 @@
     <span class="meta"><span>視聴順 24</span><span>作中 2018年</span><span>2018年・映画</span></span>
     <h3 class="title">アベンジャーズ／インフィニティ・ウォー</h3>
     <p class="desc">サノスとの全面戦争。インフィニティ・サーガ最大の転換点。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span></span>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -706,7 +586,6 @@
     <span class="meta"><span>視聴順 25</span><span>作中 2018-23年</span><span>2019年・映画</span></span>
     <h3 class="title">アベンジャーズ／エンドゲーム</h3>
     <p class="desc">インフィニティ・サーガ完結。スティーブの決断とサムへの継承。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -732,7 +611,6 @@
     <span class="meta"><span>視聴順 26</span><span>作中 2012年から分岐→TVA</span><span>2021年・ドラマ</span></span>
     <h3 class="title">ロキ シーズン1</h3>
     <p class="desc">TVA、時間の流れ、マルチバース誕生の仕組み。</p>
-    <span class="tags"><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -758,7 +636,6 @@
     <span class="meta"><span>視聴順 27</span><span>作中 TVA／時間の外</span><span>2023年・ドラマ</span></span>
     <h3 class="title">ロキ シーズン2</h3>
     <p class="desc">ロキがマルチバースを支える存在になる。</p>
-    <span class="tags"><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -784,7 +661,6 @@
     <span class="meta"><span>視聴順 28</span><span>作中 2023年</span><span>2021年・ドラマ</span></span>
     <h3 class="title">ワンダヴィジョン</h3>
     <p class="desc">ワンダが「スカーレット・ウィッチ」になる。</p>
-    <span class="tags"><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p8">重要度 8/10</span>
   <details>
@@ -810,7 +686,6 @@
     <span class="meta"><span>視聴順 29</span><span>作中 2024年</span><span>2021年・映画</span></span>
     <h3 class="title">シャン・チー／テン・リングスの伝説</h3>
     <p class="desc">シャン・チーとテン・リングス。公式キャストの単独作。</p>
-    <span class="tags"><span class="tag">次世代ヒーロー</span><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p8">重要度 8/10</span>
   <details>
@@ -836,7 +711,6 @@
     <span class="meta"><span>視聴順 30</span><span>作中 2024年</span><span>2021年・ドラマ</span></span>
     <h3 class="title">ファルコン＆ウィンター・ソルジャー</h3>
     <p class="desc">サムが新キャプテン・アメリカに。ジョン・ウォーカーとトーレス登場。</p>
-    <span class="tags"><span class="tag">次世代ヒーロー</span></span>
   </div>
   <span class="pill p8">重要度 8/10</span>
   <details>
@@ -862,7 +736,6 @@
     <span class="meta"><span>視聴順 31</span><span>作中 2024年</span><span>2019年・映画</span></span>
     <h3 class="title">スパイダーマン：ファー・フロム・ホーム</h3>
     <p class="desc">エンドゲーム後のピーター。正体がばれる。</p>
-    <span class="tags"><span class="tag">スパイダーマン関連</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -882,65 +755,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B9%E3%83%91%E3%82%A4%E3%83%80%E3%83%BC%E3%83%9E%E3%83%B3%EF%BC%9A%E3%83%95%E3%82%A1%E3%83%BC%E3%83%BB%E3%83%95%E3%83%AD%E3%83%A0%E3%83%BB%E3%83%9B%E3%83%BC%E3%83%A0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="venom" data-slug="venom" data-order="32">
-  <label class="check"><input type="checkbox" data-watch="venom" aria-label="ヴェノムを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 32</span><span>作中 別の宇宙</span><span>2018年・映画</span></span>
-    <h3 class="title">ヴェノム</h3>
-    <p class="desc">トム・ハーディ版エディとヴェノムの出会い。</p>
-    <span class="tags"><span class="tag">スパイダーマン関連</span></span>
-  </div>
-  <span class="pill ref">参考</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>記者エディ・ブロックが宇宙から来た生命体シンビオートに寄生され、ヴェノムとして悪と戦うことになる。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>エディとヴェノムの出会い</li><li>ライオット（別のシンビオート）との戦い</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>エディ・ブロック、ヴェノム、アン、カールトン・ドレイク</dd></div>
-        <div><dt>他作品との関係</dt><dd>ソニーのスパイダーマン関連の世界で、MCUとは別の宇宙。2作目のミッドクレジットでMCUとつながる。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>エディとヴェノムの掛け合いが楽しい。純粋に面白い作品として。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ミッドクレジットで刑務所のクレタス・キャサディが登場する。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%B4%E3%82%A7%E3%83%8E%E3%83%A0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
-</li><li class="row" id="venom-carnage" data-slug="venom-carnage" data-order="33">
-  <label class="check"><input type="checkbox" data-watch="venom-carnage" aria-label="ヴェノム：レット・ゼア・ビー・カーネイジを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 33</span><span>作中 別の宇宙</span><span>2021年・映画</span></span>
-    <h3 class="title">ヴェノム：レット・ゼア・ビー・カーネイジ</h3>
-    <p class="desc">カーネイジとの対決。エンドクレジットでMCUと接続。</p>
-    <span class="tags"><span class="tag">スパイダーマン関連</span></span>
-  </div>
-  <span class="pill ref">参考</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>死刑囚クレタス・キャサディがシンビオートの力を得てカーネイジになり、エディとヴェノムが立ち向かう。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>カーネイジ誕生</li><li>エディとヴェノムの関係の深まり</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>エディ、ヴェノム、クレタス（カーネイジ）、シュリーク</dd></div>
-        <div><dt>他作品との関係</dt><dd>ミッドクレジットが『ノー・ウェイ・ホーム』につながる。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>『ノー・ウェイ・ホーム』のミッドクレジットの意味が分かる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでエディとヴェノムが別の宇宙（MCU）に飛ばされ、テレビでスパイダーマンの正体のニュースを見る。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%B4%E3%82%A7%E3%83%8E%E3%83%A0%EF%BC%9A%E3%83%AC%E3%83%83%E3%83%88%E3%83%BB%E3%82%BC%E3%82%A2%E3%83%BB%E3%83%93%E3%83%BC%E3%83%BB%E3%82%AB%E3%83%BC%E3%83%8D%E3%82%A4%E3%82%B8%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="spider-man-no-way-home" data-slug="spider-man-no-way-home" data-order="34">
   <label class="check"><input type="checkbox" data-watch="spider-man-no-way-home" aria-label="スパイダーマン：ノー・ウェイ・ホームを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 34</span><span>作中 2024年</span><span>2021年・映画</span></span>
     <h3 class="title">スパイダーマン：ノー・ウェイ・ホーム</h3>
     <p class="desc">別の宇宙の人物が流れ込み、マルチバースの危険が本格化。</p>
-    <span class="tags"><span class="tag">マルチバース</span><span class="tag">スパイダーマン関連</span></span>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -960,39 +780,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B9%E3%83%91%E3%82%A4%E3%83%80%E3%83%BC%E3%83%9E%E3%83%B3%EF%BC%9A%E3%83%8E%E3%83%BC%E3%83%BB%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%BB%E3%83%9B%E3%83%BC%E3%83%A0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="eternals" data-slug="eternals" data-order="35">
-  <label class="check"><input type="checkbox" data-watch="eternals" aria-label="エターナルズを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 35</span><span>作中 2024年</span><span>2021年・映画</span></span>
-    <h3 class="title">エターナルズ</h3>
-    <p class="desc">古代から人類を見守ってきた不死の種族の物語。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 3/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>7000年前から地球で人類を見守ってきたエターナルズが、天体（セレスティアル）の誕生と地球の危機に向き合う。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>セレスティアルの誕生をめぐる対立</li><li>海から巨大なセレスティアルが現れる</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>セルシ、イカリス、セナ、ファストス、キンゴ ほか</dd></div>
-        <div><dt>他作品との関係</dt><dd>この作品の続きはまだ描かれていない。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>MCUの宇宙の成り立ちのスケールが分かる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでエロスとピップが登場。ポストクレジットでデイン・ホイットマンが黒い剣に手を伸ばす。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%BF%E3%83%BC%E3%83%8A%E3%83%AB%E3%82%BA%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="multiverse-of-madness" data-slug="multiverse-of-madness" data-order="36">
   <label class="check"><input type="checkbox" data-watch="multiverse-of-madness" aria-label="ドクター・ストレンジ／マルチバース・オブ・マッドネスを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 36</span><span>作中 2025年</span><span>2022年・映画</span></span>
     <h3 class="title">ドクター・ストレンジ／マルチバース・オブ・マッドネス</h3>
     <p class="desc">インカージョン（宇宙同士の衝突）と別宇宙のプロフェッサーX。</p>
-    <span class="tags"><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -1012,65 +805,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%89%E3%82%AF%E3%82%BF%E3%83%BC%E3%83%BB%E3%82%B9%E3%83%88%E3%83%AC%E3%83%B3%E3%82%B8%EF%BC%8F%E3%83%9E%E3%83%AB%E3%83%81%E3%83%90%E3%83%BC%E3%82%B9%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%83%9E%E3%83%83%E3%83%89%E3%83%8D%E3%82%B9%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="hawkeye" data-slug="hawkeye" data-order="37">
-  <label class="check"><input type="checkbox" data-watch="hawkeye" aria-label="ホークアイを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 37</span><span>作中 2024-25年</span><span>2021年・ドラマ</span></span>
-    <h3 class="title">ホークアイ</h3>
-    <p class="desc">エレーナがナターシャの死の真相に向き合う。</p>
-    <span class="tags"><span class="tag">次世代ヒーロー</span></span>
-  </div>
-  <span class="pill p0">重要度 4/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>クリスマス前のニューヨーク。クリントは弓の名手ケイト・ビショップと出会い、過去の罪に向き合う。エレーナは姉の仇としてクリントを狙う。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>ケイト・ビショップ登場</li><li>エレーナがナターシャの死の真相を知る</li><li>キングピン登場</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>クリント、ケイト、エレーナ、マヤ・ロペス（エコー）、キングピン</dd></div>
-        <div><dt>他作品との関係</dt><dd>エレーナの感情は『サンダーボルツ*』へつながる。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>エレーナ（公式キャスト）の物語を補う作品。</dd></div>
-        <div><dt>観るメリット</dt><dd>エレーナが姉の死をどう受け止めたのかが分かる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくても『サンダーボルツ*』の理解に大きな支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>最終話のあとに、劇中のミュージカル「ロジャース」の1曲がフルで流れる。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%9B%E3%83%BC%E3%82%AF%E3%82%A2%E3%82%A4%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
-</li><li class="row" id="moon-knight" data-slug="moon-knight" data-order="38">
-  <label class="check"><input type="checkbox" data-watch="moon-knight" aria-label="ムーンナイトを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 38</span><span>作中 2025年</span><span>2022年・ドラマ</span></span>
-    <h3 class="title">ムーンナイト</h3>
-    <p class="desc">エジプトの神と多重人格のヒーロー。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 3/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>自分の中にもう一つの人格がいると気づいたスティーヴンが、月の神コンスの化身ムーンナイトとして戦う。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>マークとスティーヴンの二つの人格</li><li>エジプトの神々の存在</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>マーク／スティーヴン、レイラ、アーサー・ハロウ、コンス</dd></div>
-        <div><dt>他作品との関係</dt><dd>ほかのMCU作品とのつながりはほとんどない。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>独立した作品として楽しめる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>最終話のミッドクレジットで3つ目の人格ジェイク・ロックリーが登場する。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%A0%E3%83%BC%E3%83%B3%E3%83%8A%E3%82%A4%E3%83%88%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="wakanda-forever" data-slug="wakanda-forever" data-order="39">
   <label class="check"><input type="checkbox" data-watch="wakanda-forever" aria-label="ブラックパンサー／ワカンダ・フォーエバーを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 39</span><span>作中 2025年</span><span>2022年・映画</span></span>
     <h3 class="title">ブラックパンサー／ワカンダ・フォーエバー</h3>
     <p class="desc">シュリが新ブラックパンサーに。ネイモアとタロカン登場。</p>
-    <span class="tags"><span class="tag">次世代ヒーロー</span></span>
   </div>
   <span class="pill p8">重要度 8/10</span>
   <details>
@@ -1090,91 +830,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%91%E3%83%B3%E3%82%B5%E3%83%BC%EF%BC%8F%E3%83%AF%E3%82%AB%E3%83%B3%E3%83%80%E3%83%BB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%A8%E3%83%90%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="echo" data-slug="echo" data-order="40">
-  <label class="check"><input type="checkbox" data-watch="echo" aria-label="エコーを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 40</span><span>作中 2025年</span><span>2024年・ドラマ</span></span>
-    <h3 class="title">エコー</h3>
-    <p class="desc">マヤ・ロペスとキングピン周辺の物語。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 3/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>『ホークアイ』でキングピンと対立したマヤ・ロペスが故郷に戻り、自分のルーツと向き合う。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>マヤが先祖の力に目覚める</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>マヤ・ロペス、キングピン</dd></div>
-        <div><dt>他作品との関係</dt><dd>キングピンの物語は『デアデビル：ボーン・アゲイン』へ続く。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>ストリート系のヒーロー作品が好きな人向け。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%B3%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
-</li><li class="row" id="she-hulk" data-slug="she-hulk" data-order="41">
-  <label class="check"><input type="checkbox" data-watch="she-hulk" aria-label="シー・ハルク：ザ・アトーニーを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 41</span><span>作中 2025年</span><span>2022年・ドラマ</span></span>
-    <h3 class="title">シー・ハルク：ザ・アトーニー</h3>
-    <p class="desc">ジェニファー・ウォルターズの法廷コメディ。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 3/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>ブルースのいとこジェニファーがハルクの力を得て、弁護士とヒーローの二つの顔で奮闘する。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>ジェニファーがシー・ハルクになる</li><li>ブルースの近況が描かれる</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>ジェニファー、ブルース、ウォン、デアデビル</dd></div>
-        <div><dt>他作品との関係</dt><dd>ブルースの息子スカーの存在が明かされる。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>コメディとして楽しめる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B7%E3%83%BC%E3%83%BB%E3%83%8F%E3%83%AB%E3%82%AF%EF%BC%9A%E3%82%B6%E3%83%BB%E3%82%A2%E3%83%88%E3%83%BC%E3%83%8B%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
-</li><li class="row" id="ms-marvel" data-slug="ms-marvel" data-order="42">
-  <label class="check"><input type="checkbox" data-watch="ms-marvel" aria-label="ミズ・マーベルを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 42</span><span>作中 2025年</span><span>2022年・ドラマ</span></span>
-    <h3 class="title">ミズ・マーベル</h3>
-    <p class="desc">カマラ・カーンの原点。「ミュータント」という言葉が初めてMCUに。</p>
-    <span class="tags"><span class="tag">次世代ヒーロー</span></span>
-  </div>
-  <span class="pill p0">重要度 3/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>キャプテン・マーベルに憧れる高校生カマラ・カーンが、祖母から届いた腕輪で不思議な力に目覚める。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>カマラが力に目覚める</li><li>カマラの体に「変異（ミュータント）」があると示される</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>カマラ・カーン、ブルーノ、カマラの家族</dd></div>
-        <div><dt>他作品との関係</dt><dd>ラストの場面が『マーベルズ』に直結する。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>カマラは公式キャストに入っていない。MCUにミュータントの存在が示された作品として、X-MEN合流の流れを知る小さな手がかりになる。</dd></div>
-        <div><dt>観るメリット</dt><dd>『マーベルズ』の3人目の主人公が分かる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくても『マーベルズ』は楽しめる。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ポストクレジットで、カマラとキャプテン・マーベルが入れ替わる。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%9F%E3%82%BA%E3%83%BB%E3%83%9E%E3%83%BC%E3%83%99%E3%83%AB%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="love-and-thunder" data-slug="love-and-thunder" data-order="43">
   <label class="check"><input type="checkbox" data-watch="love-and-thunder" aria-label="ソー：ラブ＆サンダーを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 43</span><span>作中 2025年</span><span>2022年・映画</span></span>
     <h3 class="title">ソー：ラブ＆サンダー</h3>
     <p class="desc">ソーの現在地。娘のような少女ラブと新たな旅へ。</p>
-    <span class="tags"><span class="tag">インフィニティ・サーガ</span><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -1194,65 +855,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%BD%E3%83%BC%EF%BC%9A%E3%83%A9%E3%83%96%EF%BC%86%E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="werewolf-by-night" data-slug="werewolf-by-night" data-order="44">
-  <label class="check"><input type="checkbox" data-watch="werewolf-by-night" aria-label="ウェアウルフ・バイ・ナイトを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 44</span><span>作中 2025年</span><span>2022年・特別編</span></span>
-    <h3 class="title">ウェアウルフ・バイ・ナイト</h3>
-    <p class="desc">モンスターハンターを描くモノクロのホラー特別編。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 2/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>伝説のモンスターハンターの死後、遺品をめぐって狩人たちが集められる。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>MCUにモンスターが存在すると示される</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>ジャック・ラッセル、エルサ・ブラッドストーン、マンシング</dd></div>
-        <div><dt>他作品との関係</dt><dd>ほかの作品とのつながりはほとんどない。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>1時間弱で観られる異色作。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>特になし。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A6%E3%82%A7%E3%82%A2%E3%82%A6%E3%83%AB%E3%83%95%E3%83%BB%E3%83%90%E3%82%A4%E3%83%BB%E3%83%8A%E3%82%A4%E3%83%88%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
-</li><li class="row" id="guardians-holiday-special" data-slug="guardians-holiday-special" data-order="45">
-  <label class="check"><input type="checkbox" data-watch="guardians-holiday-special" aria-label="ガーディアンズ・オブ・ギャラクシー：ホリデー・スペシャルを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 45</span><span>作中 2025年（年末）</span><span>2022年・特別編</span></span>
-    <h3 class="title">ガーディアンズ・オブ・ギャラクシー：ホリデー・スペシャル</h3>
-    <p class="desc">クリスマスの短編特別編。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 4/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>マンティスとドラックスが、落ち込むクイルを元気づけるため地球へプレゼントを探しに行く。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>マンティスがクイルの異母きょうだいだと明かされる</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>ガーディアンズ</dd></div>
-        <div><dt>他作品との関係</dt><dd>『VOLUME 3』の前の状況が分かる。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>40分ほどで気軽に観られる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>特になし。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%82%AE%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%BC%EF%BC%9A%E3%83%9B%E3%83%AA%E3%83%87%E3%83%BC%E3%83%BB%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="quantumania" data-slug="quantumania" data-order="46">
   <label class="check"><input type="checkbox" data-watch="quantumania" aria-label="アントマン＆ワスプ：クアントマニアを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 46</span><span>作中 2025年</span><span>2023年・映画</span></span>
     <h3 class="title">アントマン＆ワスプ：クアントマニア</h3>
     <p class="desc">量子世界と、マルチバースの脅威カーンの登場。</p>
-    <span class="tags"><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -1278,7 +886,6 @@
     <span class="meta"><span>視聴順 47</span><span>作中 2025年</span><span>2023年・映画</span></span>
     <h3 class="title">ガーディアンズ・オブ・ギャラクシー：VOLUME 3</h3>
     <p class="desc">ガーディアンズ3部作の完結。ロケットの過去。</p>
-    <span class="tags"><span class="tag">その他</span></span>
   </div>
   <span class="pill p5">重要度 5/10</span>
   <details>
@@ -1298,91 +905,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%82%AE%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%BC%EF%BC%9AVOLUME%203%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="secret-invasion" data-slug="secret-invasion" data-order="48">
-  <label class="check"><input type="checkbox" data-watch="secret-invasion" aria-label="シークレット・インベージョンを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 48</span><span>作中 2025年</span><span>2023年・ドラマ</span></span>
-    <h3 class="title">シークレット・インベージョン</h3>
-    <p class="desc">フューリーとスクラルの地上側スパイ劇。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 3/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>地球に潜伏するスクラルの過激派が、人類との戦争を起こそうとする。フューリーは地球に戻り、阻止しようとする。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>スクラル過激派の陰謀</li><li>ローディが長くスクラルにすり替えられていたと判明</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>フューリー、タロス、ギア、グラヴィク</dd></div>
-        <div><dt>他作品との関係</dt><dd>フューリーの状況は『マーベルズ』に続く。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>フューリーの現在地が分かる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B7%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%83%BB%E3%82%A4%E3%83%B3%E3%83%99%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
-</li><li class="row" id="the-marvels" data-slug="the-marvels" data-order="49">
-  <label class="check"><input type="checkbox" data-watch="the-marvels" aria-label="マーベルズを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 49</span><span>作中 2025年</span><span>2023年・映画</span></span>
-    <h3 class="title">マーベルズ</h3>
-    <p class="desc">ミッドクレジットにX-MENのビーストが登場。</p>
-    <span class="tags"><span class="tag">マルチバース</span><span class="tag">X-MEN</span></span>
-  </div>
-  <span class="pill p0">重要度 4/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>キャロル、モニカ、カマラの3人の力が絡み合い、使うたびに居場所が入れ替わってしまう。3人はクリー人の指導者ダー・ベンの企みを止める。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>3人のチーム「マーベルズ」の誕生</li><li>空間の裂け目が開き、モニカが別の宇宙に取り残される</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>キャロル、モニカ、カマラ、フューリー、ダー・ベン</dd></div>
-        <div><dt>他作品との関係</dt><dd>『キャプテン・マーベル』『ワンダヴィジョン』『ミズ・マーベル』の続き。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ミッドクレジットで、別の宇宙に飛ばされたモニカの前に、ケルシー・グラマー演じるビーストが登場する。ビースト役のケルシー・グラマーはドゥームズデイの公式キャスト。本編の内容は直接の関係が薄い。</dd></div>
-        <div><dt>観るメリット</dt><dd>旧X-MENの世界とMCUがつながり始めた瞬間が分かる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>本編は観なくても困らない。少なくともミッドクレジットの場面だけは知っておきたい。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでモニカが別宇宙で目覚め、母マリアにそっくりな人物とビーストに出会う。ポストクレジットでカマラがケイト・ビショップを新チームに誘う。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%9E%E3%83%BC%E3%83%99%E3%83%AB%E3%82%BA%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
-</li><li class="row" id="venom-last-dance" data-slug="venom-last-dance" data-order="50">
-  <label class="check"><input type="checkbox" data-watch="venom-last-dance" aria-label="ヴェノム：ザ・ラストダンスを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 50</span><span>作中 別の宇宙</span><span>2024年・映画</span></span>
-    <h3 class="title">ヴェノム：ザ・ラストダンス</h3>
-    <p class="desc">トム・ハーディ版シリーズ完結編。</p>
-    <span class="tags"><span class="tag">スパイダーマン関連</span></span>
-  </div>
-  <span class="pill ref">参考</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>元の宇宙に戻ったエディとヴェノムが、シンビオートの創造主ヌルの追っ手から逃げながら最後の旅をする。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>ヌルの存在が示される</li><li>エディとヴェノムの別れ</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>エディ、ヴェノム、ストリックランド</dd></div>
-        <div><dt>他作品との関係</dt><dd>冒頭で『ノー・ウェイ・ホーム』からの続きが描かれる。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>エディとヴェノムの物語の結末を見届けられる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%B4%E3%82%A7%E3%83%8E%E3%83%A0%EF%BC%9A%E3%82%B6%E3%83%BB%E3%83%A9%E3%82%B9%E3%83%88%E3%83%80%E3%83%B3%E3%82%B9%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="x-men" data-slug="x-men" data-order="51">
   <label class="check"><input type="checkbox" data-watch="x-men" aria-label="X-メンを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 51</span><span>作中 別の宇宙（FOX版）</span><span>2000年・映画</span></span>
     <h3 class="title">X-メン</h3>
     <p class="desc">旧X-MENの原点。ザビエルとマグニートーの対立。</p>
-    <span class="tags"><span class="tag">X-MEN</span></span>
   </div>
   <span class="pill p8">重要度 8/10</span>
   <details>
@@ -1408,7 +936,6 @@
     <span class="meta"><span>視聴順 52</span><span>作中 別の宇宙（FOX版）</span><span>2003年・映画</span></span>
     <h3 class="title">X-MEN2</h3>
     <p class="desc">ナイトクローラー初登場。旧3部作で最も評価の高い1本。</p>
-    <span class="tags"><span class="tag">X-MEN</span></span>
   </div>
   <span class="pill p8">重要度 9/10</span>
   <details>
@@ -1434,7 +961,6 @@
     <span class="meta"><span>視聴順 53</span><span>作中 別の宇宙（FOX版）</span><span>2006年・映画</span></span>
     <h3 class="title">X-MEN：ファイナル ディシジョン</h3>
     <p class="desc">ケルシー・グラマーのビースト初登場。旧3部作の結末。</p>
-    <span class="tags"><span class="tag">X-MEN</span></span>
   </div>
   <span class="pill p5">重要度 6/10</span>
   <details>
@@ -1460,7 +986,6 @@
     <span class="meta"><span>視聴順 54</span><span>作中 別の宇宙（FOX版）</span><span>2014年・映画</span></span>
     <h3 class="title">X-MEN：フューチャー&amp;パスト</h3>
     <p class="desc">旧キャストと若いキャストが合流。歴史が書き換えられる。</p>
-    <span class="tags"><span class="tag">X-MEN</span></span>
   </div>
   <span class="pill p5">重要度 6/10</span>
   <details>
@@ -1480,39 +1005,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=X-MEN%EF%BC%9A%E3%83%95%E3%83%A5%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%26%E3%83%91%E3%82%B9%E3%83%88%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="logan" data-slug="logan" data-order="55">
-  <label class="check"><input type="checkbox" data-watch="logan" aria-label="LOGAN／ローガンを観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 55</span><span>作中 別の宇宙（FOX版）</span><span>2017年・映画</span></span>
-    <h3 class="title">LOGAN／ローガン</h3>
-    <p class="desc">ヒュー・ジャックマン版ウルヴァリンの最終章。</p>
-    <span class="tags"><span class="tag">X-MEN</span></span>
-  </div>
-  <span class="pill p0">重要度 4/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>2029年、ミュータントがほとんどいなくなった世界。年老いたローガンは衰えたプロフェッサーXの世話をしながら、謎の少女ローラを守る旅に出る。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>ローガンとプロフェッサーXの最期</li><li>ローラ（X-23）の登場</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>ローガン、プロフェッサーX、ローラ</dd></div>
-        <div><dt>他作品との関係</dt><dd>『デッドプール＆ウルヴァリン』はこの作品の結末を前提にしたネタが多い。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>ヒュー・ジャックマンのドゥームズデイ出演は公式発表されていない（噂の段階）。パトリック・スチュワートは出演するが、この作品のザビエルとの関係は不明。</dd></div>
-        <div><dt>観るメリット</dt><dd>ウルヴァリンの物語の重い結末と、『デッドプール＆ウルヴァリン』の背景が分かる。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない可能性が高い。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ポストクレジットはない。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=LOGAN%EF%BC%8F%E3%83%AD%E3%83%BC%E3%82%AC%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="deadpool-and-wolverine" data-slug="deadpool-and-wolverine" data-order="56">
   <label class="check"><input type="checkbox" data-watch="deadpool-and-wolverine" aria-label="デッドプール＆ウルヴァリンを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 56</span><span>作中 別の宇宙／TVA</span><span>2024年・映画</span></span>
     <h3 class="title">デッドプール＆ウルヴァリン</h3>
     <p class="desc">FOX版の世界とMCU、TVAが合流。ガンビット登場。</p>
-    <span class="tags"><span class="tag">マルチバース</span><span class="tag">X-MEN</span></span>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -1538,7 +1036,6 @@
     <span class="meta"><span>視聴順 57</span><span>作中 2025年</span><span>2024年・ドラマ</span></span>
     <h3 class="title">アガサ・オール・アロング</h3>
     <p class="desc">『ワンダヴィジョン』の魔女アガサの旅。</p>
-    <span class="tags"><span class="tag">その他</span></span>
   </div>
   <span class="pill p5">重要度 6/10</span>
   <details>
@@ -1558,39 +1055,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%AC%E3%82%B5%E3%83%BB%E3%82%AA%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%AD%E3%83%B3%E3%82%B0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row" id="daredevil-born-again-s1" data-slug="daredevil-born-again-s1" data-order="58">
-  <label class="check"><input type="checkbox" data-watch="daredevil-born-again-s1" aria-label="デアデビル：ボーン・アゲイン シーズン1を観た"><span class="box" aria-hidden="true"></span></label>
-  <div class="main">
-    <span class="meta"><span>視聴順 58</span><span>作中 2025年</span><span>2025年・ドラマ</span></span>
-    <h3 class="title">デアデビル：ボーン・アゲイン シーズン1</h3>
-    <p class="desc">マット・マードックとキングピンの今。</p>
-    <span class="tags"><span class="tag">その他</span></span>
-  </div>
-  <span class="pill p0">重要度 3/10</span>
-  <details>
-    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
-    <div class="detail">
-      <p class="spoiler">※ネタバレを含みます</p>
-      <dl>
-        <div><dt>あらすじ</dt><dd>ニューヨーク市長になったキングピンと、弁護士として生きるマット・マードックが再び対立する。</dd></div>
-        <div><dt>重要な出来事</dt><dd><ul><li>キングピンが市長に</li><li>マットがデアデビルとして復帰</li></ul></dd></div>
-        <div><dt>登場人物</dt><dd>マット・マードック、キングピン、パニッシャー</dd></div>
-        <div><dt>他作品との関係</dt><dd>Netflix版『デアデビル』の続き。</dd></div>
-        <div><dt>ドゥームズデイとの関連性</dt><dd>現時点でドゥームズデイとの関連は確認されていない。</dd></div>
-        <div><dt>観るメリット</dt><dd>ストリート系の作品として評価が高い。</dd></div>
-        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
-        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
-      </dl>
-      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%87%E3%82%A2%E3%83%87%E3%83%93%E3%83%AB%EF%BC%9A%E3%83%9C%E3%83%BC%E3%83%B3%E3%83%BB%E3%82%A2%E3%82%B2%E3%82%A4%E3%83%B3%20%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B31%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
-    </div>
-  </details>
 </li><li class="row must" id="brave-new-world" data-slug="brave-new-world" data-order="59">
   <label class="check"><input type="checkbox" data-watch="brave-new-world" aria-label="キャプテン・アメリカ：ブレイブ・ニュー・ワールドを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 59</span><span>作中 2025年</span><span>2025年・映画</span></span>
     <h3 class="title">キャプテン・アメリカ：ブレイブ・ニュー・ワールド</h3>
     <p class="desc">サムがキャプテン・アメリカとして立つ。トーレスが新ファルコンに。</p>
-    <span class="tags"><span class="tag">次世代ヒーロー</span></span>
   </div>
   <span class="pill p8">重要度 9/10</span>
   <details>
@@ -1616,7 +1086,6 @@
     <span class="meta"><span>視聴順 60</span><span>作中 別の宇宙（地球828）</span><span>2025年・映画</span></span>
     <h3 class="title">ファンタスティック4：ファースト・ステップ</h3>
     <p class="desc">ファンタスティック4の4人が全員公式キャスト。ドゥーム直前の最重要作。</p>
-    <span class="tags"><span class="tag">マルチバース</span></span>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -1642,7 +1111,1569 @@
     <span class="meta"><span>視聴順 61</span><span>作中 2025年</span><span>2025年・映画</span></span>
     <h3 class="title">サンダーボルツ*</h3>
     <p class="desc">はみ出し者たちの新チーム結成。ドゥームズデイ直前の到達点。</p>
-    <span class="tags"><span class="tag">次世代ヒーロー</span></span>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ヴァレンティーナに使い捨てにされそうになったエレーナ、ウォーカー、ゴーストらが、互いに反発しながらも手を組む。謎の男ボブの秘めた力が、ニューヨークを飲み込もうとする。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>エレーナを中心にチームが生まれる</li><li>ボブ（セントリー）とヴォイドの誕生</li><li>チームが「ニュー・アベンジャーズ」として世間に紹介される</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>エレーナ、バッキー、アレクセイ、ウォーカー、ゴースト、ボブ、ヴァレンティーナ</dd></div>
+        <div><dt>他作品との関係</dt><dd>『ブラック・ウィドウ』『ファルコン＆ウィンター・ソルジャー』『アントマン＆ワスプ』で登場した人物が集まる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>エレーナ、バッキー、アレクセイ、ウォーカー、ゴースト、ボブ（ルイス・プルマン）の6人が公式キャスト。ドゥームズデイ直前の地球側の状況を知る最重要作の一つ。</dd></div>
+        <div><dt>観るメリット</dt><dd>今の地球側の「アベンジャーズ」がどうなっているのか、ボブという強大な存在が誰なのかが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、地球側のチームの関係が分からない。必ず観ておきたい1本。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ポストクレジットで、14か月後のチームの前に別の次元から宇宙船（ファンタスティック4の船とみられる）が現れる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%E3%83%9C%E3%83%AB%E3%83%84%2A%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" id="spider-man-brand-new-day" data-slug="spider-man-brand-new-day" data-order="63">
+  <label class="check"><input type="checkbox" data-watch="spider-man-brand-new-day" aria-label="スパイダーマン：ブラン・ニュー・デイを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 63</span><span>作中 2026年</span><span>2026年・映画</span></span>
+    <h3 class="title">スパイダーマン：ブラン・ニュー・デイ</h3>
+    <p class="desc">誰もピーターを覚えていない世界での新章。</p>
+  </div>
+  <span class="pill p8">重要度 9/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>『ノー・ウェイ・ホーム』の後、世界中がピーター・パーカーのことを忘れた中で、ピーターはスパイダーマンとして一人で活動を続けている。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>詳しい解説は準備中</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ピーター・パーカー ほか</dd></div>
+        <div><dt>他作品との関係</dt><dd>『ノー・ウェイ・ホーム』の続き。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>トム・ホランドはドゥームズデイの公式キャストに入っていない。ドゥームズデイ直前に公開されたMCU映画なので、関連の有無は公式には不明。関係がないと断定はできない。</dd></div>
+        <div><dt>観るメリット</dt><dd>ドゥームズデイ直前のMCUの地球の空気が分かる可能性がある。</dd></div>
+        <div><dt>観なかった場合</dt><dd>現時点で、観ないとドゥームズデイが分からなくなるという情報はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>詳しい解説は準備中。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B9%E3%83%91%E3%82%A4%E3%83%80%E3%83%BC%E3%83%9E%E3%83%B3%EF%BC%9A%E3%83%96%E3%83%A9%E3%83%B3%E3%83%BB%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%BB%E3%83%87%E3%82%A4%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row goal" id="avengers-doomsday" data-slug="avengers-doomsday" data-order="68">
+  <label class="check"><input type="checkbox" data-watch="avengers-doomsday" aria-label="アベンジャーズ／ドゥームズデイを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 68</span><span>作中 目的の作品</span><span>2026年・映画</span></span>
+    <h3 class="title">アベンジャーズ／ドゥームズデイ</h3>
+    <p class="desc">2026年12月18日 日米同時公開。このリストのゴール。</p>
+  </div>
+  <span class="pill goal">目的の作品</span>
+</li></ol>
+</section>
+
+<section class="tier-section" id="list-all">
+  <header><h2><span class="step">②</span>全作品<span class="count">67本</span></h2><p>重要度4以下や参考作品も含めた全作品です。時間がある人はこちらで。</p></header>
+  <ol class="list"><li class="row must" data-slug="captain-america-first-avenger" data-order="1">
+  <label class="check"><input type="checkbox" data-watch="captain-america-first-avenger" aria-label="キャプテン・アメリカ／ザ・ファースト・アベンジャーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 01</span><span>作中 1940年代</span><span>2011年・映画</span></span>
+    <h3 class="title">キャプテン・アメリカ／ザ・ファースト・アベンジャー</h3>
+    <p class="desc">スティーブ誕生とペギーとの約束。ドゥームズデイに戻ってくる2人の出発点。</p>
+  </div>
+  <span class="pill p8">重要度 8/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>第二次世界大戦中、体は弱いが正義感の強いスティーブ・ロジャースが超人血清の被験者になり、キャプテン・アメリカとしてヒドラと戦う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>超人血清でスティーブが超人になる</li><li>親友バッキーが列車から落ちて行方不明に</li><li>ペギー・カーターとダンスの約束を交わしたまま、スティーブが氷の中で眠りにつく</li><li>四次元キューブ（テッセラクト）が初登場</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>スティーブ・ロジャース、ペギー・カーター、バッキー・バーンズ、ハワード・スターク、レッド・スカル</dd></div>
+        <div><dt>他作品との関係</dt><dd>『ウィンター・ソルジャー』でバッキーが再登場。『エンドゲーム』のラストはこの作品の「ダンスの約束」への答えになっている。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>スティーブ（クリス・エヴァンス）とペギー（ヘイリー・アトウェル）は、どちらもドゥームズデイへの出演が公式に確認されている。2人の関係の原点がこの作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>スティーブとペギーがなぜ特別な関係なのか、バッキーとの友情がどこから始まったのかが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、エンドゲームのラストや、ドゥームズデイでのスティーブとペギーの再会の重みが伝わりにくくなる。戦闘の流れ自体は知らなくても困らない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>スティーブが現代で目覚めた後、エンドロールのあとに『アベンジャーズ』の予告映像が流れる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AD%E3%83%A3%E3%83%97%E3%83%86%E3%83%B3%E3%83%BB%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%EF%BC%8F%E3%82%B6%E3%83%BB%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B9%E3%83%88%E3%83%BB%E3%82%A2%E3%83%99%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="captain-marvel" data-order="2">
+  <label class="check"><input type="checkbox" data-watch="captain-marvel" aria-label="キャプテン・マーベルを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 02</span><span>作中 1995年</span><span>2019年・映画</span></span>
+    <h3 class="title">キャプテン・マーベル</h3>
+    <p class="desc">キャロルと若きフューリー。宇宙勢力とスクラルの背景。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>記憶を失ったクリー帝国の戦士ヴァースが1990年代の地球に落ち、自分がアメリカ空軍のパイロット、キャロル・ダンヴァースだったことを知る。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>キャロルが本当の力と記憶を取り戻す</li><li>スクラル人が悪役ではなく難民だったと分かる</li><li>フューリーが「アベンジャーズ計画」を思いつくきっかけ</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>キャロル・ダンヴァース、ニック・フューリー、タロス、マリア・ランボー、幼いモニカ</dd></div>
+        <div><dt>他作品との関係</dt><dd>『マーベルズ』の直接の前日譚。『エンドゲーム』でキャロルが合流する理由も分かる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>キャロルはドゥームズデイの公式キャストに入っていない。『マーベルズ』のミッドクレジット（ビーストの登場）を理解する助けにはなる。</dd></div>
+        <div><dt>観るメリット</dt><dd>モニカ・ランボーとキャロルの関係、スクラル人の事情が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に大きな支障はない。『マーベルズ』を観る人は観ておくと分かりやすい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでキャロルがアベンジャーズ本部に現れる（エンドゲームにつながる）。ポストクレジットは猫のグースがキューブを吐き出す小ネタ。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AD%E3%83%A3%E3%83%97%E3%83%86%E3%83%B3%E3%83%BB%E3%83%9E%E3%83%BC%E3%83%99%E3%83%AB%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="iron-man" data-order="3">
+  <label class="check"><input type="checkbox" data-watch="iron-man" aria-label="アイアンマンを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 03</span><span>作中 2010年</span><span>2008年・映画</span></span>
+    <h3 class="title">アイアンマン</h3>
+    <p class="desc">MCUの出発点。ロバート・ダウニー・Jr.とMCUの始まり。</p>
+  </div>
+  <span class="pill p8">重要度 9/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>武器商人トニー・スタークが誘拐され、洞窟でパワードスーツを作って脱出。自分の会社の兵器が悪用されていると知り、アイアンマンとして戦い始める。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>トニーがアイアンマンになる</li><li>「私がアイアンマンだ」と正体を公表</li><li>S.H.I.E.L.D.とフューリーが登場</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>トニー・スターク、ペッパー・ポッツ、ローディ、オバディア・ステイン、コールソン</dd></div>
+        <div><dt>他作品との関係</dt><dd>ここからMCUのすべてが始まる。トニーの物語は『エンドゲーム』で完結する。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ロバート・ダウニー・Jr.はドゥームズデイでドクター・ドゥームを演じる（トニーとは別人）。トニーを演じた俳優が悪役で戻ってくる意味を味わうための作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>MCUの空気感と、トニー・スタークという人物の原点が分かる。主役3人のルートの1本目。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの筋は追える。ただ、ダウニー・Jr.のドゥーム起用の驚きは薄くなる。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>フューリーがトニーの前に現れ「アベンジャーズ計画」を口にする。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%9E%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="iron-man-2" data-order="4">
+  <label class="check"><input type="checkbox" data-watch="iron-man-2" aria-label="アイアンマン2を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 04</span><span>作中 2011年</span><span>2010年・映画</span></span>
+    <h3 class="title">アイアンマン2</h3>
+    <p class="desc">ウォーマシン、ナターシャ登場。アベンジャーズ結成前夜。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>正体を明かしたトニーは、政府からスーツの引き渡しを迫られる。同時に、父ハワードに恨みを持つイワン・ヴァンコが襲いかかる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ローディがウォーマシンになる</li><li>ナターシャ・ロマノフ（ブラック・ウィドウ）初登場</li><li>トニーが父の残した研究から新元素を作る</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>トニー・スターク、ローディ、ナターシャ、ペッパー、イワン・ヴァンコ、フューリー</dd></div>
+        <div><dt>他作品との関係</dt><dd>ナターシャの物語は『ブラック・ウィドウ』と『エンドゲーム』へ続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>直接の関係は薄い。主役3人のルートとして観る作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>トニーと父ハワードの関係、ナターシャの初登場が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はほぼない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>コールソンがニューメキシコでソーのハンマー（ムジョルニア）を発見する。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%9E%E3%83%B32%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="incredible-hulk" data-slug="incredible-hulk" data-order="5">
+  <label class="check"><input type="checkbox" data-watch="incredible-hulk" aria-label="インクレディブル・ハルクを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 05</span><span>作中 2011年</span><span>2008年・映画</span></span>
+    <h3 class="title">インクレディブル・ハルク</h3>
+    <p class="desc">ハルクの基本設定とロス将軍。『ブレイブ・ニュー・ワールド』の伏線。</p>
+  </div>
+  <span class="pill p0">重要度 4/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ブルース・バナーは軍に追われながら、ハルクになる体質を治す方法を探す。ロス将軍は彼を兵器として捕らえようとする。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>バナーとロス将軍の対立</li><li>サミュエル・スターンズ（リーダー）が変異し始める</li><li>アボミネーションとハルクの戦い</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ブルース・バナー、ベティ・ロス、サディアス・ロス将軍、エミル・ブロンスキー、サミュエル・スターンズ</dd></div>
+        <div><dt>他作品との関係</dt><dd>ロス将軍とスターンズは『キャプテン・アメリカ：ブレイブ・ニュー・ワールド』で再登場する。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイの公式キャストとの直接のつながりはない。『ブレイブ・ニュー・ワールド』を深く理解したい人向け。</dd></div>
+        <div><dt>観るメリット</dt><dd>ロス将軍がなぜレッドハルクになるのか、スターンズが誰なのかが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくても『ブレイブ・ニュー・ワールド』の中で必要な説明はされる。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>本編最後（クレジット前）にトニー・スタークがロス将軍に話しかける。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AC%E3%83%87%E3%82%A3%E3%83%96%E3%83%AB%E3%83%BB%E3%83%8F%E3%83%AB%E3%82%AF%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="thor" data-order="6">
+  <label class="check"><input type="checkbox" data-watch="thor" aria-label="マイティ・ソーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 06</span><span>作中 2011年</span><span>2011年・映画</span></span>
+    <h3 class="title">マイティ・ソー</h3>
+    <p class="desc">ソーとロキの兄弟関係の原点。2人ともドゥームズデイに出演。</p>
+  </div>
+  <span class="pill p5">重要度 6/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>傲慢な王子ソーは父オーディンに力を奪われ地球に追放される。一方、弟ロキは自分が養子だと知り、王座を狙う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ソーが地球で謙虚さを学びハンマーを取り戻す</li><li>ロキが霜の巨人の子だったと知る</li><li>ロキが虹の橋から落ちて姿を消す</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ソー、ロキ、オーディン、ジェーン・フォスター、ヘイムダル</dd></div>
+        <div><dt>他作品との関係</dt><dd>ロキは『アベンジャーズ』で敵として戻ってくる。兄弟の物語は『バトルロイヤル』『インフィニティ・ウォー』へ続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ソー（クリス・ヘムズワース）とロキ（トム・ヒドルストン）はどちらも公式キャスト。兄弟の関係を知る土台になる。</dd></div>
+        <div><dt>観るメリット</dt><dd>ロキがなぜひねくれた性格になったのか、ソーとの関係がどう始まったのかが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、ロキの「認められたい」という気持ちの根っこがつかみにくい。『アベンジャーズ』だけでも最低限は分かる。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>セルヴィグ博士がフューリーに四次元キューブを見せられる。ロキがセルヴィグを操っていると分かる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%9E%E3%82%A4%E3%83%86%E3%82%A3%E3%83%BB%E3%82%BD%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="avengers" data-order="7">
+  <label class="check"><input type="checkbox" data-watch="avengers" aria-label="アベンジャーズを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 07</span><span>作中 2012年</span><span>2012年・映画</span></span>
+    <h3 class="title">アベンジャーズ</h3>
+    <p class="desc">ヒーロー初結集。ロキ S1は「この映画の2012年」から始まる。</p>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ロキが四次元キューブを奪い、異星人の軍団でニューヨークを襲う。フューリーはアイアンマン、キャプテン・アメリカ、ソー、ハルク、ブラック・ウィドウ、ホークアイを集める。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>アベンジャーズが初めて結成される</li><li>ニューヨーク決戦</li><li>ロキが敗れて捕まる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>トニー、スティーブ、ソー、ブルース、ナターシャ、クリント、ロキ、フューリー、コールソン</dd></div>
+        <div><dt>他作品との関係</dt><dd>『エンドゲーム』で2012年のこの場面に戻り、そこからロキが逃げ出したことが『ロキ』シーズン1の出発点になる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>公式キャストのソー、ロキ、スティーブが顔をそろえる。『ロキ』を理解するにも必須。</dd></div>
+        <div><dt>観るメリット</dt><dd>アベンジャーズというチームの原点と、ロキがどんな悪役だったかが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、『エンドゲーム』の2012年の場面と『ロキ』の始まりが分かりにくくなる。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでサノスが初めて顔を見せる。ポストクレジットはヒーローたちが無言でシャワルマを食べる場面。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%99%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%BA%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="thor-dark-world" data-order="8">
+  <label class="check"><input type="checkbox" data-watch="thor-dark-world" aria-label="マイティ・ソー／ダーク・ワールドを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 08</span><span>作中 2013年</span><span>2013年・映画</span></span>
+    <h3 class="title">マイティ・ソー／ダーク・ワールド</h3>
+    <p class="desc">ソーとロキが手を組む。母フリッガの死。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>闇の妖精マレキスが、宇宙を闇に戻す力「エーテル」を狙う。ソーは牢に入っていたロキと一時的に手を組む。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>母フリッガの死</li><li>ソーとロキの共闘</li><li>エーテル（リアリティ・ストーン）の登場</li><li>ロキがオーディンに化けて王座に座る</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ソー、ロキ、ジェーン・フォスター、オーディン、フリッガ、マレキス</dd></div>
+        <div><dt>他作品との関係</dt><dd>『エンドゲーム』でソーが母と再会する場面は、この作品があると重みが増す。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ソー、ロキの兄弟関係を深める作品。主役3人の物語として観ておきたい。</dd></div>
+        <div><dt>観るメリット</dt><dd>ソーとロキの「信じたいけど信じられない」兄弟関係が一番よく描かれている。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの筋は追える。『エンドゲーム』のフリッガの場面の意味が少し薄れる。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでエーテルがコレクターに預けられる。ポストクレジットでソーがジェーンの元に戻る。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%9E%E3%82%A4%E3%83%86%E3%82%A3%E3%83%BB%E3%82%BD%E3%83%BC%EF%BC%8F%E3%83%80%E3%83%BC%E3%82%AF%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="iron-man-3" data-order="9">
+  <label class="check"><input type="checkbox" data-watch="iron-man-3" aria-label="アイアンマン3を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 09</span><span>作中 2013年</span><span>2013年・映画</span></span>
+    <h3 class="title">アイアンマン3</h3>
+    <p class="desc">ニューヨーク決戦後のトニーの不安を描く個人編。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ニューヨークの戦いのあと不眠と不安に苦しむトニー。テロリスト「マンダリン」の攻撃で家を失い、スーツなしで戦うことになる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>トニーがパニック発作に苦しむ</li><li>マンダリンの正体</li><li>トニーが胸のリアクターを取り除く</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>トニー・スターク、ペッパー、ローディ、アルドリッチ・キリアン、ハーレー</dd></div>
+        <div><dt>他作品との関係</dt><dd>本物のマンダリン（テン・リングス）は『シャン・チー』で描かれる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>直接の関係は薄い。主役3人のルートとして観る作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>トニーが「スーツがなくても自分はヒーローか」に向き合う過程が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はほぼない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>トニーが話を聞かせていた相手は、居眠りしていたブルース・バナーだったと分かる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%9E%E3%83%B33%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="winter-soldier" data-order="10">
+  <label class="check"><input type="checkbox" data-watch="winter-soldier" aria-label="キャプテン・アメリカ／ウィンター・ソルジャーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 10</span><span>作中 2014年</span><span>2014年・映画</span></span>
+    <h3 class="title">キャプテン・アメリカ／ウィンター・ソルジャー</h3>
+    <p class="desc">サム初登場とバッキー再登場。次世代の2人の原点。</p>
+  </div>
+  <span class="pill p8">重要度 8/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>S.H.I.E.L.D.の内部にヒドラが潜んでいたことが判明。スティーブは謎の暗殺者ウィンター・ソルジャーと戦うが、その正体は洗脳されたバッキーだった。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>サム・ウィルソン（ファルコン）初登場</li><li>バッキーが生きていて洗脳されていたと判明</li><li>S.H.I.E.L.D.崩壊</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>スティーブ、ナターシャ、サム、バッキー、フューリー、ピアース、シャロン・カーター</dd></div>
+        <div><dt>他作品との関係</dt><dd>サムとバッキーの関係は『ファルコン＆ウィンター・ソルジャー』『サンダーボルツ*』へ続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>サム（アンソニー・マッキー）とバッキー（セバスチャン・スタン）はどちらも公式キャスト。2人の物語の原点。</dd></div>
+        <div><dt>観るメリット</dt><dd>サムがスティーブの相棒になった理由と、バッキーが抱える罪の重さが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、バッキーがなぜ苦しんでいるのか、サムとスティーブの信頼関係が分かりにくい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでワンダとピエトロの双子が初登場。ポストクレジットでバッキーが博物館で自分の展示を見る。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AD%E3%83%A3%E3%83%97%E3%83%86%E3%83%B3%E3%83%BB%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%EF%BC%8F%E3%82%A6%E3%82%A3%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%BB%E3%82%BD%E3%83%AB%E3%82%B8%E3%83%A3%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="guardians-of-the-galaxy" data-order="11">
+  <label class="check"><input type="checkbox" data-watch="guardians-of-the-galaxy" aria-label="ガーディアンズ・オブ・ギャラクシーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 11</span><span>作中 2014年</span><span>2014年・映画</span></span>
+    <h3 class="title">ガーディアンズ・オブ・ギャラクシー</h3>
+    <p class="desc">宇宙側のチーム結成。パワー・ストーン登場。</p>
+  </div>
+  <span class="pill p5">重要度 6/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>トレジャーハンターのピーター・クイルが謎のオーブを盗んだことから、アライグマのロケット、木のグルートらはみ出し者たちとチームを組む。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ガーディアンズ結成</li><li>パワー・ストーン登場</li><li>ガモーラとサノスの関係が示される</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ピーター・クイル、ガモーラ、ドラックス、ロケット、グルート、ネビュラ</dd></div>
+        <div><dt>他作品との関係</dt><dd>ガモーラとサノスの関係が『インフィニティ・ウォー』の重要な場面につながる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ガーディアンズはドゥームズデイの公式キャストに入っていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>『インフィニティ・ウォー』でのガモーラの場面と、宇宙側の世界観が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に大きな支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>コレクターのコレクションから出てきたハワード・ザ・ダックの小ネタ。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%82%AE%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="guardians-vol2" data-order="12">
+  <label class="check"><input type="checkbox" data-watch="guardians-vol2" aria-label="ガーディアンズ・オブ・ギャラクシー：リミックスを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 12</span><span>作中 2014年</span><span>2017年・映画</span></span>
+    <h3 class="title">ガーディアンズ・オブ・ギャラクシー：リミックス</h3>
+    <p class="desc">クイルの父エゴとヨンドゥ。ガーディアンズの家族の物語。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>クイルの前に実の父を名乗るエゴが現れる。ガーディアンズは「家族」とは何かに向き合う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>クイルの父エゴの正体</li><li>ヨンドゥの犠牲</li><li>ネビュラとガモーラの和解の始まり</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ガーディアンズ、エゴ、ヨンドゥ、マンティス、ネビュラ</dd></div>
+        <div><dt>他作品との関係</dt><dd>マンティスが加わり、『インフィニティ・ウォー』のチームがそろう。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの直接の関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>ガーディアンズのキャラクターがもっと好きになる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>クレジット中に5つの小ネタ。アダム・ウォーロックの誕生予告や、ティーンになったグルートなど。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%82%AE%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%BC%EF%BC%9A%E3%83%AA%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="i-am-groot-1" data-slug="i-am-groot-1" data-order="13">
+  <label class="check"><input type="checkbox" data-watch="i-am-groot-1" aria-label="アイ・アム・グルート シーズン1を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 13</span><span>作中 2014年（リミックス後）</span><span>2022年・短編アニメ</span></span>
+    <h3 class="title">アイ・アム・グルート シーズン1</h3>
+    <p class="desc">ベビー・グルートの短編集。</p>
+  </div>
+  <span class="pill p0">重要度 2/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ベビー・グルートの日常を描く数分の短編アニメ集。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>本筋に関わる出来事はない</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>グルート</dd></div>
+        <div><dt>他作品との関係</dt><dd>ガーディアンズ作品の番外編。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>気軽に楽しめる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもまったく問題ない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>特になし。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%83%BB%E3%82%A2%E3%83%A0%E3%83%BB%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%88%20%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B31%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="i-am-groot-2" data-slug="i-am-groot-2" data-order="14">
+  <label class="check"><input type="checkbox" data-watch="i-am-groot-2" aria-label="アイ・アム・グルート シーズン2を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 14</span><span>作中 2014年（リミックス後）</span><span>2023年・短編アニメ</span></span>
+    <h3 class="title">アイ・アム・グルート シーズン2</h3>
+    <p class="desc">短編アニメ第2弾。</p>
+  </div>
+  <span class="pill p0">重要度 2/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ベビー・グルートの短編アニメ第2弾。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>本筋に関わる出来事はない</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>グルート</dd></div>
+        <div><dt>他作品との関係</dt><dd>ガーディアンズ作品の番外編。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>気軽に楽しめる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもまったく問題ない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>特になし。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%83%BB%E3%82%A2%E3%83%A0%E3%83%BB%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%88%20%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B32%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="age-of-ultron" data-order="15">
+  <label class="check"><input type="checkbox" data-watch="age-of-ultron" aria-label="アベンジャーズ／エイジ・オブ・ウルトロンを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 15</span><span>作中 2015年</span><span>2015年・映画</span></span>
+    <h3 class="title">アベンジャーズ／エイジ・オブ・ウルトロン</h3>
+    <p class="desc">ウルトロン事件。チーム分裂（シビル・ウォー）の種。</p>
+  </div>
+  <span class="pill p8">重要度 9/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>トニーとブルースが作った人工知能ウルトロンが暴走し、人類滅亡を企てる。ソコヴィアでの戦いが大きな被害を生む。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ワンダとヴィジョンの誕生</li><li>ソコヴィアの崩壊</li><li>新しいアベンジャーズの結成</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>アベンジャーズ、ウルトロン、ワンダ、ピエトロ、ヴィジョン</dd></div>
+        <div><dt>他作品との関係</dt><dd>ソコヴィアの被害が『シビル・ウォー』のソコヴィア協定につながる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ソーとスティーブが登場。チームが壊れていく流れを知る作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>アベンジャーズがなぜ分裂していくのか、その最初の一歩が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、『シビル・ウォー』の協定の背景が少し分かりにくい。あらすじだけでも補える。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでサノスがガントレットを手に「自分でやる」と動き出す。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%99%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%BA%EF%BC%8F%E3%82%A8%E3%82%A4%E3%82%B8%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%82%A6%E3%83%AB%E3%83%88%E3%83%AD%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="ant-man" data-order="16">
+  <label class="check"><input type="checkbox" data-watch="ant-man" aria-label="アントマンを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 16</span><span>作中 2015年</span><span>2015年・映画</span></span>
+    <h3 class="title">アントマン</h3>
+    <p class="desc">スコットと娘キャシー、量子世界の入口。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>前科者のスコット・ラングが、ハンク・ピム博士からアントマンのスーツを託される。体を小さくする技術を悪用しようとする者と戦う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>スコットがアントマンになる</li><li>量子世界が初めて描かれる</li><li>娘キャシーとの関係</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>スコット・ラング、キャシー・ラング、ハンク・ピム、ホープ・ヴァン・ダイン</dd></div>
+        <div><dt>他作品との関係</dt><dd>量子世界は『エンドゲーム』のタイムトラベルと『クアントマニア』の舞台につながる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>スコット（ポール・ラッド）は公式キャスト。娘キャシー（キャスリン・ニュートン）も出演が報じられている。</dd></div>
+        <div><dt>観るメリット</dt><dd>スコットと娘の関係、量子世界の基本ルールが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくても『アントマン＆ワスプ』『クアントマニア』で十分追いつける。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでホープにワスプのスーツが渡される。ポストクレジットでスティーブとサムが保護したバッキーを前に話す（シビル・ウォーにつながる）。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%B3%E3%83%88%E3%83%9E%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="civil-war" data-order="17">
+  <label class="check"><input type="checkbox" data-watch="civil-war" aria-label="シビル・ウォー／キャプテン・アメリカを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 17</span><span>作中 2016年</span><span>2016年・映画</span></span>
+    <h3 class="title">シビル・ウォー／キャプテン・アメリカ</h3>
+    <p class="desc">アベンジャーズ分裂。スティーブとトニーの決裂。</p>
+  </div>
+  <span class="pill p8">重要度 9/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ヒーローを国連の管理下に置く「ソコヴィア協定」をめぐり、スティーブ派とトニー派に分かれて対立する。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ソコヴィア協定</li><li>ティ・チャラ（ブラックパンサー）とスパイダーマン初登場</li><li>バッキーがトニーの両親を殺していたと判明</li><li>スティーブとトニーの決裂</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>スティーブ、トニー、バッキー、サム、ナターシャ、ティ・チャラ、ピーター・パーカー、スコット、ジモ</dd></div>
+        <div><dt>他作品との関係</dt><dd>チームが割れた状態で『インフィニティ・ウォー』を迎える。バッキーはワカンダへ。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>サム、バッキー、スコットら公式キャストが多数登場。チームの分裂と和解はドゥームズデイでも鍵になりうるテーマ。</dd></div>
+        <div><dt>観るメリット</dt><dd>スティーブとバッキーの絆と、アベンジャーズが分裂した理由が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、『インフィニティ・ウォー』でチームがバラバラな理由が分かりにくい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでバッキーがワカンダで再び眠りにつく。ポストクレジットでピーターがトニーの作った装置を試す。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B7%E3%83%93%E3%83%AB%E3%83%BB%E3%82%A6%E3%82%A9%E3%83%BC%EF%BC%8F%E3%82%AD%E3%83%A3%E3%83%97%E3%83%86%E3%83%B3%E3%83%BB%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="black-widow" data-slug="black-widow" data-order="18">
+  <label class="check"><input type="checkbox" data-watch="black-widow" aria-label="ブラック・ウィドウを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 18</span><span>作中 2016年</span><span>2021年・映画</span></span>
+    <h3 class="title">ブラック・ウィドウ</h3>
+    <p class="desc">エレーナとアレクセイの原点。サンダーボルツ*の前提。</p>
+  </div>
+  <span class="pill p0">重要度 4/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>協定に背いて逃亡中のナターシャが、かつて「家族」として暮らした妹エレーナ、父親役のアレクセイと再会し、自分を育てた組織レッドルームと戦う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>エレーナとアレクセイの初登場</li><li>ナターシャと偽の家族の再会</li><li>レッドルームの壊滅</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ナターシャ、エレーナ、アレクセイ（レッド・ガーディアン）、メリーナ、タスクマスター</dd></div>
+        <div><dt>他作品との関係</dt><dd>エレーナの物語は『ホークアイ』『サンダーボルツ*』へ続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>エレーナ（フローレンス・ピュー）とアレクセイ（デヴィッド・ハーバー）はどちらも公式キャスト。</dd></div>
+        <div><dt>観るメリット</dt><dd>エレーナがナターシャをどれほど大事に思っていたかが分かり、『サンダーボルツ*』の感情の重みが増す。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、『サンダーボルツ*』でのエレーナとアレクセイの関係がつかみにくい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>エレーナがナターシャの墓を訪れ、ヴァレンティーナから「姉を殺したのはクリント・バートン」と吹き込まれる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%82%A6%E3%82%A3%E3%83%89%E3%82%A6%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="black-panther" data-order="19">
+  <label class="check"><input type="checkbox" data-watch="black-panther" aria-label="ブラックパンサーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 19</span><span>作中 2016年</span><span>2018年・映画</span></span>
+    <h3 class="title">ブラックパンサー</h3>
+    <p class="desc">ワカンダとシュリ、エムバクの原点。</p>
+  </div>
+  <span class="pill p5">重要度 6/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>父を亡くしたティ・チャラがワカンダの王になる。王位を狙うキルモンガーが現れ、ワカンダは世界とどう向き合うかを問われる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ティ・チャラの即位</li><li>キルモンガーとの戦い</li><li>ワカンダが世界に存在を公表</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ティ・チャラ、シュリ、エムバク、ナキア、オコエ、キルモンガー</dd></div>
+        <div><dt>他作品との関係</dt><dd>ワカンダの物語は『ワカンダ・フォーエバー』に続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>シュリ（レティーシャ・ライト）とエムバク（ウィンストン・デューク）は公式キャスト。</dd></div>
+        <div><dt>観るメリット</dt><dd>シュリの才能と兄ティ・チャラとの絆、エムバクの人物像が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、『ワカンダ・フォーエバー』でのシュリの喪失感が伝わりにくい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでティ・チャラが国連で演説。ポストクレジットでバッキーがワカンダで目覚める。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%91%E3%83%B3%E3%82%B5%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="spider-man-homecoming" data-order="20">
+  <label class="check"><input type="checkbox" data-watch="spider-man-homecoming" aria-label="スパイダーマン：ホームカミングを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 20</span><span>作中 2016年</span><span>2017年・映画</span></span>
+    <h3 class="title">スパイダーマン：ホームカミング</h3>
+    <p class="desc">MCU版ピーターの成長。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>トニーにスーツをもらったピーター・パーカーが、高校生活とヒーロー活動の両立に悩みながらヴァルチャーと戦う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ピーターがトニーに認められる</li><li>ヴァルチャーとの戦い</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ピーター・パーカー、トニー、ハッピー、ヴァルチャー、ネッド、MJ</dd></div>
+        <div><dt>他作品との関係</dt><dd>スパイダーマン3部作は『ノー・ウェイ・ホーム』でマルチバースへ広がる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>トム・ホランドのスパイダーマンはドゥームズデイの公式キャストに入っていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>MCU版ピーターの性格とトニーとの関係が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでヴァルチャーが刑務所で仲間をかばう。ポストクレジットはキャプテン・アメリカの「忍耐」の教育ビデオの小ネタ。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B9%E3%83%91%E3%82%A4%E3%83%80%E3%83%BC%E3%83%9E%E3%83%B3%EF%BC%9A%E3%83%9B%E3%83%BC%E3%83%A0%E3%82%AB%E3%83%9F%E3%83%B3%E3%82%B0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="doctor-strange" data-order="21">
+  <label class="check"><input type="checkbox" data-watch="doctor-strange" aria-label="ドクター・ストレンジを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 21</span><span>作中 2016-17年</span><span>2016年・映画</span></span>
+    <h3 class="title">ドクター・ストレンジ</h3>
+    <p class="desc">魔術とマルチバースという考え方の入口。</p>
+  </div>
+  <span class="pill p8">重要度 8/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>事故で手の自由を失った天才外科医スティーヴン・ストレンジが、カトマンズで魔術を学び、魔術師として世界を守る。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ストレンジが魔術師になる</li><li>タイム・ストーン（アガモットの目）</li><li>マルチバースの存在が語られる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ストレンジ、エンシェント・ワン、ウォン、モルド、カエシリウス</dd></div>
+        <div><dt>他作品との関係</dt><dd>続編『マルチバース・オブ・マッドネス』でインカージョン（宇宙同士の衝突）が語られる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ストレンジはドゥームズデイの公式キャストに入っていない。マルチバースの考え方の入門として観る作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>MCUで「別の宇宙」がどう扱われるかの基礎が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくても『マルチバース・オブ・マッドネス』で必要な部分は補える。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでストレンジがソーと会う（バトルロイヤルにつながる）。ポストクレジットでモルドが「魔術師が多すぎる」と動き出す。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%89%E3%82%AF%E3%82%BF%E3%83%BC%E3%83%BB%E3%82%B9%E3%83%88%E3%83%AC%E3%83%B3%E3%82%B8%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="thor-ragnarok" data-order="22">
+  <label class="check"><input type="checkbox" data-watch="thor-ragnarok" aria-label="マイティ・ソー バトルロイヤルを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 22</span><span>作中 2017年</span><span>2017年・映画</span></span>
+    <h3 class="title">マイティ・ソー バトルロイヤル</h3>
+    <p class="desc">アスガルド崩壊。ソーとロキの和解。</p>
+  </div>
+  <span class="pill p5">重要度 7/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>死の女神ヘラが復活し、アスガルドが乗っ取られる。辺境の星に飛ばされたソーは、ハルクやロキ、ヴァルキリーと共に故郷を救おうとする。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>オーディンの死と姉ヘラの登場</li><li>アスガルドの崩壊</li><li>ソーとロキが本当の意味で手を組む</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ソー、ロキ、ハルク、ヴァルキリー、ヘラ、グランドマスター</dd></div>
+        <div><dt>他作品との関係</dt><dd>ラストで現れる巨大な宇宙船が『インフィニティ・ウォー』冒頭に直結する。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ソーとロキが公式キャスト。ソーの性格が今の明るい方向に変わったのはこの作品から。</dd></div>
+        <div><dt>観るメリット</dt><dd>今のソーの人柄と、ロキとの関係の到達点が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、『インフィニティ・ウォー』冒頭の状況とロキの行動の重みが分かりにくい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでアスガルドの船の前にサノスの船が現れる。ポストクレジットはグランドマスターの小ネタ。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%9E%E3%82%A4%E3%83%86%E3%82%A3%E3%83%BB%E3%82%BD%E3%83%BC%20%E3%83%90%E3%83%88%E3%83%AB%E3%83%AD%E3%82%A4%E3%83%A4%E3%83%AB%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="ant-man-and-the-wasp" data-order="23">
+  <label class="check"><input type="checkbox" data-watch="ant-man-and-the-wasp" aria-label="アントマン＆ワスプを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 23</span><span>作中 2018年</span><span>2018年・映画</span></span>
+    <h3 class="title">アントマン＆ワスプ</h3>
+    <p class="desc">量子世界の掘り下げ。エンドゲームのタイムトラベルの鍵。</p>
+  </div>
+  <span class="pill p5">重要度 6/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>自宅軟禁中のスコットが、ハンクとホープと共に、量子世界に取り残されたジャネットを救い出そうとする。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ジャネットが量子世界から帰還</li><li>量子世界の仕組みがより詳しく描かれる</li><li>スコットが量子世界に取り残される</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>スコット、ホープ、ハンク、ジャネット、キャシー、ゴースト</dd></div>
+        <div><dt>他作品との関係</dt><dd>スコットが量子世界から戻ることが『エンドゲーム』の作戦の出発点になる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>スコットは公式キャスト（キャシーも出演が報じられている）。さらに、この作品で初登場したゴースト（ハナ・ジョン＝カメン）も公式キャスト。</dd></div>
+        <div><dt>観るメリット</dt><dd>ゴーストの過去と、量子世界が後の作品でどう重要になるかが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、『サンダーボルツ*』のゴーストの背景と、『エンドゲーム』のタイムトラベルの始まりが分かりにくい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットで指パッチンが起き、スコットが量子世界に取り残される。ポストクレジットは巨大アリがドラムを叩く小ネタ。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%B3%E3%83%88%E3%83%9E%E3%83%B3%EF%BC%86%E3%83%AF%E3%82%B9%E3%83%97%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="infinity-war" data-order="24">
+  <label class="check"><input type="checkbox" data-watch="infinity-war" aria-label="アベンジャーズ／インフィニティ・ウォーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 24</span><span>作中 2018年</span><span>2018年・映画</span></span>
+    <h3 class="title">アベンジャーズ／インフィニティ・ウォー</h3>
+    <p class="desc">サノスとの全面戦争。インフィニティ・サーガ最大の転換点。</p>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>6つのインフィニティ・ストーンを集め、宇宙の生命の半分を消そうとするサノス。ヒーローたちは地球と宇宙の両方で阻止しようとするが、サノスは目的を果たす。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>冒頭でロキが命を落とす</li><li>ワカンダでの総力戦</li><li>指パッチンで全生命の半分が消える</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ほぼすべてのアベンジャーズ、ガーディアンズ、サノス、ワカンダの人々</dd></div>
+        <div><dt>他作品との関係</dt><dd>結末は『エンドゲーム』に直結する。この時間軸のロキはここで退場し、『ロキ』シリーズの主人公は2012年から来た別のロキになる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>公式キャストの多くが登場する。ドゥームズデイは「サノス以来の最大の危機」として描かれる可能性が高く、規模感の基準になる。</dd></div>
+        <div><dt>観るメリット</dt><dd>MCU最大の戦いと、ヒーローたちが負けた経験の重さが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、『エンドゲーム』が理解できない。必ず観ておきたい1本。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>フューリーが消える直前に、キャプテン・マーベルに救難信号を送る。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%99%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%BA%EF%BC%8F%E3%82%A4%E3%83%B3%E3%83%95%E3%82%A3%E3%83%8B%E3%83%86%E3%82%A3%E3%83%BB%E3%82%A6%E3%82%A9%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="endgame" data-order="25">
+  <label class="check"><input type="checkbox" data-watch="endgame" aria-label="アベンジャーズ／エンドゲームを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 25</span><span>作中 2018-23年</span><span>2019年・映画</span></span>
+    <h3 class="title">アベンジャーズ／エンドゲーム</h3>
+    <p class="desc">インフィニティ・サーガ完結。スティーブの決断とサムへの継承。</p>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>5年後、生き残ったヒーローたちは量子世界を使ったタイムトラベルで過去からストーンを集め、消えた人々を取り戻そうとする。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>過去の時代（2012年など）へのタイムトラベル</li><li>2012年のロキが四次元キューブを持って逃げる</li><li>最終決戦とトニーの犠牲</li><li>スティーブがペギーと人生を過ごし、盾をサムに託す</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>すべてのアベンジャーズ、サノス、ペギー・カーター</dd></div>
+        <div><dt>他作品との関係</dt><dd>逃げ出したロキが『ロキ』シリーズの主人公になる。盾を受け継いだサムの物語は『ファルコン＆ウィンター・ソルジャー』へ。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイではスティーブ（クリス・エヴァンス）とペギー（ヘイリー・アトウェル）が戻ってくる。エンドゲームでの2人の結末を知らないと再登場の意味が分からない。</dd></div>
+        <div><dt>観るメリット</dt><dd>インフィニティ・サーガの結末と、次の世代へのバトンタッチがすべて分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、ドゥームズデイの多くの人間関係（スティーブとサム、ペギーなど）が理解できない。必ず観ておきたい1本。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ポストクレジット映像はなく、エンドロールの最後にトニーがスーツを作るハンマーの音だけが流れる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%99%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC%E3%82%BA%EF%BC%8F%E3%82%A8%E3%83%B3%E3%83%89%E3%82%B2%E3%83%BC%E3%83%A0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="loki-s1" data-order="26">
+  <label class="check"><input type="checkbox" data-watch="loki-s1" aria-label="ロキ シーズン1を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 26</span><span>作中 2012年から分岐→TVA</span><span>2021年・ドラマ</span></span>
+    <h3 class="title">ロキ シーズン1</h3>
+    <p class="desc">TVA、時間の流れ、マルチバース誕生の仕組み。</p>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>『エンドゲーム』で2012年から逃げたロキが、時間の流れを管理する組織TVAに捕まる。ロキは自分の別バージョン（変異体）を追う任務を与えられる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>TVA（時間変異取締局）の登場</li><li>ロキの変異体シルヴィの登場</li><li>時間の果ての城で「在り続ける者」と出会う</li><li>神聖時間軸が枝分かれし、マルチバースが生まれる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ロキ、メビウス、シルヴィ、ハンター B-15、在り続ける者</dd></div>
+        <div><dt>他作品との関係</dt><dd>『エンドゲーム』の直後に観るとつながりが分かりやすい。結末は『ドクター・ストレンジ／マルチバース・オブ・マッドネス』『デッドプール＆ウルヴァリン』などのマルチバース作品の前提になる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ロキ（トム・ヒドルストン）は公式キャスト。マルチバースやTVAの仕組みを知る一番の教科書。</dd></div>
+        <div><dt>観るメリット</dt><dd>なぜ別の宇宙が次々に現れるのか、その仕組みが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、マルチバースの仕組みやTVAが登場する場面（デッドプール＆ウルヴァリンなど）がピンとこない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ドラマなので映画のようなポストクレジットはない。最終話のラストでTVAの様子が一変している。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%AD%E3%82%AD%20%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B31%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="loki-s2" data-order="27">
+  <label class="check"><input type="checkbox" data-watch="loki-s2" aria-label="ロキ シーズン2を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 27</span><span>作中 TVA／時間の外</span><span>2023年・ドラマ</span></span>
+    <h3 class="title">ロキ シーズン2</h3>
+    <p class="desc">ロキがマルチバースを支える存在になる。</p>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>時間の流れが崩れ始め、TVAそのものが危機に陥る。ロキは時間を行き来しながら、すべての時間軸を救う方法を探す。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>時間の織機（タイム・ルーム）の崩壊</li><li>ロキが時間の流れを自由に移動できるようになる</li><li>ロキが時間の果てで、枝分かれした時間軸を支える存在になる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ロキ、メビウス、シルヴィ、ウロボロス（O.B.）、ヴィクター・タイムリー</dd></div>
+        <div><dt>他作品との関係</dt><dd>シーズン1の直後から続く。ロキの今の居場所は『デッドプール＆ウルヴァリン』のTVAにも関わる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ロキは公式キャスト。シーズン2の結末でロキが担った役割は、ドゥームズデイでの登場の仕方に関わる可能性が高い。</dd></div>
+        <div><dt>観るメリット</dt><dd>ロキというキャラクターの成長の到達点が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、ドゥームズデイでのロキの立場がまったく分からない可能性がある。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ドラマなので映画のようなポストクレジットはない。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%AD%E3%82%AD%20%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B32%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="wandavision" data-order="28">
+  <label class="check"><input type="checkbox" data-watch="wandavision" aria-label="ワンダヴィジョンを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 28</span><span>作中 2023年</span><span>2021年・ドラマ</span></span>
+    <h3 class="title">ワンダヴィジョン</h3>
+    <p class="desc">ワンダが「スカーレット・ウィッチ」になる。</p>
+  </div>
+  <span class="pill p8">重要度 8/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ヴィジョンを失ったワンダが、町全体を魔法で包み込み、昔のホームドラマのような理想の生活を作り出す。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ワンダが作った偽りの町</li><li>ワンダがスカーレット・ウィッチとして覚醒</li><li>白いヴィジョンの誕生</li><li>モニカ・ランボーが力を得る</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ワンダ、ヴィジョン、モニカ・ランボー、アガサ・ハークネス</dd></div>
+        <div><dt>他作品との関係</dt><dd>ワンダの物語は『マルチバース・オブ・マッドネス』に、アガサは『アガサ・オール・アロング』に、ヴィジョンは『ビジョンクエスト』に続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ワンダとヴィジョンはドゥームズデイの公式キャストに入っていない。『マルチバース・オブ・マッドネス』を深く理解したい人向け。</dd></div>
+        <div><dt>観るメリット</dt><dd>『マルチバース・オブ・マッドネス』でワンダがなぜあそこまで追い詰められるのかが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に大きな支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでモニカがスクラルに誘われる。ポストクレジットでワンダが禁断の書ダークホールドを読んでいる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%AF%E3%83%B3%E3%83%80%E3%83%B4%E3%82%A3%E3%82%B8%E3%83%A7%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="shang-chi" data-order="29">
+  <label class="check"><input type="checkbox" data-watch="shang-chi" aria-label="シャン・チー／テン・リングスの伝説を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 29</span><span>作中 2024年</span><span>2021年・映画</span></span>
+    <h3 class="title">シャン・チー／テン・リングスの伝説</h3>
+    <p class="desc">シャン・チーとテン・リングス。公式キャストの単独作。</p>
+  </div>
+  <span class="pill p8">重要度 8/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>サンフランシスコで静かに暮らすシャン・チーの前に、父ウェンウーが率いる組織テン・リングスが現れる。父は亡き母に会うため、危険な封印を解こうとしていた。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>シャン・チーが父と決別する</li><li>テン・リングスの力を受け継ぐ</li><li>妹シャーリンが組織を引き継ぐ</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>シャン・チー、ケイティ、シャーリン、ウェンウー、ウォン</dd></div>
+        <div><dt>他作品との関係</dt><dd>ウォン、ブルース、キャロルが登場し、アベンジャーズ側の世界とつながる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>シャン・チー（シム・リウ）は公式キャスト。現在のところ単独作はこの1本なので、彼を知るにはこれを観るしかない。</dd></div>
+        <div><dt>観るメリット</dt><dd>シャン・チーの戦い方、家族、テン・リングスという力の正体が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、ドゥームズデイでのシャン・チーがどんな人物か分からない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでウォン、ブルース、キャロルがテン・リングスを調べ、謎の信号を発していると分かる。ポストクレジットでシャーリンがテン・リングスの新しい首領になる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B7%E3%83%A3%E3%83%B3%E3%83%BB%E3%83%81%E3%83%BC%EF%BC%8F%E3%83%86%E3%83%B3%E3%83%BB%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B9%E3%81%AE%E4%BC%9D%E8%AA%AC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="falcon-and-winter-soldier" data-order="30">
+  <label class="check"><input type="checkbox" data-watch="falcon-and-winter-soldier" aria-label="ファルコン＆ウィンター・ソルジャーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 30</span><span>作中 2024年</span><span>2021年・ドラマ</span></span>
+    <h3 class="title">ファルコン＆ウィンター・ソルジャー</h3>
+    <p class="desc">サムが新キャプテン・アメリカに。ジョン・ウォーカーとトーレス登場。</p>
+  </div>
+  <span class="pill p8">重要度 8/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>スティーブから盾を託されたサムは、それを国に返してしまう。政府は新しいキャプテン・アメリカとしてジョン・ウォーカーを選ぶが、彼は暴走していく。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ジョン・ウォーカーが政府公認のキャプテン・アメリカになり、やがて資格を失う</li><li>ホアキン・トーレス初登場</li><li>バッキーが自分の過去の罪と向き合う</li><li>サムが自分の意思でキャプテン・アメリカになる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>サム、バッキー、ジョン・ウォーカー、ホアキン・トーレス、ジモ、シャロン・カーター、ヴァレンティーナ</dd></div>
+        <div><dt>他作品との関係</dt><dd>サムとトーレスは『ブレイブ・ニュー・ワールド』へ。ウォーカーとバッキーは『サンダーボルツ*』へ続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>サム、バッキー、ウォーカー（ワイアット・ラッセル）、トーレス（ダニー・ラミレス）の4人が公式キャスト。次世代組を理解する最重要作。</dd></div>
+        <div><dt>観るメリット</dt><dd>サムが「黒人のキャプテン・アメリカ」として盾を持つ意味と、ウォーカーとトーレスの人物像が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、サムが盾を持つまでの葛藤と、ウォーカーがなぜサンダーボルツ*にいるのかが分からない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>最終話のミッドクレジットで、シャロン・カーターが裏の顔（パワー・ブローカー）を持っていると分かる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A1%E3%83%AB%E3%82%B3%E3%83%B3%EF%BC%86%E3%82%A6%E3%82%A3%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%BB%E3%82%BD%E3%83%AB%E3%82%B8%E3%83%A3%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="spider-man-far-from-home" data-order="31">
+  <label class="check"><input type="checkbox" data-watch="spider-man-far-from-home" aria-label="スパイダーマン：ファー・フロム・ホームを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 31</span><span>作中 2024年</span><span>2019年・映画</span></span>
+    <h3 class="title">スパイダーマン：ファー・フロム・ホーム</h3>
+    <p class="desc">エンドゲーム後のピーター。正体がばれる。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>トニーを失ったピーターが、修学旅行先のヨーロッパで「別の地球から来た」と名乗るミステリオと出会う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ミステリオの「マルチバースから来た」という嘘</li><li>ピーターの正体が世界にばらされる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ピーター、MJ、ネッド、ハッピー、ミステリオ、フューリー</dd></div>
+        <div><dt>他作品との関係</dt><dd>正体がばれたことが『ノー・ウェイ・ホーム』の発端になる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>トム・ホランドのスパイダーマンはドゥームズデイの公式キャストに入っていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>『ノー・ウェイ・ホーム』の出発点が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでピーターの正体が公表される。ポストクレジットで、フューリーの正体がスクラルのタロスだったと分かる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B9%E3%83%91%E3%82%A4%E3%83%80%E3%83%BC%E3%83%9E%E3%83%B3%EF%BC%9A%E3%83%95%E3%82%A1%E3%83%BC%E3%83%BB%E3%83%95%E3%83%AD%E3%83%A0%E3%83%BB%E3%83%9B%E3%83%BC%E3%83%A0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="venom" data-slug="venom" data-order="32">
+  <label class="check"><input type="checkbox" data-watch="venom" aria-label="ヴェノムを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 32</span><span>作中 別の宇宙</span><span>2018年・映画</span></span>
+    <h3 class="title">ヴェノム</h3>
+    <p class="desc">トム・ハーディ版エディとヴェノムの出会い。</p>
+  </div>
+  <span class="pill ref">参考</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>記者エディ・ブロックが宇宙から来た生命体シンビオートに寄生され、ヴェノムとして悪と戦うことになる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>エディとヴェノムの出会い</li><li>ライオット（別のシンビオート）との戦い</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>エディ・ブロック、ヴェノム、アン、カールトン・ドレイク</dd></div>
+        <div><dt>他作品との関係</dt><dd>ソニーのスパイダーマン関連の世界で、MCUとは別の宇宙。2作目のミッドクレジットでMCUとつながる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>エディとヴェノムの掛け合いが楽しい。純粋に面白い作品として。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットで刑務所のクレタス・キャサディが登場する。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%B4%E3%82%A7%E3%83%8E%E3%83%A0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="venom-carnage" data-slug="venom-carnage" data-order="33">
+  <label class="check"><input type="checkbox" data-watch="venom-carnage" aria-label="ヴェノム：レット・ゼア・ビー・カーネイジを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 33</span><span>作中 別の宇宙</span><span>2021年・映画</span></span>
+    <h3 class="title">ヴェノム：レット・ゼア・ビー・カーネイジ</h3>
+    <p class="desc">カーネイジとの対決。エンドクレジットでMCUと接続。</p>
+  </div>
+  <span class="pill ref">参考</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>死刑囚クレタス・キャサディがシンビオートの力を得てカーネイジになり、エディとヴェノムが立ち向かう。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>カーネイジ誕生</li><li>エディとヴェノムの関係の深まり</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>エディ、ヴェノム、クレタス（カーネイジ）、シュリーク</dd></div>
+        <div><dt>他作品との関係</dt><dd>ミッドクレジットが『ノー・ウェイ・ホーム』につながる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>『ノー・ウェイ・ホーム』のミッドクレジットの意味が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでエディとヴェノムが別の宇宙（MCU）に飛ばされ、テレビでスパイダーマンの正体のニュースを見る。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%B4%E3%82%A7%E3%83%8E%E3%83%A0%EF%BC%9A%E3%83%AC%E3%83%83%E3%83%88%E3%83%BB%E3%82%BC%E3%82%A2%E3%83%BB%E3%83%93%E3%83%BC%E3%83%BB%E3%82%AB%E3%83%BC%E3%83%8D%E3%82%A4%E3%82%B8%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="spider-man-no-way-home" data-order="34">
+  <label class="check"><input type="checkbox" data-watch="spider-man-no-way-home" aria-label="スパイダーマン：ノー・ウェイ・ホームを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 34</span><span>作中 2024年</span><span>2021年・映画</span></span>
+    <h3 class="title">スパイダーマン：ノー・ウェイ・ホーム</h3>
+    <p class="desc">別の宇宙の人物が流れ込み、マルチバースの危険が本格化。</p>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>正体がばれたピーターは、ドクター・ストレンジに「世界中が自分の正体を忘れる」魔法を頼む。魔法が失敗し、別の宇宙からピーターの正体を知る者たちが現れる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>過去のスパイダーマン映画の悪役たちが登場</li><li>トビー・マグワイア版、アンドリュー・ガーフィールド版のスパイダーマンが登場</li><li>世界中がピーター・パーカーを忘れる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ピーター、MJ、ネッド、ストレンジ、グリーン・ゴブリン、ドック・オク、別の宇宙のスパイダーマンたち</dd></div>
+        <div><dt>他作品との関係</dt><dd>トビー版3部作を観ていると感動が大きい。ここで起きたマルチバースの混乱は『マルチバース・オブ・マッドネス』に続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>トム・ホランド、トビー・マグワイアはドゥームズデイの公式キャストに入っていない（トビーの出演は噂の段階）。別の宇宙同士がつながるとどうなるかを見せた作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>「別の宇宙のヒーローが同じ画面にそろう」体験の原型が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの筋は追える。マルチバースの雰囲気をつかむために観ておきたい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでエディ・ブロックが元の宇宙に戻され、シンビオートの一部が残る。ポストクレジットは『マルチバース・オブ・マッドネス』の予告。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B9%E3%83%91%E3%82%A4%E3%83%80%E3%83%BC%E3%83%9E%E3%83%B3%EF%BC%9A%E3%83%8E%E3%83%BC%E3%83%BB%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%BB%E3%83%9B%E3%83%BC%E3%83%A0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="eternals" data-slug="eternals" data-order="35">
+  <label class="check"><input type="checkbox" data-watch="eternals" aria-label="エターナルズを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 35</span><span>作中 2024年</span><span>2021年・映画</span></span>
+    <h3 class="title">エターナルズ</h3>
+    <p class="desc">古代から人類を見守ってきた不死の種族の物語。</p>
+  </div>
+  <span class="pill p0">重要度 3/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>7000年前から地球で人類を見守ってきたエターナルズが、天体（セレスティアル）の誕生と地球の危機に向き合う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>セレスティアルの誕生をめぐる対立</li><li>海から巨大なセレスティアルが現れる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>セルシ、イカリス、セナ、ファストス、キンゴ ほか</dd></div>
+        <div><dt>他作品との関係</dt><dd>この作品の続きはまだ描かれていない。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>MCUの宇宙の成り立ちのスケールが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでエロスとピップが登場。ポストクレジットでデイン・ホイットマンが黒い剣に手を伸ばす。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%BF%E3%83%BC%E3%83%8A%E3%83%AB%E3%82%BA%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="multiverse-of-madness" data-order="36">
+  <label class="check"><input type="checkbox" data-watch="multiverse-of-madness" aria-label="ドクター・ストレンジ／マルチバース・オブ・マッドネスを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 36</span><span>作中 2025年</span><span>2022年・映画</span></span>
+    <h3 class="title">ドクター・ストレンジ／マルチバース・オブ・マッドネス</h3>
+    <p class="desc">インカージョン（宇宙同士の衝突）と別宇宙のプロフェッサーX。</p>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>宇宙を渡る力を持つ少女アメリカ・チャベスを、ワンダが狙う。ストレンジはアメリカを守りながら別の宇宙を旅する。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>インカージョン（2つの宇宙が衝突して滅びる現象）が語られる</li><li>別の宇宙の英雄チーム「イルミナティ」登場</li><li>パトリック・スチュワート演じるプロフェッサーXの別バージョンが登場</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ストレンジ、ワンダ、アメリカ・チャベス、ウォン、別宇宙のヒーローたち</dd></div>
+        <div><dt>他作品との関係</dt><dd>『ロキ』で生まれたマルチバースの危険性を具体的に見せる作品。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ストレンジは公式キャストに入っていないが、インカージョンの考え方はドゥームズデイの「宇宙同士の衝突」を理解する鍵になりうる。パトリック・スチュワートは公式キャスト（ただしこの作品の彼は別宇宙のザビエル）。</dd></div>
+        <div><dt>観るメリット</dt><dd>インカージョンという、マルチバースでいちばん危険な現象が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、「宇宙が衝突する」という説明が出てきたときにピンとこない可能性がある。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットで謎の女性クレアが現れ、ストレンジのせいでインカージョンが起きたと告げる。ポストクレジットはピザ・ポパの小ネタ。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%89%E3%82%AF%E3%82%BF%E3%83%BC%E3%83%BB%E3%82%B9%E3%83%88%E3%83%AC%E3%83%B3%E3%82%B8%EF%BC%8F%E3%83%9E%E3%83%AB%E3%83%81%E3%83%90%E3%83%BC%E3%82%B9%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%83%9E%E3%83%83%E3%83%89%E3%83%8D%E3%82%B9%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="hawkeye" data-slug="hawkeye" data-order="37">
+  <label class="check"><input type="checkbox" data-watch="hawkeye" aria-label="ホークアイを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 37</span><span>作中 2024-25年</span><span>2021年・ドラマ</span></span>
+    <h3 class="title">ホークアイ</h3>
+    <p class="desc">エレーナがナターシャの死の真相に向き合う。</p>
+  </div>
+  <span class="pill p0">重要度 4/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>クリスマス前のニューヨーク。クリントは弓の名手ケイト・ビショップと出会い、過去の罪に向き合う。エレーナは姉の仇としてクリントを狙う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ケイト・ビショップ登場</li><li>エレーナがナターシャの死の真相を知る</li><li>キングピン登場</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>クリント、ケイト、エレーナ、マヤ・ロペス（エコー）、キングピン</dd></div>
+        <div><dt>他作品との関係</dt><dd>エレーナの感情は『サンダーボルツ*』へつながる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>エレーナ（公式キャスト）の物語を補う作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>エレーナが姉の死をどう受け止めたのかが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくても『サンダーボルツ*』の理解に大きな支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>最終話のあとに、劇中のミュージカル「ロジャース」の1曲がフルで流れる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%9B%E3%83%BC%E3%82%AF%E3%82%A2%E3%82%A4%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="moon-knight" data-slug="moon-knight" data-order="38">
+  <label class="check"><input type="checkbox" data-watch="moon-knight" aria-label="ムーンナイトを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 38</span><span>作中 2025年</span><span>2022年・ドラマ</span></span>
+    <h3 class="title">ムーンナイト</h3>
+    <p class="desc">エジプトの神と多重人格のヒーロー。</p>
+  </div>
+  <span class="pill p0">重要度 3/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>自分の中にもう一つの人格がいると気づいたスティーヴンが、月の神コンスの化身ムーンナイトとして戦う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>マークとスティーヴンの二つの人格</li><li>エジプトの神々の存在</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>マーク／スティーヴン、レイラ、アーサー・ハロウ、コンス</dd></div>
+        <div><dt>他作品との関係</dt><dd>ほかのMCU作品とのつながりはほとんどない。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>独立した作品として楽しめる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>最終話のミッドクレジットで3つ目の人格ジェイク・ロックリーが登場する。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%A0%E3%83%BC%E3%83%B3%E3%83%8A%E3%82%A4%E3%83%88%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="wakanda-forever" data-order="39">
+  <label class="check"><input type="checkbox" data-watch="wakanda-forever" aria-label="ブラックパンサー／ワカンダ・フォーエバーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 39</span><span>作中 2025年</span><span>2022年・映画</span></span>
+    <h3 class="title">ブラックパンサー／ワカンダ・フォーエバー</h3>
+    <p class="desc">シュリが新ブラックパンサーに。ネイモアとタロカン登場。</p>
+  </div>
+  <span class="pill p8">重要度 8/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ティ・チャラを亡くしたワカンダの前に、海の底の王国タロカンの王ネイモアが現れる。シュリは兄を失った悲しみと怒りの中で決断を迫られる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ティ・チャラの死</li><li>ネイモアとタロカン帝国の登場</li><li>シュリが新しいブラックパンサーになる</li><li>シュリとネイモアの停戦</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>シュリ、ラモンダ、エムバク、オコエ、ネイモア、リリ・ウィリアムズ</dd></div>
+        <div><dt>他作品との関係</dt><dd>リリは『アイアンハート』へ。シュリとネイモアの関係は今後に持ち越されている。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>シュリ、エムバク、ネイモア（テノッチ・ウエルタ・メヒア）の3人が公式キャスト。ワカンダ組の現在地を知る必須作。</dd></div>
+        <div><dt>観るメリット</dt><dd>今のブラックパンサーがシュリであること、ネイモアとの微妙な関係が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、ドゥームズデイでシュリがブラックパンサーとして登場しても事情が分からない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットで、ティ・チャラとナキアの間に息子がいたと明かされる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%91%E3%83%B3%E3%82%B5%E3%83%BC%EF%BC%8F%E3%83%AF%E3%82%AB%E3%83%B3%E3%83%80%E3%83%BB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%A8%E3%83%90%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="echo" data-slug="echo" data-order="40">
+  <label class="check"><input type="checkbox" data-watch="echo" aria-label="エコーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 40</span><span>作中 2025年</span><span>2024年・ドラマ</span></span>
+    <h3 class="title">エコー</h3>
+    <p class="desc">マヤ・ロペスとキングピン周辺の物語。</p>
+  </div>
+  <span class="pill p0">重要度 3/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>『ホークアイ』でキングピンと対立したマヤ・ロペスが故郷に戻り、自分のルーツと向き合う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>マヤが先祖の力に目覚める</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>マヤ・ロペス、キングピン</dd></div>
+        <div><dt>他作品との関係</dt><dd>キングピンの物語は『デアデビル：ボーン・アゲイン』へ続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>ストリート系のヒーロー作品が好きな人向け。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A8%E3%82%B3%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="she-hulk" data-slug="she-hulk" data-order="41">
+  <label class="check"><input type="checkbox" data-watch="she-hulk" aria-label="シー・ハルク：ザ・アトーニーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 41</span><span>作中 2025年</span><span>2022年・ドラマ</span></span>
+    <h3 class="title">シー・ハルク：ザ・アトーニー</h3>
+    <p class="desc">ジェニファー・ウォルターズの法廷コメディ。</p>
+  </div>
+  <span class="pill p0">重要度 3/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ブルースのいとこジェニファーがハルクの力を得て、弁護士とヒーローの二つの顔で奮闘する。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ジェニファーがシー・ハルクになる</li><li>ブルースの近況が描かれる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ジェニファー、ブルース、ウォン、デアデビル</dd></div>
+        <div><dt>他作品との関係</dt><dd>ブルースの息子スカーの存在が明かされる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>コメディとして楽しめる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B7%E3%83%BC%E3%83%BB%E3%83%8F%E3%83%AB%E3%82%AF%EF%BC%9A%E3%82%B6%E3%83%BB%E3%82%A2%E3%83%88%E3%83%BC%E3%83%8B%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="ms-marvel" data-slug="ms-marvel" data-order="42">
+  <label class="check"><input type="checkbox" data-watch="ms-marvel" aria-label="ミズ・マーベルを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 42</span><span>作中 2025年</span><span>2022年・ドラマ</span></span>
+    <h3 class="title">ミズ・マーベル</h3>
+    <p class="desc">カマラ・カーンの原点。「ミュータント」という言葉が初めてMCUに。</p>
+  </div>
+  <span class="pill p0">重要度 3/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>キャプテン・マーベルに憧れる高校生カマラ・カーンが、祖母から届いた腕輪で不思議な力に目覚める。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>カマラが力に目覚める</li><li>カマラの体に「変異（ミュータント）」があると示される</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>カマラ・カーン、ブルーノ、カマラの家族</dd></div>
+        <div><dt>他作品との関係</dt><dd>ラストの場面が『マーベルズ』に直結する。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>カマラは公式キャストに入っていない。MCUにミュータントの存在が示された作品として、X-MEN合流の流れを知る小さな手がかりになる。</dd></div>
+        <div><dt>観るメリット</dt><dd>『マーベルズ』の3人目の主人公が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくても『マーベルズ』は楽しめる。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ポストクレジットで、カマラとキャプテン・マーベルが入れ替わる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%9F%E3%82%BA%E3%83%BB%E3%83%9E%E3%83%BC%E3%83%99%E3%83%AB%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="love-and-thunder" data-order="43">
+  <label class="check"><input type="checkbox" data-watch="love-and-thunder" aria-label="ソー：ラブ＆サンダーを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 43</span><span>作中 2025年</span><span>2022年・映画</span></span>
+    <h3 class="title">ソー：ラブ＆サンダー</h3>
+    <p class="desc">ソーの現在地。娘のような少女ラブと新たな旅へ。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>神々を殺して回るゴアが現れ、ソーはマイティ・ソーになった元恋人ジェーンと再会し、共に戦う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ジェーンがマイティ・ソーになり、命を落とす</li><li>ゴアの娘ラブをソーが引き取る</li><li>全能の神ゼウスの登場</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ソー、ジェーン、ヴァルキリー、コーグ、ゴア、ゼウス、ラブ</dd></div>
+        <div><dt>他作品との関係</dt><dd>ソーの今の生き方（ラブの父親役）が分かる最新の単独作。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ソー（クリス・ヘムズワース）は公式キャスト。ドゥームズデイの前にソーが最後に描かれた作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>ソーが今どこで何をしているのかが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、ドゥームズデイでのソーの立場（父親になったことなど）が分かりにくい可能性がある。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでゼウスが息子ヘラクレスにソーを狙わせる。ポストクレジットでジェーンがヴァルハラに迎えられる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%BD%E3%83%BC%EF%BC%9A%E3%83%A9%E3%83%96%EF%BC%86%E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="werewolf-by-night" data-slug="werewolf-by-night" data-order="44">
+  <label class="check"><input type="checkbox" data-watch="werewolf-by-night" aria-label="ウェアウルフ・バイ・ナイトを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 44</span><span>作中 2025年</span><span>2022年・特別編</span></span>
+    <h3 class="title">ウェアウルフ・バイ・ナイト</h3>
+    <p class="desc">モンスターハンターを描くモノクロのホラー特別編。</p>
+  </div>
+  <span class="pill p0">重要度 2/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>伝説のモンスターハンターの死後、遺品をめぐって狩人たちが集められる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>MCUにモンスターが存在すると示される</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ジャック・ラッセル、エルサ・ブラッドストーン、マンシング</dd></div>
+        <div><dt>他作品との関係</dt><dd>ほかの作品とのつながりはほとんどない。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>1時間弱で観られる異色作。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>特になし。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A6%E3%82%A7%E3%82%A2%E3%82%A6%E3%83%AB%E3%83%95%E3%83%BB%E3%83%90%E3%82%A4%E3%83%BB%E3%83%8A%E3%82%A4%E3%83%88%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="guardians-holiday-special" data-slug="guardians-holiday-special" data-order="45">
+  <label class="check"><input type="checkbox" data-watch="guardians-holiday-special" aria-label="ガーディアンズ・オブ・ギャラクシー：ホリデー・スペシャルを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 45</span><span>作中 2025年（年末）</span><span>2022年・特別編</span></span>
+    <h3 class="title">ガーディアンズ・オブ・ギャラクシー：ホリデー・スペシャル</h3>
+    <p class="desc">クリスマスの短編特別編。</p>
+  </div>
+  <span class="pill p0">重要度 4/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>マンティスとドラックスが、落ち込むクイルを元気づけるため地球へプレゼントを探しに行く。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>マンティスがクイルの異母きょうだいだと明かされる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ガーディアンズ</dd></div>
+        <div><dt>他作品との関係</dt><dd>『VOLUME 3』の前の状況が分かる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>40分ほどで気軽に観られる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>特になし。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%82%AE%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%BC%EF%BC%9A%E3%83%9B%E3%83%AA%E3%83%87%E3%83%BC%E3%83%BB%E3%82%B9%E3%83%9A%E3%82%B7%E3%83%A3%E3%83%AB%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="quantumania" data-order="46">
+  <label class="check"><input type="checkbox" data-watch="quantumania" aria-label="アントマン＆ワスプ：クアントマニアを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 46</span><span>作中 2025年</span><span>2023年・映画</span></span>
+    <h3 class="title">アントマン＆ワスプ：クアントマニア</h3>
+    <p class="desc">量子世界と、マルチバースの脅威カーンの登場。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>スコットと家族が量子世界に引きずり込まれ、そこに閉じ込められていた征服者カーンと戦う。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>キャシーがヒーローとして活躍する</li><li>征服者カーンの登場と敗北</li><li>無数のカーンたちの存在が示される</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>スコット、キャシー、ホープ、ハンク、ジャネット、カーン</dd></div>
+        <div><dt>他作品との関係</dt><dd>カーンの変異体ヴィクター・タイムリーが『ロキ』シーズン2に登場する。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>スコットは公式キャストで、キャシーも出演が報じられている。キャシーの成長を知る最新作。なお、当初予定されていたカーン中心の構想は変更され、ドゥームズデイの悪役はドクター・ドゥームになった。</dd></div>
+        <div><dt>観るメリット</dt><dd>キャシーが戦えるヒーローになったことと、マルチバースの脅威の大きさが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、キャシーが戦う理由が分かりにくい。カーンの話そのものはドゥームズデイに直結しない可能性がある。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットで無数のカーンが集まる「カーン評議会」。ポストクレジットでロキとメビウスがヴィクター・タイムリーを目撃する。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%83%B3%E3%83%88%E3%83%9E%E3%83%B3%EF%BC%86%E3%83%AF%E3%82%B9%E3%83%97%EF%BC%9A%E3%82%AF%E3%82%A2%E3%83%B3%E3%83%88%E3%83%9E%E3%83%8B%E3%82%A2%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="guardians-vol3" data-order="47">
+  <label class="check"><input type="checkbox" data-watch="guardians-vol3" aria-label="ガーディアンズ・オブ・ギャラクシー：VOLUME 3を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 47</span><span>作中 2025年</span><span>2023年・映画</span></span>
+    <h3 class="title">ガーディアンズ・オブ・ギャラクシー：VOLUME 3</h3>
+    <p class="desc">ガーディアンズ3部作の完結。ロケットの過去。</p>
+  </div>
+  <span class="pill p5">重要度 5/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>瀕死のロケットを救うため、ガーディアンズは彼を生み出したハイ・エボリューショナリーに立ち向かう。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ロケットの過去</li><li>ガーディアンズがそれぞれの道へ進む</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ガーディアンズ、ハイ・エボリューショナリー、アダム・ウォーロック</dd></div>
+        <div><dt>他作品との関係</dt><dd>ガーディアンズの物語の一区切り。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>3部作の結末として感動できる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットで新しいガーディアンズが活動。ポストクレジットでクイルが祖父と朝食をとる。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%82%AE%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%BC%EF%BC%9AVOLUME%203%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="secret-invasion" data-slug="secret-invasion" data-order="48">
+  <label class="check"><input type="checkbox" data-watch="secret-invasion" aria-label="シークレット・インベージョンを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 48</span><span>作中 2025年</span><span>2023年・ドラマ</span></span>
+    <h3 class="title">シークレット・インベージョン</h3>
+    <p class="desc">フューリーとスクラルの地上側スパイ劇。</p>
+  </div>
+  <span class="pill p0">重要度 3/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>地球に潜伏するスクラルの過激派が、人類との戦争を起こそうとする。フューリーは地球に戻り、阻止しようとする。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>スクラル過激派の陰謀</li><li>ローディが長くスクラルにすり替えられていたと判明</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>フューリー、タロス、ギア、グラヴィク</dd></div>
+        <div><dt>他作品との関係</dt><dd>フューリーの状況は『マーベルズ』に続く。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>フューリーの現在地が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B7%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%83%BB%E3%82%A4%E3%83%B3%E3%83%99%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="the-marvels" data-slug="the-marvels" data-order="49">
+  <label class="check"><input type="checkbox" data-watch="the-marvels" aria-label="マーベルズを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 49</span><span>作中 2025年</span><span>2023年・映画</span></span>
+    <h3 class="title">マーベルズ</h3>
+    <p class="desc">ミッドクレジットにX-MENのビーストが登場。</p>
+  </div>
+  <span class="pill p0">重要度 4/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>キャロル、モニカ、カマラの3人の力が絡み合い、使うたびに居場所が入れ替わってしまう。3人はクリー人の指導者ダー・ベンの企みを止める。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>3人のチーム「マーベルズ」の誕生</li><li>空間の裂け目が開き、モニカが別の宇宙に取り残される</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>キャロル、モニカ、カマラ、フューリー、ダー・ベン</dd></div>
+        <div><dt>他作品との関係</dt><dd>『キャプテン・マーベル』『ワンダヴィジョン』『ミズ・マーベル』の続き。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ミッドクレジットで、別の宇宙に飛ばされたモニカの前に、ケルシー・グラマー演じるビーストが登場する。ビースト役のケルシー・グラマーはドゥームズデイの公式キャスト。本編の内容は直接の関係が薄い。</dd></div>
+        <div><dt>観るメリット</dt><dd>旧X-MENの世界とMCUがつながり始めた瞬間が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>本編は観なくても困らない。少なくともミッドクレジットの場面だけは知っておきたい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットでモニカが別宇宙で目覚め、母マリアにそっくりな人物とビーストに出会う。ポストクレジットでカマラがケイト・ビショップを新チームに誘う。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%9E%E3%83%BC%E3%83%99%E3%83%AB%E3%82%BA%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="venom-last-dance" data-slug="venom-last-dance" data-order="50">
+  <label class="check"><input type="checkbox" data-watch="venom-last-dance" aria-label="ヴェノム：ザ・ラストダンスを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 50</span><span>作中 別の宇宙</span><span>2024年・映画</span></span>
+    <h3 class="title">ヴェノム：ザ・ラストダンス</h3>
+    <p class="desc">トム・ハーディ版シリーズ完結編。</p>
+  </div>
+  <span class="pill ref">参考</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>元の宇宙に戻ったエディとヴェノムが、シンビオートの創造主ヌルの追っ手から逃げながら最後の旅をする。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ヌルの存在が示される</li><li>エディとヴェノムの別れ</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>エディ、ヴェノム、ストリックランド</dd></div>
+        <div><dt>他作品との関係</dt><dd>冒頭で『ノー・ウェイ・ホーム』からの続きが描かれる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>エディとヴェノムの物語の結末を見届けられる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%B4%E3%82%A7%E3%83%8E%E3%83%A0%EF%BC%9A%E3%82%B6%E3%83%BB%E3%83%A9%E3%82%B9%E3%83%88%E3%83%80%E3%83%B3%E3%82%B9%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="x-men" data-order="51">
+  <label class="check"><input type="checkbox" data-watch="x-men" aria-label="X-メンを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 51</span><span>作中 別の宇宙（FOX版）</span><span>2000年・映画</span></span>
+    <h3 class="title">X-メン</h3>
+    <p class="desc">旧X-MENの原点。ザビエルとマグニートーの対立。</p>
+  </div>
+  <span class="pill p8">重要度 8/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ミュータントが差別される世界。プロフェッサーXは人間との共存を目指して学園を運営し、マグニートーは力で人類に対抗しようとする。少女ローグと、記憶を失ったウルヴァリンが学園にやってくる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>プロフェッサーXの学園とX-MEN</li><li>マグニートーの人類ミュータント化計画</li><li>自由の女神での決戦</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>プロフェッサーX、マグニートー、サイクロップス、ミスティーク、ウルヴァリン、ジーン、ストーム、ローグ</dd></div>
+        <div><dt>他作品との関係</dt><dd>ドゥームズデイに戻ってくる旧X-MENの役者たちが、初めてそろった作品。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>プロフェッサーX（パトリック・スチュワート）、マグニートー（イアン・マッケラン）、サイクロップス（ジェームズ・マースデン）、ミスティーク（レベッカ・ローミン）はすべて公式キャスト。</dd></div>
+        <div><dt>観るメリット</dt><dd>ザビエルとマグニートーが「友人なのに敵」という関係の原点が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、旧X-MENのメンバーが登場しても誰が誰か分かりにくい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ポストクレジットはない。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=X-%E3%83%A1%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="x2" data-order="52">
+  <label class="check"><input type="checkbox" data-watch="x2" aria-label="X-MEN2を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 52</span><span>作中 別の宇宙（FOX版）</span><span>2003年・映画</span></span>
+    <h3 class="title">X-MEN2</h3>
+    <p class="desc">ナイトクローラー初登場。旧3部作で最も評価の高い1本。</p>
+  </div>
+  <span class="pill p8">重要度 9/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ミュータント排除を狙うストライカー大佐が学園を襲撃。X-MENはマグニートーと一時的に手を組んで立ち向かう。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ナイトクローラーの初登場</li><li>X-MENとマグニートーの共闘</li><li>ジーンの犠牲</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>X-MENの面々、ナイトクローラー、ストライカー、デスストライク</dd></div>
+        <div><dt>他作品との関係</dt><dd>ジーンの結末が『X-MEN：ファイナル ディシジョン』につながる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ナイトクローラー（アラン・カミング）が公式キャスト。旧X-MENの公式キャスト5人がそろう。</dd></div>
+        <div><dt>観るメリット</dt><dd>ナイトクローラーの人柄と、旧X-MENチームの絆が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、ナイトクローラーがどんな人物か分からない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ポストクレジットはない。本編のラストで、湖の中に不死鳥の影が見える。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=X-MEN2%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="x-men-last-stand" data-order="53">
+  <label class="check"><input type="checkbox" data-watch="x-men-last-stand" aria-label="X-MEN：ファイナル ディシジョンを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 53</span><span>作中 別の宇宙（FOX版）</span><span>2006年・映画</span></span>
+    <h3 class="title">X-MEN：ファイナル ディシジョン</h3>
+    <p class="desc">ケルシー・グラマーのビースト初登場。旧3部作の結末。</p>
+  </div>
+  <span class="pill p5">重要度 6/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ミュータントの力を消す「キュア（治療薬）」が開発され、ミュータント社会が揺れる。同時に、死んだはずのジーンがフェニックスとして復活する。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ビースト（ケルシー・グラマー）の初登場</li><li>サイクロップスとプロフェッサーXの退場</li><li>ミスティークとマグニートーが力を失う</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>X-MENの面々、ビースト、フェニックス（ジーン）</dd></div>
+        <div><dt>他作品との関係</dt><dd>この結末は『X-MEN：フューチャー&amp;パスト』で書き換えられる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ビースト（ケルシー・グラマー）は公式キャスト。旧X-MENの物語がどう終わったかを知る作品。</dd></div>
+        <div><dt>観るメリット</dt><dd>ビーストの人物像と、旧X-MEN世界の「その後」が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくても大筋は追える。ビーストの背景を知りたい人は観ておきたい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ポストクレジットで、死んだはずのプロフェッサーXが別人の体で目を覚ます。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=X-MEN%EF%BC%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%20%E3%83%87%E3%82%A3%E3%82%B7%E3%82%B8%E3%83%A7%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="x-men-days-of-future-past" data-order="54">
+  <label class="check"><input type="checkbox" data-watch="x-men-days-of-future-past" aria-label="X-MEN：フューチャー&amp;パストを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 54</span><span>作中 別の宇宙（FOX版）</span><span>2014年・映画</span></span>
+    <h3 class="title">X-MEN：フューチャー&amp;パスト</h3>
+    <p class="desc">旧キャストと若いキャストが合流。歴史が書き換えられる。</p>
+  </div>
+  <span class="pill p5">重要度 6/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ミュータント狩りのロボット「センチネル」に追い詰められた未来。ウルヴァリンの意識を1973年に送り、歴史を変えようとする。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>旧キャストと若いキャストの共演</li><li>1973年の歴史改変</li><li>ラストで、死んだはずの仲間が生きている新しい未来が現れる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>旧X-MENの面々、若いザビエル、若いマグニートー、若いミスティーク、ウルヴァリン</dd></div>
+        <div><dt>他作品との関係</dt><dd>過去の3部作の悲しい結末を「なかったこと」にする作品。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>旧キャストのザビエルとマグニートーが登場。ラストにはケルシー・グラマーのビーストとジェームズ・マースデンのサイクロップスも登場する。ドゥームズデイに来る旧X-MENがどの時点の彼らなのかは公式には明かされていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>旧X-MENの物語の「最終的な結末」が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの筋は追える可能性が高い。旧X-MENの物語を整理したい人向け。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ポストクレジットで、古代エジプトで強大なミュータント（アポカリプス）が力を集める。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=X-MEN%EF%BC%9A%E3%83%95%E3%83%A5%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%26%E3%83%91%E3%82%B9%E3%83%88%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="logan" data-slug="logan" data-order="55">
+  <label class="check"><input type="checkbox" data-watch="logan" aria-label="LOGAN／ローガンを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 55</span><span>作中 別の宇宙（FOX版）</span><span>2017年・映画</span></span>
+    <h3 class="title">LOGAN／ローガン</h3>
+    <p class="desc">ヒュー・ジャックマン版ウルヴァリンの最終章。</p>
+  </div>
+  <span class="pill p0">重要度 4/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>2029年、ミュータントがほとんどいなくなった世界。年老いたローガンは衰えたプロフェッサーXの世話をしながら、謎の少女ローラを守る旅に出る。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ローガンとプロフェッサーXの最期</li><li>ローラ（X-23）の登場</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>ローガン、プロフェッサーX、ローラ</dd></div>
+        <div><dt>他作品との関係</dt><dd>『デッドプール＆ウルヴァリン』はこの作品の結末を前提にしたネタが多い。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ヒュー・ジャックマンのドゥームズデイ出演は公式発表されていない（噂の段階）。パトリック・スチュワートは出演するが、この作品のザビエルとの関係は不明。</dd></div>
+        <div><dt>観るメリット</dt><dd>ウルヴァリンの物語の重い結末と、『デッドプール＆ウルヴァリン』の背景が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない可能性が高い。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ポストクレジットはない。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=LOGAN%EF%BC%8F%E3%83%AD%E3%83%BC%E3%82%AC%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="deadpool-and-wolverine" data-order="56">
+  <label class="check"><input type="checkbox" data-watch="deadpool-and-wolverine" aria-label="デッドプール＆ウルヴァリンを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 56</span><span>作中 別の宇宙／TVA</span><span>2024年・映画</span></span>
+    <h3 class="title">デッドプール＆ウルヴァリン</h3>
+    <p class="desc">FOX版の世界とMCU、TVAが合流。ガンビット登場。</p>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>自分の宇宙が消されると知ったデッドプールは、TVAと戦いながら、別の宇宙から最低最悪のウルヴァリンを連れてくる。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>TVAと「アンカー（宇宙を支える存在）」の仕組み</li><li>虚無（ヴォイド）で忘れられたヒーローたちが登場</li><li>チャニング・テイタムのガンビットが初登場</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>デッドプール、ウルヴァリン、カサンドラ・ノヴァ、ミスター・パラドックス、ガンビット、エレクトラ、ブレイド、X-23</dd></div>
+        <div><dt>他作品との関係</dt><dd>『ロキ』のTVAの続き。『LOGAN』を観ているとネタが分かる。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>ガンビット（チャニング・テイタム）は公式キャスト。FOX版の世界がMCUのマルチバースに組み込まれた作品で、旧X-MENの合流を理解する鍵。</dd></div>
+        <div><dt>観るメリット</dt><dd>旧FOX作品のキャラクターがMCUに来られる理由と、TVAの最新状況が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、なぜ旧X-MENやガンビットがMCUにいるのかがつかみにくい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>クレジット中に歴代FOX版マーベル映画の舞台裏映像。ポストクレジットでジョニー・ストーム（クリス・エヴァンス）のおまけ映像。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%87%E3%83%83%E3%83%89%E3%83%97%E3%83%BC%E3%83%AB%EF%BC%86%E3%82%A6%E3%83%AB%E3%83%B4%E3%82%A1%E3%83%AA%E3%83%B3%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="agatha-all-along" data-order="57">
+  <label class="check"><input type="checkbox" data-watch="agatha-all-along" aria-label="アガサ・オール・アロングを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 57</span><span>作中 2025年</span><span>2024年・ドラマ</span></span>
+    <h3 class="title">アガサ・オール・アロング</h3>
+    <p class="desc">『ワンダヴィジョン』の魔女アガサの旅。</p>
+  </div>
+  <span class="pill p5">重要度 6/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>力を失った魔女アガサが、謎の少年と魔女たちを集め、試練の道「魔女の道」に挑む。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>魔女の道</li><li>少年の正体が明かされる</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>アガサ、ティーン（ビリー）、リオ・ヴィダル</dd></div>
+        <div><dt>他作品との関係</dt><dd>『ワンダヴィジョン』の続編。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>現時点でドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>魔術サイドの物語が好きな人向け。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%AC%E3%82%B5%E3%83%BB%E3%82%AA%E3%83%BC%E3%83%AB%E3%83%BB%E3%82%A2%E3%83%AD%E3%83%B3%E3%82%B0%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row" id="daredevil-born-again-s1" data-slug="daredevil-born-again-s1" data-order="58">
+  <label class="check"><input type="checkbox" data-watch="daredevil-born-again-s1" aria-label="デアデビル：ボーン・アゲイン シーズン1を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 58</span><span>作中 2025年</span><span>2025年・ドラマ</span></span>
+    <h3 class="title">デアデビル：ボーン・アゲイン シーズン1</h3>
+    <p class="desc">マット・マードックとキングピンの今。</p>
+  </div>
+  <span class="pill p0">重要度 3/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>ニューヨーク市長になったキングピンと、弁護士として生きるマット・マードックが再び対立する。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>キングピンが市長に</li><li>マットがデアデビルとして復帰</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>マット・マードック、キングピン、パニッシャー</dd></div>
+        <div><dt>他作品との関係</dt><dd>Netflix版『デアデビル』の続き。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>現時点でドゥームズデイとの関連は確認されていない。</dd></div>
+        <div><dt>観るメリット</dt><dd>ストリート系の作品として評価が高い。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観なくてもドゥームズデイの理解に支障はない。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ドゥームズデイに関わる情報はない。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%87%E3%82%A2%E3%83%87%E3%83%93%E3%83%AB%EF%BC%9A%E3%83%9C%E3%83%BC%E3%83%B3%E3%83%BB%E3%82%A2%E3%82%B2%E3%82%A4%E3%83%B3%20%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B31%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="brave-new-world" data-order="59">
+  <label class="check"><input type="checkbox" data-watch="brave-new-world" aria-label="キャプテン・アメリカ：ブレイブ・ニュー・ワールドを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 59</span><span>作中 2025年</span><span>2025年・映画</span></span>
+    <h3 class="title">キャプテン・アメリカ：ブレイブ・ニュー・ワールド</h3>
+    <p class="desc">サムがキャプテン・アメリカとして立つ。トーレスが新ファルコンに。</p>
+  </div>
+  <span class="pill p8">重要度 9/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>大統領になったロスから、アベンジャーズ再建を頼まれたサム。だが、ロス大統領の暗殺未遂事件が起き、裏で誰かが糸を引いていた。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>サムが正式にキャプテン・アメリカとして活動</li><li>ホアキン・トーレスが新しいファルコンになる</li><li>ロス大統領がレッドハルクになる</li><li>アダマンチウムの発見</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>サム、ホアキン・トーレス、ロス大統領、サミュエル・スターンズ、イザイア・ブラッドリー</dd></div>
+        <div><dt>他作品との関係</dt><dd>ロスとスターンズは『インクレディブル・ハルク』からの続き。アベンジャーズ再建の話は『サンダーボルツ*』へ。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>サム（アンソニー・マッキー）とトーレス（ダニー・ラミレス）が公式キャスト。サムがドゥームズデイ直前に何をしていたかが分かる。</dd></div>
+        <div><dt>観るメリット</dt><dd>サムがアベンジャーズを率いる立場になっていく流れが分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、ドゥームズデイでのサムの立場や、アベンジャーズがどうなっているのかがつかみにくい。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ポストクレジットで、刑務所のスターンズが「別の世界があり、それがやって来る」とサムに警告する。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%AD%E3%83%A3%E3%83%97%E3%83%86%E3%83%B3%E3%83%BB%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%EF%BC%9A%E3%83%96%E3%83%AC%E3%82%A4%E3%83%96%E3%83%BB%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%BB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="fantastic-four-first-steps" data-order="60">
+  <label class="check"><input type="checkbox" data-watch="fantastic-four-first-steps" aria-label="ファンタスティック4：ファースト・ステップを観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 60</span><span>作中 別の宇宙（地球828）</span><span>2025年・映画</span></span>
+    <h3 class="title">ファンタスティック4：ファースト・ステップ</h3>
+    <p class="desc">ファンタスティック4の4人が全員公式キャスト。ドゥーム直前の最重要作。</p>
+  </div>
+  <span class="pill p10">重要度 10/10</span>
+  <details>
+    <summary>詳しく見る（あらすじ・関連性・ポストクレジット）</summary>
+    <div class="detail">
+      <p class="spoiler">※ネタバレを含みます</p>
+      <dl>
+        <div><dt>あらすじ</dt><dd>レトロな未来の雰囲気を持つ別の地球で暮らすファンタスティック4。リードとスーに子どもが生まれようとする中、星を食べる存在ギャラクタスが地球に迫る。</dd></div>
+        <div><dt>重要な出来事</dt><dd><ul><li>ファンタスティック4の4人の紹介</li><li>シルバーサーファーとギャラクタスの襲来</li><li>リードとスーの息子フランクリンの誕生</li></ul></dd></div>
+        <div><dt>登場人物</dt><dd>リード、スー、ジョニー、ベン、フランクリン、シルバーサーファー、ギャラクタス</dd></div>
+        <div><dt>他作品との関係</dt><dd>MCUの地球（地球616）とは別の宇宙の物語。『サンダーボルツ*』のポストクレジットで616との接点が示される。</dd></div>
+        <div><dt>ドゥームズデイとの関連性</dt><dd>リード（ペドロ・パスカル）、スー（ヴァネッサ・カービー）、ジョニー（ジョセフ・クイン）、ベン（エボン・モス＝バクラック）の4人が公式キャスト。ドクター・ドゥームと最も深い因縁を持つチームでもある。</dd></div>
+        <div><dt>観るメリット</dt><dd>ドゥームズデイの主要メンバー4人の人柄、家族の絆、そしてフランクリンの存在が分かる。</dd></div>
+        <div><dt>観なかった場合</dt><dd>観ない場合、ファンタスティック4の4人がまったく分からない。必ず観ておきたい1本。</dd></div>
+        <div><dt>ポストクレジット</dt><dd>ミッドクレジットで、スーがフランクリンに本を読み聞かせていると、マスクの人物（ドクター・ドゥームとみられる）がフランクリンに近づく。</dd></div>
+      </dl>
+      <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B9%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF4%EF%BC%9A%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B9%E3%83%88%E3%83%BB%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
+    </div>
+  </details>
+</li><li class="row must" data-slug="thunderbolts" data-order="61">
+  <label class="check"><input type="checkbox" data-watch="thunderbolts" aria-label="サンダーボルツ*を観た"><span class="box" aria-hidden="true"></span></label>
+  <div class="main">
+    <span class="meta"><span>視聴順 61</span><span>作中 2025年</span><span>2025年・映画</span></span>
+    <h3 class="title">サンダーボルツ*</h3>
+    <p class="desc">はみ出し者たちの新チーム結成。ドゥームズデイ直前の到達点。</p>
   </div>
   <span class="pill p10">重要度 10/10</span>
   <details>
@@ -1668,7 +2699,6 @@
     <span class="meta"><span>視聴順 62</span><span>作中 2025年</span><span>2025年・ドラマ</span></span>
     <h3 class="title">アイアンハート</h3>
     <p class="desc">リリ・ウィリアムズと、技術と魔術の衝突。</p>
-    <span class="tags"><span class="tag">その他</span></span>
   </div>
   <span class="pill p0">重要度 3/10</span>
   <details>
@@ -1688,13 +2718,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%A2%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%8F%E3%83%BC%E3%83%88%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row must" id="spider-man-brand-new-day" data-slug="spider-man-brand-new-day" data-order="63">
+</li><li class="row must" data-slug="spider-man-brand-new-day" data-order="63">
   <label class="check"><input type="checkbox" data-watch="spider-man-brand-new-day" aria-label="スパイダーマン：ブラン・ニュー・デイを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 63</span><span>作中 2026年</span><span>2026年・映画</span></span>
     <h3 class="title">スパイダーマン：ブラン・ニュー・デイ</h3>
     <p class="desc">誰もピーターを覚えていない世界での新章。</p>
-    <span class="tags"><span class="tag">スパイダーマン関連</span></span>
   </div>
   <span class="pill p8">重要度 9/10</span>
   <details>
@@ -1720,7 +2749,6 @@
     <span class="meta"><span>視聴順 64</span><span>作中 未公表</span><span>2026年・ドラマ</span></span>
     <h3 class="title">ビジョンクエスト（VisionQuest）</h3>
     <p class="desc">ヴィジョンの新シリーズ。2026年10月14日配信開始（米国）。</p>
-    <span class="tags"><span class="tag">その他</span></span>
   </div>
   <span class="pill ref">未評価</span>
   <details>
@@ -1746,7 +2774,6 @@
     <span class="meta"><span>視聴順 65</span><span>作中 別の宇宙</span><span>2002年・映画</span></span>
     <h3 class="title">スパイダーマン（トビー・マグワイア版）</h3>
     <p class="desc">トビー版ピーターの原点。グリーン・ゴブリン。</p>
-    <span class="tags"><span class="tag">スパイダーマン関連</span></span>
   </div>
   <span class="pill ref">参考</span>
   <details>
@@ -1772,7 +2799,6 @@
     <span class="meta"><span>視聴順 66</span><span>作中 別の宇宙</span><span>2004年・映画</span></span>
     <h3 class="title">スパイダーマン2（トビー・マグワイア版）</h3>
     <p class="desc">ドック・オク登場。ヒーローとしての責任の物語。</p>
-    <span class="tags"><span class="tag">スパイダーマン関連</span></span>
   </div>
   <span class="pill ref">参考</span>
   <details>
@@ -1798,7 +2824,6 @@
     <span class="meta"><span>視聴順 67</span><span>作中 別の宇宙</span><span>2007年・映画</span></span>
     <h3 class="title">スパイダーマン3（トビー・マグワイア版）</h3>
     <p class="desc">黒いスーツ、サンドマン、トファー・グレイス版ヴェノム。</p>
-    <span class="tags"><span class="tag">スパイダーマン関連</span></span>
   </div>
   <span class="pill ref">参考</span>
   <details>
@@ -1818,13 +2843,12 @@
       <span class="ad-links"><a class="btn ad" href="https://www.amazon.co.jp/s?k=%E3%82%B9%E3%83%91%E3%82%A4%E3%83%80%E3%83%BC%E3%83%9E%E3%83%B33%EF%BC%88%E3%83%88%E3%83%93%E3%83%BC%E3%83%BB%E3%83%9E%E3%82%B0%E3%83%AF%E3%82%A4%E3%82%A2%E7%89%88%EF%BC%89%20Blu-ray&amp;tag=doomsdayguide-22" target="_blank" rel="sponsored noopener">Amazonで探す</a><span class="pr">PR</span></span>
     </div>
   </details>
-</li><li class="row goal" id="avengers-doomsday" data-slug="avengers-doomsday" data-order="68">
+</li><li class="row goal" data-slug="avengers-doomsday" data-order="68">
   <label class="check"><input type="checkbox" data-watch="avengers-doomsday" aria-label="アベンジャーズ／ドゥームズデイを観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 68</span><span>作中 目的の作品</span><span>2026年・映画</span></span>
     <h3 class="title">アベンジャーズ／ドゥームズデイ</h3>
     <p class="desc">2026年12月18日 日米同時公開。このリストのゴール。</p>
-    <span class="tags"></span>
   </div>
   <span class="pill goal">目的の作品</span>
 </li></ol>

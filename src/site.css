@@ -62,6 +62,7 @@ h1 small { display: block; font-family: var(--body); font-weight: 900; font-size
 /* Controls */
 .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .chip { font: inherit; font-size: 14px; font-weight: 700; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; cursor: pointer; }
+a.chip { text-decoration: none; }
 .chip[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: var(--on-pill); }
 .chip:focus-visible, .check input:focus-visible + .box, .btn:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .toggle { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; color: var(--muted); margin-left: auto; cursor: pointer; }
