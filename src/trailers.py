@@ -1,16 +1,79 @@
 # 予告編へのリンク。
 # TRAILERS: 公式チャンネルが公開していて、作品と一致することを確認できた動画だけを登録する（作品slug: (URL, チャンネル名)）。
-#   今の作業環境からは YouTube に接続できず確認できないため、空のまま。
+#   2026-10-31 に YouTube の oEmbed で author_name と title を確認したものだけを登録。
 # TRAILER_SEARCH: 動画を確認できない作品は、公式チャンネルの中を作品名で検索するページへのリンクにする。
 #   推測した動画URLは使わない。動画やサムネイルは埋め込まず、普通の外部リンクにする。
 from urllib.parse import quote
-
-TRAILERS = {}
 
 CHANNELS = {
     "marvel": ("Marvel Entertainment 公式チャンネル", "https://www.youtube.com/@marvel"),
     "sony": ("Sony Pictures Entertainment 公式チャンネル", "https://www.youtube.com/@SonyPictures"),
     "fox": ("20th Century Studios 公式チャンネル", "https://www.youtube.com/@20thCenturyStudios"),
+}
+
+TRAILERS = {
+    # 2026-10-31 に oEmbed でチャンネル名と動画タイトルを確認済み
+    "captain-america-first-avenger": ("https://www.youtube.com/watch?v=JerVrbLldXw", CHANNELS["marvel"][0]),
+    "captain-marvel": ("https://www.youtube.com/watch?v=Z1BCujX3pw8", CHANNELS["marvel"][0]),
+    "thor": ("https://www.youtube.com/watch?v=JOddp-nlNvQ", CHANNELS["marvel"][0]),
+    "avengers": ("https://www.youtube.com/watch?v=eOrNdBpGMv8", CHANNELS["marvel"][0]),
+    "thor-dark-world": ("https://www.youtube.com/watch?v=npvJ9FTgZbM", CHANNELS["marvel"][0]),
+    "iron-man-3": ("https://www.youtube.com/watch?v=f_h95mEd4TI", CHANNELS["marvel"][0]),
+    "winter-soldier": ("https://www.youtube.com/watch?v=tbayiPxkUMM", CHANNELS["marvel"][0]),
+    "guardians-of-the-galaxy": ("https://www.youtube.com/watch?v=d96cjJhvlMA", CHANNELS["marvel"][0]),
+    "guardians-vol2": ("https://www.youtube.com/watch?v=wUn05hdkhjM", CHANNELS["marvel"][0]),
+    "i-am-groot-1": ("https://www.youtube.com/watch?v=D7eFpRf4tac", CHANNELS["marvel"][0]),
+    "i-am-groot-2": ("https://www.youtube.com/watch?v=1k8H2CywVqg", CHANNELS["marvel"][0]),
+    "age-of-ultron": ("https://www.youtube.com/watch?v=tmeOjFno6Do", CHANNELS["marvel"][0]),
+    "ant-man": ("https://www.youtube.com/watch?v=pWdKf3MneyI", CHANNELS["marvel"][0]),
+    "civil-war": ("https://www.youtube.com/watch?v=dKrVegVI0Us", CHANNELS["marvel"][0]),
+    "black-widow": ("https://www.youtube.com/watch?v=ybji16u608U", CHANNELS["marvel"][0]),
+    "black-panther": ("https://www.youtube.com/watch?v=xjDjIWPwcPU", CHANNELS["marvel"][0]),
+    "spider-man-homecoming": ("https://www.youtube.com/watch?v=rk-dF1lIbIg", CHANNELS["sony"][0]),
+    "doctor-strange": ("https://www.youtube.com/watch?v=HSzx-zryEgM", CHANNELS["marvel"][0]),
+    "thor-ragnarok": ("https://www.youtube.com/watch?v=ue80QwXMRHg", CHANNELS["marvel"][0]),
+    "ant-man-and-the-wasp": ("https://www.youtube.com/watch?v=8_rTIAOohas", CHANNELS["marvel"][0]),
+    "infinity-war": ("https://www.youtube.com/watch?v=6ZfuNTqbHE8", CHANNELS["marvel"][0]),
+    "endgame": ("https://www.youtube.com/watch?v=TcMBFSGVi1c", CHANNELS["marvel"][0]),
+    "loki-s1": ("https://www.youtube.com/watch?v=nW948Va-l10", CHANNELS["marvel"][0]),
+    "loki-s2": ("https://www.youtube.com/watch?v=dug56u8NN7g", CHANNELS["marvel"][0]),
+    "wandavision": ("https://www.youtube.com/watch?v=sj9J2ecsSpo", CHANNELS["marvel"][0]),
+    "shang-chi": ("https://www.youtube.com/watch?v=8YjFbMbfXaQ", CHANNELS["marvel"][0]),
+    "falcon-and-winter-soldier": ("https://www.youtube.com/watch?v=IWBsDaFWyTE", CHANNELS["marvel"][0]),
+    "spider-man-far-from-home": ("https://www.youtube.com/watch?v=Nt9L1jCKGnE", CHANNELS["sony"][0]),
+    "venom": ("https://www.youtube.com/watch?v=u9Mv98Gr5pY", CHANNELS["sony"][0]),
+    "venom-carnage": ("https://www.youtube.com/watch?v=-ezfi6FQ8Ds", CHANNELS["sony"][0]),
+    "spider-man-no-way-home": ("https://www.youtube.com/watch?v=JfVOs4VSpmA", CHANNELS["sony"][0]),
+    "eternals": ("https://www.youtube.com/watch?v=x_me3xsvDgk", CHANNELS["marvel"][0]),
+    "multiverse-of-madness": ("https://www.youtube.com/watch?v=aWzlQ2N6qqg", CHANNELS["marvel"][0]),
+    "hawkeye": ("https://www.youtube.com/watch?v=5VYb3B1ETlk", CHANNELS["marvel"][0]),
+    "moon-knight": ("https://www.youtube.com/watch?v=x7Krla_UxRg", CHANNELS["marvel"][0]),
+    "wakanda-forever": ("https://www.youtube.com/watch?v=_Z3QKkl1WyM", CHANNELS["marvel"][0]),
+    "echo": ("https://www.youtube.com/watch?v=AFUKnherhuw", CHANNELS["marvel"][0]),
+    "she-hulk": ("https://www.youtube.com/watch?v=u7JsKhI2An0", CHANNELS["marvel"][0]),
+    "ms-marvel": ("https://www.youtube.com/watch?v=m9EX0f6V11Y", CHANNELS["marvel"][0]),
+    "love-and-thunder": ("https://www.youtube.com/watch?v=Go8nTmfrQd8", CHANNELS["marvel"][0]),
+    "werewolf-by-night": ("https://www.youtube.com/watch?v=bLEFqhS5WmI", CHANNELS["marvel"][0]),
+    "guardians-holiday-special": ("https://www.youtube.com/watch?v=OYhFFQl4fLs", CHANNELS["marvel"][0]),
+    "quantumania": ("https://www.youtube.com/watch?v=ZlNFpri-Y40", CHANNELS["marvel"][0]),
+    "guardians-vol3": ("https://www.youtube.com/watch?v=u3V5KDHRQvk", CHANNELS["marvel"][0]),
+    "secret-invasion": ("https://www.youtube.com/watch?v=Tp_YZNqNBhw", CHANNELS["marvel"][0]),
+    "the-marvels": ("https://www.youtube.com/watch?v=wS_qbDztgVY", CHANNELS["marvel"][0]),
+    "venom-last-dance": ("https://www.youtube.com/watch?v=__2bjWbetsA", CHANNELS["sony"][0]),
+    "x2": ("https://www.youtube.com/watch?v=KNIdceH7XOw", CHANNELS["fox"][0]),
+    "logan": ("https://www.youtube.com/watch?v=Div0iP65aZo", CHANNELS["fox"][0]),
+    "deadpool-and-wolverine": ("https://www.youtube.com/watch?v=73_1biulkYk", CHANNELS["marvel"][0]),
+    "agatha-all-along": ("https://www.youtube.com/watch?v=R9pXbNz6Vbw", CHANNELS["marvel"][0]),
+    "daredevil-born-again-s1": ("https://www.youtube.com/watch?v=7xALolZzhSM", CHANNELS["marvel"][0]),
+    "brave-new-world": ("https://www.youtube.com/watch?v=1pHDWnXmK7Y", CHANNELS["marvel"][0]),
+    "fantastic-four-first-steps": ("https://www.youtube.com/watch?v=pAsmrKyMqaA", CHANNELS["marvel"][0]),
+    "thunderbolts": ("https://www.youtube.com/watch?v=-sAOWhvheK8", CHANNELS["marvel"][0]),
+    "ironheart": ("https://www.youtube.com/watch?v=WpW36ldAqnM", CHANNELS["marvel"][0]),
+    "spider-man-brand-new-day": ("https://www.youtube.com/watch?v=62bIsvRcPv0", CHANNELS["sony"][0]),
+    "visionquest": ("https://www.youtube.com/watch?v=sXKnmgmbkoE", CHANNELS["marvel"][0]),
+    "spider-man-2002": ("https://www.youtube.com/watch?v=t06RUxPbp_c", CHANNELS["sony"][0]),
+    "spider-man-3-2007": ("https://www.youtube.com/watch?v=e5wUilOeOmg", CHANNELS["sony"][0]),
+    "avengers-doomsday": ("https://www.youtube.com/watch?v=irVNGjRFZGk", CHANNELS["marvel"][0]),
 }
 
 # 作品slug: (チャンネル, 検索する英語タイトル)
