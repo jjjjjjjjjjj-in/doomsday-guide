@@ -18,6 +18,7 @@
 - `trailers.py`: 予告編リンク。
 - `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード（HTMLタグの content の値）。
 - `site.css` / `app.js` / `sticky.js`: 見た目と動き。白背景、タイトルは濃いグリーン、見出しは紺。
+- 英語版は /en/ に出力する。`build_en.py` が `src/en/`（`titles_en_*.py` の作品の英文、`articles_en.py` の記事）を使い、並び・重要度・予告編・広告は日本語版と共通。日本語の作品や記事を直したら、英語版の同じ項目も合わせて直す。
 
 ## キャスト情報のルール
 公式発表と噂を必ず分ける。ヒュー・ジャックマン、トビー・マグワイアは2026-10-31時点で噂の段階。

@@ -22,7 +22,8 @@ p { font-size: 46px; margin: 18px 0 0; font-weight: bold; }
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  for (const [name, out] of [["must", "doomsday-checklist-must.pdf"], ["all", "doomsday-checklist-all.pdf"]]) {
+  for (const [name, out] of [["must", "doomsday-checklist-must.pdf"], ["all", "doomsday-checklist-all.pdf"],
+                             ["en-must", "en/doomsday-checklist-must.pdf"], ["en-all", "en/doomsday-checklist-all.pdf"]]) {
     await page.goto("file://" + path.join(SRC, "print", `${name}.html`));
     await page.pdf({ path: path.join(ROOT, out), format: "A4", printBackground: true, preferCSSPageSize: true });
     console.log("pdf:", out);

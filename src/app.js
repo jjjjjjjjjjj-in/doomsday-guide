@@ -5,6 +5,7 @@
   try { watched = new Set(JSON.parse(localStorage.getItem(STORE_KEY) || "[]")); } catch (e) {}
   const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify([...watched])); } catch (e) {} };
 
+  const EN = document.documentElement.lang === "en";
   const rows = [...document.querySelectorAll(".row[data-slug]")];
   const hideDone = document.getElementById("hide-done");
 
@@ -22,7 +23,7 @@
     };
     [["must", ".row.must"], ["all", ".row:not(.goal)"]].forEach(([key, sel]) => {
       const [done, total] = count(sel);
-      document.getElementById(`progress-${key}`).innerHTML = `${done}<span>/ ${total}本</span>`;
+      document.getElementById(`progress-${key}`).innerHTML = `${done}<span>/ ${total}${EN ? "" : "本"}</span>`;
       document.getElementById(`bar-${key}`).style.width = `${total ? (done / total) * 100 : 0}%`;
     });
   }
@@ -51,7 +52,7 @@
   // 公開日（日本時間 2026/12/18）までの日数
   const release = new Date("2026-12-18T00:00:00+09:00");
   const days = Math.ceil((release - new Date()) / 86400000);
-  document.getElementById("countdown").innerHTML = days > 0 ? `${days}<span>日</span>` : "公開中";
+  document.getElementById("countdown").innerHTML = days > 0 ? `${days}<span>${EN ? "days" : "日"}</span>` : (EN ? "Out now" : "公開中");
 
   paint();
   openFromHash();

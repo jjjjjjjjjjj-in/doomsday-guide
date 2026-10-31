@@ -148,22 +148,36 @@ def jsonld(data):
     return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("</", "<\\/") + "</script>"
 
 
-def head(title, desc, path, prefix="", schema=None):
+SITE_NAMES = {"ja": SITE_NAME, "en": "Doomsday Watch Guide"}
+
+
+def alternates(path):
+    """日本語版と英語版の対応ページ（path は日本語版のパス）"""
+    return (f'<link rel="alternate" hreflang="ja" href="{BASE_URL}{path}">\n'
+            f'<link rel="alternate" hreflang="en" href="{BASE_URL}en/{path}">\n'
+            f'<link rel="alternate" hreflang="x-default" href="{BASE_URL}{path}">')
+
+
+def head(title, desc, path, prefix="", schema=None, lang="ja"):
+    """path は書き出すページのパス。英語版は "en/" から始まる"""
     url = BASE_URL + path
+    ja_path = path[3:] if lang == "en" else path
     verify = f'\n<meta name="google-site-verification" content="{e(GOOGLE_SITE_VERIFICATION)}">' if GOOGLE_SITE_VERIFICATION else ""
     schema_html = "\n" + jsonld(schema) if schema else ""
     adsense = (f'\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ads.ADSENSE_CLIENT}" crossorigin="anonymous"></script>'
                if ads.ADSENSE_CLIENT else "")
     return f"""<!doctype html>
-<html lang="ja">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
+{alternates(ja_path)}
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="{SITE_NAME}">
+<meta property="og:site_name" content="{SITE_NAMES[lang]}">
+<meta property="og:locale" content="{"en_US" if lang == "en" else "ja_JP"}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}">
@@ -268,7 +282,7 @@ def build_index():
   <p class="eyebrow">Unofficial Watch Guide · {total} titles</p>
   <h1>DOOMSDAY<small><span class="nb">アベンジャーズ／</span><span class="nb">ドゥームズデイ</span> <span class="nb">予習ガイド</span></small></h1>
   <p class="lead">マーベルが好きで、ちゃんと理解してから映画館に行きたい人のためのガイドです。全作品に10点満点の重要度をつけました。<strong>重要度5以上の{must_total}本は、必ず観てほしい作品</strong>です。各作品の「詳しく見る」で、あらすじや他作品とのつながり、観なかった場合に分からなくなることも確認できます。</p>
-  <p class="updated-on">最終更新 {UPDATED}</p>
+  <p class="updated-on">最終更新 {UPDATED} ・ <a href="en/" hreflang="en" lang="en">English</a></p>
 </header>
 
 <section class="stats" aria-label="公開までの日数と視聴の進み具合">
@@ -361,7 +375,7 @@ def build_article(a):
         ],
     }
     return head(a["title"] + "｜" + SITE_NAME, a["desc"], f'articles/{a["slug"]}.html', prefix="../", schema=schema) + f"""
-<nav class="crumb"><a href="../">ドゥームズデイ予習ガイド</a> ＞ 解説記事</nav>
+<nav class="crumb"><a href="../">ドゥームズデイ予習ガイド</a> ＞ 解説記事 ・ <a href="../en/articles/{a["slug"]}.html" hreflang="en" lang="en">English</a></nav>
 <article class="article">
   <h1>{e(a["title"])}</h1>
   <p class="updated">最終更新 {a["updated"]}</p>
@@ -434,7 +448,12 @@ def main():
         f.write(build_print(must, "① 必ず観るべき作品", f"重要度5以上の{len(must) - 1}本。"))
     with open(os.path.join(SRC, "print", "all.html"), "w", encoding="utf-8") as f:
         f.write(build_print(TITLES, "② 全作品", f"全{len(TITLES) - 1}本。トビー版スパイダーマンやヴェノムなどの参考作品も含みます。"))
-    print(f"built: {len(TITLES)} titles, {len(ARTICLES)} articles, must {len(must) - 1} titles")
+    import build_en
+    en_pages = build_en.write_all(write)
+    pages += en_pages
+    write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+          + "".join(f"  <url><loc>{BASE_URL}{p}</loc><lastmod>{d}</lastmod></url>\n" for p, d in pages) + "</urlset>\n")
+    print(f"built: {len(TITLES)} titles, {len(ARTICLES)} articles, must {len(must) - 1} titles, English pages {len(en_pages)}")
 
 
 if __name__ == "__main__":
