@@ -5,7 +5,7 @@
 DISNEY_PLUS = ""
 
 # Amazonアソシエイトのトラッキングタグ（例: "yourname-22"）。全作品に「Amazonで探す」ボタンが出る
-AMAZON_TAG = ""
+AMAZON_TAG = "doomsdayguide-22"
 
 # ASPのバナー広告コード（HTMLをそのまま貼る）。top=進み具合の下、middle=リストの上、bottom=ページの最後
 BANNERS = {"top": "", "middle": "", "bottom": ""}

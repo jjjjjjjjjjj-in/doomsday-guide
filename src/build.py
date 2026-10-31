@@ -102,6 +102,8 @@ def head(title, desc, path, prefix=""):
 
 def footer(prefix=""):
     disclosure = '<p>※当サイトはアフィリエイト広告（PR）を利用しています。</p>\n' if ads.enabled() else ""
+    if ads.AMAZON_TAG:
+        disclosure += '<p>Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。</p>\n'
     return banner("bottom") + f"""<footer>
 {disclosure}<p>キャスト情報はマーベル・スタジオ／ディズニーの公式発表に基づいています（最終確認 {UPDATED}）。噂や報道の段階の情報はその旨を明記しています。重要度は公開前の公式情報をもとにした運営者の判断による目安で、公開後の内容を保証するものではありません。</p>
 <p>出典：<a href="https://thewaltdisneycompany.com/news/marvel-studios-avengers-doomsday-cast/" rel="noopener">Marvel Studios Announces 'Avengers: Doomsday' Cast</a>／<a href="https://marvel.disney.co.jp/movie/avengers-doomsday" rel="noopener">『アベンジャーズ／ドゥームズデイ』日本公式サイト</a></p>
