@@ -16,7 +16,7 @@
 - `articles.py`: 解説記事5本。
 - `ads.py`: 広告設定（Amazon タグ doomsdayguide-22、英語版の amazon.com タグ doomsdaygui08-20、もしも経由の楽天 a_id=5875908 など）。「PR」表記とAmazonの表記は自動で出る。誤クリックを誘う広告は入れない。
 - `trailers.py`: 予告編リンク。
-- `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード（HTMLタグの content の値）。
+- `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード。`GA_MEASUREMENT_ID`: Google アナリティクス（全サイト共通 G-KDFL8GPPRZ）。フッターから共通のプライバシーポリシー（https://jjjjjjjjjjj-in.github.io/privacy.html）にリンクする。
 - `site.css` / `app.js` / `sticky.js`: 見た目と動き。白背景、タイトルは濃いグリーン、見出しは紺。
 - 英語版の広告は `ads.py` の `AMAZON_TAG_US`（アメリカのAmazonアソシエイト）を入れると amazon.com に切り替わる。
 - 英語版は /en/ に出力する。`build_en.py` が `src/en/`（`titles_en_*.py` の作品の英文、`articles_en.py` の記事）を使い、並び・重要度・予告編・広告は日本語版と共通。日本語の作品や記事を直したら、英語版の同じ項目も合わせて直す。

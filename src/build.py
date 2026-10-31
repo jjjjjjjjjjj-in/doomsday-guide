@@ -28,6 +28,10 @@ SITE_NAME = "ドゥームズデイ予習ガイド"
 # Google Search Console の「HTMLタグ」で確認するときの content の値（例: "abc123..."）
 GOOGLE_SITE_VERIFICATION = "qCmKqyCaXzHH3V_hEqM1lhQKy9os6X5RIR2zZmw4fZc"
 
+# Google アナリティクスの測定ID（全サイト共通）と、アクセス解析・広告について説明するページ
+GA_MEASUREMENT_ID = "G-KDFL8GPPRZ"
+PRIVACY_URL = "https://jjjjjjjjjjj-in.github.io/privacy.html"
+
 TITLES = TITLES_A + TITLES_B + TITLES_C
 for i, t in enumerate(TITLES, 1):
     t["order"] = i
@@ -164,13 +168,16 @@ def head(title, desc, path, prefix="", schema=None, lang="ja"):
     ja_path = path[3:] if lang == "en" else path
     verify = f'\n<meta name="google-site-verification" content="{e(GOOGLE_SITE_VERIFICATION)}">' if GOOGLE_SITE_VERIFICATION else ""
     schema_html = "\n" + jsonld(schema) if schema else ""
+    analytics = (f'\n<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>\n'
+                 f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_MEASUREMENT_ID}');</script>"
+                 if GA_MEASUREMENT_ID else "")
     adsense = (f'\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ads.ADSENSE_CLIENT}" crossorigin="anonymous"></script>'
                if ads.ADSENSE_CLIENT else "")
     return f"""<!doctype html>
 <html lang="{lang}">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">{analytics}
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
@@ -198,6 +205,7 @@ def footer(prefix=""):
     return banner("bottom") + f"""<footer>
 {disclosure}<p>キャスト情報はマーベル・スタジオ／ディズニーの公式発表に基づいています（最終確認 {UPDATED}）。噂や報道の段階の情報はその旨を明記しています。重要度は公開前の公式情報をもとにした運営者の判断による目安で、公開後の内容を保証するものではありません。</p>
 <p>出典：<a href="https://thewaltdisneycompany.com/news/marvel-studios-avengers-doomsday-cast/" rel="noopener">Marvel Studios Announces 'Avengers: Doomsday' Cast</a>／<a href="https://marvel.disney.co.jp/movie/avengers-doomsday" rel="noopener">『アベンジャーズ／ドゥームズデイ』日本公式サイト</a></p>
+<p>アクセス解析（Googleアナリティクス）と広告の仕組みについては<a href="{PRIVACY_URL}">プライバシーポリシー</a>をご覧ください。</p>
 <p>当サイトは個人が運営する非公式ファンサイトです。Marvel Studios、The Walt Disney Company、Sony Pictures、20th Century Studios とは関係ありません。作品名・キャラクター名は各権利者の商標です。</p>
 <p><a href="{prefix}">トップ</a> ・ <a href="{prefix}articles/cast.html">キャストまとめ</a> ・ <a href="{prefix}articles/x-men.html">X-MEN</a> ・ <a href="{prefix}articles/infinity-saga.html">インフィニティ・サーガ</a> ・ <a href="{prefix}articles/next-generation.html">次世代ヒーロー</a> ・ <a href="{prefix}articles/multiverse.html">マルチバース</a></p>
 </footer>
