@@ -143,6 +143,9 @@ summary { cursor: pointer; font-size: 13.5px; font-weight: 700; color: var(--lin
 .row.goal { background: var(--red); border-color: var(--red); color: var(--on-pill); }
 .row.goal .desc, .row.goal .meta { color: var(--on-pill); opacity: .9; }
 .row.goal .box { border-color: var(--on-pill); }
+.row.goal .trailer { margin-top: 10px; }
+.row.goal .trailer-btn { background: var(--on-pill); border-color: var(--on-pill); color: var(--red); }
+.row.goal .trailer-src { color: var(--on-pill); opacity: .9; }
 .empty { color: var(--muted); text-align: center; padding: 16px; }
 
 /* Article pages */

@@ -208,7 +208,7 @@ def row(t, anchor=True):
   <div class="main">
     <span class="meta"><span>視聴順 {t["order"]:02d}</span><span>作中 {e(t["era"])}</span><span>{e(t["year"])}年・{e(t["kind"])}</span></span>
     <h3 class="title">{e(t["title"])}</h3>
-    <p class="desc">{e(t["line"])}</p>
+    <p class="desc">{e(t["line"])}</p>{trailer_button(t) if t["goal"] else ""}
   </div>
   <span class="pill {imp_class(t)}">{e(imp_text(t))}</span>{detail}
 </li>"""
