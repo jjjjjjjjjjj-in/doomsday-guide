@@ -133,8 +133,6 @@ def footer(prefix=""):
 
 def row(t):
     tags = "".join(f'<span class="tag">{e(CAT_LABEL[c])}</span>' for c in t["cats"] if c != "goal")
-    if t["cast"]:
-        tags += f'<span class="tag cast">出演：{e("、".join(t["cast"]))}</span>'
     detail = ""
     if not t["goal"]:
         events = "".join(f"<li>{e(x)}</li>" for x in t["events"])
@@ -153,6 +151,7 @@ def row(t):
         <div><dt>観なかった場合</dt><dd>{e(t["skip"])}</dd></div>
         <div><dt>ポストクレジット</dt><dd>{e(t["post"])}</dd></div>
       </dl>
+      {ad_buttons(t)}
     </div>
   </details>"""
     return f"""<li class="row{' must' if t['must'] else ''}{' goal' if t['goal'] else ''}" id="{t["slug"]}" data-slug="{t["slug"]}" data-order="{t["order"]}">
@@ -161,7 +160,7 @@ def row(t):
     <span class="meta"><span>視聴順 {t["order"]:02d}</span><span>作中 {e(t["era"])}</span><span>{e(t["year"])}年・{e(t["kind"])}</span></span>
     <h3 class="title">{e(t["title"])}</h3>
     <p class="desc">{e(t["line"])}</p>
-    <span class="tags">{tags}</span>{ad_buttons(t)}
+    <span class="tags">{tags}</span>
   </div>
   <span class="pill {imp_class(t)}">{e(imp_text(t))}</span>{detail}
 </li>"""
