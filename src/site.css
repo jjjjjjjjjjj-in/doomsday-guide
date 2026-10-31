@@ -1,33 +1,21 @@
-/* Layout: 作戦ファイル風。ネイビーの地に、上部カウントダウン＋進捗、下に優先度別のチェックリスト */
+/* Layout: 作戦ファイル風。白い地に、上部カウントダウン＋進捗、下に重要度つきのチェックリスト。どの端末でも白で表示する */
 :root {
-  --bg: #061629;
-  --surface: #0c2240;
-  --surface-2: #112b4f;
-  --line: #1f3d66;
-  --fg: #eef2f8;
-  --muted: #93a6c2;
+  --bg: #ffffff;
+  --surface: #f5f7fb;
+  --surface-2: #e9eef5;
+  --line: #d5deea;
+  --fg: #0b1d36;
+  --muted: #556a88;
   --red: #c8192f;
-  --gold: #e5b21a;
-  --steel: #2a5a94;
-  --grey: #5d6f89;
-  --link: #8cc2ff;
+  --gold: #b58600;
+  --steel: #1d4a80;
+  --grey: #7b8aa1;
+  --link: #1d5fb0;
   --on-pill: #ffffff;
   --on-gold: #1b1405;
   --display: "Anton", "Impact", "Arial Narrow", sans-serif;
   --body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  color-scheme: dark;
-}
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #eef2f7; --surface: #ffffff; --surface-2: #f3f6fb; --line: #d5deea;
-    --fg: #0b1d36; --muted: #556a88; --red: #b5132a; --gold: #c99500; --steel: #1d4a80; --grey: #7b8aa1; --link: #1d5fb0;
-    color-scheme: light;
-  }
-}
-:root[data-theme="light"] {
-  --bg: #eef2f7; --surface: #ffffff; --surface-2: #f3f6fb; --line: #d5deea;
-  --fg: #0b1d36; --muted: #556a88; --red: #b5132a; --gold: #c99500; --steel: #1d4a80; --grey: #7b8aa1; --link: #1d5fb0;
   color-scheme: light;
 }
 
