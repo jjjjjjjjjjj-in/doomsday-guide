@@ -13,6 +13,20 @@ BANNERS = {"top": "", "middle": "", "bottom": ""}
 # Google AdSense のサイト運営者ID（例: "ca-pub-1234567890"）。独自ドメインが必要
 ADSENSE_CLIENT = ""
 
+# 「予習のおとも」に並べるAmazonの商品（表示名, 検索キーワード）。検索キーワードの代わりに "/gp/..." のパスも使える
+# Amazonは、リンクから24時間以内に買われた商品なら、紹介した商品以外でも報酬の対象になる
+AMAZON_PICKS = [
+    ("Fire TV Stick（Disney+をテレビの大画面で）", "Fire TV Stick"),
+    ("マーベルのレゴ", "レゴ マーベル"),
+    ("マーベルのTシャツ", "マーベル Tシャツ"),
+    ("アベンジャーズのフィギュア", "アベンジャーズ フィギュア"),
+    ("マーベルのマグカップ・雑貨", "マーベル グッズ"),
+    ("家で映画館気分：ポップコーン", "ポップコーン"),
+    ("アメコミ（日本語版）", "マーベル アメコミ 邦訳"),
+    ("Amazonタイムセール", "/gp/goldbox"),
+    ("Amazon売れ筋ランキング", "/gp/bestsellers"),
+]
+
 # Disney+（日本）で通常配信されていない作品（ソニー系のスパイダーマン・ヴェノム関連）
 NOT_ON_DISNEY_PLUS = {
     "spider-man-homecoming", "spider-man-far-from-home", "spider-man-no-way-home", "spider-man-brand-new-day",

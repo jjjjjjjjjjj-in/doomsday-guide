@@ -62,6 +62,23 @@ def ad_buttons(t):
     return f'<span class="ad-links">{"".join(out)}<span class="pr">PR</span></span>' if out else ""
 
 
+def amazon_picks():
+    """「予習のおとも」パネル。AMAZON_TAG がないときは出さない"""
+    if not ads.AMAZON_TAG:
+        return ""
+    items = []
+    for label, key in ads.AMAZON_PICKS:
+        path = key if key.startswith("/") else f"/s?k={quote(key)}"
+        sep = "&" if "?" in path else "?"
+        url = f"https://www.amazon.co.jp{path}{sep}tag={quote(ads.AMAZON_TAG)}"
+        items.append(f'<a class="btn ad" href="{e(url)}" target="_blank" rel="sponsored noopener">{e(label)}</a>')
+    return f"""<section class="panel">
+  <h2>予習のおとも <span class="pr">PR</span></h2>
+  <div class="btns">{"".join(items)}</div>
+</section>
+"""
+
+
 def banner(slot):
     code = ads.BANNERS.get(slot, "")
     return f'<aside class="banner" aria-label="広告"><span class="pr">PR</span>{code}</aside>' if code else ""
@@ -182,7 +199,7 @@ def build_index():
   </div>
 </section>
 {banner("top")}
-<section class="panel">
+{amazon_picks()}<section class="panel">
   <h2>印刷用チェックリスト（PDF）</h2>
   <div class="btns">
     <a class="btn primary" href="doomsday-checklist-must.pdf" download>① 必ず観るべき作品（重要度5以上・{must_total}本）</a>
@@ -225,7 +242,7 @@ def build_article(a):
   {a["body"]}
   <p><a class="btn primary" href="../">チェックリストに戻る</a></p>
 </article>
-<section class="panel"><h2>ほかの解説記事</h2><ul class="article-list">{others}</ul></section>
+""" + amazon_picks() + f"""<section class="panel"><h2>ほかの解説記事</h2><ul class="article-list">{others}</ul></section>
 """ + footer(prefix="../") + "</body>\n</html>\n"
 
 
