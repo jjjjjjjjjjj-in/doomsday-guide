@@ -59,7 +59,15 @@ def ad_buttons(t):
     if ads.AMAZON_TAG:
         url = f'https://www.amazon.co.jp/s?k={quote(t["title"] + " Blu-ray")}&tag={quote(ads.AMAZON_TAG)}'
         out.append(f'<a class="btn ad" href="{e(url)}" target="_blank" rel="sponsored noopener">Amazonで探す</a>')
+    if ads.RAKUTEN_TOP:
+        out.append(f'<a class="btn ad" href="{e(rakuten_url(t["title"] + " Blu-ray"))}" target="_blank" rel="sponsored noopener">楽天で探す</a>')
     return f'<span class="ad-links">{"".join(out)}<span class="pr">PR</span></span>' if out else ""
+
+
+def rakuten_url(keyword):
+    """もしも経由で楽天の検索結果に飛ぶリンク（どこでもリンクと同じ形式）"""
+    inner = f"https://search.rakuten.co.jp/search/mall/{quote(keyword)}/"
+    return f"{ads.RAKUTEN_TOP}&url={quote(inner, safe='')}"
 
 
 def amazon_url(key):
