@@ -16,6 +16,7 @@
 - `articles.py`: 解説記事5本。
 - `ads.py`: 広告設定（Amazon タグ doomsdayguide-22、もしも経由の楽天 a_id=5875908 など）。「PR」表記とAmazonの表記は自動で出る。誤クリックを誘う広告は入れない。
 - `trailers.py`: 予告編リンク。
+- `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード（HTMLタグの content の値）。
 - `site.css` / `app.js` / `sticky.js`: 見た目と動き。白背景、タイトルは濃いグリーン、見出しは紺。
 
 ## キャスト情報のルール

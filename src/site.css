@@ -148,6 +148,12 @@ summary { cursor: pointer; font-size: 13.5px; font-weight: 700; color: var(--lin
 .row.goal .trailer-src { color: var(--on-pill); opacity: .9; }
 .empty { color: var(--muted); text-align: center; padding: 16px; }
 
+.hero .updated-on { margin: 0; font-family: var(--mono); font-size: 12px; color: var(--green-soft); }
+.faq { gap: 10px; }
+.faq-item { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; }
+.faq-item h3 { margin: 0 0 4px; font-size: 15.5px; font-weight: 900; color: var(--fg); }
+.faq-item p { margin: 0; color: var(--fg); font-size: 14.5px; }
+
 /* Article pages */
 .crumb { font-size: 13px; }
 .article { display: grid; gap: 4px; max-width: 70ch; }

@@ -3,6 +3,7 @@
 使い方: python3 src/build.py  （リポジトリのルートに index.html などを書き出す）
 """
 import html
+import json
 import os
 import shutil
 import sys
@@ -22,6 +23,10 @@ from trailers import TRAILERS  # noqa: E402
 
 BASE_URL = "https://jjjjjjjjjjj-in.github.io/doomsday-guide/"
 UPDATED = "2026-10-31"
+SITE_NAME = "ドゥームズデイ予習ガイド"
+
+# Google Search Console の「HTMLタグ」で確認するときの content の値（例: "abc123..."）
+GOOGLE_SITE_VERIFICATION = ""
 
 TITLES = TITLES_A + TITLES_B + TITLES_C
 for i, t in enumerate(TITLES, 1):
@@ -138,8 +143,15 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap">')
 
 
-def head(title, desc, path, prefix=""):
+def jsonld(data):
+    """検索エンジン向けの構造化データ"""
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("</", "<\\/") + "</script>"
+
+
+def head(title, desc, path, prefix="", schema=None):
     url = BASE_URL + path
+    verify = f'\n<meta name="google-site-verification" content="{e(GOOGLE_SITE_VERIFICATION)}">' if GOOGLE_SITE_VERIFICATION else ""
+    schema_html = "\n" + jsonld(schema) if schema else ""
     adsense = (f'\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ads.ADSENSE_CLIENT}" crossorigin="anonymous"></script>'
                if ads.ADSENSE_CLIENT else "")
     return f"""<!doctype html>
@@ -151,12 +163,12 @@ def head(title, desc, path, prefix=""):
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="ドゥームズデイ予習ガイド">
+<meta property="og:site_name" content="{SITE_NAME}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{BASE_URL}og.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">{verify}{schema_html}
 {FONTS}
 <link rel="stylesheet" href="{prefix}assets/site.css">{adsense}
 </head>
@@ -224,11 +236,39 @@ def build_index():
     must_rows = "".join(row(t) for t in TITLES if t["must"] or t["goal"])
     all_rows = "".join(row(t, anchor=not (t["must"] or t["goal"])) for t in TITLES)
 
-    return head("ドゥームズデイ予習ガイド｜観る順番と重要度つき全作品リスト", desc, "") + f"""
+    top = [t for t in TITLES if t["imp"] == 10]
+    x_must = [t for t in TITLES if "xmen" in t["cats"] and t["must"]]
+    faq = [
+        ("ドゥームズデイの前に、マーベル作品を全部観る必要はありますか？",
+         f"全部観なくても楽しめます。このガイドでは重要度5以上の{must_total}本を「必ず観るべき作品」にしています。時間がない人は、重要度10の作品から観てください。"),
+        ("何から観ればいいですか？",
+         "チェックリストの視聴順01『キャプテン・アメリカ／ザ・ファースト・アベンジャー』から順に観るのがおすすめです。物語の時系列順に並べているので、話のつながりが分かりやすくなります。"),
+        ("一番重要な作品はどれですか？",
+         "重要度10の作品です：" + "、".join(f"『{t['title']}』" for t in top if not t["goal"]) + "。"),
+        ("X-MENの映画も観たほうがいいですか？",
+         "旧X-MENのメンバーがドゥームズデイに戻ってくるので、" + "、".join(f"『{t['title']}』" for t in x_must) + "は観ておくのがおすすめです。詳しくはX-MENの解説記事にまとめています。"),
+        ("『アベンジャーズ／ドゥームズデイ』の公開日はいつですか？",
+         "2026年12月18日（金）に日米同時公開です。"),
+    ]
+    faq_html = "".join(f"<div class=\"faq-item\"><h3>{e(q)}</h3><p>{e(a)}</p></div>" for q, a in faq)
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebSite", "name": SITE_NAME, "url": BASE_URL, "inLanguage": "ja"},
+            {"@type": "ItemList", "name": f"ドゥームズデイの前に必ず観るべき作品（重要度5以上・{must_total}本）",
+             "itemListOrder": "https://schema.org/ItemListOrderAscending",
+             "numberOfItems": must_total,
+             "itemListElement": [{"@type": "ListItem", "position": i, "name": t["title"], "url": f'{BASE_URL}#{t["slug"]}'}
+                                 for i, t in enumerate([t for t in TITLES if t["must"]], 1)]},
+        ],
+    }
+
+    return head(f"アベンジャーズ／ドゥームズデイの見る順番｜予習すべきMCU作品{must_total}本と全作品の重要度", desc, "", schema=schema) + f"""
 <header class="hero">
   <p class="eyebrow">Unofficial Watch Guide · {total} titles</p>
   <h1>DOOMSDAY<small><span class="nb">アベンジャーズ／</span><span class="nb">ドゥームズデイ</span> <span class="nb">予習ガイド</span></small></h1>
   <p class="lead">マーベルが好きで、ちゃんと理解してから映画館に行きたい人のためのガイドです。全作品に10点満点の重要度をつけました。<strong>重要度5以上の{must_total}本は、必ず観てほしい作品</strong>です。各作品の「詳しく見る」で、あらすじや他作品とのつながり、観なかった場合に分からなくなることも確認できます。</p>
+  <p class="updated-on">最終更新 {UPDATED}</p>
 </header>
 
 <section class="stats" aria-label="公開までの日数と視聴の進み具合">
@@ -288,6 +328,11 @@ def build_index():
   <header><h2><span class="step">②</span>全作品<span class="count">{total}本</span></h2><p>重要度4以下や参考作品も含めた全作品です。時間がある人はこちらで。</p></header>
   <ol class="list">{all_rows}</ol>
 </section>
+
+<section class="tier-section faq" id="faq">
+  <header><h2>よくある質問</h2></header>
+  {faq_html}
+</section>
 """ + footer() + sticky_bar() + '<script src="assets/app.js"></script>\n</body>\n</html>\n'
 
 
@@ -301,7 +346,21 @@ def inject_article_picks(a):
 
 def build_article(a):
     others = "".join(f'<li><a href="{o["slug"]}.html">{e(o["title"])}</a></li>' for o in ARTICLES if o["slug"] != a["slug"])
-    return head(a["title"] + "｜ドゥームズデイ予習ガイド", a["desc"], f'articles/{a["slug"]}.html', prefix="../") + f"""
+    url = f'{BASE_URL}articles/{a["slug"]}.html'
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "Article", "headline": a["title"], "description": a["desc"], "inLanguage": "ja",
+             "datePublished": a["updated"], "dateModified": a["updated"], "mainEntityOfPage": url,
+             "image": f"{BASE_URL}og.png",
+             "author": {"@type": "Organization", "name": SITE_NAME, "url": BASE_URL},
+             "publisher": {"@type": "Organization", "name": SITE_NAME, "url": BASE_URL}},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": SITE_NAME, "item": BASE_URL},
+                {"@type": "ListItem", "position": 2, "name": a["title"], "item": url}]},
+        ],
+    }
+    return head(a["title"] + "｜" + SITE_NAME, a["desc"], f'articles/{a["slug"]}.html', prefix="../", schema=schema) + f"""
 <nav class="crumb"><a href="../">ドゥームズデイ予習ガイド</a> ＞ 解説記事</nav>
 <article class="article">
   <h1>{e(a["title"])}</h1>
@@ -363,9 +422,9 @@ def main():
     for a in ARTICLES:
         write(f'articles/{a["slug"]}.html', build_article(a))
 
-    pages = [""] + [f'articles/{a["slug"]}.html' for a in ARTICLES]
+    pages = [("", UPDATED)] + [(f'articles/{a["slug"]}.html', a["updated"]) for a in ARTICLES]
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-          + "".join(f"  <url><loc>{BASE_URL}{p}</loc><lastmod>{UPDATED}</lastmod></url>\n" for p in pages) + "</urlset>\n")
+          + "".join(f"  <url><loc>{BASE_URL}{p}</loc><lastmod>{d}</lastmod></url>\n" for p, d in pages) + "</urlset>\n")
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}sitemap.xml\n")
 
     # PDF用HTMLは src/print に書き出し、render.js でPDF化する
