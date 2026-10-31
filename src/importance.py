@@ -57,6 +57,8 @@ IMPORTANCE = {
     "x2": 9,
     "x-men-last-stand": 6,          # 元のPDFにない追加作品（ビースト役の初登場）
     "x-men-days-of-future-past": 6,  # 元のPDFにない追加作品（旧X-MENの結末）
+    "x-men-apocalypse": 6,         # 運営者の予想（ドゥームズデイの旧X-MENはこの流れの世界から来る）で追加。点数は仮
+    "x-men-dark-phoenix": 6,       # 同上
     "logan": 4,                      # 元のPDFにない追加作品（ウルヴァリンは出演未発表）
     "deadpool-and-wolverine": 10,
     "agatha-all-along": 6,
