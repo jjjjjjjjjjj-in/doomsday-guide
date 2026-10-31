@@ -110,6 +110,13 @@ ARTICLES_EN = [
 <li><a href="../#deadpool-and-wolverine">Deadpool &amp; Wolverine</a>: The Fox world joins the MCU multiverse, and Gambit makes his debut.</li>
 </ul>
 
+<h2>How do Cyclops and Professor X come back?</h2>
+<p>Cyclops and Professor X die in <a href="../#x-men-last-stand">X-Men: The Last Stand</a>. History is then rewritten in <a href="../#x-men-days-of-future-past">Days of Future Past</a>, which ends with Cyclops alive again.</p>
+<p>In an August 2025 interview, Cyclops actor James Marsden joked: "I'm dead. Well, maybe not." Which point in time his Cyclops comes from has not been officially revealed.</p>
+
+<h2>In memory of Eric Dane</h2>
+<p>Eric Dane, who played the mutant Multiple Man in <a href="../#x-men-last-stand">X-Men: The Last Stand</a>, died of complications from ALS on February 19, 2026, at the age of 53. Our thoughts are with his family and friends.</p>
+
 <h2>Our guess: do the X-Men come from the world of Apocalypse and Dark Phoenix?</h2>
 <p class="callout">This section is the site owner's own guess, not an official announcement.</p>
 <p>We think the X-Men who appear in Doomsday probably come from the world of <a href="../#x-men-apocalypse">X-Men: Apocalypse</a> and <a href="../#x-men-dark-phoenix">Dark Phoenix</a>. History is rewritten at the end of Days of Future Past, and these two films tell what happens next in that new history.</p>
