@@ -26,7 +26,7 @@ UPDATED = "2026-10-31"
 SITE_NAME = "ドゥームズデイ予習ガイド"
 
 # Google Search Console の「HTMLタグ」で確認するときの content の値（例: "abc123..."）
-GOOGLE_SITE_VERIFICATION = ""
+GOOGLE_SITE_VERIFICATION = "qCmKqyCaXzHH3V_hEqM1lhQKy9os6X5RIR2zZmw4fZc"
 
 TITLES = TITLES_A + TITLES_B + TITLES_C
 for i, t in enumerate(TITLES, 1):
