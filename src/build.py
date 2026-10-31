@@ -18,7 +18,7 @@ from titles_c import TITLES_C  # noqa: E402
 from articles import ARTICLES  # noqa: E402
 from importance import IMPORTANCE, MUST_LINE  # noqa: E402
 import ads  # noqa: E402
-from trailers import TRAILERS, search_link  # noqa: E402
+from trailers import TRAILERS  # noqa: E402
 
 BASE_URL = "https://jjjjjjjjjjj-in.github.io/doomsday-guide/"
 UPDATED = "2026-10-31"
@@ -51,12 +51,9 @@ CAT_LABEL = {"xmen": "X-MEN", "infinity": "インフィニティ・サーガ", "
 
 
 def trailer_button(t):
-    """確認済みの公式予告編があればその動画へ、なければ公式チャンネル内の検索へ、別タブで開くリンクを出す"""
+    """確認済みの公式予告編があるときだけ、別タブで開くリンクを出す（チャンネル検索のリンクは出さない）"""
     entry = TRAILERS.get(t["slug"])
     label = "公式予告編を見る（YouTube）"
-    if not entry:
-        entry = search_link(t["slug"])
-        label = "公式チャンネルで予告編を探す（YouTube）"
     if not entry:
         return ""
     url, channel = entry

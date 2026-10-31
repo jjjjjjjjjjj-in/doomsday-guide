@@ -22,7 +22,7 @@
 公式発表と噂を必ず分ける。ヒュー・ジャックマン、トビー・マグワイアは2026-10-31時点で噂の段階。
 
 ## 次にやること: 公式予告編の確認（YouTube への接続が必要）
-`src/trailers.py` の `TRAILERS` に、確認できた動画だけを登録する。登録した作品は「公式予告編を見る（YouTube）」ボタンになり、未登録の作品は公式チャンネル内の検索リンクのまま。
+`src/trailers.py` の `TRAILERS` に、確認できた動画だけを登録する。登録した作品だけに「公式予告編を見る（YouTube）」ボタンが出る。未登録の作品にはボタンを出さない（運営者の希望で、公式チャンネル内の検索リンクは使わない）。
 - 映画会社・配給会社の公式チャンネル（Marvel Entertainment @marvel、Sony Pictures @SonyPictures、20th Century Studios @20thCenturyStudios、日本の公式チャンネルなど）の動画だけ。
 - 各候補を `https://www.youtube.com/oembed?format=json&url=<動画URL>` で取得し、author_name（チャンネル）と title（作品名）が一致するものだけ採用する。確認できない作品は登録しない。推測したURLは使わない。
 - 先に `CHANNELS` の3つのチャンネルURLが本物か、チャンネルページで確認する。
