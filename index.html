@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ドゥームズデイ予習ガイド</title>
+<meta name="description" content="『アベンジャーズ：ドゥームズデイ』の前に観ておくべきMCU・関連作品65本を、時系列・重要度つきのチェックリストで整理した非公式ファンガイド。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: 作戦ファイル風。ネイビーの地に、上部カウントダウン＋進捗、下に時系列チェックリストを一列で */
+:root {
+  --bg: #061629;
+  --surface: #0c2240;
+  --surface-2: #112b4f;
+  --line: #1f3d66;
+  --fg: #eef2f8;
+  --muted: #93a6c2;
+  --red: #c8192f;
+  --gold: #e5b21a;
+  --steel: #2a5a94;
+  --grey: #5d6f89;
+  --on-pill: #ffffff;
+  --on-gold: #1b1405;
+  --display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #eef2f7; --surface: #ffffff; --surface-2: #f3f6fb; --line: #d5deea;
+    --fg: #0b1d36; --muted: #556a88; --red: #b5132a; --gold: #c99500; --steel: #1d4a80; --grey: #7b8aa1;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #eef2f7; --surface: #ffffff; --surface-2: #f3f6fb; --line: #d5deea;
+  --fg: #0b1d36; --muted: #556a88; --red: #b5132a; --gold: #c99500; --steel: #1d4a80; --grey: #7b8aa1;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 15px; line-height: 1.7;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 880px; margin: 0 auto; padding-block: 28px 56px; display: grid; gap: 28px; }
+
+/* Hero */
+.hero { display: grid; gap: 14px; border-left: 4px solid var(--red); padding-left: 18px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .16em; color: var(--gold); text-transform: uppercase; margin: 0; }
+h1 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(44px, 11vw, 88px); line-height: .95; letter-spacing: .01em; text-wrap: balance; }
+h1 small { display: block; font-family: var(--body); font-weight: 900; font-size: clamp(20px, 4.6vw, 30px); letter-spacing: .02em; margin-top: 8px; }
+.lead { margin: 0; color: var(--muted); max-width: 60ch; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 6px; }
+.stat-label { font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+.stat-num { font-family: var(--display); font-size: 44px; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat-num span { font-family: var(--body); font-size: 15px; font-weight: 700; margin-left: 4px; }
+.bar { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--red), var(--gold)); transition: width .3s ease; }
+
+/* Controls */
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { font: inherit; font-size: 14px; font-weight: 700; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: var(--on-pill); }
+.chip:focus-visible, .row input:focus-visible + .box, .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.toggle { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; color: var(--muted); margin-left: auto; cursor: pointer; }
+
+/* Note */
+.note { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 14px; color: var(--muted); }
+.note strong { color: var(--gold); }
+
+/* List */
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.row label { display: grid; grid-template-columns: 24px 1fr auto; gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; cursor: pointer; }
+.row.official label { border-left: 3px solid var(--gold); }
+.row input { position: absolute; opacity: 0; pointer-events: none; }
+.box { width: 22px; height: 22px; border: 2px solid var(--muted); border-radius: 5px; margin-top: 2px; display: grid; place-items: center; }
+.row input:checked + .box { background: var(--red); border-color: var(--red); }
+.row input:checked + .box::after { content: ""; width: 6px; height: 11px; border: solid var(--on-pill); border-width: 0 2.5px 2.5px 0; transform: translateY(-1px) rotate(45deg); }
+.row.done .title { text-decoration: line-through; text-decoration-color: var(--red); color: var(--muted); }
+.main { min-width: 0; display: grid; gap: 2px; }
+.meta { font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.meta .tag { color: var(--gold); }
+.title { font-weight: 900; font-size: 16px; line-height: 1.45; }
+.desc { font-size: 13.5px; color: var(--muted); }
+.links { display: flex; gap: 8px; margin-top: 6px; }
+.btn { font-size: 12.5px; font-weight: 700; color: var(--fg); background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; padding: 3px 10px; text-decoration: none; }
+.pill { font-family: var(--mono); font-size: 12px; font-weight: 500; border-radius: 99px; padding: 3px 10px; white-space: nowrap; color: var(--on-pill); background: var(--grey); font-variant-numeric: tabular-nums; }
+.pill.p10 { background: var(--red); }
+.pill.p8 { background: var(--gold); color: var(--on-gold); }
+.pill.p5 { background: var(--steel); }
+.pill.ref { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+.goal label { background: var(--red); border-color: var(--red); color: var(--on-pill); }
+.goal .desc, .goal .meta, .goal .meta .tag { color: var(--on-pill); opacity: .9; }
+.goal .pill { background: var(--on-pill); color: var(--red); }
+.goal .box { border-color: var(--on-pill); }
+.empty { color: var(--muted); text-align: center; padding: 24px; }
+
+footer { font-size: 12.5px; color: var(--muted); display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 16px; }
+footer p { margin: 0; }
+
+@media (max-width: 520px) {
+  .row label { grid-template-columns: 22px 1fr; }
+  .row .pill { grid-column: 2; justify-self: start; }
+  .toggle { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Unofficial Watch Guide · 65 titles</p>
+    <h1>DOOMSDAY<small>アベンジャーズ：ドゥームズデイ 予習ガイド</small></h1>
+    <p class="lead">公開までに観ておきたいMCU・関連作品を、物語の時系列順に並べたチェックリストです。時間がない人は「公式15」か「重要度8以上」に絞って観れば、本編の流れがつかめます。</p>
+  </header>
+
+  <section class="stats" aria-label="公開までの日数と視聴の進み具合">
+    <div class="stat">
+      <div class="stat-label">公開まで（2026年12月18日 米国公開予定）</div>
+      <div class="stat-num" id="countdown">--<span>日</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-label" id="progress-label">視聴済み</div>
+      <div class="stat-num" id="progress-num">0<span>/ 65本</span></div>
+      <div class="bar" aria-hidden="true"><i id="progress-bar"></i></div>
+    </div>
+  </section>
+
+  <div class="controls" role="group" aria-label="表示する作品の絞り込み">
+    <button class="chip" id="f-all" data-filter="all" aria-pressed="true">すべて</button>
+    <button class="chip" id="f-official" data-filter="official" aria-pressed="false">公式15</button>
+    <button class="chip" id="f-high" data-filter="high" aria-pressed="false">重要度8以上</button>
+    <label class="toggle"><input type="checkbox" id="hide-done"> 観た作品を隠す</label>
+  </div>
+
+  <p><a class="btn" href="doomsday-checklist.pdf" download>印刷用チェックリスト（PDF）をダウンロード</a></p>
+
+  <p class="note"><strong>見る順番のポイント：</strong>『ロキ』Season 1は『エンドゲーム』直後の物語なので、エンドゲームを観たらすぐにS1→S2と続けて観てください。TVA・別宇宙の作品は、無理に暦年へ当てはめず理解しやすい位置に置いています。</p>
+
+  <ol class="list" id="list"></ol>
+
+  <footer>
+    <p id="ad-disclosure" hidden>※当サイトはアフィリエイト広告（PR）を利用しています。</p>
+    <p>並び順はDisney+公式のMCU時系列を基準に、物語のつながりを優先して整理しています。追加作品の重要度は参考です。VisionQuestは米Marvel公式の発表（2026年5月12日）に基づき、日本の配信開始日は未確認です。</p>
+    <p>当サイトは個人が運営する非公式ファンサイトです。Marvel Studios、The Walt Disney Company、Sony Pictures とは関係ありません。作品名・キャラクター名は各権利者の商標です。</p>
+  </footer>
+</div>
+
+<script>
+// アフィリエイトリンク。URLを入れた作品だけ「配信をチェック」ボタンが出る（例: { "03": "https://..." }）
+const AFFILIATE = {};
+
+// [No, 作中年代, タイトル, 概要, 重要度(数値 or 文字), 公開年, 公式15]
+const TITLES = [
+  ["01","1940年代","キャプテン・アメリカ／ザ・ファースト・アベンジャー","スティーブ誕生、テッセラクト、後のアベンジャーズの土台。",8,"2011",1],
+  ["02","1995年","キャプテン・マーベル","キャロルと若きフューリー。宇宙勢力とスクラルの背景を補う。",5,"2019",0],
+  ["03","2010年","アイアンマン","トニー・スタークがアイアンマンになる原点。MCUの出発点。",9,"2008",0],
+  ["04","2011年","アイアンマン2","ウォーマシン、ナターシャ、アベンジャーズ結成前夜の流れ。",5,"2010",0],
+  ["05","2011年","インクレディブル・ハルク","ブルース・バナーとハルクの基本設定。ロス将軍も登場。",4,"2008",0],
+  ["06","2011年","マイティ・ソー","ソー、ロキ、アスガルドの関係を把握する導入。",6,"2011",0],
+  ["07","2012年","アベンジャーズ","ヒーロー初結集。ロキとの戦いでアベンジャーズが成立。",10,"2012",1],
+  ["08","2013年","マイティ・ソー／ダーク・ワールド","リアリティ・ストーンとロキ周辺の重要補強。",5,"2013",0],
+  ["09","2013年","アイアンマン3","ニューヨーク決戦後のトニーを描く個人編。",4,"2013",0],
+  ["10","2014年","キャプテン・アメリカ／ウィンター・ソルジャー","バッキー、ヒドラ、S.H.I.E.L.D.崩壊。地上側の大転換点。",8,"2014",0],
+  ["11","2014年","ガーディアンズ・オブ・ギャラクシー","スター・ロードら結成。宇宙側とパワー・ストーンの導入。",6,"2014",0],
+  ["12","2014年","ガーディアンズ・オブ・ギャラクシー：リミックス","ガーディアンズの家族関係とクイルの背景を補完。",5,"2017",0],
+  ["13","2014年（Vol.2後）","アイ・アム・グルート Season 1","ベビー・グルート中心の短編。ガーディアンズの小話集。",2,"2022",0],
+  ["14","2014年（Vol.2後）","アイ・アム・グルート Season 2","短編アニメ第2弾。グルートとガーディアンズ周辺の補足。",2,"2023",0],
+  ["15","2015年","アベンジャーズ／エイジ・オブ・ウルトロン","ワンダとヴィジョン誕生。後の分裂につながる重要作。",9,"2015",0],
+  ["16","2015年","アントマン","スコット・ラングと量子世界の入口を示す。",5,"2015",0],
+  ["17","2016年","シビル・ウォー／キャプテン・アメリカ","アベンジャーズ分裂。サム、バッキー、トニーらの関係が大きく変化。",9,"2016",0],
+  ["18","2016年","ブラック・ウィドウ","『シビル・ウォー』直後。エレーナとレッド・ガーディアンを紹介。",5,"2021",0],
+  ["19","2016年","ブラックパンサー","ティ・チャラ、シュリ、ワカンダの政治と技術を描く。",6,"2018",0],
+  ["20","2016年","スパイダーマン：ホームカミング","MCU版ピーターの成長とトニーとの関係を描く。",5,"2017",0],
+  ["21","2016-17年","ドクター・ストレンジ","ストレンジの原点。魔術と多次元世界の基本概念を学べる。",8,"2016",0],
+  ["22","2017年","マイティ・ソー バトルロイヤル","ソー、ロキ、ハルク。終盤が『インフィニティ・ウォー』へ直結。",7,"2017",0],
+  ["23","2018年","アントマン＆ワスプ","量子世界を掘り下げ、『エンドゲーム』の重要要素につながる。",6,"2018",0],
+  ["24","2018年","アベンジャーズ／インフィニティ・ウォー","サノスとの全面戦争。インフィニティ・サーガ最大の転換点。",10,"2018",1],
+  ["25","2018-23年","アベンジャーズ／エンドゲーム","時間移動でサノス決着。視聴後すぐ『ロキS1』へ進むと理解しやすい。",10,"2019",1],
+  ["26","2012分岐→TVA","ロキ Season 1","『エンドゲーム』で生じた2012年の分岐から開始。TVAへ。Endgame直後に視聴推奨。",10,"2021",1],
+  ["27","TVA／時間軸外","ロキ Season 2","Season1直後から続く。通常の暦年に置けないため、物語の因果を優先してS1の直後に配置。",10,"2023",1],
+  ["28","2023年","ワンダヴィジョン","エンドゲーム後のワンダとヴィジョン。魔術サイドの大きな変化。",8,"2021",0],
+  ["29","2024年","シャン・チー／テン・リングスの伝説","シャン・チーとテン・リングスの力を紹介。公式15作品の一つ。",8,"2021",1],
+  ["30","2024年","ファルコン＆ウィンター・ソルジャー","サムが新キャプテン・アメリカになる過程とバッキーのその後。",8,"2021",0],
+  ["31","2024年","スパイダーマン：ファー・フロム・ホーム","エンドゲーム後の世界でのピーターを描く。",5,"2019",0],
+  ["32","別宇宙","ヴェノム","トム・ハーディ版エディとシンビオートの出会い。トビー版とは別世界。","参考","2018",0],
+  ["33","別宇宙","ヴェノム：レット・ゼア・ビー・カーネイジ","カーネイジとの対決。エンドクレジットが『ノー・ウェイ・ホーム』につながる。","参考","2021",0],
+  ["34","2024年","スパイダーマン：ノー・ウェイ・ホーム","別世界の人物が616に流入。マルチバース問題が本格化する。",10,"2021",1],
+  ["35","2024年","エターナルズ","古代から続く存在を描く独立色の強い物語。",3,"2021",0],
+  ["36","2025年","ドクター・ストレンジ／マルチバース・オブ・マッドネス","ワンダとストレンジを中心にマルチバースを本格的に扱う重要作。",10,"2022",1],
+  ["37","2024-25年","ホークアイ","クリント、ケイト、エレーナ、キングピン周辺を補完。",4,"2021",0],
+  ["38","2025年","ムーンナイト","コンスとマーク／スティーヴンを描く独立色の強い作品。",3,"2022",0],
+  ["39","2025年","ブラックパンサー／ワカンダ・フォーエバー","シュリ、ネイモア、現在のワカンダを理解する重要作。",8,"2022",1],
+  ["40","2025年","エコー","マヤ・ロペスとキングピン周辺のストリート系作品。",3,"2024",0],
+  ["41","2025年","シー・ハルク：ザ・アトーニー","ジェニファー・ウォルターズ中心の法廷コメディ。",3,"2022",0],
+  ["42","2025年","ミズ・マーベル","カマラ・カーンの原点。若手ヒーロー側の補足。",3,"2022",0],
+  ["43","2025年","ソー：ラブ＆サンダー","エンドゲーム後のソーを描く。冒頭にガーディアンズも登場。",4,"2022",0],
+  ["44","2025年","ウェアウルフ・バイ・ナイト","特殊プレゼン作品。ホラー寄りの独立エピソード。",2,"2022",0],
+  ["45","2025年（年末）","ガーディアンズ・オブ・ギャラクシー：ホリデー・スペシャル","短編特別編。マンティスの秘密やVol.3前のガーディアンズ状況を補完。",4,"2022",0],
+  ["46","2025年","アントマン＆ワスプ：クアントマニア","量子世界とカーン周辺の背景を補う。",5,"2023",0],
+  ["47","2025年","ガーディアンズ・オブ・ギャラクシー：VOLUME 3","ガーディアンズの一区切り。ロケットの過去と現在のチームを描く。",5,"2023",0],
+  ["48","2025年","シークレット・インベージョン","フューリーとスクラルを中心に地球側の緊張を描く。",3,"2023",0],
+  ["49","2025年","マーベルズ","キャロル、モニカ、カマラを軸に宇宙側と別世界接続を描く。",4,"2023",0],
+  ["50","別宇宙","ヴェノム：ザ・ラストダンス","トム・ハーディ版シリーズ第3作。エディとヴェノムの逃亡と最終章。","参考","2024",0],
+  ["51","別宇宙","X-メン","旧X-MEN世界の導入。『デッドプール＆ウルヴァリン』前の予習として視聴。",8,"2000",1],
+  ["52","別宇宙","X-MEN2","旧X-MEN世界をさらに理解する続編。『Doomsday』公式15作品。",9,"2003",1],
+  ["53","別宇宙／TVA","デッドプール＆ウルヴァリン","Fox系世界とMCU、TVAが接続。X-MEN系予習後に見ると理解しやすい。",10,"2024",1],
+  ["54","2025年","アガサ・オール・アロング","『ワンダヴィジョン』後の魔術サイドを補完。",4,"2024",0],
+  ["55","2025年","デアデビル：ボーン・アゲイン Season 1","マット・マードックとキングピンの現在地を描くストリート側作品。",3,"2025",0],
+  ["56","2025年","キャプテン・アメリカ：ブレイブ・ニュー・ワールド","サム・ウィルソンが新キャプテンとして立つ現在地を描く。",9,"2025",1],
+  ["57","別宇宙","ファンタスティック4：ファースト・ステップ","Earth-616外のファンタスティック4。Doomsday直前予習の中核として終盤に配置。",10,"2025",1],
+  ["58","2025年","サンダーボルツ*","地上側の新チーム結成。『Doomsday』前の重要な到達点。",10,"2025",1],
+  ["59","2025年","アイアンハート","リリ・ウィリアムズを中心に技術と魔術の衝突を描く。",3,"2025",0],
+  ["60","2026年","スパイダーマン：ブラン・ニュー・デイ","世界がピーターの名を知らない中、フルタイムのスパイダーマンとして進む次章。",9,"2026",0],
+  ["61","年代未公表","ビジョンクエスト（VisionQuest）","ヴィジョンを描く新シリーズ。Disney+：2026/10/14予定（米公式発表）。","未評価","2026予定",0],
+  ["62","別宇宙","スパイダーマン（トビー版）","トビー版ピーターの原点。グリーン・ゴブリンとの関係を描く。","参考","2002",0],
+  ["63","別宇宙","スパイダーマン2（トビー版）","ドック・オク登場。ピーターの葛藤とヒーローとしての責任を描く。","参考","2004",0],
+  ["64","別宇宙","スパイダーマン3（トビー版）","サンドマン、黒いスーツ、トファー・グレイス版ヴェノムが登場。","参考","2007",0],
+  ["65","目的作品","アベンジャーズ：ドゥームズデイ","3つの異なる宇宙のヒーローが衝突し、重大な脅威に立ち向かう本リストの到達点。",10,"2026",1],
+];
+
+const STORE_KEY = "doomsday-watched-v1";
+let watched = new Set();
+try { watched = new Set(JSON.parse(localStorage.getItem(STORE_KEY) || "[]")); } catch (e) {}
+const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify([...watched])); } catch (e) {} };
+
+let filter = "all";
+const hideDone = document.getElementById("hide-done");
+const list = document.getElementById("list");
+
+const pillClass = (imp) => typeof imp !== "number" ? "ref" : imp >= 10 ? "p10" : imp >= 8 ? "p8" : imp >= 5 ? "p5" : "";
+const pillText = (imp) => typeof imp === "number" ? `重要度 ${imp}/10` : imp;
+const inFilter = (t) => filter === "official" ? t[6] === 1 : filter === "high" ? (typeof t[4] === "number" && t[4] >= 8) : true;
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function render() {
+  const shown = TITLES.filter(inFilter);
+  const rows = shown.filter((t) => !(hideDone.checked && watched.has(t[0])));
+  list.innerHTML = rows.length ? rows.map((t) => {
+    const [no, era, title, desc, imp, year, official] = t;
+    const done = watched.has(no);
+    const aff = AFFILIATE[no];
+    const cls = ["row", official ? "official" : "", done ? "done" : "", no === "65" ? "goal" : ""].join(" ");
+    return `<li class="${cls}"><label>
+      <input type="checkbox" data-no="${no}" ${done ? "checked" : ""} aria-label="${esc(title)}を観た">
+      <span class="box" aria-hidden="true"></span>
+      <span class="main">
+        <span class="meta"><span>No.${no}</span><span>作中 ${esc(era)}</span><span>公開 ${esc(year)}</span>${official ? '<span class="tag">★ 公式15</span>' : ""}</span>
+        <span class="title">${esc(title)}</span>
+        <span class="desc">${esc(desc)}</span>
+        ${aff ? `<span class="links"><a class="btn" href="${esc(aff)}" target="_blank" rel="sponsored noopener">配信をチェック</a></span>` : ""}
+      </span>
+      <span class="pill ${pillClass(imp)}">${esc(pillText(imp))}</span>
+    </label></li>`;
+  }).join("") : '<li class="empty">この条件の作品はすべて観終わりました。</li>';
+
+  const doneCount = shown.filter((t) => watched.has(t[0])).length;
+  const label = { all: "視聴済み（すべて）", official: "視聴済み（公式15）", high: "視聴済み（重要度8以上）" }[filter];
+  document.getElementById("progress-label").textContent = label;
+  document.getElementById("progress-num").innerHTML = `${doneCount}<span>/ ${shown.length}本</span>`;
+  document.getElementById("progress-bar").style.width = `${shown.length ? (doneCount / shown.length) * 100 : 0}%`;
+}
+
+list.addEventListener("change", (e) => {
+  const no = e.target.dataset.no;
+  if (!no) return;
+  e.target.checked ? watched.add(no) : watched.delete(no);
+  save();
+  render();
+});
+document.querySelectorAll(".chip").forEach((btn) => btn.addEventListener("click", () => {
+  filter = btn.dataset.filter;
+  document.querySelectorAll(".chip").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+  render();
+}));
+hideDone.addEventListener("change", render);
+
+// 公開日（日本時間 2026/12/18）までの日数
+const release = new Date("2026-12-18T00:00:00+09:00");
+const days = Math.ceil((release - new Date()) / 86400000);
+document.getElementById("countdown").innerHTML = days > 0 ? `${days}<span>日</span>` : "公開中";
+
+document.getElementById("ad-disclosure").hidden = Object.keys(AFFILIATE).length === 0;
+render();
+</script>
+</body>
+</html>
