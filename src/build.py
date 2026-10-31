@@ -79,6 +79,8 @@ def amazon_picks(heading="予習のおとも"):
     if not ads.AMAZON_TAG:
         return ""
     items = [amazon_links(ads.AMAZON_PICKS)]
+    if ads.RAKUTEN_TOP:
+        items.append(f'<a class="btn ad" href="{e(ads.RAKUTEN_TOP)}" target="_blank" rel="sponsored noopener">楽天市場でお買い物</a>')
     return f"""<section class="panel">
   <h2>{e(heading)} <span class="pr">PR</span></h2>
   <div class="btns">{"".join(items)}</div>

@@ -7,6 +7,10 @@ DISNEY_PLUS = ""
 # Amazonアソシエイトのトラッキングタグ（例: "yourname-22"）。全作品に「Amazonで探す」ボタンが出る
 AMAZON_TAG = "doomsdayguide-22"
 
+# もしもアフィリエイト経由の楽天市場リンク（a_id はもしもの広告コードに入っているあなた専用の番号）
+MOSHIMO_A_ID = "5875908"
+RAKUTEN_TOP = f"https://af.moshimo.com/af/c/click?a_id={MOSHIMO_A_ID}&p_id=54&pc_id=54&pl_id=616" if MOSHIMO_A_ID else ""
+
 # ASPのバナー広告コード（HTMLをそのまま貼る）。top=進み具合の下、middle=リストの上、bottom=ページの最後
 BANNERS = {"top": "", "middle": "", "bottom": ""}
 
@@ -49,4 +53,4 @@ NOT_ON_DISNEY_PLUS = {
 
 
 def enabled():
-    return bool(DISNEY_PLUS or AMAZON_TAG or ADSENSE_CLIENT or any(BANNERS.values()))
+    return bool(DISNEY_PLUS or AMAZON_TAG or RAKUTEN_TOP or ADSENSE_CLIENT or any(BANNERS.values()))
