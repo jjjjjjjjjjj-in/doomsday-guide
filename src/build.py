@@ -6,6 +6,7 @@ import html
 import os
 import shutil
 import sys
+from urllib.parse import quote
 
 SRC = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(SRC)
@@ -16,6 +17,7 @@ from titles_b import TITLES_B  # noqa: E402
 from titles_c import TITLES_C  # noqa: E402
 from articles import ARTICLES  # noqa: E402
 from importance import IMPORTANCE, MUST_LINE  # noqa: E402
+import ads  # noqa: E402
 
 BASE_URL = "https://jjjjjjjjjjj-in.github.io/doomsday-guide/"
 UPDATED = "2026-10-31"
@@ -45,7 +47,24 @@ def imp_text(t):
 CAT_LABEL = {"xmen": "X-MEN", "infinity": "インフィニティ・サーガ", "nextgen": "次世代ヒーロー",
              "multiverse": "マルチバース", "spider": "スパイダーマン関連", "other": "その他", "goal": "目的の作品"}
 
-AFFILIATE = {}  # 例: {"endgame": "https://..."}  URLを入れた作品に「配信をチェック」ボタンが出る
+
+
+def ad_buttons(t):
+    """作品ごとの広告ボタン（ads.py に値があるものだけ出す）"""
+    if t["goal"]:
+        return ""
+    out = []
+    if ads.DISNEY_PLUS and t["slug"] not in ads.NOT_ON_DISNEY_PLUS:
+        out.append(f'<a class="btn ad" href="{e(ads.DISNEY_PLUS)}" target="_blank" rel="sponsored noopener">Disney+で観る</a>')
+    if ads.AMAZON_TAG:
+        url = f'https://www.amazon.co.jp/s?k={quote(t["title"] + " Blu-ray")}&tag={quote(ads.AMAZON_TAG)}'
+        out.append(f'<a class="btn ad" href="{e(url)}" target="_blank" rel="sponsored noopener">Amazonで探す</a>')
+    return f'<span class="ad-links">{"".join(out)}<span class="pr">PR</span></span>' if out else ""
+
+
+def banner(slot):
+    code = ads.BANNERS.get(slot, "")
+    return f'<aside class="banner" aria-label="広告"><span class="pr">PR</span>{code}</aside>' if code else ""
 
 e = html.escape
 
@@ -56,6 +75,8 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
 
 def head(title, desc, path, prefix=""):
     url = BASE_URL + path
+    adsense = (f'\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ads.ADSENSE_CLIENT}" crossorigin="anonymous"></script>'
+               if ads.ADSENSE_CLIENT else "")
     return f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -72,7 +93,7 @@ def head(title, desc, path, prefix=""):
 <meta property="og:image" content="{BASE_URL}og.png">
 <meta name="twitter:card" content="summary_large_image">
 {FONTS}
-<link rel="stylesheet" href="{prefix}assets/site.css">
+<link rel="stylesheet" href="{prefix}assets/site.css">{adsense}
 </head>
 <body>
 <div class="wrap">
@@ -80,8 +101,8 @@ def head(title, desc, path, prefix=""):
 
 
 def footer(prefix=""):
-    disclosure = '<p>※当サイトはアフィリエイト広告（PR）を利用しています。</p>\n' if AFFILIATE else ""
-    return f"""<footer>
+    disclosure = '<p>※当サイトはアフィリエイト広告（PR）を利用しています。</p>\n' if ads.enabled() else ""
+    return banner("bottom") + f"""<footer>
 {disclosure}<p>キャスト情報はマーベル・スタジオ／ディズニーの公式発表に基づいています（最終確認 {UPDATED}）。噂や報道の段階の情報はその旨を明記しています。重要度は公開前の公式情報をもとにした運営者の判断による目安で、公開後の内容を保証するものではありません。</p>
 <p>出典：<a href="https://thewaltdisneycompany.com/news/marvel-studios-avengers-doomsday-cast/" rel="noopener">Marvel Studios Announces 'Avengers: Doomsday' Cast</a>／<a href="https://marvel.disney.co.jp/movie/avengers-doomsday" rel="noopener">『アベンジャーズ／ドゥームズデイ』日本公式サイト</a></p>
 <p>当サイトは個人が運営する非公式ファンサイトです。Marvel Studios、The Walt Disney Company、Sony Pictures、20th Century Studios とは関係ありません。作品名・キャラクター名は各権利者の商標です。</p>
@@ -95,8 +116,6 @@ def row(t):
     tags = "".join(f'<span class="tag">{e(CAT_LABEL[c])}</span>' for c in t["cats"] if c != "goal")
     if t["cast"]:
         tags += f'<span class="tag cast">出演：{e("、".join(t["cast"]))}</span>'
-    aff = AFFILIATE.get(t["slug"])
-    aff_html = f'<a class="btn" href="{e(aff)}" target="_blank" rel="sponsored noopener">配信をチェック</a>' if aff else ""
     detail = ""
     if not t["goal"]:
         events = "".join(f"<li>{e(x)}</li>" for x in t["events"])
@@ -115,7 +134,6 @@ def row(t):
         <div><dt>観なかった場合</dt><dd>{e(t["skip"])}</dd></div>
         <div><dt>ポストクレジット</dt><dd>{e(t["post"])}</dd></div>
       </dl>
-      {aff_html}
     </div>
   </details>"""
     return f"""<li class="row{' must' if t['must'] else ''}{' goal' if t['goal'] else ''}" id="{t["slug"]}" data-slug="{t["slug"]}" data-order="{t["order"]}">
@@ -124,7 +142,7 @@ def row(t):
     <span class="meta"><span>視聴順 {t["order"]:02d}</span><span>作中 {e(t["era"])}</span><span>{e(t["year"])}年・{e(t["kind"])}</span></span>
     <h3 class="title">{e(t["title"])}</h3>
     <p class="desc">{e(t["line"])}</p>
-    <span class="tags">{tags}</span>
+    <span class="tags">{tags}</span>{ad_buttons(t)}
   </div>
   <span class="pill {imp_class(t)}">{e(imp_text(t))}</span>{detail}
 </li>"""
@@ -161,7 +179,7 @@ def build_index():
     <div class="bar" aria-hidden="true"><i id="bar-all"></i></div>
   </div>
 </section>
-
+{banner("top")}
 <section class="panel">
   <h2>印刷用チェックリスト（PDF）</h2>
   <div class="btns">
@@ -175,6 +193,7 @@ def build_index():
   <ul class="article-list">{articles}</ul>
 </section>
 
+{banner("middle")}
 <section class="tier-section">
   <header><h2>視聴リスト</h2><p>作品は物語の視聴順に並んでいます。『ロキ』シーズン1は『エンドゲーム』の直後に観るのがおすすめです。</p></header>
   <div class="controls" role="group" aria-label="表示するリスト">
