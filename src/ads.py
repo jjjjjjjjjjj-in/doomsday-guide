@@ -27,6 +27,18 @@ AMAZON_PICKS = [
     ("Amazon売れ筋ランキング", "/gp/bestsellers"),
 ]
 
+# 記事の途中に出す関連アイテム（記事slug: [(表示名, 検索キーワード)]）
+ARTICLE_PICKS = {
+    "cast": [("アベンジャーズのフィギュア", "アベンジャーズ フィギュア"), ("ドクター・ドゥームのグッズ", "ドクター・ドゥーム")],
+    "x-men": [("X-MENのフィギュア", "X-MEN フィギュア"), ("X-MEN 旧3部作のBlu-ray", "X-MEN ブルーレイ")],
+    "infinity-saga": [("インフィニティ・ガントレットのグッズ", "インフィニティ ガントレット"), ("マーベルのレゴ", "レゴ マーベル")],
+    "next-generation": [("キャプテン・アメリカの盾グッズ", "キャプテンアメリカ 盾"), ("ブラックパンサーのグッズ", "ブラックパンサー グッズ")],
+    "multiverse": [("ロキのグッズ", "ロキ マーベル グッズ"), ("デッドプールのグッズ", "デッドプール グッズ")],
+}
+
+# 画面下に固定する小さなバー（表示名, 検索キーワードまたは "/gp/..."）。空文字なら出さない
+STICKY_BAR = ("今日のAmazonタイムセールを見る", "/gp/goldbox")
+
 # Disney+（日本）で通常配信されていない作品（ソニー系のスパイダーマン・ヴェノム関連）
 NOT_ON_DISNEY_PLUS = {
     "spider-man-homecoming", "spider-man-far-from-home", "spider-man-no-way-home", "spider-man-brand-new-day",

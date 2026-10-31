@@ -62,20 +62,46 @@ def ad_buttons(t):
     return f'<span class="ad-links">{"".join(out)}<span class="pr">PR</span></span>' if out else ""
 
 
-def amazon_picks():
+def amazon_url(key):
+    """検索キーワードか "/gp/..." のパスから、タグ付きのAmazonリンクを作る"""
+    path = key if key.startswith("/") else f"/s?k={quote(key)}"
+    sep = "&" if "?" in path else "?"
+    return f"https://www.amazon.co.jp{path}{sep}tag={quote(ads.AMAZON_TAG)}"
+
+
+def amazon_links(picks):
+    return "".join(f'<a class="btn ad" href="{e(amazon_url(key))}" target="_blank" rel="sponsored noopener">{e(label)}</a>'
+                   for label, key in picks)
+
+
+def amazon_picks(heading="予習のおとも"):
     """「予習のおとも」パネル。AMAZON_TAG がないときは出さない"""
     if not ads.AMAZON_TAG:
         return ""
-    items = []
-    for label, key in ads.AMAZON_PICKS:
-        path = key if key.startswith("/") else f"/s?k={quote(key)}"
-        sep = "&" if "?" in path else "?"
-        url = f"https://www.amazon.co.jp{path}{sep}tag={quote(ads.AMAZON_TAG)}"
-        items.append(f'<a class="btn ad" href="{e(url)}" target="_blank" rel="sponsored noopener">{e(label)}</a>')
+    items = [amazon_links(ads.AMAZON_PICKS)]
     return f"""<section class="panel">
-  <h2>予習のおとも <span class="pr">PR</span></h2>
+  <h2>{e(heading)} <span class="pr">PR</span></h2>
   <div class="btns">{"".join(items)}</div>
 </section>
+"""
+
+
+def article_picks(slug):
+    picks = ads.ARTICLE_PICKS.get(slug)
+    if not (ads.AMAZON_TAG and picks):
+        return ""
+    return f'<aside class="panel inline-picks"><h2>この記事に関連するアイテム <span class="pr">PR</span></h2><div class="btns">{amazon_links(picks)}</div></aside>'
+
+
+def sticky_bar(prefix=""):
+    if not (ads.AMAZON_TAG and ads.STICKY_BAR):
+        return ""
+    label, key = ads.STICKY_BAR
+    return f"""<div class="sticky-ad" id="sticky-ad" hidden>
+  <span class="pr">PR</span><a href="{e(amazon_url(key))}" target="_blank" rel="sponsored noopener">{e(label)}</a>
+  <button type="button" id="sticky-ad-close" aria-label="広告を閉じる">×</button>
+</div>
+<script src="{prefix}assets/sticky.js"></script>
 """
 
 
@@ -234,11 +260,20 @@ def build_index():
   <ol class="list">{must_rows}</ol>
 </section>
 
+{amazon_picks("①を観終わったら：予習のおとも")}
 <section class="tier-section" id="list-all">
   <header><h2><span class="step">②</span>全作品<span class="count">{total}本</span></h2><p>重要度4以下や参考作品も含めた全作品です。時間がある人はこちらで。</p></header>
   <ol class="list">{all_rows}</ol>
 </section>
-""" + footer() + '<script src="assets/app.js"></script>\n</body>\n</html>\n'
+""" + footer() + sticky_bar() + '<script src="assets/app.js"></script>\n</body>\n</html>\n'
+
+
+def inject_article_picks(a):
+    """記事の2つ目の見出しの前に関連アイテムを差し込む（見出しが1つ以下なら最後に置く）"""
+    body, box = a["body"], article_picks(a["slug"])
+    first = body.find("<h2>")
+    second = body.find("<h2>", first + 1) if first >= 0 else -1
+    return body[:second] + box + body[second:] if second > 0 else body + box
 
 
 def build_article(a):
@@ -248,11 +283,11 @@ def build_article(a):
 <article class="article">
   <h1>{e(a["title"])}</h1>
   <p class="updated">最終更新 {a["updated"]}</p>
-  {a["body"]}
+  {inject_article_picks(a)}
   <p><a class="btn primary" href="../">チェックリストに戻る</a></p>
 </article>
 """ + amazon_picks() + f"""<section class="panel"><h2>ほかの解説記事</h2><ul class="article-list">{others}</ul></section>
-""" + footer(prefix="../") + "</body>\n</html>\n"
+""" + footer(prefix="../") + sticky_bar(prefix="../") + "</body>\n</html>\n"
 
 
 def build_print(items, title, subtitle):
@@ -295,6 +330,7 @@ def main():
     os.makedirs(os.path.join(ROOT, "articles"), exist_ok=True)
     shutil.copy(os.path.join(SRC, "site.css"), os.path.join(ROOT, "assets", "site.css"))
     shutil.copy(os.path.join(SRC, "app.js"), os.path.join(ROOT, "assets", "app.js"))
+    shutil.copy(os.path.join(SRC, "sticky.js"), os.path.join(ROOT, "assets", "sticky.js"))
 
     def write(path, text):
         with open(os.path.join(ROOT, path), "w", encoding="utf-8") as f:
