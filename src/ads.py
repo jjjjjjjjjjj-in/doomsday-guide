@@ -9,7 +9,7 @@ AMAZON_TAG = "doomsdayguide-22"
 
 # 英語版で使う、アメリカのAmazonアソシエイトのタグ（例: "yourname-20"）。
 # 入れると英語版の広告はすべて amazon.com になり、楽天（日本向け）は英語版から外れる。空なら日本語版と同じ amazon.co.jp と楽天を使う
-AMAZON_TAG_US = ""
+AMAZON_TAG_US = "doomsdaygui08-20"
 
 # 英語版（amazon.com）で並べる商品（表示名, 検索キーワードまたは "/gp/..."）
 AMAZON_PICKS_US = [

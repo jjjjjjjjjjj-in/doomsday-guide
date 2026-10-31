@@ -14,7 +14,7 @@
 - `titles_a.py` / `titles_b.py` / `titles_c.py`: 全68作品（視聴順）。あらすじ・関連性・ポストクレジットなど。
 - `importance.py`: 10点満点の重要度。5以上が「① 必ず観るべき」。点数は運営者が決める。勝手に変えない。
 - `articles.py`: 解説記事5本。
-- `ads.py`: 広告設定（Amazon タグ doomsdayguide-22、もしも経由の楽天 a_id=5875908 など）。「PR」表記とAmazonの表記は自動で出る。誤クリックを誘う広告は入れない。
+- `ads.py`: 広告設定（Amazon タグ doomsdayguide-22、英語版の amazon.com タグ doomsdaygui08-20、もしも経由の楽天 a_id=5875908 など）。「PR」表記とAmazonの表記は自動で出る。誤クリックを誘う広告は入れない。
 - `trailers.py`: 予告編リンク。
 - `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード（HTMLタグの content の値）。
 - `site.css` / `app.js` / `sticky.js`: 見た目と動き。白背景、タイトルは濃いグリーン、見出しは紺。
