@@ -1,9 +1,9 @@
 # 視聴順 1〜22（インフィニティ・サーガ前半）
-# tier: must=必須級 / rec=推奨 / opt=任意 / low=低優先度
+# 重要度は importance.py で管理する
 TITLES_A = [
     dict(
         slug="captain-america-first-avenger", title="キャプテン・アメリカ／ザ・ファースト・アベンジャー",
-        year="2011", era="1940年代", kind="映画", tier="must", cats=["infinity"],
+        year="2011", era="1940年代", kind="映画", cats=["infinity"],
         cast=["スティーブ・ロジャース", "ペギー・カーター", "バッキー・バーンズ"],
         line="スティーブ誕生とペギーとの約束。ドゥームズデイに戻ってくる2人の出発点。",
         story="第二次世界大戦中、体は弱いが正義感の強いスティーブ・ロジャースが超人血清の被験者になり、キャプテン・アメリカとしてヒドラと戦う。",
@@ -17,7 +17,7 @@ TITLES_A = [
     ),
     dict(
         slug="captain-marvel", title="キャプテン・マーベル",
-        year="2019", era="1995年", kind="映画", tier="opt", cats=["infinity"],
+        year="2019", era="1995年", kind="映画", cats=["infinity"],
         cast=[],
         line="キャロルと若きフューリー。宇宙勢力とスクラルの背景。",
         story="記憶を失ったクリー帝国の戦士ヴァースが1990年代の地球に落ち、自分がアメリカ空軍のパイロット、キャロル・ダンヴァースだったことを知る。",
@@ -31,7 +31,7 @@ TITLES_A = [
     ),
     dict(
         slug="iron-man", title="アイアンマン",
-        year="2008", era="2010年", kind="映画", tier="rec", cats=["infinity"],
+        year="2008", era="2010年", kind="映画", cats=["infinity"],
         cast=[],
         line="MCUの出発点。ロバート・ダウニー・Jr.とMCUの始まり。",
         story="武器商人トニー・スタークが誘拐され、洞窟でパワードスーツを作って脱出。自分の会社の兵器が悪用されていると知り、アイアンマンとして戦い始める。",
@@ -45,7 +45,7 @@ TITLES_A = [
     ),
     dict(
         slug="iron-man-2", title="アイアンマン2",
-        year="2010", era="2011年", kind="映画", tier="rec", cats=["infinity"],
+        year="2010", era="2011年", kind="映画", cats=["infinity"],
         cast=[],
         line="ウォーマシン、ナターシャ登場。アベンジャーズ結成前夜。",
         story="正体を明かしたトニーは、政府からスーツの引き渡しを迫られる。同時に、父ハワードに恨みを持つイワン・ヴァンコが襲いかかる。",
@@ -59,7 +59,7 @@ TITLES_A = [
     ),
     dict(
         slug="incredible-hulk", title="インクレディブル・ハルク",
-        year="2008", era="2011年", kind="映画", tier="opt", cats=["infinity"],
+        year="2008", era="2011年", kind="映画", cats=["infinity"],
         cast=[],
         line="ハルクの基本設定とロス将軍。『ブレイブ・ニュー・ワールド』の伏線。",
         story="ブルース・バナーは軍に追われながら、ハルクになる体質を治す方法を探す。ロス将軍は彼を兵器として捕らえようとする。",
@@ -73,7 +73,7 @@ TITLES_A = [
     ),
     dict(
         slug="thor", title="マイティ・ソー",
-        year="2011", era="2011年", kind="映画", tier="rec", cats=["infinity"],
+        year="2011", era="2011年", kind="映画", cats=["infinity"],
         cast=["ソー", "ロキ"],
         line="ソーとロキの兄弟関係の原点。2人ともドゥームズデイに出演。",
         story="傲慢な王子ソーは父オーディンに力を奪われ地球に追放される。一方、弟ロキは自分が養子だと知り、王座を狙う。",
@@ -87,7 +87,7 @@ TITLES_A = [
     ),
     dict(
         slug="avengers", title="アベンジャーズ",
-        year="2012", era="2012年", kind="映画", tier="must", cats=["infinity"],
+        year="2012", era="2012年", kind="映画", cats=["infinity"],
         cast=["ソー", "ロキ", "スティーブ・ロジャース"],
         line="ヒーロー初結集。ロキ S1は「この映画の2012年」から始まる。",
         story="ロキが四次元キューブを奪い、異星人の軍団でニューヨークを襲う。フューリーはアイアンマン、キャプテン・アメリカ、ソー、ハルク、ブラック・ウィドウ、ホークアイを集める。",
@@ -101,21 +101,21 @@ TITLES_A = [
     ),
     dict(
         slug="thor-dark-world", title="マイティ・ソー／ダーク・ワールド",
-        year="2013", era="2013年", kind="映画", tier="rec", cats=["infinity"],
+        year="2013", era="2013年", kind="映画", cats=["infinity"],
         cast=["ソー", "ロキ"],
         line="ソーとロキが手を組む。母フリッガの死。",
         story="闇の妖精マレキスが、宇宙を闇に戻す力「エーテル」を狙う。ソーは牢に入っていたロキと一時的に手を組む。",
         events=["母フリッガの死", "ソーとロキの共闘", "エーテル（リアリティ・ストーン）の登場", "ロキがオーディンに化けて王座に座る"],
         chars="ソー、ロキ、ジェーン・フォスター、オーディン、フリッガ、マレキス",
         links="『エンドゲーム』でソーが母と再会する場面は、この作品があると重みが増す。",
-        dd="ソー、ロキの兄弟関係を深める作品。主役3人のルートとして推奨。",
+        dd="ソー、ロキの兄弟関係を深める作品。主役3人の物語として観ておきたい。",
         merit="ソーとロキの「信じたいけど信じられない」兄弟関係が一番よく描かれている。",
         skip="観なくてもドゥームズデイの筋は追える。『エンドゲーム』のフリッガの場面の意味が少し薄れる。",
         post="ミッドクレジットでエーテルがコレクターに預けられる。ポストクレジットでソーがジェーンの元に戻る。",
     ),
     dict(
         slug="iron-man-3", title="アイアンマン3",
-        year="2013", era="2013年", kind="映画", tier="rec", cats=["infinity"],
+        year="2013", era="2013年", kind="映画", cats=["infinity"],
         cast=[],
         line="ニューヨーク決戦後のトニーの不安を描く個人編。",
         story="ニューヨークの戦いのあと不眠と不安に苦しむトニー。テロリスト「マンダリン」の攻撃で家を失い、スーツなしで戦うことになる。",
@@ -129,7 +129,7 @@ TITLES_A = [
     ),
     dict(
         slug="winter-soldier", title="キャプテン・アメリカ／ウィンター・ソルジャー",
-        year="2014", era="2014年", kind="映画", tier="rec", cats=["infinity", "nextgen"],
+        year="2014", era="2014年", kind="映画", cats=["infinity", "nextgen"],
         cast=["スティーブ・ロジャース", "サム・ウィルソン", "バッキー・バーンズ"],
         line="サム初登場とバッキー再登場。次世代の2人の原点。",
         story="S.H.I.E.L.D.の内部にヒドラが潜んでいたことが判明。スティーブは謎の暗殺者ウィンター・ソルジャーと戦うが、その正体は洗脳されたバッキーだった。",
@@ -143,7 +143,7 @@ TITLES_A = [
     ),
     dict(
         slug="guardians-of-the-galaxy", title="ガーディアンズ・オブ・ギャラクシー",
-        year="2014", era="2014年", kind="映画", tier="opt", cats=["infinity"],
+        year="2014", era="2014年", kind="映画", cats=["infinity"],
         cast=[],
         line="宇宙側のチーム結成。パワー・ストーン登場。",
         story="トレジャーハンターのピーター・クイルが謎のオーブを盗んだことから、アライグマのロケット、木のグルートらはみ出し者たちとチームを組む。",
@@ -157,7 +157,7 @@ TITLES_A = [
     ),
     dict(
         slug="guardians-vol2", title="ガーディアンズ・オブ・ギャラクシー：リミックス",
-        year="2017", era="2014年", kind="映画", tier="opt", cats=["infinity"],
+        year="2017", era="2014年", kind="映画", cats=["infinity"],
         cast=[],
         line="クイルの父エゴとヨンドゥ。ガーディアンズの家族の物語。",
         story="クイルの前に実の父を名乗るエゴが現れる。ガーディアンズは「家族」とは何かに向き合う。",
@@ -171,7 +171,7 @@ TITLES_A = [
     ),
     dict(
         slug="i-am-groot-1", title="アイ・アム・グルート シーズン1",
-        year="2022", era="2014年（リミックス後）", kind="短編アニメ", tier="low", cats=["other"],
+        year="2022", era="2014年（リミックス後）", kind="短編アニメ", cats=["other"],
         cast=[], line="ベビー・グルートの短編集。",
         story="ベビー・グルートの日常を描く数分の短編アニメ集。",
         events=["本筋に関わる出来事はない"], chars="グルート",
@@ -180,7 +180,7 @@ TITLES_A = [
     ),
     dict(
         slug="i-am-groot-2", title="アイ・アム・グルート シーズン2",
-        year="2023", era="2014年（リミックス後）", kind="短編アニメ", tier="low", cats=["other"],
+        year="2023", era="2014年（リミックス後）", kind="短編アニメ", cats=["other"],
         cast=[], line="短編アニメ第2弾。",
         story="ベビー・グルートの短編アニメ第2弾。",
         events=["本筋に関わる出来事はない"], chars="グルート",
@@ -189,7 +189,7 @@ TITLES_A = [
     ),
     dict(
         slug="age-of-ultron", title="アベンジャーズ／エイジ・オブ・ウルトロン",
-        year="2015", era="2015年", kind="映画", tier="rec", cats=["infinity", "nextgen"],
+        year="2015", era="2015年", kind="映画", cats=["infinity", "nextgen"],
         cast=["ソー", "スティーブ・ロジャース"],
         line="ウルトロン事件。チーム分裂（シビル・ウォー）の種。",
         story="トニーとブルースが作った人工知能ウルトロンが暴走し、人類滅亡を企てる。ソコヴィアでの戦いが大きな被害を生む。",
@@ -203,7 +203,7 @@ TITLES_A = [
     ),
     dict(
         slug="ant-man", title="アントマン",
-        year="2015", era="2015年", kind="映画", tier="rec", cats=["infinity", "multiverse"],
+        year="2015", era="2015年", kind="映画", cats=["infinity", "multiverse"],
         cast=["スコット・ラング"],
         line="スコットと娘キャシー、量子世界の入口。",
         story="前科者のスコット・ラングが、ハンク・ピム博士からアントマンのスーツを託される。体を小さくする技術を悪用しようとする者と戦う。",
@@ -217,7 +217,7 @@ TITLES_A = [
     ),
     dict(
         slug="civil-war", title="シビル・ウォー／キャプテン・アメリカ",
-        year="2016", era="2016年", kind="映画", tier="rec", cats=["infinity", "nextgen"],
+        year="2016", era="2016年", kind="映画", cats=["infinity", "nextgen"],
         cast=["スティーブ・ロジャース", "サム・ウィルソン", "バッキー・バーンズ", "スコット・ラング"],
         line="アベンジャーズ分裂。スティーブとトニーの決裂。",
         story="ヒーローを国連の管理下に置く「ソコヴィア協定」をめぐり、スティーブ派とトニー派に分かれて対立する。",
@@ -231,7 +231,7 @@ TITLES_A = [
     ),
     dict(
         slug="black-widow", title="ブラック・ウィドウ",
-        year="2021", era="2016年", kind="映画", tier="rec", cats=["nextgen"],
+        year="2021", era="2016年", kind="映画", cats=["nextgen"],
         cast=["エレーナ・ベロワ", "レッド・ガーディアン（アレクセイ）"],
         line="エレーナとアレクセイの原点。サンダーボルツ*の前提。",
         story="協定に背いて逃亡中のナターシャが、かつて「家族」として暮らした妹エレーナ、父親役のアレクセイと再会し、自分を育てた組織レッドルームと戦う。",
@@ -245,7 +245,7 @@ TITLES_A = [
     ),
     dict(
         slug="black-panther", title="ブラックパンサー",
-        year="2018", era="2016年", kind="映画", tier="rec", cats=["infinity", "nextgen"],
+        year="2018", era="2016年", kind="映画", cats=["infinity", "nextgen"],
         cast=["シュリ", "エムバク"],
         line="ワカンダとシュリ、エムバクの原点。",
         story="父を亡くしたティ・チャラがワカンダの王になる。王位を狙うキルモンガーが現れ、ワカンダは世界とどう向き合うかを問われる。",
@@ -259,7 +259,7 @@ TITLES_A = [
     ),
     dict(
         slug="spider-man-homecoming", title="スパイダーマン：ホームカミング",
-        year="2017", era="2016年", kind="映画", tier="opt", cats=["spider"],
+        year="2017", era="2016年", kind="映画", cats=["spider"],
         cast=[],
         line="MCU版ピーターの成長。",
         story="トニーにスーツをもらったピーター・パーカーが、高校生活とヒーロー活動の両立に悩みながらヴァルチャーと戦う。",
@@ -273,7 +273,7 @@ TITLES_A = [
     ),
     dict(
         slug="doctor-strange", title="ドクター・ストレンジ",
-        year="2016", era="2016-17年", kind="映画", tier="opt", cats=["multiverse"],
+        year="2016", era="2016-17年", kind="映画", cats=["multiverse"],
         cast=[],
         line="魔術とマルチバースという考え方の入口。",
         story="事故で手の自由を失った天才外科医スティーヴン・ストレンジが、カトマンズで魔術を学び、魔術師として世界を守る。",
@@ -287,7 +287,7 @@ TITLES_A = [
     ),
     dict(
         slug="thor-ragnarok", title="マイティ・ソー バトルロイヤル",
-        year="2017", era="2017年", kind="映画", tier="rec", cats=["infinity"],
+        year="2017", era="2017年", kind="映画", cats=["infinity"],
         cast=["ソー", "ロキ"],
         line="アスガルド崩壊。ソーとロキの和解。",
         story="死の女神ヘラが復活し、アスガルドが乗っ取られる。辺境の星に飛ばされたソーは、ハルクやロキ、ヴァルキリーと共に故郷を救おうとする。",

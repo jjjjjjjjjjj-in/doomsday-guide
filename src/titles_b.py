@@ -2,7 +2,7 @@
 TITLES_B = [
     dict(
         slug="ant-man-and-the-wasp", title="アントマン＆ワスプ",
-        year="2018", era="2018年", kind="映画", tier="rec", cats=["infinity", "multiverse"],
+        year="2018", era="2018年", kind="映画", cats=["infinity", "multiverse"],
         cast=["スコット・ラング"],
         line="量子世界の掘り下げ。エンドゲームのタイムトラベルの鍵。",
         story="自宅軟禁中のスコットが、ハンクとホープと共に、量子世界に取り残されたジャネットを救い出そうとする。",
@@ -16,7 +16,7 @@ TITLES_B = [
     ),
     dict(
         slug="infinity-war", title="アベンジャーズ／インフィニティ・ウォー",
-        year="2018", era="2018年", kind="映画", tier="must", cats=["infinity"],
+        year="2018", era="2018年", kind="映画", cats=["infinity"],
         cast=["ソー", "ロキ", "スティーブ・ロジャース", "サム・ウィルソン", "バッキー・バーンズ", "シュリ", "エムバク"],
         line="サノスとの全面戦争。インフィニティ・サーガ最大の転換点。",
         story="6つのインフィニティ・ストーンを集め、宇宙の生命の半分を消そうとするサノス。ヒーローたちは地球と宇宙の両方で阻止しようとするが、サノスは目的を果たす。",
@@ -30,7 +30,7 @@ TITLES_B = [
     ),
     dict(
         slug="endgame", title="アベンジャーズ／エンドゲーム",
-        year="2019", era="2018-23年", kind="映画", tier="must", cats=["infinity", "multiverse"],
+        year="2019", era="2018-23年", kind="映画", cats=["infinity", "multiverse"],
         cast=["ソー", "ロキ", "スティーブ・ロジャース", "ペギー・カーター", "サム・ウィルソン", "バッキー・バーンズ", "スコット・ラング", "シュリ", "エムバク"],
         line="インフィニティ・サーガ完結。スティーブの決断とサムへの継承。",
         story="5年後、生き残ったヒーローたちは量子世界を使ったタイムトラベルで過去からストーンを集め、消えた人々を取り戻そうとする。",
@@ -44,7 +44,7 @@ TITLES_B = [
     ),
     dict(
         slug="loki-s1", title="ロキ シーズン1",
-        year="2021", era="2012年から分岐→TVA", kind="ドラマ", tier="must", cats=["multiverse"],
+        year="2021", era="2012年から分岐→TVA", kind="ドラマ", cats=["multiverse"],
         cast=["ロキ"],
         line="TVA、時間の流れ、マルチバース誕生の仕組み。",
         story="『エンドゲーム』で2012年から逃げたロキが、時間の流れを管理する組織TVAに捕まる。ロキは自分の別バージョン（変異体）を追う任務を与えられる。",
@@ -58,7 +58,7 @@ TITLES_B = [
     ),
     dict(
         slug="loki-s2", title="ロキ シーズン2",
-        year="2023", era="TVA／時間の外", kind="ドラマ", tier="must", cats=["multiverse"],
+        year="2023", era="TVA／時間の外", kind="ドラマ", cats=["multiverse"],
         cast=["ロキ"],
         line="ロキがマルチバースを支える存在になる。",
         story="時間の流れが崩れ始め、TVAそのものが危機に陥る。ロキは時間を行き来しながら、すべての時間軸を救う方法を探す。",
@@ -72,7 +72,7 @@ TITLES_B = [
     ),
     dict(
         slug="wandavision", title="ワンダヴィジョン",
-        year="2021", era="2023年", kind="ドラマ", tier="opt", cats=["multiverse"],
+        year="2021", era="2023年", kind="ドラマ", cats=["multiverse"],
         cast=[],
         line="ワンダが「スカーレット・ウィッチ」になる。",
         story="ヴィジョンを失ったワンダが、町全体を魔法で包み込み、昔のホームドラマのような理想の生活を作り出す。",
@@ -86,7 +86,7 @@ TITLES_B = [
     ),
     dict(
         slug="shang-chi", title="シャン・チー／テン・リングスの伝説",
-        year="2021", era="2024年", kind="映画", tier="rec", cats=["nextgen", "multiverse"],
+        year="2021", era="2024年", kind="映画", cats=["nextgen", "multiverse"],
         cast=["シャン・チー"],
         line="シャン・チーとテン・リングス。公式キャストの単独作。",
         story="サンフランシスコで静かに暮らすシャン・チーの前に、父ウェンウーが率いる組織テン・リングスが現れる。父は亡き母に会うため、危険な封印を解こうとしていた。",
@@ -100,7 +100,7 @@ TITLES_B = [
     ),
     dict(
         slug="falcon-and-winter-soldier", title="ファルコン＆ウィンター・ソルジャー",
-        year="2021", era="2024年", kind="ドラマ", tier="must", cats=["nextgen"],
+        year="2021", era="2024年", kind="ドラマ", cats=["nextgen"],
         cast=["サム・ウィルソン", "バッキー・バーンズ", "ジョン・ウォーカー", "ホアキン・トーレス"],
         line="サムが新キャプテン・アメリカに。ジョン・ウォーカーとトーレス登場。",
         story="スティーブから盾を託されたサムは、それを国に返してしまう。政府は新しいキャプテン・アメリカとしてジョン・ウォーカーを選ぶが、彼は暴走していく。",
@@ -114,7 +114,7 @@ TITLES_B = [
     ),
     dict(
         slug="spider-man-far-from-home", title="スパイダーマン：ファー・フロム・ホーム",
-        year="2019", era="2024年", kind="映画", tier="opt", cats=["spider"],
+        year="2019", era="2024年", kind="映画", cats=["spider"],
         cast=[],
         line="エンドゲーム後のピーター。正体がばれる。",
         story="トニーを失ったピーターが、修学旅行先のヨーロッパで「別の地球から来た」と名乗るミステリオと出会う。",
@@ -128,7 +128,7 @@ TITLES_B = [
     ),
     dict(
         slug="venom", title="ヴェノム",
-        year="2018", era="別の宇宙", kind="映画", tier="low", cats=["spider"],
+        year="2018", era="別の宇宙", kind="映画", cats=["spider"],
         cast=[],
         line="トム・ハーディ版エディとヴェノムの出会い。",
         story="記者エディ・ブロックが宇宙から来た生命体シンビオートに寄生され、ヴェノムとして悪と戦うことになる。",
@@ -142,7 +142,7 @@ TITLES_B = [
     ),
     dict(
         slug="venom-carnage", title="ヴェノム：レット・ゼア・ビー・カーネイジ",
-        year="2021", era="別の宇宙", kind="映画", tier="low", cats=["spider"],
+        year="2021", era="別の宇宙", kind="映画", cats=["spider"],
         cast=[],
         line="カーネイジとの対決。エンドクレジットでMCUと接続。",
         story="死刑囚クレタス・キャサディがシンビオートの力を得てカーネイジになり、エディとヴェノムが立ち向かう。",
@@ -156,21 +156,21 @@ TITLES_B = [
     ),
     dict(
         slug="spider-man-no-way-home", title="スパイダーマン：ノー・ウェイ・ホーム",
-        year="2021", era="2024年", kind="映画", tier="rec", cats=["multiverse", "spider"],
+        year="2021", era="2024年", kind="映画", cats=["multiverse", "spider"],
         cast=[],
         line="別の宇宙の人物が流れ込み、マルチバースの危険が本格化。",
         story="正体がばれたピーターは、ドクター・ストレンジに「世界中が自分の正体を忘れる」魔法を頼む。魔法が失敗し、別の宇宙からピーターの正体を知る者たちが現れる。",
         events=["過去のスパイダーマン映画の悪役たちが登場", "トビー・マグワイア版、アンドリュー・ガーフィールド版のスパイダーマンが登場", "世界中がピーター・パーカーを忘れる"],
         chars="ピーター、MJ、ネッド、ストレンジ、グリーン・ゴブリン、ドック・オク、別の宇宙のスパイダーマンたち",
         links="トビー版3部作を観ていると感動が大きい。ここで起きたマルチバースの混乱は『マルチバース・オブ・マッドネス』に続く。",
-        dd="トム・ホランド、トビー・マグワイアはドゥームズデイの公式キャストに入っていない（トビーの出演は噂の段階）。別の宇宙同士がつながるとどうなるかを見せた作品として推奨。",
+        dd="トム・ホランド、トビー・マグワイアはドゥームズデイの公式キャストに入っていない（トビーの出演は噂の段階）。別の宇宙同士がつながるとどうなるかを見せた作品。",
         merit="「別の宇宙のヒーローが同じ画面にそろう」体験の原型が分かる。",
         skip="観なくてもドゥームズデイの筋は追える。マルチバースの雰囲気をつかむために観ておきたい。",
         post="ミッドクレジットでエディ・ブロックが元の宇宙に戻され、シンビオートの一部が残る。ポストクレジットは『マルチバース・オブ・マッドネス』の予告。",
     ),
     dict(
         slug="eternals", title="エターナルズ",
-        year="2021", era="2024年", kind="映画", tier="low", cats=["other"],
+        year="2021", era="2024年", kind="映画", cats=["other"],
         cast=[],
         line="古代から人類を見守ってきた不死の種族の物語。",
         story="7000年前から地球で人類を見守ってきたエターナルズが、天体（セレスティアル）の誕生と地球の危機に向き合う。",
@@ -184,7 +184,7 @@ TITLES_B = [
     ),
     dict(
         slug="multiverse-of-madness", title="ドクター・ストレンジ／マルチバース・オブ・マッドネス",
-        year="2022", era="2025年", kind="映画", tier="rec", cats=["multiverse"],
+        year="2022", era="2025年", kind="映画", cats=["multiverse"],
         cast=[],
         line="インカージョン（宇宙同士の衝突）と別宇宙のプロフェッサーX。",
         story="宇宙を渡る力を持つ少女アメリカ・チャベスを、ワンダが狙う。ストレンジはアメリカを守りながら別の宇宙を旅する。",
@@ -198,7 +198,7 @@ TITLES_B = [
     ),
     dict(
         slug="hawkeye", title="ホークアイ",
-        year="2021", era="2024-25年", kind="ドラマ", tier="opt", cats=["nextgen"],
+        year="2021", era="2024-25年", kind="ドラマ", cats=["nextgen"],
         cast=["エレーナ・ベロワ"],
         line="エレーナがナターシャの死の真相に向き合う。",
         story="クリスマス前のニューヨーク。クリントは弓の名手ケイト・ビショップと出会い、過去の罪に向き合う。エレーナは姉の仇としてクリントを狙う。",
@@ -212,7 +212,7 @@ TITLES_B = [
     ),
     dict(
         slug="moon-knight", title="ムーンナイト",
-        year="2022", era="2025年", kind="ドラマ", tier="low", cats=["other"],
+        year="2022", era="2025年", kind="ドラマ", cats=["other"],
         cast=[], line="エジプトの神と多重人格のヒーロー。",
         story="自分の中にもう一つの人格がいると気づいたスティーヴンが、月の神コンスの化身ムーンナイトとして戦う。",
         events=["マークとスティーヴンの二つの人格", "エジプトの神々の存在"],
@@ -224,7 +224,7 @@ TITLES_B = [
     ),
     dict(
         slug="wakanda-forever", title="ブラックパンサー／ワカンダ・フォーエバー",
-        year="2022", era="2025年", kind="映画", tier="must", cats=["nextgen"],
+        year="2022", era="2025年", kind="映画", cats=["nextgen"],
         cast=["シュリ", "エムバク", "ネイモア"],
         line="シュリが新ブラックパンサーに。ネイモアとタロカン登場。",
         story="ティ・チャラを亡くしたワカンダの前に、海の底の王国タロカンの王ネイモアが現れる。シュリは兄を失った悲しみと怒りの中で決断を迫られる。",
@@ -238,7 +238,7 @@ TITLES_B = [
     ),
     dict(
         slug="echo", title="エコー",
-        year="2024", era="2025年", kind="ドラマ", tier="low", cats=["other"],
+        year="2024", era="2025年", kind="ドラマ", cats=["other"],
         cast=[], line="マヤ・ロペスとキングピン周辺の物語。",
         story="『ホークアイ』でキングピンと対立したマヤ・ロペスが故郷に戻り、自分のルーツと向き合う。",
         events=["マヤが先祖の力に目覚める"], chars="マヤ・ロペス、キングピン",
@@ -249,7 +249,7 @@ TITLES_B = [
     ),
     dict(
         slug="she-hulk", title="シー・ハルク：ザ・アトーニー",
-        year="2022", era="2025年", kind="ドラマ", tier="low", cats=["other"],
+        year="2022", era="2025年", kind="ドラマ", cats=["other"],
         cast=[], line="ジェニファー・ウォルターズの法廷コメディ。",
         story="ブルースのいとこジェニファーがハルクの力を得て、弁護士とヒーローの二つの顔で奮闘する。",
         events=["ジェニファーがシー・ハルクになる", "ブルースの近況が描かれる"], chars="ジェニファー、ブルース、ウォン、デアデビル",
@@ -260,7 +260,7 @@ TITLES_B = [
     ),
     dict(
         slug="ms-marvel", title="ミズ・マーベル",
-        year="2022", era="2025年", kind="ドラマ", tier="opt", cats=["nextgen"],
+        year="2022", era="2025年", kind="ドラマ", cats=["nextgen"],
         cast=[], line="カマラ・カーンの原点。「ミュータント」という言葉が初めてMCUに。",
         story="キャプテン・マーベルに憧れる高校生カマラ・カーンが、祖母から届いた腕輪で不思議な力に目覚める。",
         events=["カマラが力に目覚める", "カマラの体に「変異（ミュータント）」があると示される"],
@@ -273,7 +273,7 @@ TITLES_B = [
     ),
     dict(
         slug="love-and-thunder", title="ソー：ラブ＆サンダー",
-        year="2022", era="2025年", kind="映画", tier="rec", cats=["infinity", "multiverse"],
+        year="2022", era="2025年", kind="映画", cats=["infinity", "multiverse"],
         cast=["ソー"],
         line="ソーの現在地。娘のような少女ラブと新たな旅へ。",
         story="神々を殺して回るゴアが現れ、ソーはマイティ・ソーになった元恋人ジェーンと再会し、共に戦う。",
@@ -287,7 +287,7 @@ TITLES_B = [
     ),
     dict(
         slug="werewolf-by-night", title="ウェアウルフ・バイ・ナイト",
-        year="2022", era="2025年", kind="特別編", tier="low", cats=["other"],
+        year="2022", era="2025年", kind="特別編", cats=["other"],
         cast=[], line="モンスターハンターを描くモノクロのホラー特別編。",
         story="伝説のモンスターハンターの死後、遺品をめぐって狩人たちが集められる。",
         events=["MCUにモンスターが存在すると示される"], chars="ジャック・ラッセル、エルサ・ブラッドストーン、マンシング",
@@ -298,7 +298,7 @@ TITLES_B = [
     ),
     dict(
         slug="guardians-holiday-special", title="ガーディアンズ・オブ・ギャラクシー：ホリデー・スペシャル",
-        year="2022", era="2025年（年末）", kind="特別編", tier="low", cats=["other"],
+        year="2022", era="2025年（年末）", kind="特別編", cats=["other"],
         cast=[], line="クリスマスの短編特別編。",
         story="マンティスとドラックスが、落ち込むクイルを元気づけるため地球へプレゼントを探しに行く。",
         events=["マンティスがクイルの異母きょうだいだと明かされる"], chars="ガーディアンズ",
@@ -309,7 +309,7 @@ TITLES_B = [
     ),
     dict(
         slug="quantumania", title="アントマン＆ワスプ：クアントマニア",
-        year="2023", era="2025年", kind="映画", tier="rec", cats=["multiverse"],
+        year="2023", era="2025年", kind="映画", cats=["multiverse"],
         cast=["スコット・ラング"],
         line="量子世界と、マルチバースの脅威カーンの登場。",
         story="スコットと家族が量子世界に引きずり込まれ、そこに閉じ込められていた征服者カーンと戦う。",
@@ -323,7 +323,7 @@ TITLES_B = [
     ),
     dict(
         slug="guardians-vol3", title="ガーディアンズ・オブ・ギャラクシー：VOLUME 3",
-        year="2023", era="2025年", kind="映画", tier="opt", cats=["other"],
+        year="2023", era="2025年", kind="映画", cats=["other"],
         cast=[], line="ガーディアンズ3部作の完結。ロケットの過去。",
         story="瀕死のロケットを救うため、ガーディアンズは彼を生み出したハイ・エボリューショナリーに立ち向かう。",
         events=["ロケットの過去", "ガーディアンズがそれぞれの道へ進む"], chars="ガーディアンズ、ハイ・エボリューショナリー、アダム・ウォーロック",
@@ -334,7 +334,7 @@ TITLES_B = [
     ),
     dict(
         slug="secret-invasion", title="シークレット・インベージョン",
-        year="2023", era="2025年", kind="ドラマ", tier="low", cats=["other"],
+        year="2023", era="2025年", kind="ドラマ", cats=["other"],
         cast=[], line="フューリーとスクラルの地上側スパイ劇。",
         story="地球に潜伏するスクラルの過激派が、人類との戦争を起こそうとする。フューリーは地球に戻り、阻止しようとする。",
         events=["スクラル過激派の陰謀", "ローディが長くスクラルにすり替えられていたと判明"], chars="フューリー、タロス、ギア、グラヴィク",
@@ -345,7 +345,7 @@ TITLES_B = [
     ),
     dict(
         slug="the-marvels", title="マーベルズ",
-        year="2023", era="2025年", kind="映画", tier="rec", cats=["multiverse", "xmen"],
+        year="2023", era="2025年", kind="映画", cats=["multiverse", "xmen"],
         cast=["ビースト（ミッドクレジット）"],
         line="ミッドクレジットにX-MENのビーストが登場。",
         story="キャロル、モニカ、カマラの3人の力が絡み合い、使うたびに居場所が入れ替わってしまう。3人はクリー人の指導者ダー・ベンの企みを止める。",
@@ -359,7 +359,7 @@ TITLES_B = [
     ),
     dict(
         slug="venom-last-dance", title="ヴェノム：ザ・ラストダンス",
-        year="2024", era="別の宇宙", kind="映画", tier="low", cats=["spider"],
+        year="2024", era="別の宇宙", kind="映画", cats=["spider"],
         cast=[], line="トム・ハーディ版シリーズ完結編。",
         story="元の宇宙に戻ったエディとヴェノムが、シンビオートの創造主ヌルの追っ手から逃げながら最後の旅をする。",
         events=["ヌルの存在が示される", "エディとヴェノムの別れ"], chars="エディ、ヴェノム、ストリックランド",

@@ -6,17 +6,14 @@
   const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify([...watched])); } catch (e) {} };
 
   const rows = [...document.querySelectorAll(".row[data-slug]")];
-  const home = new Map(rows.map((r) => [r, r.parentElement]));
-  const priorityView = document.getElementById("priority-view");
-  const orderView = document.getElementById("order-view");
-  const orderList = document.getElementById("order-list");
   const hideDone = document.getElementById("hide-done");
+  let view = "must";
 
   function paint() {
     rows.forEach((r) => {
       const done = watched.has(r.dataset.slug);
       r.classList.toggle("done", done);
-      r.hidden = hideDone.checked && done;
+      r.hidden = (view === "must" && !r.matches(".must, .goal")) || (hideDone.checked && done);
       const box = r.querySelector("input[type=checkbox]");
       if (box) box.checked = done;
     });
@@ -40,29 +37,22 @@
   });
   hideDone.addEventListener("change", paint);
 
-  // 優先度別 ⇔ 視聴順
-  function setView(view) {
+  // ① 必ず観るべき（重要度5以上） ⇔ ② 全作品
+  function setView(next) {
+    view = next === "all" ? "all" : "must";
     document.querySelectorAll("[data-view]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
-    const byOrder = [...rows].sort((a, b) => a.dataset.order - b.dataset.order);
-    if (view === "order") {
-      byOrder.forEach((r) => orderList.appendChild(r));
-    } else {
-      byOrder.forEach((r) => home.get(r).appendChild(r));
-    }
-    priorityView.hidden = view === "order";
-    orderView.hidden = view !== "order";
-    try { localStorage.setItem("doomsday-view", view); } catch (e) {}
+    try { localStorage.setItem("doomsday-list", view); } catch (e) {}
+    paint();
   }
   document.querySelectorAll("[data-view]").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
-  let initial = "priority";
-  try { initial = localStorage.getItem("doomsday-view") || "priority"; } catch (e) {}
-  setView(initial);
+  try { view = localStorage.getItem("doomsday-list") === "all" ? "all" : "must"; } catch (e) {}
 
   // 記事から作品へのリンクで飛んできたら詳細を開く
   function openFromHash() {
     const id = decodeURIComponent(location.hash.slice(1));
     const el = id && document.getElementById(id);
     if (el && el.classList.contains("row")) {
+      if (el.hidden) setView("all");
       const d = el.querySelector("details");
       if (d) d.open = true;
       el.scrollIntoView({ block: "start" });
@@ -75,6 +65,6 @@
   const days = Math.ceil((release - new Date()) / 86400000);
   document.getElementById("countdown").innerHTML = days > 0 ? `${days}<span>日</span>` : "公開中";
 
-  paint();
+  setView(view);
   openFromHash();
 })();

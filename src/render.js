@@ -16,13 +16,13 @@ p { font-size: 46px; margin: 18px 0 0; font-weight: bold; }
 <div class="eyebrow">UNOFFICIAL WATCH GUIDE</div>
 <h1>DOOMSDAY</h1>
 <p>アベンジャーズ／ドゥームズデイ 予習ガイド</p>
-<p class="sub">観る順番・必須作品・優先度つきチェックリスト</p>
+<p class="sub">観る順番・重要度つき全作品チェックリスト</p>
 </div></body></html>`;
 
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  for (const [name, out] of [["essential", "doomsday-checklist-essential.pdf"], ["all", "doomsday-checklist-all.pdf"]]) {
+  for (const [name, out] of [["must", "doomsday-checklist-must.pdf"], ["all", "doomsday-checklist-all.pdf"]]) {
     await page.goto("file://" + path.join(SRC, "print", `${name}.html`));
     await page.pdf({ path: path.join(ROOT, out), format: "A4", printBackground: true, preferCSSPageSize: true });
     console.log("pdf:", out);
