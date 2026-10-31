@@ -1,4 +1,4 @@
-/* Layout: 作戦ファイル風。白い地に、上部カウントダウン＋進捗、下に重要度つきのチェックリスト。どの端末でも白で表示する */
+/* Layout: 作戦ファイル風。濃いグリーンのタイトル帯と紺の見出し帯で区切り、本文は白い地に、上部カウントダウン＋進捗、下に重要度つきのチェックリスト。どの端末でも白で表示する */
 :root {
   --bg: #ffffff;
   --surface: #f5f7fb;
@@ -11,6 +11,14 @@
   --steel: #1d4a80;
   --grey: #7b8aa1;
   --link: #1d5fb0;
+  --green: #0e3b2b;
+  --green-soft: #d5e6dc;
+  --navy: #0b2546;
+  --navy-soft: #c9d6ea;
+  --gold-bright: #f2c94c;
+  --gold-ink: #7d5c00;
+  --marker: #f7e3a1;
+  --on-dark: #ffffff;
   --on-pill: #ffffff;
   --on-gold: #1b1405;
   --display: "Anton", "Impact", "Arial Narrow", sans-serif;
@@ -32,11 +40,23 @@ a { color: var(--link); }
 .wrap { max-width: 880px; margin: 0 auto; padding-block: 28px 56px; display: grid; gap: 28px; }
 
 /* Hero */
-.hero { display: grid; gap: 14px; border-left: 4px solid var(--red); padding-left: 18px; }
+.hero { display: grid; gap: 14px; background: var(--green); color: var(--on-dark); border-radius: 12px; border-left: 6px solid var(--gold-bright); padding: clamp(20px, 5vw, 36px); }
+.hero .eyebrow { color: var(--gold-bright); }
+.hero h1 small .nb { display: inline-block; }
+.hero h1 small { display: inline-block; border-top: 2px solid var(--gold-bright); padding-top: 10px; }
+.hero .lead { color: var(--green-soft); }
+.hero .lead strong { color: var(--gold-bright); }
 .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .16em; color: var(--gold); text-transform: uppercase; margin: 0; }
 h1 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(44px, 11vw, 88px); line-height: .95; letter-spacing: .01em; text-wrap: balance; }
 h1 small { display: block; font-family: var(--body); font-weight: 900; font-size: clamp(20px, 4.6vw, 30px); letter-spacing: .02em; margin-top: 8px; line-height: 1.35; }
 .lead { margin: 0; color: var(--muted); max-width: 62ch; }
+
+/* 紺の見出し帯 */
+.tier-section > header h2, .panel h2, .article h2 { background: var(--navy); color: var(--on-dark); border-radius: 6px; border-left: 4px solid var(--gold-bright); padding: 8px 14px; line-height: 1.45; text-wrap: balance; }
+.panel h2 .pr { color: var(--on-dark); border-color: var(--navy-soft); }
+
+/* 本文の段落中の大事な太字だけに薄い金色のマーカー（ボタン・作品名・見出し・箇条書きの項目名には付けない） */
+.article p strong, .callout strong, .tier-section > header p strong { background: linear-gradient(transparent 55%, var(--marker) 55%); padding: 0 1px; }
 
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
@@ -52,6 +72,9 @@ h1 small { display: block; font-family: var(--body); font-weight: 900; font-size
 .btns { display: flex; flex-wrap: wrap; gap: 8px; }
 .btn { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--fg); background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; text-decoration: none; }
 .btn.primary { background: var(--red); border-color: var(--red); color: var(--on-pill); }
+.trailer { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.trailer-btn { background: var(--red); border-color: var(--red); color: var(--on-dark); font-size: 13.5px; }
+.trailer-src { font-size: 12px; color: var(--muted); }
 .ad-links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 6px; }
 .btn.ad { font-size: 12.5px; padding: 4px 10px; }
 .pr { font-family: var(--mono); font-size: 10.5px; color: var(--muted); border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; }
@@ -79,10 +102,10 @@ a.chip { text-decoration: none; }
 .tier-section { display: grid; gap: 12px; }
 .tier-section > header { display: grid; gap: 2px; }
 .tier-section h2 { margin: 0; font-size: 20px; font-weight: 900; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-.tier-section h2 .count { font-family: var(--mono); font-size: 13px; color: var(--muted); font-weight: 500; }
+.tier-section h2 .count { font-family: var(--mono); font-size: 13px; color: var(--navy-soft); font-weight: 500; }
 .tier-section h3 { margin: 8px 0 0; font-size: 15px; color: var(--muted); }
 .tier-section p { margin: 0; color: var(--muted); font-size: 14px; }
-.step { font-family: var(--display); font-weight: 400; color: var(--gold); font-size: 22px; }
+.step { font-family: var(--display); font-weight: 400; color: var(--gold-bright); font-size: 22px; }
 
 /* List */
 .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
@@ -113,7 +136,7 @@ summary { cursor: pointer; font-size: 13.5px; font-weight: 700; color: var(--lin
 .detail { display: grid; gap: 10px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); font-size: 14px; }
 .detail .spoiler { font-size: 12px; color: var(--red); font-weight: 700; margin: 0; }
 .detail dl { margin: 0; display: grid; gap: 10px; }
-.detail dt { font-size: 12px; font-weight: 900; color: var(--gold); letter-spacing: .05em; }
+.detail dt { font-size: 12px; font-weight: 900; color: var(--gold-ink); letter-spacing: .05em; }
 .detail dd { margin: 2px 0 0; }
 .detail ul { margin: 2px 0 0; padding-left: 1.2em; }
 
@@ -125,9 +148,9 @@ summary { cursor: pointer; font-size: 13.5px; font-weight: 700; color: var(--lin
 /* Article pages */
 .crumb { font-size: 13px; }
 .article { display: grid; gap: 4px; max-width: 70ch; }
-.article h1 { font-family: var(--body); font-weight: 900; font-size: clamp(24px, 5.4vw, 34px); line-height: 1.35; }
-.article h2 { font-size: 20px; font-weight: 900; margin: 28px 0 6px; padding-left: 10px; border-left: 4px solid var(--red); }
-.article h3 { font-size: 16px; margin: 16px 0 4px; color: var(--gold); }
+.article h1 { font-family: var(--body); font-weight: 900; font-size: clamp(24px, 5.4vw, 34px); line-height: 1.35; background: var(--green); color: var(--on-dark); border-radius: 12px; border-left: 6px solid var(--gold-bright); padding: clamp(16px, 4vw, 26px); }
+.article h2 { font-size: 20px; font-weight: 900; margin: 28px 0 6px; }
+.article h3 { font-size: 16px; margin: 16px 0 4px; color: var(--gold-ink); }
 .article p, .article li { margin: 6px 0; }
 .article .updated { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .callout { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; font-size: 14px; color: var(--muted); }

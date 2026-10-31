@@ -18,6 +18,7 @@ from titles_c import TITLES_C  # noqa: E402
 from articles import ARTICLES  # noqa: E402
 from importance import IMPORTANCE, MUST_LINE  # noqa: E402
 import ads  # noqa: E402
+from trailers import TRAILERS  # noqa: E402
 
 BASE_URL = "https://jjjjjjjjjjj-in.github.io/doomsday-guide/"
 UPDATED = "2026-10-31"
@@ -47,6 +48,16 @@ def imp_text(t):
 CAT_LABEL = {"xmen": "X-MEN", "infinity": "インフィニティ・サーガ", "nextgen": "次世代ヒーロー",
              "multiverse": "マルチバース", "spider": "スパイダーマン関連", "other": "その他", "goal": "目的の作品"}
 
+
+
+def trailer_button(t):
+    """確認済みの公式予告編があるときだけ、別タブで開くリンクを出す"""
+    entry = TRAILERS.get(t["slug"])
+    if not entry:
+        return ""
+    url, channel = entry
+    return (f'<p class="trailer"><a class="btn trailer-btn" href="{e(url)}" target="_blank" rel="noopener">公式予告編を見る（YouTube）</a>'
+            f'<span class="trailer-src">{e(channel)}</span></p>')
 
 
 def ad_buttons(t):
@@ -187,6 +198,7 @@ def row(t, anchor=True):
         <div><dt>観なかった場合</dt><dd>{e(t["skip"])}</dd></div>
         <div><dt>ポストクレジット</dt><dd>{e(t["post"])}</dd></div>
       </dl>
+      {trailer_button(t)}
       {ad_buttons(t)}
     </div>
   </details>"""
@@ -214,7 +226,7 @@ def build_index():
     return head("ドゥームズデイ予習ガイド｜観る順番と重要度つき全作品リスト", desc, "") + f"""
 <header class="hero">
   <p class="eyebrow">Unofficial Watch Guide · {total} titles</p>
-  <h1>DOOMSDAY<small>アベンジャーズ／ドゥームズデイ 予習ガイド</small></h1>
+  <h1>DOOMSDAY<small><span class="nb">アベンジャーズ／</span><span class="nb">ドゥームズデイ</span> <span class="nb">予習ガイド</span></small></h1>
   <p class="lead">マーベルが好きで、ちゃんと理解してから映画館に行きたい人のためのガイドです。全作品に10点満点の重要度をつけました。<strong>重要度5以上の{must_total}本は、必ず観てほしい作品</strong>です。各作品の「詳しく見る」で、あらすじや他作品とのつながり、観なかった場合に分からなくなることも確認できます。</p>
 </header>
 
