@@ -7,6 +7,30 @@ DISNEY_PLUS = ""
 # Amazonアソシエイトのトラッキングタグ（例: "yourname-22"）。全作品に「Amazonで探す」ボタンが出る
 AMAZON_TAG = "doomsdayguide-22"
 
+# 英語版で使う、アメリカのAmazonアソシエイトのタグ（例: "yourname-20"）。
+# 入れると英語版の広告はすべて amazon.com になり、楽天（日本向け）は英語版から外れる。空なら日本語版と同じ amazon.co.jp と楽天を使う
+AMAZON_TAG_US = ""
+
+# 英語版（amazon.com）で並べる商品（表示名, 検索キーワードまたは "/gp/..."）
+AMAZON_PICKS_US = [
+    ("Fire TV Stick (watch Disney+ on the big screen)", "Fire TV Stick"),
+    ("Marvel LEGO", "LEGO Marvel"),
+    ("Marvel T-shirts", "Marvel t-shirt"),
+    ("Avengers figures", "Avengers Marvel Legends figure"),
+    ("Marvel mugs and goods", "Marvel mug"),
+    ("Movie night at home: popcorn", "popcorn"),
+    ("Marvel comics", "Marvel comics graphic novel"),
+    ("Amazon deals", "/gp/goldbox"),
+    ("Amazon best sellers", "/gp/bestsellers"),
+]
+ARTICLE_PICKS_US = {
+    "cast": [("Avengers figures", "Avengers Marvel Legends figure"), ("Doctor Doom goods", "Doctor Doom")],
+    "x-men": [("X-Men figures", "X-Men Marvel Legends figure"), ("X-Men movie collection", "X-Men Blu-ray")],
+    "infinity-saga": [("Infinity Gauntlet goods", "Infinity Gauntlet"), ("Marvel LEGO", "LEGO Marvel")],
+    "next-generation": [("Captain America shield goods", "Captain America shield"), ("Black Panther goods", "Black Panther")],
+    "multiverse": [("Loki goods", "Loki Marvel"), ("Deadpool goods", "Deadpool")],
+}
+
 # もしもアフィリエイト経由の楽天市場リンク（a_id はもしもの広告コードに入っているあなた専用の番号）
 MOSHIMO_A_ID = "5875908"
 RAKUTEN_TOP = f"https://af.moshimo.com/af/c/click?a_id={MOSHIMO_A_ID}&p_id=54&pc_id=54&pl_id=616" if MOSHIMO_A_ID else ""
@@ -53,4 +77,4 @@ NOT_ON_DISNEY_PLUS = {
 
 
 def enabled():
-    return bool(DISNEY_PLUS or AMAZON_TAG or RAKUTEN_TOP or ADSENSE_CLIENT or any(BANNERS.values()))
+    return bool(DISNEY_PLUS or AMAZON_TAG or AMAZON_TAG_US or RAKUTEN_TOP or ADSENSE_CLIENT or any(BANNERS.values()))

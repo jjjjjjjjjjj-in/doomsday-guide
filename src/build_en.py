@@ -4,6 +4,7 @@
 """
 import os
 import sys
+from urllib.parse import quote
 
 SRC = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(SRC, "en"))
@@ -42,6 +43,18 @@ PICK_LABELS = {
 }
 
 
+US = bool(ads.AMAZON_TAG_US)  # アメリカのAmazonのタグがあれば、英語版の広告は amazon.com だけにする
+
+
+def shop_url(key):
+    """英語版の Amazon リンク（US タグがあれば amazon.com、なければ日本語版と同じ amazon.co.jp）"""
+    if not US:
+        return amazon_url(key)
+    path = key if key.startswith("/") else f"/s?k={quote(key)}"
+    sep = "&" if "?" in path else "?"
+    return f"https://www.amazon.com{path}{sep}tag={quote(ads.AMAZON_TAG_US)}"
+
+
 def t_en(t):
     """日本語版の作品データに英語の文章を重ねたもの"""
     return {**t, **EN[t["slug"]]}
@@ -71,23 +84,23 @@ def ad_buttons(t):
     out = []
     if ads.DISNEY_PLUS and t["slug"] not in ads.NOT_ON_DISNEY_PLUS:
         out.append(f'<a class="btn ad" href="{e(ads.DISNEY_PLUS)}" target="_blank" rel="sponsored noopener">Watch on Disney+</a>')
-    if ads.AMAZON_TAG:
-        out.append(f'<a class="btn ad" href="{e(amazon_url(t["title"] + " Blu-ray"))}" target="_blank" rel="sponsored noopener">Search on Amazon.co.jp</a>')
-    if ads.RAKUTEN_TOP:
+    if US or ads.AMAZON_TAG:
+        out.append(f'<a class="btn ad" href="{e(shop_url(t["title"] + " Blu-ray"))}" target="_blank" rel="sponsored noopener">{"Search on Amazon" if US else "Search on Amazon.co.jp"}</a>')
+    if ads.RAKUTEN_TOP and not US:
         out.append(f'<a class="btn ad" href="{e(rakuten_url(t["title"] + " Blu-ray"))}" target="_blank" rel="sponsored noopener">Search on Rakuten</a>')
     return f'<span class="ad-links">{"".join(out)}<span class="pr">Ad</span></span>' if out else ""
 
 
 def amazon_links(picks):
-    return "".join(f'<a class="btn ad" href="{e(amazon_url(key))}" target="_blank" rel="sponsored noopener">{e(PICK_LABELS.get(label, label))}</a>'
+    return "".join(f'<a class="btn ad" href="{e(shop_url(key))}" target="_blank" rel="sponsored noopener">{e(PICK_LABELS.get(label, label))}</a>'
                    for label, key in picks)
 
 
 def amazon_picks(heading="Movie night extras"):
-    if not ads.AMAZON_TAG:
+    if not (US or ads.AMAZON_TAG):
         return ""
-    items = [amazon_links(ads.AMAZON_PICKS)]
-    if ads.RAKUTEN_TOP:
+    items = [amazon_links(ads.AMAZON_PICKS_US if US else ads.AMAZON_PICKS)]
+    if ads.RAKUTEN_TOP and not US:
         items.append(f'<a class="btn ad" href="{e(ads.RAKUTEN_TOP)}" target="_blank" rel="sponsored noopener">Shop on Rakuten</a>')
     return f"""<section class="panel">
   <h2>{e(heading)} <span class="pr">Ad</span></h2>
@@ -97,18 +110,18 @@ def amazon_picks(heading="Movie night extras"):
 
 
 def article_picks(slug):
-    picks = ads.ARTICLE_PICKS.get(slug)
-    if not (ads.AMAZON_TAG and picks):
+    picks = (ads.ARTICLE_PICKS_US if US else ads.ARTICLE_PICKS).get(slug)
+    if not ((US or ads.AMAZON_TAG) and picks):
         return ""
     return f'<aside class="panel inline-picks"><h2>Related items <span class="pr">Ad</span></h2><div class="btns">{amazon_links(picks)}</div></aside>'
 
 
 def sticky_bar(prefix):
-    if not (ads.AMAZON_TAG and ads.STICKY_BAR):
+    if not ((US or ads.AMAZON_TAG) and ads.STICKY_BAR):
         return ""
     _, key = ads.STICKY_BAR
     return f"""<div class="sticky-ad" id="sticky-ad" hidden>
-  <span class="pr">Ad</span><a href="{e(amazon_url(key))}" target="_blank" rel="sponsored noopener">See today's Amazon deals</a>
+  <span class="pr">Ad</span><a href="{e(shop_url(key))}" target="_blank" rel="sponsored noopener">See today's Amazon deals</a>
   <button type="button" id="sticky-ad-close" aria-label="Close ad">×</button>
 </div>
 <script src="{prefix}assets/sticky.js"></script>
@@ -118,7 +131,7 @@ def sticky_bar(prefix):
 def footer(prefix, ja_link):
     """prefix は /en/ のトップへの相対パス、ja_link は同じ内容の日本語ページ"""
     disclosure = '<p>This site contains affiliate links (ads).</p>\n' if ads.enabled() else ""
-    if ads.AMAZON_TAG:
+    if US or ads.AMAZON_TAG:
         disclosure += '<p>As an Amazon Associate, this site earns from qualifying purchases.</p>\n'
     return banner("bottom") + f"""<footer>
 {disclosure}<p>Cast information is based on official announcements from Marvel Studios and Disney (last checked {UPDATED}). Reported or rumored information is labeled as such. Importance ratings are the site owner's estimates based on official information before release and do not guarantee anything about the film.</p>
