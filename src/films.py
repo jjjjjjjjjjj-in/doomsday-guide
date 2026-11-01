@@ -133,8 +133,6 @@ FILM_GUIDES = {
              "Stan Lee's cameo", "Marvel Comics legend Stan Lee appears as a guest at a party, where Tony mistakes him for a different celebrity."),
             ("ローディ役は次の作品から交代", "ローディはこの作品ではテレンス・ハワードが演じていますが、『アイアンマン2』からはドン・チードルに交代します。顔が違っても同じ人物です。",
              "Rhodey is recast", "Terrence Howard plays Rhodey here, but Don Cheadle takes over from Iron Man 2. Different face, same character."),
-            ("ドゥームズデイとのつながり", "トニーを演じたロバート・ダウニー・Jr.は、『アベンジャーズ／ドゥームズデイ』で悪役ドクター・ドゥームを演じます（トニーとは別人）。MCUを始めた俳優が悪役で戻ってくる意味を味わうために、まずこの作品を観ておきましょう。",
-             "The Doomsday connection", "Robert Downey Jr., who plays Tony, returns as the villain Doctor Doom in Avengers: Doomsday, a different character. Watch this film to feel what it means for the actor who launched the MCU to come back as the villain."),
         ],
         next=[
             ("iron-man-2", "トニーの続きの物語。正体を明かした後のトニーと、ローディの新しいスーツ。", "Tony's story continues after revealing his identity, and Rhodey gets a suit."),

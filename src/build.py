@@ -166,7 +166,7 @@ def alternates(path):
             f'<link rel="alternate" hreflang="x-default" href="{BASE_URL}{path}">')
 
 
-def head(title, desc, path, prefix="", schema=None, lang="ja"):
+def head(title, desc, path, prefix="", schema=None, lang="ja", og_image=None, site_name=None):
     """path は書き出すページのパス。英語版は "en/" から始まる"""
     url = BASE_URL + path
     ja_path = path[3:] if lang == "en" else path
@@ -187,12 +187,12 @@ def head(title, desc, path, prefix="", schema=None, lang="ja"):
 <link rel="canonical" href="{url}">
 {alternates(ja_path)}
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="{SITE_NAMES[lang]}">
+<meta property="og:site_name" content="{e(site_name or SITE_NAMES[lang])}">
 <meta property="og:locale" content="{"en_US" if lang == "en" else "ja_JP"}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{BASE_URL}og.png">
+<meta property="og:image" content="{BASE_URL}{og_image or "og.png"}">
 <meta name="twitter:card" content="summary_large_image">{verify}{schema_html}
 {FONTS}
 <link rel="stylesheet" href="{prefix}assets/site.css">{adsense}
