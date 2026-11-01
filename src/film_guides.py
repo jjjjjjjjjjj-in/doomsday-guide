@@ -1,7 +1,7 @@
 # 作品ガイドは、2026-11-01 から作品ごとの独立したサイトになった（別リポジトリ jjjjjjjjjjj-in.github.io の /<slug>/）。
 # このサイトからはリンクを貼るだけ。新しい作品ガイドができたらここに1件足す。
 # 以前の /films/<slug>.html と /characters/<slug>.html は、新しいアドレスへ転送するページだけを書き出す。
-TOP_URL = "https://jjjjjjjjjjj-in.github.io/"
+TOP_URL = "https://jjjjjjjjjjj-in.github.io/marvel/"  # 作品ガイドの一覧（もっちぃまのトップへは案内しない。運営者の希望、2026-11-02）
 
 GUIDES = {
     # slug: (日本語ページ, 英語ページ)
@@ -41,6 +41,7 @@ GUIDES = {
     "quantumania": ("https://jjjjjjjjjjj-in.github.io/quantumania/", "https://jjjjjjjjjjj-in.github.io/quantumania/en/"),
     "guardians-vol3": ("https://jjjjjjjjjjj-in.github.io/guardians-vol3/", "https://jjjjjjjjjjj-in.github.io/guardians-vol3/en/"),
     "x-men": ("https://jjjjjjjjjjj-in.github.io/x-men/", "https://jjjjjjjjjjj-in.github.io/x-men/en/"),
+    "x2": ("https://jjjjjjjjjjj-in.github.io/x2/", "https://jjjjjjjjjjj-in.github.io/x2/en/"),
 }
 
 

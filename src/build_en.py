@@ -145,7 +145,7 @@ def footer(prefix, ja_link):
 <p>Sources: <a href="https://thewaltdisneycompany.com/news/marvel-studios-avengers-doomsday-cast/" rel="noopener">Marvel Studios Announces 'Avengers: Doomsday' Cast</a> / <a href="https://marvel.disney.co.jp/movie/avengers-doomsday" rel="noopener">Avengers: Doomsday official site (Japan)</a></p>
 <p>For how this site uses analytics (Google Analytics) and ads, see the <a href="{ja.PRIVACY_URL}#en">privacy policy</a>.</p>
 <p>This is an unofficial fan site run by an individual. It is not affiliated with Marvel Studios, The Walt Disney Company, Sony Pictures or 20th Century Studios. Titles and character names are trademarks of their respective owners.</p>
-<p><a href="{prefix}">Home</a> · <a href="{film_guides.TOP_URL}">Film guides (separate sites)</a> · <a href="{prefix}articles/cast.html">Cast</a> · <a href="{prefix}articles/x-men.html">X-Men</a> · <a href="{prefix}articles/infinity-saga.html">Infinity Saga</a> · <a href="{prefix}articles/next-generation.html">Next generation</a> · <a href="{prefix}articles/multiverse.html">Multiverse</a> · <a href="{ja_link}" hreflang="ja" lang="ja">日本語</a></p>
+<p><a href="{prefix}">Home</a> · <a href="{film_guides.TOP_URL}en/">Film guides (separate sites)</a> · <a href="{prefix}articles/cast.html">Cast</a> · <a href="{prefix}articles/x-men.html">X-Men</a> · <a href="{prefix}articles/infinity-saga.html">Infinity Saga</a> · <a href="{prefix}articles/next-generation.html">Next generation</a> · <a href="{prefix}articles/multiverse.html">Multiverse</a> · <a href="{ja_link}" hreflang="ja" lang="ja">日本語</a></p>
 </footer>
 </div>
 """
@@ -231,7 +231,7 @@ def build_index(titles):
   <p class="eyebrow">Unofficial Watch Guide · {total} titles</p>
   <h1>DOOMSDAY<small><span class="nb">Avengers: Doomsday</span> <span class="nb">Watch Guide</span></small></h1>
   <p class="lead">A guide for Marvel fans who want to understand the story properly before heading to the theater. Every title has a 10-point importance rating. <strong>The {must_total} titles rated 5 or higher are the ones you should not miss.</strong> Open "More details" on any title to see the story, how it connects to other titles, and what you might miss if you skip it.</p>
-  <p class="updated-on">Last updated {UPDATED} · <a href="{film_guides.TOP_URL}">Film guides (separate sites)</a> · <a href="../" hreflang="ja" lang="ja">日本語</a></p>
+  <p class="updated-on">Last updated {UPDATED} · <a href="{film_guides.TOP_URL}en/">Film guides (separate sites)</a> · <a href="../" hreflang="ja" lang="ja">日本語</a></p>
 </header>
 {site_toc([("#checklist", "Checklist"), ("#list-must", "① Must-watch"), ("#list-all", "② All titles"), ("#faq", "FAQ"),
            ("#articles", "Articles"), ("#guides", "Film guides"), ("#pdf", "Printable PDF"), ("../", "日本語")], "Contents")}
