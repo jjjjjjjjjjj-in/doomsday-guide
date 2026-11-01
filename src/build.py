@@ -112,9 +112,15 @@ def amazon_picks(heading="予習のおとも"):
     items = [amazon_links(ads.AMAZON_PICKS)]
     if ads.RAKUTEN_TOP:
         items.append(f'<a class="btn ad" href="{e(ads.RAKUTEN_TOP)}" target="_blank" rel="sponsored noopener">楽天市場でお買い物</a>')
+    feat = ""
+    if getattr(ads, "FEATURED", None):
+        ja, _en, key = ads.FEATURED
+        rk = (f'<a class="btn ad" href="{e(rakuten_url(key))}" target="_blank" rel="sponsored noopener">楽天で見る</a>' if ads.RAKUTEN_TOP else "")
+        feat = (f'<div class="featured-pick"><p><strong>おすすめ：</strong>{e(ja)}</p><div class="btns">'
+                f'<a class="btn ad primary" href="{e(amazon_url(key))}" target="_blank" rel="sponsored noopener">Amazonで見る</a>{rk}</div></div>')
     return f"""<section class="panel">
   <h2>{e(heading)} <span class="pr">PR</span></h2>
-  <div class="btns">{"".join(items)}</div>
+  {feat}<div class="btns">{"".join(items)}</div>
 </section>
 """
 

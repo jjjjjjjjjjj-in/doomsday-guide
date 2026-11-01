@@ -104,9 +104,14 @@ def amazon_picks(heading="Movie night extras"):
     items = [amazon_links(ads.AMAZON_PICKS_US if US else ads.AMAZON_PICKS)]
     if ads.RAKUTEN_TOP and not US:
         items.append(f'<a class="btn ad" href="{e(ads.RAKUTEN_TOP)}" target="_blank" rel="sponsored noopener">Shop on Rakuten</a>')
+    feat = ""
+    if getattr(ads, "FEATURED", None):
+        _ja, en, key = ads.FEATURED
+        feat = (f'<div class="featured-pick"><p><strong>Recommended:</strong> {e(en)}</p><div class="btns">'
+                f'<a class="btn ad primary" href="{e(shop_url(key))}" target="_blank" rel="sponsored noopener">View on Amazon</a></div></div>')
     return f"""<section class="panel">
   <h2>{e(heading)} <span class="pr">Ad</span></h2>
-  <div class="btns">{"".join(items)}</div>
+  {feat}<div class="btns">{"".join(items)}</div>
 </section>
 """
 

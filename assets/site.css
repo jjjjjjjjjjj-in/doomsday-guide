@@ -411,3 +411,7 @@ details.relmap-promo > summary h2 { margin: 0; }
 details.relmap-promo > summary::after { content: attr(data-open); font-size: 13px; font-weight: 700; color: var(--link); white-space: nowrap; }
 details.relmap-promo[open] > summary::after { content: attr(data-close); }
 details.relmap-promo[open] > summary { margin-bottom: 10px; }
+
+/* おすすめ商品（予習のおとも の一番上） */
+.featured-pick { border: 2px solid var(--red); border-radius: 12px; padding: 12px 14px; margin: 0 0 14px; }
+.featured-pick p { margin: 0 0 10px; }

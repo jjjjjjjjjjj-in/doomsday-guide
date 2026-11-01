@@ -55,6 +55,12 @@ AMAZON_PICKS = [
     ("Amazon売れ筋ランキング", "/gp/bestsellers"),
 ]
 
+# 「予習のおとも」の一番上に大きく出すおすすめ本（運営者の希望、2026-11-02。オープンチャットで欲しい人が多かった）
+# (日本語の説明, 英語の説明, 検索キーワード)。Amazon と楽天（英語版は amazon.com）の検索結果へのリンクになる
+FEATURED = ("マーベル公式の年表の本『The Marvel Cinematic Universe: An Official Timeline』（英語の本。宇宙の始まりから現在まで、全作品の出来事を時系列で並べたマーベル・スタジオ公式のガイド）",
+            "Marvel Studios' official MCU timeline book: The Marvel Cinematic Universe: An Official Timeline",
+            "Marvel Cinematic Universe An Official Timeline")
+
 # 記事の途中に出す関連アイテム（記事slug: [(表示名, 検索キーワード)]）
 ARTICLE_PICKS = {
     "cast": [("アベンジャーズのフィギュア", "アベンジャーズ フィギュア"), ("ドクター・ドゥームのグッズ", "ドクター・ドゥーム")],
