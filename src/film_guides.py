@@ -29,6 +29,8 @@ GUIDES = {
     "ant-man-and-the-wasp": ("https://jjjjjjjjjjj-in.github.io/ant-man-and-the-wasp/", "https://jjjjjjjjjjj-in.github.io/ant-man-and-the-wasp/en/"),
     "infinity-war": ("https://jjjjjjjjjjj-in.github.io/infinity-war/", "https://jjjjjjjjjjj-in.github.io/infinity-war/en/"),
     "endgame": ("https://jjjjjjjjjjj-in.github.io/endgame/", "https://jjjjjjjjjjj-in.github.io/endgame/en/"),
+    "loki-s1": ("https://jjjjjjjjjjj-in.github.io/loki-s1/", "https://jjjjjjjjjjj-in.github.io/loki-s1/en/"),
+    "loki-s2": ("https://jjjjjjjjjjj-in.github.io/loki-s2/", "https://jjjjjjjjjjj-in.github.io/loki-s2/en/"),
 }
 
 
