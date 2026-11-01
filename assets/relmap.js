@@ -110,7 +110,7 @@
       // 2方向のときは、それぞれの言葉を矢印の出発側に寄せる
       return { path, lg, bg, text, pointAt, prefer: both ? 0.5 : (l.at == null ? 0.5 : l.at), side: both ? 1 : 0 };
     });
-    const label = dirs.map((d) => (dirs.length > 1 ? `${d.from.short}→${d.to.short}「${d.text.replace(/\n/g, " ")}」` : d.text.replace(/\n/g, " "))).join(" / ");
+    const label = dirs.map((d) => (d.plain ? d.text.replace(/\n/g, " ") : `${d.from.short}→${d.to.short}「${d.text.replace(/\n/g, " ")}」`)).join(" / ");
     edges.push({ ...l, a, b, parts, label });
   });
 
