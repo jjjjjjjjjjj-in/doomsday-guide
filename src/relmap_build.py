@@ -26,6 +26,7 @@ TEXT = {
         fit="全体表示", zoom_in="拡大", zoom_out="縮小", close="閉じる", filter="線の種類（押すと表示・非表示）",
         list="登場人物の一覧", lead_role="中心人物", main_role="主要人物", sub_role="脇役",
         spoiler="※人物の説明には、映画の結末に関わるネタバレを含みます。",
+        photo_note="※著作権の関係で、映画の場面写真やポスターなど、映画に出てくる姿の写真は使えません。顔写真はすべて、自由に使ってよい許可のある俳優本人の写真です（見つからなかった人物は頭文字のアイコン）。",
         credits="画像について",
         credits_intro="顔写真は、Wikimedia Commons にある俳優本人の写真（自由に使えるライセンスのもの）を、正方形に切り抜いて縮小し、使っています。写真のない人物は仮のアイコン（名前の頭文字）です。",
         credits_item="{name}／{actor}：撮影 {author}",
@@ -42,6 +43,7 @@ TEXT = {
         fit="Fit all", zoom_in="Zoom in", zoom_out="Zoom out", close="Close", filter="Line types (tap to show or hide)",
         list="All characters", lead_role="Center", main_role="Main", sub_role="Supporting",
         spoiler="The character notes contain spoilers, including the ending.",
+        photo_note="Because of copyright, we can't use stills, posters or any other images of the characters as they appear in the film. All face photos are freely licensed photos of the actors themselves (people without one are shown with initials).",
         credits="About the images",
         credits_intro="Face photos are freely licensed photos of the actors from Wikimedia Commons, cropped to a square and resized. People without a photo are shown with a placeholder (initials).",
         credits_item="{name} — {actor}: photo by {author}",
@@ -121,6 +123,7 @@ def map_section(slug, lang, e, prefix):
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     lead = m["lead_en"] if lang == "en" else m["lead"]
     html = f"""<p>{e(lead)}</p>
+<p class="muted-note">{e(t["photo_note"])}</p>
 <div class="relmap-wrap">
   <div class="rm-legend" role="group" aria-label="{e(t['filter'])}">{legend}</div>
   <div class="relmap" id="relmap">

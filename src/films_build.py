@@ -18,6 +18,7 @@ TEXT = {
         tagline="映画だけでは分かりにくいところを、あらすじ・相関図・用語でやさしく解説します。",
         year="公開", runtime="上映時間", order="視聴順", imp="重要度", era="作中の時代",
         toc="このページの内容", s_summary="この作品を3行で", s_before="観る前に知っておくと分かりやすいこと", s_map="キャラクター相関図",
+        glossary_note="言葉を押すと説明が開きます。",
         s_story="あらすじ", s_glossary="用語集", s_confusing="ここが分かりにくい！Q&A", s_points="見逃しやすいポイント・小ネタ",
         s_ending="ラストとおまけ映像", s_dd="ドゥームズデイとのつながり", s_next="次に観るとよい作品",
         nospoil="ネタバレなし", spoil="ネタバレあり",
@@ -27,7 +28,7 @@ TEXT = {
         watched="この作品を観た（視聴順ガイドのチェックと共通）",
         shop="この作品をもっと楽しむ", back="視聴順ガイドに戻る", list="作品ガイドの一覧",
         trailer="公式予告編を見る（YouTube）", order_fmt="{:02d}番目",
-        desc_fmt="『{title}』を映画だけでは分かりにくい人向けに解説。3行まとめ、ネタバレなしの予習ポイント、顔アイコンつき相関図、章ごとのあらすじ、用語集、分かりにくい場面のQ&A、おまけ映像まで。",
+        desc_fmt="『{title}』を映画だけでは分かりにくい人向けに解説。ネタバレなしの予習ポイント、顔アイコンつき相関図、章ごとのあらすじ、用語集、分かりにくい場面のQ&A、おまけ映像まで。",
         title_fmt="『{title}』完全ガイド｜あらすじ・相関図・用語をやさしく解説",
         index_title="MCU 作品ガイド", index_desc="映画だけではすんなり理解しづらい人のために、作品ごとにあらすじ・相関図・用語・分かりにくい場面をまとめています。",
         planned="準備中",
@@ -37,6 +38,7 @@ TEXT = {
         tagline="The parts that are hard to follow from the film alone, explained with a story summary, a character map and key terms.",
         year="Released", runtime="Runtime", order="Watch order", imp="Importance", era="Set in",
         toc="On this page", s_summary="The film in three lines", s_before="Good to know before watching", s_map="Character map",
+        glossary_note="Tap a term to see what it means.",
         s_story="Story", s_glossary="Key terms", s_confusing="Confusing parts, explained", s_points="Easy-to-miss details",
         s_ending="The ending and post-credits", s_dd="The Doomsday connection", s_next="What to watch next",
         nospoil="No spoilers", spoil="Spoilers",
@@ -46,7 +48,7 @@ TEXT = {
         watched="I've watched this (shared with the watch guide checklist)",
         shop="More from this film", back="Back to the watch guide", list="All film guides",
         trailer="Watch the official trailer (YouTube)", order_fmt="No. {:02d}",
-        desc_fmt="A guide to {title} for anyone who finds it hard to follow: a three-line summary, spoiler-free tips, a character map with face icons, a chapter-by-chapter story, key terms, the confusing parts explained, and the post-credits scene.",
+        desc_fmt="A guide to {title} for anyone who finds it hard to follow: spoiler-free tips, a character map with face icons, a chapter-by-chapter story, key terms, the confusing parts explained, and the post-credits scene.",
         title_fmt="{title} Complete Guide: Story, Character Map and Key Terms Explained",
         index_title="MCU Film Guides", index_desc="For anyone who finds the films hard to follow: the story, a character map, key terms and the confusing parts, film by film.",
         planned="Coming soon",
@@ -82,24 +84,24 @@ def build_page(slug, title_rec, titles, lang, head, footer, e, shop_url_fn, raku
 
     summary = "".join(f"<li>{e(x)}</li>" for x in (g["summary_en"] if lang == "en" else g["summary"]))
     before = "".join(f'<div class="fg-card"><h3>{e(h)}</h3><p>{e(b)}</p></div>' for h, b in (g["before_en"] if lang == "en" else g["before"]))
-    glossary = "".join(f"<div><dt>{e(L(x, lang, 0, 2))}</dt><dd>{e(L(x, lang, 1, 3))}</dd></div>" for x in g["glossary"])
+    glossary = "".join(f"<details><summary>{e(L(x, lang, 0, 2))}</summary><p>{e(L(x, lang, 1, 3))}</p></details>" for x in g["glossary"])
     story = "".join(f'<section class="fg-chapter"><h3>{e(L(x, lang, 0, 2))}</h3><p>{e(L(x, lang, 1, 3))}</p></section>' for x in g["story"])
     confusing = "".join(f'<details class="fg-qa"><summary>{e(L(x, lang, 0, 2))}</summary><p>{e(L(x, lang, 1, 3))}</p></details>' for x in g["confusing"])
     points = "".join(f'<div class="fg-card"><h3>{e(L(x, lang, 0, 2))}</h3><p>{e(L(x, lang, 1, 3))}</p></div>' for x in g["points"])
     by_slug = {x["slug"]: x for x in titles}
     nexts = "".join(
         f'<li><a href="{"../films/" + s + ".html" if s in FILM_GUIDES else "../#" + s}"><b>{e(by_slug[s]["title"])}</b>'
-        f'<small>{e(why_en if lang == "en" else why)}</small><span class="pill-mini">{e(imp_text(by_slug[s]))}</span></a></li>'
+        f'<small>{e(why_en if lang == "en" else why)}</small></a></li>'
         for s, why, why_en in g["next"] if s in by_slug)
 
     has_map = slug in RELATION_MAPS
     map_html, map_scripts, actors = relmap_build.map_section(slug, lang, e, prefix) if has_map else ("", "", [])
-    sections = [("summary", t["s_summary"]), ("before", t["s_before"])] + ([("map", t["s_map"])] if has_map else []) + [
+    sections = [("before", t["s_before"])] + ([("map", t["s_map"])] if has_map else []) + [
         ("story", t["s_story"]), ("glossary", t["s_glossary"]), ("confusing", t["s_confusing"]), ("points", t["s_points"]),
         ("ending", t["s_ending"]), ("next", t["s_next"])]
     toc = "".join(f'<a class="chip" href="#{k}">{e(v)}</a>' for k, v in sections)
     facts = [(t["year"], tr["year"]), (t["runtime"], g["runtime_en"] if lang == "en" else g["runtime"]),
-             (t["order"], t["order_fmt"].format(tr["order"])), (t["imp"], imp_text(tr)), (t["era"], tr["era"])]
+             (t["order"], t["order_fmt"].format(tr["order"])), (t["era"], tr["era"])]
     facts_html = "".join(f"<div><dt>{e(k)}</dt><dd>{e(str(v))}</dd></div>" for k, v in facts)
     shop = shop_panel(g, lang, e, shop_url_fn, rakuten_fn)
 
@@ -135,10 +137,6 @@ try{localStorage.setItem(K,JSON.stringify(s))}catch(e){}});})();
 </header>
 <nav class="fg-toc" aria-label="{e(t['toc'])}">{toc}</nav>
 
-<section class="fg-sec" id="summary"><h2>{e(t['s_summary'])}<span class="tag-ok">{e(t['nospoil'])}</span></h2>
-  <ol class="fg-three">{summary}</ol>
-</section>
-
 <section class="fg-sec" id="before"><h2>{e(t['s_before'])}<span class="tag-ok">{e(t['nospoil'])}</span></h2>
   <div class="fg-cards">{before}</div>
 </section>
@@ -154,7 +152,8 @@ try{localStorage.setItem(K,JSON.stringify(s))}catch(e){}});})();
 {shop}
 
 <section class="fg-sec" id="glossary"><h2>{e(t['s_glossary'])}</h2>
-  <dl class="fg-glossary">{glossary}</dl>
+  <p class="muted-note">{e(t['glossary_note'])}</p>
+  <div class="fg-glossary">{glossary}</div>
 </section>
 
 <section class="fg-sec" id="confusing"><h2>{e(t['s_confusing'])}<span class="tag-warn">{e(t['spoil'])}</span></h2>
