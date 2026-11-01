@@ -22,6 +22,9 @@
 - `films.py`: 作品ガイド（「映画だけではすんなり理解しづらい人」向けに1作品を丸ごと解説するページ /films/<slug>.html と /en/films/）。3行まとめ・観る前に・相関図・あらすじ・用語集・分かりにくいQ&A・小ネタ・おまけ映像・次に観る作品・関連商品（PR）。ページは `films_build.py`。第1弾『アイアンマン』（2026-11-01）。運営者の方針は「まず1作品をしっかり作り、同じ形で各作品に広げる」。
   - 文章はすべて自分の言葉で書く。他サイト（運営者が参考に貼ったサイトも含む）の文章を写さない。確かめられない裏話は書かない。
   - 以前の /characters/<slug>.html は作品ガイドの #map へ転送する（noindex）。
+  - 相関図はカード型（運営者が見せた黒板風の相関図が手本）。人物ごとに tone（色）と badge（右上の丸の文字）、関係は向きごとの言葉（ab: a→b、ba: b→a）で書く。
+  - 作品ごとの色は films.py の theme（アイアンマンは赤と金）。
+  - 顔写真を入れるには、環境の設定で commons.wikimedia.org と upload.wikimedia.org への接続を許可してもらい、自由ライセンスの俳優写真を使う。
 - `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード。`GA_MEASUREMENT_ID`: Google アナリティクス（全サイト共通 G-KDFL8GPPRZ）。フッターから共通のプライバシーポリシー（https://jjjjjjjjjjj-in.github.io/privacy.html）にリンクする。
 - `site.css` / `app.js` / `sticky.js`: 見た目と動き。白背景、タイトルは濃いグリーン、見出しは紺。
 - 英語版の広告は `ads.py` の `AMAZON_TAG_US`（アメリカのAmazonアソシエイト）を入れると amazon.com に切り替わる。

@@ -1,4 +1,5 @@
 // キャラクター相関図：データ（#relmap-data）から SVG を描き、ドラッグで移動・ピンチ／ホイールで拡大縮小・タップで人物の説明を開く
+// 人物は写真カード（四角）。関係は矢印で、向きごとに短い言葉（ab: a→b、ba: b→a）。向きのない関係は label。
 (function () {
   const dataEl = document.getElementById("relmap-data");
   const stage = document.getElementById("relmap");
@@ -6,8 +7,8 @@
   const D = JSON.parse(dataEl.textContent);
   const T = D.text;
   const NS = "http://www.w3.org/2000/svg";
-  const R = { lead: 66, main: 48, sub: 36 };
-  const NAME_SIZE = { lead: 25, main: 21, sub: 18 };
+  // カードの大きさ（幅・写真の高さ・名前欄の高さ）
+  const CARD = { lead: [176, 176, 62], main: [138, 138, 54], sub: [116, 116, 50] };
   const svgEl = (tag, attrs, parent) => {
     const el = document.createElementNS(NS, tag);
     for (const k in attrs) el.setAttribute(k, attrs[k]);
@@ -16,31 +17,29 @@
   };
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  // ---- 位置を決める（x,y があればそのまま。なければ ring と angle、それもなければ空いた角度に自動で並べる）
-  const people = D.people.map((p) => ({ ...p, r: R[p.role] || R.sub }));
+  // ---- 位置（x,y がなければ中心のまわりに自動で並べ、重なれば押し広げる）
+  const people = D.people.map((p) => {
+    const [w, ph, nh] = CARD[p.role] || CARD.sub;
+    return { ...p, w, ph, nh, h: ph + nh };
+  });
   const byId = Object.fromEntries(people.map((p) => [p.id, p]));
   const center = byId[D.center] || people[0];
-  const auto = people.filter((p) => p.x == null && p.angle == null);
-  auto.forEach((p, i) => { p.ring = p.ring || 2; p.angle = (360 / auto.length) * i - 90; });
-  people.forEach((p) => {
-    if (p.x == null) {
-      const dist = (p.ring || 2) === 1 ? 260 : 460;
-      const a = (p.angle * Math.PI) / 180;
-      p.x = (center.x || 0) + Math.cos(a) * dist;
-      p.y = (center.y || 0) + Math.sin(a) * dist;
-    }
+  const auto = people.filter((p) => p.x == null);
+  auto.forEach((p, i) => {
+    const a = p.angle != null ? (p.angle * Math.PI) / 180 : (2 * Math.PI * i) / auto.length - Math.PI / 2;
+    const dist = (p.ring || 2) === 1 ? 320 : 560;
+    p.x = (center.x || 0) + Math.cos(a) * dist;
+    p.y = (center.y || 0) + Math.sin(a) * dist;
   });
-  // 重なりがあれば少しずつ押し広げる（手で置いた位置はほぼそのまま）
-  for (let k = 0; k < 60; k++) {
+  for (let k = 0; k < 80; k++) {
     let moved = false;
     for (let i = 0; i < people.length; i++) for (let j = i + 1; j < people.length; j++) {
       const a = people[i], b = people[j];
-      const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || 1;
-      const need = a.r + b.r + 46;
-      if (d < need) {
-        const push = (need - d) / 2, ux = dx / d, uy = dy / d;
-        if (a !== center) { a.x -= ux * push; a.y -= uy * push; }
-        if (b !== center) { b.x += ux * push; b.y += uy * push; }
+      const ox = (a.w + b.w) / 2 + 60 - Math.abs(b.x - a.x), oy = (a.h + b.h) / 2 + 60 - Math.abs(b.y - a.y);
+      if (ox > 0 && oy > 0) {
+        const horiz = ox < oy, push = (horiz ? ox : oy) / 2, sx = Math.sign(b.x - a.x) || 1, sy = Math.sign(b.y - a.y) || 1;
+        if (a !== center) { if (horiz) a.x -= sx * push; else a.y -= sy * push; }
+        if (b !== center) { if (horiz) b.x += sx * push; else b.y += sy * push; }
         moved = true;
       }
     }
@@ -50,13 +49,15 @@
   // ---- SVG を組み立てる
   const svg = svgEl("svg", { class: "relmap-svg", role: "img", "aria-label": T.aria });
   const defs = svgEl("defs", {}, svg);
-  const clip = svgEl("clipPath", { id: "rm-clip", clipPathUnits: "objectBoundingBox" }, defs);
-  svgEl("circle", { cx: 0.5, cy: 0.5, r: 0.5 }, clip);
+  ["love", "family", "friend", "ally", "enemy", "org"].forEach((t) => {
+    const m = svgEl("marker", { id: `rm-arrow-${t}`, viewBox: "0 0 10 10", refX: 8.5, refY: 5, markerWidth: 5.5, markerHeight: 5.5, orient: "auto-start-reverse", markerUnits: "strokeWidth" }, defs);
+    svgEl("path", { d: "M0,0 L10,5 L0,10 z", class: `rm-head t-${t}` }, m);
+  });
   const view = svgEl("g", { class: "rm-view" }, svg);
   const gGroups = svgEl("g", { class: "rm-groups" }, view);
   const gEdges = svgEl("g", { class: "rm-edges" }, view);
-  const gLabels = svgEl("g", { class: "rm-labels" }, view);
   const gNodes = svgEl("g", { class: "rm-nodes" }, view);
+  const gLabels = svgEl("g", { class: "rm-labels" }, view);
   stage.prepend(svg);
 
   (D.groups || []).forEach((g) => {
@@ -64,66 +65,124 @@
     t.textContent = g.label;
   });
 
-  const edges = D.links.map((l) => {
+  // カードの縁で線を止める（中心から相手の方向へ伸ばしたとき、四角の外周と交わる点）
+  const edgePoint = (p, tx, ty, pad) => {
+    const dx = tx - p.x, dy = ty - p.y;
+    const hw = p.w / 2 + pad, hh = p.h / 2 + pad;
+    const k = 1 / Math.max(Math.abs(dx) / hw, Math.abs(dy) / hh, 1e-6);
+    return [p.x + dx * k, p.y + dy * k];
+  };
+
+  const edges = [];
+  D.links.forEach((l) => {
     const a = byId[l.a], b = byId[l.b];
-    if (!a || !b) return null;
-    const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
-    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
-    const bend = (l.bend || 0) * len;
-    const cx = mx - (dy / len) * bend, cy = my + (dx / len) * bend;
-    const d = bend ? `M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}` : `M${a.x},${a.y} L${b.x},${b.y}`;
-    const path = svgEl("path", { d, class: `rm-edge t-${l.type}` }, gEdges);
-    // 線の上の点（曲線なら曲線上の点）。t=0 が a、t=1 が b
-    const pointAt = (t) => bend
-      ? [(1 - t) * (1 - t) * a.x + 2 * (1 - t) * t * cx + t * t * b.x, (1 - t) * (1 - t) * a.y + 2 * (1 - t) * t * cy + t * t * b.y]
-      : [a.x + dx * t, a.y + dy * t];
-    const lg = svgEl("g", { class: `rm-label t-${l.type}` }, gLabels);
-    const lines = String(l.label).split("\n");
-    const bg = svgEl("rect", { rx: 6 }, lg);
-    const text = svgEl("text", { "text-anchor": "middle" }, lg);
-    lines.forEach((s, i) => {
-      const ts = svgEl("tspan", { x: 0, dy: i === 0 ? `${-(lines.length - 1) * 0.6 + 0.35}em` : "1.2em" }, text);
-      ts.textContent = s;
+    if (!a || !b) return;
+    const dirs = [];
+    if (l.ab) dirs.push({ from: a, to: b, text: l.ab });
+    if (l.ba) dirs.push({ from: b, to: a, text: l.ba });
+    if (!dirs.length) dirs.push({ from: a, to: b, text: l.label || "", plain: true });
+    const both = dirs.length === 2;
+    const parts = dirs.map((d, i) => {
+      // 2方向あるときは、線を少し左右にずらして2本並べる
+      const dx = d.to.x - d.from.x, dy = d.to.y - d.from.y, len = Math.hypot(dx, dy) || 1;
+      const off = both ? 9 : 0, nx = (-dy / len) * off, ny = (dx / len) * off;
+      const bend = (l.bend || 0) * len * (d.from === a ? 1 : -1);
+      const mx = (d.from.x + d.to.x) / 2 + nx, my = (d.from.y + d.to.y) / 2 + ny;
+      const cx = mx - (dy / len) * bend, cy = my + (dx / len) * bend;
+      const aim = (p, q) => (bend ? [cx, cy] : [q.x + nx, q.y + ny]);
+      const [x1, y1] = edgePoint({ ...d.from, x: d.from.x + nx, y: d.from.y + ny }, ...aim(d.from, d.to), 4);
+      const [x2, y2] = edgePoint({ ...d.to, x: d.to.x + nx, y: d.to.y + ny }, ...aim(d.to, d.from), 6);
+      const path = svgEl("path", {
+        d: bend ? `M${x1},${y1} Q${cx},${cy} ${x2},${y2}` : `M${x1},${y1} L${x2},${y2}`,
+        class: `rm-edge t-${l.type}`, "marker-end": d.plain ? "" : `url(#rm-arrow-${l.type})`,
+      }, gEdges);
+      const pointAt = (t) => bend
+        ? [(1 - t) * (1 - t) * x1 + 2 * (1 - t) * t * cx + t * t * x2, (1 - t) * (1 - t) * y1 + 2 * (1 - t) * t * cy + t * t * y2]
+        : [x1 + (x2 - x1) * t, y1 + (y2 - y1) * t];
+      const lg = svgEl("g", { class: `rm-label t-${l.type}` }, gLabels);
+      const lines = String(d.text).split("\n");
+      const bg = svgEl("rect", { rx: 7 }, lg);
+      const text = svgEl("text", { "text-anchor": "middle" }, lg);
+      lines.forEach((s, i2) => {
+        const ts = svgEl("tspan", { x: 0, dy: i2 === 0 ? `${-(lines.length - 1) * 0.6 + 0.35}em` : "1.2em" }, text);
+        ts.textContent = s;
+      });
+      // 2方向のときは、それぞれの言葉を矢印の出発側に寄せる
+      return { path, lg, bg, text, pointAt, prefer: both ? 0.5 : (l.at == null ? 0.5 : l.at), side: both ? 1 : 0 };
     });
-    return { ...l, a, b, path, lg, bg, text, pointAt };
-  }).filter(Boolean);
+    const label = dirs.map((d) => (dirs.length > 1 ? `${d.from.short}→${d.to.short}「${d.text.replace(/\n/g, " ")}」` : d.text.replace(/\n/g, " "))).join(" / ");
+    edges.push({ ...l, a, b, parts, label });
+  });
 
   const nodes = people.map((p) => {
-    const g = svgEl("g", { class: `rm-node r-${p.role} s-${p.side}`, transform: `translate(${p.x},${p.y})`, tabindex: 0, role: "button",
+    const g = svgEl("g", { class: `rm-node r-${p.role} tone-${p.tone || "gold"}`, transform: `translate(${p.x},${p.y})`, tabindex: 0, role: "button",
       "aria-label": `${p.name}（${p.actor}）` }, gNodes);
-    svgEl("circle", { r: p.r + 4, class: "rm-ring" }, g);
+    const x0 = -p.w / 2, y0 = -p.h / 2;
+    svgEl("rect", { x: x0 - 5, y: y0 - 5, width: p.w + 10, height: p.h + 10, rx: 14, class: "rm-frame" }, g);
+    const clipId = `rm-c-${p.id}`;
+    const cp = svgEl("clipPath", { id: clipId }, defs);
+    svgEl("rect", { x: x0, y: y0, width: p.w, height: p.ph, rx: 9 }, cp);
     if (p.img) {
-      svgEl("image", { href: p.img, x: -p.r, y: -p.r, width: p.r * 2, height: p.r * 2, "clip-path": "url(#rm-clip)", preserveAspectRatio: "xMidYMid slice" }, g);
+      svgEl("image", { href: p.img, x: x0, y: y0, width: p.w, height: p.ph, "clip-path": `url(#${clipId})`, preserveAspectRatio: "xMidYMid slice" }, g);
     } else {
-      svgEl("circle", { r: p.r, class: "rm-ph" }, g);
-      const t = svgEl("text", { class: "rm-initials", "text-anchor": "middle", dy: "0.36em", "font-size": p.r * 0.72 }, g);
+      svgEl("rect", { x: x0, y: y0, width: p.w, height: p.ph, rx: 9, class: "rm-ph" }, g);
+      // 仮の顔アイコン（シルエット＋頭文字）
+      const cx = 0, top = y0 + p.ph * 0.2, r = p.ph * 0.2;
+      svgEl("circle", { cx, cy: top + r, r, class: "rm-sil" }, g);
+      svgEl("path", { d: `M${-p.w * 0.36},${y0 + p.ph} Q${-p.w * 0.36},${top + r * 2.3} 0,${top + r * 2.3} Q${p.w * 0.36},${top + r * 2.3} ${p.w * 0.36},${y0 + p.ph} Z`, class: "rm-sil", "clip-path": `url(#${clipId})` }, g);
+      const t = svgEl("text", { class: "rm-initials", "text-anchor": "middle", x: 0, y: y0 + p.ph - p.ph * 0.1, "font-size": p.ph * 0.2 }, g);
       t.textContent = p.initials;
     }
-    const nm = svgEl("text", { class: "rm-name", "text-anchor": "middle", y: p.r + 4 + NAME_SIZE[p.role], "font-size": NAME_SIZE[p.role] }, g);
+    const ny = y0 + p.ph;
+    svgEl("rect", { x: x0, y: ny - 2, width: p.w, height: p.nh + 2, class: "rm-band" }, g);
+    const fs = { lead: 22, main: 18, sub: 15.5 }[p.role] || 15.5;
+    const nm = svgEl("text", { class: "rm-name", "text-anchor": "middle", x: 0, y: ny + p.nh * 0.46, "font-size": fs }, g);
     nm.textContent = p.short || p.name;
-    const ac = svgEl("text", { class: "rm-actor", "text-anchor": "middle", y: p.r + 8 + NAME_SIZE[p.role] * 2, "font-size": Math.round(NAME_SIZE[p.role] * 0.72) }, g);
+    const ac = svgEl("text", { class: "rm-actor", "text-anchor": "middle", x: 0, y: ny + p.nh * 0.82, "font-size": Math.round(fs * 0.66) }, g);
     ac.textContent = p.actor;
+    // 名前が枠からはみ出すときは縮める
+    [nm, ac].forEach((el) => { const w = el.getComputedTextLength(); if (w > p.w - 10) el.setAttribute("textLength", p.w - 10), el.setAttribute("lengthAdjust", "spacingAndGlyphs"); });
+    if (p.badge) {
+      const bx = p.w / 2 - 4, by = y0 + 2, br = { lead: 30, main: 26, sub: 23 }[p.role] || 23;
+      const bgc = svgEl("g", { class: "rm-badge", transform: `translate(${bx},${by})` }, g);
+      svgEl("circle", { r: br }, bgc);
+      const lines = p.badge.split("\n");
+      const bt = svgEl("text", { "text-anchor": "middle", "font-size": br * (lines.length > 1 ? 0.52 : (p.badge.length > 3 ? 0.5 : 0.62)) }, bgc);
+      lines.forEach((s, i) => { const ts = svgEl("tspan", { x: 0, dy: i === 0 ? `${-(lines.length - 1) * 0.55 + 0.36}em` : "1.1em" }, bt); ts.textContent = s; });
+    }
     p.g = g;
     return p;
   });
 
-  // ラベルの背景の大きさを文字に合わせ、線の上で人物や他のラベルと重なりにくい位置に置く
+  // ラベルの背景の大きさを文字に合わせ、線の上でカードや他のラベルと重なりにくい位置に置く
   const rects = nodes.map((p) => { const bb = p.g.getBBox(); return { x: bb.x + p.x - 4, y: bb.y + p.y - 4, w: bb.width + 8, h: bb.height + 8 }; });
   const overlap = (r, q) => Math.max(0, Math.min(r.x + r.w, q.x + q.w) - Math.max(r.x, q.x)) * Math.max(0, Math.min(r.y + r.h, q.y + q.h) - Math.max(r.y, q.y));
-  edges.forEach((ed) => {
-    const bb = ed.text.getBBox();
-    ed.bg.setAttribute("x", bb.x - 6); ed.bg.setAttribute("y", bb.y - 3);
-    ed.bg.setAttribute("width", bb.width + 12); ed.bg.setAttribute("height", bb.height + 6);
-    const w = bb.width + 12, h = bb.height + 6, prefer = ed.at == null ? 0.5 : ed.at;
+  edges.forEach((ed) => ed.parts.forEach((pt) => {
+    const bb = pt.text.getBBox();
+    pt.bg.setAttribute("x", bb.x - 7); pt.bg.setAttribute("y", bb.y - 4);
+    pt.bg.setAttribute("width", bb.width + 14); pt.bg.setAttribute("height", bb.height + 8);
+    const w = bb.width + 14, h = bb.height + 8;
     let best = null;
-    for (let t = 0.15; t <= 0.851; t += 0.025) {
-      const [x, y] = ed.pointAt(t);
-      const r = { x: x - w / 2, y: y + bb.y - 3, w, h };
-      const score = rects.reduce((sum, q) => sum + overlap(r, q), 0) + Math.abs(t - prefer) * 400;
+    for (let t = 0.1; t <= 0.901; t += 0.025) {
+      let [x, y] = pt.pointAt(t);
+      if (pt.side) {
+        // 2方向の言葉は、線をはさんで反対側に置く
+        const [xa, ya] = pt.pointAt(Math.max(0, t - 0.02)), [xb, yb] = pt.pointAt(Math.min(1, t + 0.02));
+        const len = Math.hypot(xb - xa, yb - ya) || 1, nx = -(yb - ya) / len, ny = (xb - xa) / len;
+        const d = Math.abs(nx) * (w / 2 + 6) + Math.abs(ny) * (h / 2 + 6);
+        x += nx * d * pt.side; y += ny * d * pt.side;
+      }
+      const r = { x: x - w / 2, y: y + bb.y - 4, w, h };
+      const score = rects.reduce((sum, q) => sum + overlap(r, q), 0) + Math.abs(t - pt.prefer) * 500;
       if (!best || score < best.score) best = { score, x, y, r };
     }
-    ed.lg.setAttribute("transform", `translate(${best.x},${best.y})`);
+    pt.lg.setAttribute("transform", `translate(${best.x},${best.y})`);
     rects.push(best.r);
+  }));
+  // 古い書き方との互換：選んだ人物の線を強調するときに使う
+  edges.forEach((ed) => {
+    ed.path = { classList: { toggle: (c, v) => ed.parts.forEach((pt) => pt.path.classList.toggle(c, v)) } };
+    ed.lg = { classList: { toggle: (c, v) => ed.parts.forEach((pt) => pt.lg.classList.toggle(c, v)) } };
   });
 
   // ---- 拡大縮小と移動
@@ -253,7 +312,7 @@
   const sheetIsBottom = () => window.matchMedia("(max-width: 759px)").matches;
   const avatarHtml = (p, size) => p.img
     ? `<img src="${esc(p.img)}" alt="" width="${size}" height="${size}">`
-    : `<span class="rm-ph-html s-${p.side} r-${p.role}" style="width:${size}px;height:${size}px;font-size:${size * 0.36}px">${esc(p.initials)}</span>`;
+    : `<span class="rm-ph-html tone-${p.tone || "gold"} r-${p.role}" style="width:${size}px;height:${size}px;font-size:${size * 0.36}px">${esc(p.initials)}</span>`;
   let current = null;
   function select(p, center) {
     current = p;
@@ -270,7 +329,7 @@
     if (!p) { sheet.hidden = true; return; }
     const rels = edges.filter((ed) => ed.a === p || ed.b === p).map((ed) => {
       const o = ed.a === p ? ed.b : ed.a;
-      return `<li><button type="button" class="rm-rel" data-goto="${esc(o.id)}">${avatarHtml(o, 32)}<span><b>${esc(o.name)}</b><small><span class="rm-chip t-${ed.type}">${esc(T.types[ed.type])}</span>${esc(String(ed.label).replace(/\n/g, " "))}</small></span></button></li>`;
+      return `<li><button type="button" class="rm-rel" data-goto="${esc(o.id)}">${avatarHtml(o, 32)}<span><b>${esc(o.name)}</b><small><span class="rm-chip t-${ed.type}">${esc(T.types[ed.type])}</span>${esc(ed.label)}</small></span></button></li>`;
     }).join("");
     const credit = p.credit
       ? `<p class="rm-credit">${T.photo}: <a href="${esc(p.credit.source_url)}" target="_blank" rel="noopener">${esc(p.credit.author)}</a> / <a href="${esc(p.credit.license_url)}" target="_blank" rel="noopener">${esc(p.credit.license)}</a></p>`

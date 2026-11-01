@@ -342,3 +342,55 @@ footer p { margin: 0; }
 .rm-credits { grid-column: auto; margin: 0; font-size: 13px; }
 .rm-credits p, .muted-note { color: var(--muted); font-size: 13px; }
 .btn.soon { opacity: .7; }
+
+/* 相関図：カード型（参考：黒板風の相関図）。人物ごとの色は tone-* */
+.relmap { background: radial-gradient(circle at 45% 40%, #5a1016 0, #2b080b 62%, #1d0507 100%); border-color: #3d0a0e; }
+.relmap::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .14;
+  background-image: linear-gradient(rgba(242, 194, 48, .5) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 194, 48, .5) 1px, transparent 1px); background-size: 36px 36px; }
+.rm-group { fill: #f2c230; opacity: .55; font-size: 24px; }
+.rm-edge { stroke-width: 3.5; }
+.rm-edge.t-org { stroke: #b7c3d6; stroke-dasharray: 3 7; }
+.rm-edge.t-ally { stroke: #5aa2ff; }
+.rm-edge.t-friend { stroke: #51cf66; }
+.rm-edge.t-love { stroke: #ff6b9a; }
+.rm-edge.t-enemy { stroke: #ff4d5e; }
+.rm-edge.t-family { stroke: #f2c230; }
+.rm-head.t-love { fill: #ff6b9a; } .rm-head.t-family { fill: #f2c230; } .rm-head.t-friend { fill: #51cf66; }
+.rm-head.t-ally { fill: #5aa2ff; } .rm-head.t-enemy { fill: #ff4d5e; } .rm-head.t-org { fill: #b7c3d6; }
+.rm-label rect { fill: #ffffff; stroke-width: 2; }
+.rm-label text { font-size: 17px; font-weight: 900; }
+.rm-label.t-org rect { stroke: #b7c3d6; }
+.rm-frame { stroke: #ffffff; stroke-width: 3; }
+.rm-band { }
+.rm-ph { opacity: 1; }
+.rm-sil { opacity: .55; }
+.rm-initials { font-family: var(--display); fill: #ffffff; letter-spacing: .04em; paint-order: stroke; stroke: rgba(0, 0, 0, .25); stroke-width: 3px; }
+.rm-node .rm-name { fill: #ffffff; stroke: none; font-weight: 900; }
+.rm-node .rm-actor { fill: rgba(255, 255, 255, .88); stroke: none; }
+.rm-badge circle { stroke: #ffffff; stroke-width: 3; }
+.rm-badge text { fill: #ffffff; font-family: var(--body); font-weight: 900; }
+.tone-red .rm-frame, .tone-red .rm-band, .tone-red .rm-badge circle { fill: #c8192f; }
+.tone-red .rm-ph { fill: #f6c9cf; } .tone-red .rm-sil { fill: #c8192f; }
+.tone-gold .rm-frame, .tone-gold .rm-band, .tone-gold .rm-badge circle { fill: #e0a800; }
+.tone-gold .rm-ph { fill: #fbe9b0; } .tone-gold .rm-sil { fill: #b08400; }
+.tone-gold .rm-name, .tone-gold .rm-badge text { fill: #241a00 !important; } .tone-gold .rm-actor { fill: rgba(36, 26, 0, .8) !important; }
+.tone-green .rm-frame, .tone-green .rm-band, .tone-green .rm-badge circle { fill: #2f9e44; }
+.tone-green .rm-ph { fill: #cdeccf; } .tone-green .rm-sil { fill: #2f9e44; }
+.tone-blue .rm-frame, .tone-blue .rm-band, .tone-blue .rm-badge circle { fill: #1d5fb0; }
+.tone-blue .rm-ph { fill: #cfe0f6; } .tone-blue .rm-sil { fill: #1d5fb0; }
+.tone-pink .rm-frame, .tone-pink .rm-band, .tone-pink .rm-badge circle { fill: #d6336c; }
+.tone-pink .rm-ph { fill: #f8d0de; } .tone-pink .rm-sil { fill: #d6336c; }
+.tone-purple .rm-frame, .tone-purple .rm-band, .tone-purple .rm-badge circle { fill: #6f42c1; }
+.tone-purple .rm-ph { fill: #e0d4f5; } .tone-purple .rm-sil { fill: #6f42c1; }
+.r-lead .rm-frame { stroke: #f2c230; stroke-width: 5; }
+.rm-node.sel .rm-frame, .rm-node:focus-visible .rm-frame { stroke: #ffe066; stroke-width: 8; }
+.relmap.has-sel .rm-node:not(.near):not(.sel) { opacity: .3; }
+.rm-tools button { background: rgba(255, 255, 255, .95); }
+.rm-ph-html.tone-red { background: #f6c9cf; border-color: #c8192f; color: #8a0f1f; }
+.rm-ph-html.tone-gold { background: #fbe9b0; border-color: #e0a800; color: #5c4400; }
+.rm-ph-html.tone-green { background: #cdeccf; border-color: #2f9e44; color: #1e6b2e; }
+.rm-ph-html.tone-blue { background: #cfe0f6; border-color: #1d5fb0; color: #174a8a; }
+.rm-ph-html.tone-pink { background: #f8d0de; border-color: #d6336c; color: #a61e4d; }
+.rm-ph-html.tone-purple { background: #e0d4f5; border-color: #6f42c1; color: #4b2a8a; }
+.rm-ph-html { border-radius: 10px; }
+.rm-swatch.t-ally { border-top-style: solid; }

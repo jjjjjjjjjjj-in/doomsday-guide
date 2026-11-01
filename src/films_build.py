@@ -120,7 +120,10 @@ b.addEventListener("change",function(){var i=s.indexOf(b.dataset.slug);if(b.chec
 try{localStorage.setItem(K,JSON.stringify(s))}catch(e){}});})();
 </script>
 """
-    return head(t["title_fmt"].format(title=title), t["desc_fmt"].format(title=title), path, prefix=prefix, schema=schema, lang=lang) + f"""
+    th = g.get("theme")
+    theme_css = (f"<style>:root{{--green:{th['deep']};--navy:{th['main']};--gold-bright:{th['accent']};--green-soft:{th['soft']};"
+                 f"--navy-soft:{th['soft']};--gold:{th['accent']};--gold-ink:{th['main']};--link:{th['main']};}}</style>\n") if th else ""
+    return head(t["title_fmt"].format(title=title), t["desc_fmt"].format(title=title), path, prefix=prefix, schema=schema, lang=lang) + theme_css + f"""
 <nav class="crumb"><a href="../">{e(t['home'])}</a> ＞ <a href="./">{e(t['menu'])}</a> ＞ {e(title)}</nav>
 <header class="fg-hero">
   <p class="eyebrow">{e(t['menu'])} · {e(tr['year'])}</p>

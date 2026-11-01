@@ -62,7 +62,8 @@ def localized_people(m, lang):
     for p in m["people"]:
         g = (lambda k: p.get(f"{k}_en", p[k])) if lang == "en" else (lambda k: p[k])
         name = g("name")
-        q = dict(id=p["id"], role=p["role"], side=p["side"], name=name, short=re.sub(r"（.*?）", "", name),
+        q = dict(id=p["id"], role=p["role"], side=p["side"], tone=p.get("tone", "gold"), badge=g("badge") if "badge" in p else "",
+                 name=name, short=re.sub(r"（.*?）", "", name),
                  actor=g("actor"), group=g("group"), desc=g("desc"), initials=p.get("initials") or initials(p["name_en"]))
         for k in ("x", "y", "ring", "angle"):
             if k in p:
@@ -82,7 +83,8 @@ def page_data(slug, lang, prefix):
     for p in people:
         if "img" in p:
             p["img"] = p["img"].format(prefix=prefix)
-    links = [dict(a=l["a"], b=l["b"], type=l["type"], label=l.get("label_en", l["label"]) if lang == "en" else l["label"],
+    pick = lambda l, k: (l.get(k + "_en", l.get(k)) if lang == "en" else l.get(k))
+    links = [dict(a=l["a"], b=l["b"], type=l["type"], **{k: pick(l, k) for k in ("label", "ab", "ba") if k in l},
                   **{k: l[k] for k in ("bend", "at") if k in l}) for l in m["links"]]
     groups = [dict(x=g["x"], y=g["y"], label=g.get("label_en", g["label"]) if lang == "en" else g["label"]) for g in m.get("groups", [])]
     center = next(p["id"] for p in m["people"] if p["role"] == "lead")
@@ -101,7 +103,7 @@ def map_section(slug, lang, e, prefix):
     role_label = {"lead": t["lead_role"], "main": t["main_role"], "sub": t["sub_role"]}
     roster = "".join(
         f'<li class="r-{p["role"]}"><a href="#relmap" data-rm-open="{p["id"]}">'
-        + (f'<img src="{e(p["img"])}" alt="" width="48" height="48">' if p.get("img") else f'<span class="rm-ph-html s-{p["side"]} r-{p["role"]}">{e(p["initials"])}</span>')
+        + (f'<img src="{e(p["img"])}" alt="" width="48" height="48">' if p.get("img") else f'<span class="rm-ph-html tone-{p["tone"]} r-{p["role"]}">{e(p["initials"])}</span>')
         + f'<span><b>{e(p["name"])}</b><small>{e(role_label[p["role"]])} ・ {e(p["actor"])}</small><small>{e(p["group"])}</small></span></a></li>'
         for p in sorted(people, key=lambda p: ["lead", "main", "sub"].index(p["role"])))
     used = [(p, IMAGES[p["id"]]) for p in m["people"] if p["id"] in IMAGES]

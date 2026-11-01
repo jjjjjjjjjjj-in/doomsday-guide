@@ -17,6 +17,8 @@
 FILM_GUIDES = {
     "iron-man": dict(
         updated="2026-11-01",
+        # ページの色（アイアンマンの赤と金）。main=見出し、deep=タイトル帯、accent=差し色、soft=タイトル帯の文字
+        theme=dict(main="#b3121b", deep="#5e0a10", accent="#f2c230", soft="#f8dcc0"),
         runtime="126分", runtime_en="126 min",
         summary=[
             "兵器会社の社長トニー・スタークが、戦地で誘拐される。",
