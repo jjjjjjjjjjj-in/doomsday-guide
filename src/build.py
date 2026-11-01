@@ -126,6 +126,14 @@ def article_picks(slug):
     return f'<aside class="panel inline-picks"><h2>この記事に関連するアイテム <span class="pr">PR</span></h2><div class="btns">{amazon_links(picks)}</div></aside>'
 
 
+def site_toc(items, label, current=None):
+    """ページ上部の目次（押すとその場所やページへ飛ぶ）。作品ガイドへのリンクを押したときは、閉じている欄を開く"""
+    lis = "".join(f'<li><a href="{e(h)}"{' aria-current="page"' if h == current else ""}>{e(t)}</a></li>' for h, t in items)
+    return (f'<nav class="site-toc" aria-label="{e(label)}"><ul><li><span class="toc-label">{e(label)}</span></li>{lis}</ul></nav>\n'
+            '<script>document.addEventListener("click",function(ev){var a=ev.target.closest&&ev.target.closest(\'a[href="#guides"]\');'
+            'if(a){var d=document.getElementById("guides");if(d)d.open=true;}});</script>')
+
+
 def sticky_bar(prefix=""):
     if not (ads.AMAZON_TAG and ads.STICKY_BAR):
         return ""
@@ -301,6 +309,8 @@ def build_index():
   <p class="lead">マーベルが好きで、ちゃんと理解してから映画館に行きたい人のためのガイドです。全作品に10点満点の重要度をつけました。<strong>重要度5以上の{must_total}本は、必ず観てほしい作品</strong>です。各作品の「詳しく見る」で、あらすじや他作品とのつながり、観なかった場合に分からなくなることも確認できます。</p>
   <p class="updated-on">最終更新 {UPDATED} ・ <a href="{film_guides.TOP_URL}">作品ガイド（別サイト）</a> ・ <a href="en/" hreflang="en" lang="en">English</a></p>
 </header>
+{site_toc([("#checklist", "チェックリスト"), ("#list-must", "① 必ず観るべき"), ("#list-all", "② 全作品"), ("#faq", "よくある質問"),
+           ("#articles", "解説記事"), ("#guides", "作品ガイド"), ("#pdf", "印刷用PDF"), ("en/", "English")], "目次")}
 
 <section class="stats" aria-label="公開までの日数と視聴の進み具合">
   <div class="stat">
@@ -319,7 +329,7 @@ def build_index():
   </div>
 </section>
 {banner("top")}
-{amazon_picks()}<section class="panel">
+{amazon_picks()}<section class="panel" id="pdf">
   <h2>印刷用チェックリスト（PDF）</h2>
   <div class="btns">
     <a class="btn primary" href="doomsday-checklist-must.pdf" download>① 必ず観るべき作品（重要度5以上・{must_total}本）</a>
@@ -327,19 +337,19 @@ def build_index():
   </div>
 </section>
 
-<section class="panel">
+<section class="panel" id="articles">
   <h2>解説記事</h2>
   <ul class="article-list">{articles}</ul>
 </section>
 
-<section class="panel relmap-promo">
-  <h2>作品ガイド<span class="new">NEW</span></h2>
-  <p>映画だけではすんなり理解しづらい人のために、作品ごとにあらすじ・顔アイコンつきの相関図・用語・分かりにくい場面のQ&amp;Aをまとめました。</p>
-  <div class="btns">{"".join(f'<a class="btn primary" href="{FILM_GUIDES[s][0]}">『{e(next(t["title"] for t in TITLES if t["slug"] == s))}』完全ガイド</a>' for s in FILM_GUIDES)}</div>
-</section>
+<details class="panel relmap-promo" id="guides">
+  <summary data-open="＋ 開く" data-close="－ 閉じる"><h2>作品ガイド<span class="new">NEW</span>（{len(FILM_GUIDES)}作品）</h2></summary>
+  <p>映画だけではすんなり理解しづらい人のために、作品ごとにあらすじ・顔アイコンつきの相関図・用語・分かりにくい場面のQ&amp;Aをまとめました（別サイト）。</p>
+  <div class="btns">{"".join(f'<a class="btn primary" href="{FILM_GUIDES[s][0]}">『{e(next(t["title"] for t in TITLES if t["slug"] == s))}』完全ガイド</a>' for s in [t["slug"] for t in TITLES if t["slug"] in FILM_GUIDES])}</div>
+</details>
 
 {banner("middle")}
-<section class="tier-section">
+<section class="tier-section" id="checklist">
   <header><h2>チェックリスト</h2><p>どちらのリストも物語の視聴順に並んでいます。『ロキ』シーズン1は『エンドゲーム』の直後に観るのがおすすめです。チェックは①と②で共通です。</p></header>
   <div class="controls">
     <a class="chip" href="#list-must">① 必ず観るべき（{must_total}本）</a>
@@ -399,6 +409,7 @@ def build_article(a):
     }
     return head(a["title"] + "｜" + SITE_NAME, a["desc"], f'articles/{a["slug"]}.html', prefix="../", schema=schema) + f"""
 <nav class="crumb"><a href="../">ドゥームズデイ予習ガイド</a> ＞ 解説記事 ・ <a href="../en/articles/{a["slug"]}.html" hreflang="en" lang="en">English</a></nav>
+{site_toc([("../", "トップ")] + [(f'{o["slug"]}.html', o["title"].split("：")[0]) for o in ARTICLES], "目次", current=f'{a["slug"]}.html')}
 <article class="article">
   <h1>{e(a["title"])}</h1>
   <p class="updated">最終更新 {a["updated"]}</p>

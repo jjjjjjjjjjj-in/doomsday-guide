@@ -395,3 +395,19 @@ footer p { margin: 0; }
 .rm-ph-html.tone-purple { background: #e0d4f5; border-color: #6f42c1; color: #4b2a8a; }
 .rm-ph-html { border-radius: 10px; }
 .rm-swatch.t-ally { border-top-style: solid; }
+
+/* 目次（ページ上部の横並びのリンク。パラダイスシティと同じ形） */
+.site-toc { min-width: 0; max-width: 100%; overflow: hidden; position: sticky; top: 0; z-index: 30; background: var(--navy); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.site-toc ul { list-style: none; margin: 0; padding: 0 6px; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.site-toc ul::-webkit-scrollbar { display: none; }
+.site-toc a { display: block; padding: 10px 11px; color: #fff; text-decoration: none; font-size: 13.5px; font-weight: 700; white-space: nowrap; border-bottom: 2px solid transparent; }
+.site-toc a[aria-current="page"] { border-bottom-color: var(--gold-bright, #e5b21a); }
+.site-toc .toc-label { display: block; padding: 10px 4px 10px 8px; color: var(--gold-bright, #e5b21a); font-size: 12px; font-weight: 700; white-space: nowrap; }
+[id] { scroll-margin-top: 56px; }
+/* 作品ガイド（押すと開く） */
+details.relmap-promo > summary { list-style: none; cursor: pointer; width: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+details.relmap-promo > summary::-webkit-details-marker { display: none; }
+details.relmap-promo > summary h2 { margin: 0; }
+details.relmap-promo > summary::after { content: attr(data-open); font-size: 13px; font-weight: 700; color: var(--link); white-space: nowrap; }
+details.relmap-promo[open] > summary::after { content: attr(data-close); }
+details.relmap-promo[open] > summary { margin-bottom: 10px; }

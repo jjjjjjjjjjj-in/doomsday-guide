@@ -17,6 +17,7 @@
 - `ads.py`: 広告設定（Amazon タグ doomsdayguide-22、英語版の amazon.com タグ doomsdaygui08-20、もしも経由の楽天 a_id=5875908 など）。「PR」表記とAmazonの表記は自動で出る。誤クリックを誘う広告は入れない。
 - `trailers.py`: 予告編リンク。
 - `film_guides.py`: 作品ガイドへのリンク先。作品ガイド（あらすじ・相関図・用語）は 2026-11-01 から作品ごとの独立したサイトになり、別リポジトリ jjjjjjjjjjj-in.github.io の /<slug>/ に移した（運営者の希望で、ドゥームズデイとは別に考える）。このサイトはリンクを貼るだけ。作り方・ルール（顔写真・相関図・文章）はそちらの CLAUDE.md と src/mcu/ を見る。新しい作品ガイドができたら GUIDES に1件足す。以前の /films/・/characters/ のページは新しいアドレスへの転送だけを書き出す（サイトマップには入れない）。
+- トップと記事のページには、上に「目次」の帯（`build.py` の site_toc。押すとその場所・ページへ飛ぶ。スクロールしても上に残る）を出す。トップの「作品ガイド」欄は押すと開く形（運営者の希望、2026-11-02）。
 - `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード。`GA_MEASUREMENT_ID`: Google アナリティクス（全サイト共通 G-KDFL8GPPRZ）。フッターから共通のプライバシーポリシー（https://jjjjjjjjjjj-in.github.io/privacy.html）にリンクする。
 - `site.css` / `app.js` / `sticky.js`: 見た目と動き。白背景、タイトルは濃いグリーン、見出しは紺。
 - 英語版の広告は `ads.py` の `AMAZON_TAG_US`（アメリカのAmazonアソシエイト）を入れると amazon.com に切り替わる。

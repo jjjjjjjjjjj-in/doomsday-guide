@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(SRC, "en"))
 
 import build as ja  # noqa: E402
 import ads  # noqa: E402
-from build import (BASE_URL, UPDATED, TITLES, TRAILERS, MUST_LINE, imp_class, jsonld,  # noqa: E402,F401
+from build import (site_toc, BASE_URL, UPDATED, TITLES, TRAILERS, MUST_LINE, imp_class, jsonld,  # noqa: E402,F401
                    amazon_url, rakuten_url, banner, e, head)
 from titles_en_a import TITLES_EN_A  # noqa: E402
 from titles_en_b import TITLES_EN_B  # noqa: E402
@@ -228,6 +228,8 @@ def build_index(titles):
   <p class="lead">A guide for Marvel fans who want to understand the story properly before heading to the theater. Every title has a 10-point importance rating. <strong>The {must_total} titles rated 5 or higher are the ones you should not miss.</strong> Open "More details" on any title to see the story, how it connects to other titles, and what you might miss if you skip it.</p>
   <p class="updated-on">Last updated {UPDATED} · <a href="{film_guides.TOP_URL}">Film guides (separate sites)</a> · <a href="../" hreflang="ja" lang="ja">日本語</a></p>
 </header>
+{site_toc([("#checklist", "Checklist"), ("#list-must", "① Must-watch"), ("#list-all", "② All titles"), ("#faq", "FAQ"),
+           ("#articles", "Articles"), ("#guides", "Film guides"), ("#pdf", "Printable PDF"), ("../", "日本語")], "Contents")}
 
 <section class="stats" aria-label="Days until release and your progress">
   <div class="stat">
@@ -246,7 +248,7 @@ def build_index(titles):
   </div>
 </section>
 {banner("top")}
-{amazon_picks()}<section class="panel">
+{amazon_picks()}<section class="panel" id="pdf">
   <h2>Printable checklists (PDF)</h2>
   <div class="btns">
     <a class="btn primary" href="doomsday-checklist-must.pdf" download>① Must-watch titles (importance 5+, {must_total})</a>
@@ -254,19 +256,19 @@ def build_index(titles):
   </div>
 </section>
 
-<section class="panel">
+<section class="panel" id="articles">
   <h2>Articles</h2>
   <ul class="article-list">{articles}</ul>
 </section>
 
-<section class="panel relmap-promo">
-  <h2>Film guides<span class="new">NEW</span></h2>
-  <p>For anyone who finds the films hard to follow: the story, a character map with face icons, key terms and the confusing parts explained, film by film.</p>
-  <div class="btns">{"".join(f'<a class="btn primary" href="{FILM_GUIDES[s][1]}">{e(next(t["title"] for t in titles if t["slug"] == s))}: complete guide</a>' for s in FILM_GUIDES)}</div>
-</section>
+<details class="panel relmap-promo" id="guides">
+  <summary data-open="+ Open" data-close="− Close"><h2>Film guides<span class="new">NEW</span> ({len(FILM_GUIDES)} films)</h2></summary>
+  <p>For anyone who finds the films hard to follow: the story, a character map with face icons, key terms and the confusing parts explained, film by film (separate sites).</p>
+  <div class="btns">{"".join(f'<a class="btn primary" href="{FILM_GUIDES[s][1]}">{e(next(t["title"] for t in titles if t["slug"] == s))}: complete guide</a>' for s in [t["slug"] for t in titles if t["slug"] in FILM_GUIDES])}</div>
+</details>
 
 {banner("middle")}
-<section class="tier-section">
+<section class="tier-section" id="checklist">
   <header><h2>Checklist</h2><p>Both lists follow the story's viewing order. We recommend watching Loki Season 1 right after Endgame. Your checks are shared between ① and ②.</p></header>
   <div class="controls">
     <a class="chip" href="#list-must">① Must-watch ({must_total})</a>
@@ -322,6 +324,7 @@ def build_article(a):
     body = body[:second] + box + body[second:] if second > 0 else body + box
     return head(f'{a["title"]} | {SITE_NAME}', a["desc"], f'en/articles/{a["slug"]}.html', prefix="../../", schema=schema, lang="en") + f"""
 <nav class="crumb"><a href="../">{SITE_NAME}</a> &gt; Articles · <a href="../../articles/{a["slug"]}.html" hreflang="ja" lang="ja">日本語</a></nav>
+{site_toc([("../", "Home")] + [(f'{o["slug"]}.html', o["title"].split(":")[0]) for o in ARTICLES_EN], "Contents", current=f'{a["slug"]}.html')}
 <article class="article">
   <h1>{e(a["title"])}</h1>
   <p class="updated">Last updated {a["updated"]}</p>
