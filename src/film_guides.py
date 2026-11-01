@@ -35,6 +35,8 @@ GUIDES = {
     "shang-chi": ("https://jjjjjjjjjjj-in.github.io/shang-chi/", "https://jjjjjjjjjjj-in.github.io/shang-chi/en/"),
     "falcon-and-winter-soldier": ("https://jjjjjjjjjjj-in.github.io/falcon-and-winter-soldier/", "https://jjjjjjjjjjj-in.github.io/falcon-and-winter-soldier/en/"),
     "spider-man-far-from-home": ("https://jjjjjjjjjjj-in.github.io/spider-man-far-from-home/", "https://jjjjjjjjjjj-in.github.io/spider-man-far-from-home/en/"),
+    "spider-man-no-way-home": ("https://jjjjjjjjjjj-in.github.io/spider-man-no-way-home/", "https://jjjjjjjjjjj-in.github.io/spider-man-no-way-home/en/"),
+    "multiverse-of-madness": ("https://jjjjjjjjjjj-in.github.io/multiverse-of-madness/", "https://jjjjjjjjjjj-in.github.io/multiverse-of-madness/en/"),
 }
 
 
