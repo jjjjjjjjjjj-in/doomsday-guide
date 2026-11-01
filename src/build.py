@@ -20,6 +20,8 @@ from articles import ARTICLES  # noqa: E402
 from importance import IMPORTANCE, MUST_LINE  # noqa: E402
 import ads  # noqa: E402
 from trailers import TRAILERS  # noqa: E402
+from relations import RELATION_MAPS  # noqa: E402
+import relmap_build  # noqa: E402
 
 BASE_URL = "https://jjjjjjjjjjj-in.github.io/doomsday-guide/"
 UPDATED = "2026-10-31"
@@ -207,10 +209,17 @@ def footer(prefix=""):
 <p>出典：<a href="https://thewaltdisneycompany.com/news/marvel-studios-avengers-doomsday-cast/" rel="noopener">Marvel Studios Announces 'Avengers: Doomsday' Cast</a>／<a href="https://marvel.disney.co.jp/movie/avengers-doomsday" rel="noopener">『アベンジャーズ／ドゥームズデイ』日本公式サイト</a></p>
 <p>アクセス解析（Googleアナリティクス）と広告の仕組みについては<a href="{PRIVACY_URL}">プライバシーポリシー</a>をご覧ください。</p>
 <p>当サイトは個人が運営する非公式ファンサイトです。Marvel Studios、The Walt Disney Company、Sony Pictures、20th Century Studios とは関係ありません。作品名・キャラクター名は各権利者の商標です。</p>
-<p><a href="{prefix}">トップ</a> ・ <a href="{prefix}articles/cast.html">キャストまとめ</a> ・ <a href="{prefix}articles/x-men.html">X-MEN</a> ・ <a href="{prefix}articles/infinity-saga.html">インフィニティ・サーガ</a> ・ <a href="{prefix}articles/next-generation.html">次世代ヒーロー</a> ・ <a href="{prefix}articles/multiverse.html">マルチバース</a></p>
+<p><a href="{prefix}">トップ</a> ・ <a href="{prefix}characters/">キャラクター相関図</a> ・ <a href="{prefix}articles/cast.html">キャストまとめ</a> ・ <a href="{prefix}articles/x-men.html">X-MEN</a> ・ <a href="{prefix}articles/infinity-saga.html">インフィニティ・サーガ</a> ・ <a href="{prefix}articles/next-generation.html">次世代ヒーロー</a> ・ <a href="{prefix}articles/multiverse.html">マルチバース</a></p>
 </footer>
 </div>
 """
+
+
+def relmap_link(t):
+    """相関図がある作品だけ、視聴順ガイドから相関図へのリンクを出す"""
+    if t["slug"] not in RELATION_MAPS:
+        return ""
+    return f'<a class="relmap-link" href="characters/{t["slug"]}.html"><span aria-hidden="true">◎</span>キャラクター相関図を見る</a>'
 
 
 def row(t, anchor=True):
@@ -242,7 +251,7 @@ def row(t, anchor=True):
   <div class="main">
     <span class="meta"><span>視聴順 {t["order"]:02d}</span><span>作中 {e(t["era"])}</span><span>{e(t["year"])}年・{e(t["kind"])}</span></span>
     <h3 class="title">{e(t["title"])}</h3>
-    <p class="desc">{e(t["line"])}</p>{trailer_button(t) if t["goal"] else ""}
+    <p class="desc">{e(t["line"])}</p>{trailer_button(t) if t["goal"] else ""}{relmap_link(t)}
   </div>
   <span class="pill {imp_class(t)}">{e(imp_text(t))}</span>{detail}
 </li>"""
@@ -290,7 +299,7 @@ def build_index():
   <p class="eyebrow">Unofficial Watch Guide · {total} titles</p>
   <h1>DOOMSDAY<small><span class="nb">アベンジャーズ／</span><span class="nb">ドゥームズデイ</span> <span class="nb">予習ガイド</span></small></h1>
   <p class="lead">マーベルが好きで、ちゃんと理解してから映画館に行きたい人のためのガイドです。全作品に10点満点の重要度をつけました。<strong>重要度5以上の{must_total}本は、必ず観てほしい作品</strong>です。各作品の「詳しく見る」で、あらすじや他作品とのつながり、観なかった場合に分からなくなることも確認できます。</p>
-  <p class="updated-on">最終更新 {UPDATED} ・ <a href="en/" hreflang="en" lang="en">English</a></p>
+  <p class="updated-on">最終更新 {UPDATED} ・ <a href="characters/">キャラクター相関図</a> ・ <a href="en/" hreflang="en" lang="en">English</a></p>
 </header>
 
 <section class="stats" aria-label="公開までの日数と視聴の進み具合">
@@ -321,6 +330,12 @@ def build_index():
 <section class="panel">
   <h2>解説記事</h2>
   <ul class="article-list">{articles}</ul>
+</section>
+
+<section class="panel relmap-promo">
+  <h2>キャラクター相関図<span class="new">NEW</span></h2>
+  <p>作品ごとに、主人公を中心に登場人物の関係を図にしました。顔アイコンをタップすると人物の説明が読めます。</p>
+  <div class="btns">{"".join(f'<a class="btn primary" href="characters/{s}.html">『{e(next(t["title"] for t in TITLES if t["slug"] == s))}』の相関図</a>' for s in RELATION_MAPS)}<a class="btn" href="characters/">相関図の一覧</a></div>
 </section>
 
 {banner("middle")}
@@ -456,6 +471,9 @@ def main():
         f.write(build_print(must, "① 必ず観るべき作品", f"重要度5以上の{len(must) - 1}本。"))
     with open(os.path.join(SRC, "print", "all.html"), "w", encoding="utf-8") as f:
         f.write(build_print(TITLES, "② 全作品", f"全{len(TITLES) - 1}本。トビー版スパイダーマンやヴェノムなどの参考作品も含みます。"))
+    relmap_build.copy_assets()
+    by_slug = {t["slug"]: t for t in TITLES}
+    pages += relmap_build.write_pages(write, by_slug, "ja", head, footer(prefix="../"), e)
     import build_en
     en_pages = build_en.write_all(write)
     pages += en_pages

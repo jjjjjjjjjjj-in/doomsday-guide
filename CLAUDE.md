@@ -16,6 +16,9 @@
 - `articles.py`: 解説記事5本。
 - `ads.py`: 広告設定（Amazon タグ doomsdayguide-22、英語版の amazon.com タグ doomsdaygui08-20、もしも経由の楽天 a_id=5875908 など）。「PR」表記とAmazonの表記は自動で出る。誤クリックを誘う広告は入れない。
 - `trailers.py`: 予告編リンク。
+- `relations.py`: 作品別キャラクター相関図のデータ（人物・位置・関係の線・日英の文章）。作品を足すと /characters/ と /en/characters/ のページ、一覧、視聴順ガイドからのリンクが自動で増える。ページは `relmap_build.py`、動き（ドラッグ・ピンチ・タップ）は `relmap.js`。第1弾は『アイアンマン』（2026-11-01）。
+  - 顔写真は `relations.py` の `IMAGES` に、利用許諾を確認した画像だけを出典・ライセンスつきで登録し、ファイルを `src/chars/` に置く。登録がない人物はイニシャルの仮アイコンになる。Marvel公式画像・映画のスクリーンショット・許諾のない俳優写真は使わない（この環境からは Wikimedia Commons に接続できない）。
+  - 人物の説明は映画の内容に基づく事実だけを書き、自信のない情報（俳優名など）は書かない。
 - `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード。`GA_MEASUREMENT_ID`: Google アナリティクス（全サイト共通 G-KDFL8GPPRZ）。フッターから共通のプライバシーポリシー（https://jjjjjjjjjjj-in.github.io/privacy.html）にリンクする。
 - `site.css` / `app.js` / `sticky.js`: 見た目と動き。白背景、タイトルは濃いグリーン、見出しは紺。
 - 英語版の広告は `ads.py` の `AMAZON_TAG_US`（アメリカのAmazonアソシエイト）を入れると amazon.com に切り替わる。

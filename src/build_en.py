@@ -17,6 +17,8 @@ from titles_en_a import TITLES_EN_A  # noqa: E402
 from titles_en_b import TITLES_EN_B  # noqa: E402
 from titles_en_c import TITLES_EN_C  # noqa: E402
 from articles_en import ARTICLES_EN  # noqa: E402
+from relations import RELATION_MAPS  # noqa: E402
+import relmap_build  # noqa: E402
 
 SITE_NAME = ja.SITE_NAMES["en"]
 EN = {**TITLES_EN_A, **TITLES_EN_B, **TITLES_EN_C}
@@ -138,10 +140,16 @@ def footer(prefix, ja_link):
 <p>Sources: <a href="https://thewaltdisneycompany.com/news/marvel-studios-avengers-doomsday-cast/" rel="noopener">Marvel Studios Announces 'Avengers: Doomsday' Cast</a> / <a href="https://marvel.disney.co.jp/movie/avengers-doomsday" rel="noopener">Avengers: Doomsday official site (Japan)</a></p>
 <p>For how this site uses analytics (Google Analytics) and ads, see the <a href="{ja.PRIVACY_URL}#en">privacy policy</a>.</p>
 <p>This is an unofficial fan site run by an individual. It is not affiliated with Marvel Studios, The Walt Disney Company, Sony Pictures or 20th Century Studios. Titles and character names are trademarks of their respective owners.</p>
-<p><a href="{prefix}">Home</a> · <a href="{prefix}articles/cast.html">Cast</a> · <a href="{prefix}articles/x-men.html">X-Men</a> · <a href="{prefix}articles/infinity-saga.html">Infinity Saga</a> · <a href="{prefix}articles/next-generation.html">Next generation</a> · <a href="{prefix}articles/multiverse.html">Multiverse</a> · <a href="{ja_link}" hreflang="ja" lang="ja">日本語</a></p>
+<p><a href="{prefix}">Home</a> · <a href="{prefix}characters/">Character maps</a> · <a href="{prefix}articles/cast.html">Cast</a> · <a href="{prefix}articles/x-men.html">X-Men</a> · <a href="{prefix}articles/infinity-saga.html">Infinity Saga</a> · <a href="{prefix}articles/next-generation.html">Next generation</a> · <a href="{prefix}articles/multiverse.html">Multiverse</a> · <a href="{ja_link}" hreflang="ja" lang="ja">日本語</a></p>
 </footer>
 </div>
 """
+
+
+def relmap_link(t):
+    if t["slug"] not in RELATION_MAPS:
+        return ""
+    return f'<a class="relmap-link" href="characters/{t["slug"]}.html"><span aria-hidden="true">◎</span>Open the character map</a>'
 
 
 def row(t, anchor=True):
@@ -172,7 +180,7 @@ def row(t, anchor=True):
   <div class="main">
     <span class="meta"><span>Order {t["order"]:02d}</span><span>Set in {e(t["era"])}</span><span>{e(t["year"])} · {e(t["kind"])}</span></span>
     <h3 class="title">{e(t["title"])}</h3>
-    <p class="desc">{e(t["line"])}</p>{trailer_button(t) if t["goal"] else ""}
+    <p class="desc">{e(t["line"])}</p>{trailer_button(t) if t["goal"] else ""}{relmap_link(t)}
   </div>
   <span class="pill {imp_class(t)}">{e(imp_text(t))}</span>{detail}
 </li>"""
@@ -218,7 +226,7 @@ def build_index(titles):
   <p class="eyebrow">Unofficial Watch Guide · {total} titles</p>
   <h1>DOOMSDAY<small><span class="nb">Avengers: Doomsday</span> <span class="nb">Watch Guide</span></small></h1>
   <p class="lead">A guide for Marvel fans who want to understand the story properly before heading to the theater. Every title has a 10-point importance rating. <strong>The {must_total} titles rated 5 or higher are the ones you should not miss.</strong> Open "More details" on any title to see the story, how it connects to other titles, and what you might miss if you skip it.</p>
-  <p class="updated-on">Last updated {UPDATED} · <a href="../" hreflang="ja" lang="ja">日本語</a></p>
+  <p class="updated-on">Last updated {UPDATED} · <a href="characters/">Character maps</a> · <a href="../" hreflang="ja" lang="ja">日本語</a></p>
 </header>
 
 <section class="stats" aria-label="Days until release and your progress">
@@ -249,6 +257,12 @@ def build_index(titles):
 <section class="panel">
   <h2>Articles</h2>
   <ul class="article-list">{articles}</ul>
+</section>
+
+<section class="panel relmap-promo">
+  <h2>Character maps<span class="new">NEW</span></h2>
+  <p>For each film, a map of who's who with the hero at the center. Tap a face icon to read about that character.</p>
+  <div class="btns">{"".join(f'<a class="btn primary" href="characters/{s}.html">{e(next(t["title"] for t in titles if t["slug"] == s))} map</a>' for s in RELATION_MAPS)}<a class="btn" href="characters/">All character maps</a></div>
 </section>
 
 {banner("middle")}
@@ -357,4 +371,6 @@ def write_all(write):
             f.write(build_print(titles, "② All titles", f"All {len(titles) - 1} titles, including reference titles such as Tobey Maguire's Spider-Man and Venom."))
     finally:
         ja.imp_text = old_imp_text
-    return [("en/", UPDATED)] + [(f'en/articles/{a["slug"]}.html', a["updated"]) for a in ARTICLES_EN]
+    by_slug = {t["slug"]: t for t in titles}
+    rel_pages = relmap_build.write_pages(write, by_slug, "en", head, footer("../", "../../characters/"), e)
+    return [("en/", UPDATED)] + [(f'en/articles/{a["slug"]}.html', a["updated"]) for a in ARTICLES_EN] + rel_pages
