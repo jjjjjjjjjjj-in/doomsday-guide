@@ -24,6 +24,7 @@ GUIDES = {
     "black-panther": ("https://jjjjjjjjjjj-in.github.io/black-panther/", "https://jjjjjjjjjjj-in.github.io/black-panther/en/"),
     "spider-man-homecoming": ("https://jjjjjjjjjjj-in.github.io/spider-man-homecoming/", "https://jjjjjjjjjjj-in.github.io/spider-man-homecoming/en/"),
     "doctor-strange": ("https://jjjjjjjjjjj-in.github.io/doctor-strange/", "https://jjjjjjjjjjj-in.github.io/doctor-strange/en/"),
+    "thor-ragnarok": ("https://jjjjjjjjjjj-in.github.io/thor-ragnarok/", "https://jjjjjjjjjjj-in.github.io/thor-ragnarok/en/"),
     "wakanda-forever": ("https://jjjjjjjjjjj-in.github.io/wakanda-forever/", "https://jjjjjjjjjjj-in.github.io/wakanda-forever/en/"),
 }
 
