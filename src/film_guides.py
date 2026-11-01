@@ -13,6 +13,11 @@ GUIDES = {
     "thor": ("https://jjjjjjjjjjj-in.github.io/thor/", "https://jjjjjjjjjjj-in.github.io/thor/en/"),
     "avengers": ("https://jjjjjjjjjjj-in.github.io/avengers/", "https://jjjjjjjjjjj-in.github.io/avengers/en/"),
     "thor-dark-world": ("https://jjjjjjjjjjj-in.github.io/thor-dark-world/", "https://jjjjjjjjjjj-in.github.io/thor-dark-world/en/"),
+    "iron-man-3": ("https://jjjjjjjjjjj-in.github.io/iron-man-3/", "https://jjjjjjjjjjj-in.github.io/iron-man-3/en/"),
+    "winter-soldier": ("https://jjjjjjjjjjj-in.github.io/winter-soldier/", "https://jjjjjjjjjjj-in.github.io/winter-soldier/en/"),
+    "guardians-of-the-galaxy": ("https://jjjjjjjjjjj-in.github.io/guardians-of-the-galaxy/", "https://jjjjjjjjjjj-in.github.io/guardians-of-the-galaxy/en/"),
+    "guardians-vol2": ("https://jjjjjjjjjjj-in.github.io/guardians-vol2/", "https://jjjjjjjjjjj-in.github.io/guardians-vol2/en/"),
+    "i-am-groot-1": ("https://jjjjjjjjjjj-in.github.io/i-am-groot-1/", "https://jjjjjjjjjjj-in.github.io/i-am-groot-1/en/"),
 }
 
 
