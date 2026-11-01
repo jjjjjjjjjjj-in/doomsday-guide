@@ -43,6 +43,14 @@ GUIDES = {
     "x-men": ("https://jjjjjjjjjjj-in.github.io/x-men/", "https://jjjjjjjjjjj-in.github.io/x-men/en/"),
     "x2": ("https://jjjjjjjjjjj-in.github.io/x2/", "https://jjjjjjjjjjj-in.github.io/x2/en/"),
     "x-men-last-stand": ("https://jjjjjjjjjjj-in.github.io/x-men-last-stand/", "https://jjjjjjjjjjj-in.github.io/x-men-last-stand/en/"),
+    "x-men-days-of-future-past": ("https://jjjjjjjjjjj-in.github.io/x-men-days-of-future-past/", "https://jjjjjjjjjjj-in.github.io/x-men-days-of-future-past/en/"),
+    "x-men-apocalypse": ("https://jjjjjjjjjjj-in.github.io/x-men-apocalypse/", "https://jjjjjjjjjjj-in.github.io/x-men-apocalypse/en/"),
+    "x-men-dark-phoenix": ("https://jjjjjjjjjjj-in.github.io/x-men-dark-phoenix/", "https://jjjjjjjjjjj-in.github.io/x-men-dark-phoenix/en/"),
+    "deadpool-and-wolverine": ("https://jjjjjjjjjjj-in.github.io/deadpool-and-wolverine/", "https://jjjjjjjjjjj-in.github.io/deadpool-and-wolverine/en/"),
+    "agatha-all-along": ("https://jjjjjjjjjjj-in.github.io/agatha-all-along/", "https://jjjjjjjjjjj-in.github.io/agatha-all-along/en/"),
+    "brave-new-world": ("https://jjjjjjjjjjj-in.github.io/brave-new-world/", "https://jjjjjjjjjjj-in.github.io/brave-new-world/en/"),
+    "fantastic-four-first-steps": ("https://jjjjjjjjjjj-in.github.io/fantastic-four-first-steps/", "https://jjjjjjjjjjj-in.github.io/fantastic-four-first-steps/en/"),
+    "thunderbolts": ("https://jjjjjjjjjjj-in.github.io/thunderbolts/", "https://jjjjjjjjjjj-in.github.io/thunderbolts/en/"),
 }
 
 
