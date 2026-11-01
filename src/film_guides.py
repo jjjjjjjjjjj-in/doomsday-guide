@@ -42,6 +42,7 @@ GUIDES = {
     "guardians-vol3": ("https://jjjjjjjjjjj-in.github.io/guardians-vol3/", "https://jjjjjjjjjjj-in.github.io/guardians-vol3/en/"),
     "x-men": ("https://jjjjjjjjjjj-in.github.io/x-men/", "https://jjjjjjjjjjj-in.github.io/x-men/en/"),
     "x2": ("https://jjjjjjjjjjj-in.github.io/x2/", "https://jjjjjjjjjjj-in.github.io/x2/en/"),
+    "x-men-last-stand": ("https://jjjjjjjjjjj-in.github.io/x-men-last-stand/", "https://jjjjjjjjjjj-in.github.io/x-men-last-stand/en/"),
 }
 
 
