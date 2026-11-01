@@ -91,18 +91,11 @@ def page_data(slug, lang, prefix):
     return people, dict(center=center, people=people, links=links, groups=groups, text=text)
 
 
-def build_map_page(slug, title, lang, head, footer, e):
-    """1作品の相関図ページ。head/footer/e は呼び出し側（日本語版・英語版）のものを使う"""
+def map_section(slug, lang, e, prefix):
+    """相関図の部分（凡例・図・人物の一覧・画像の出典）。作品ガイドのページに埋め込む"""
     t = TEXT[lang]
     m = RELATION_MAPS[slug]
-    prefix = "../../" if lang == "en" else "../"   # assets への相対パス
-    site_top = "../"                               # その言語のトップ
     people, data = page_data(slug, lang, prefix)
-    lead = m["lead_en"] if lang == "en" else m["lead"]
-    path = f"{'en/' if lang == 'en' else ''}characters/{slug}.html"
-    page_title = (f"{title} Character Relationship Map (with face icons) | {t['home']}" if lang == "en"
-                  else f"『{title}』キャラクター相関図（顔アイコンつき）｜{t['home']}")
-    desc = lead
     legend = "".join(f'<button type="button" class="rm-type" data-rm-type="{k}" aria-pressed="true"><i class="rm-swatch t-{k}"></i>{e(v[1 if lang == "en" else 0])}</button>'
                      for k, v in LINK_TYPES.items() if any(l["type"] == k for l in m["links"]))
     role_label = {"lead": t["lead_role"], "main": t["main_role"], "sub": t["sub_role"]}
@@ -113,20 +106,11 @@ def build_map_page(slug, title, lang, head, footer, e):
         for p in sorted(people, key=lambda p: ["lead", "main", "sub"].index(p["role"])))
     used = [(p, IMAGES[p["id"]]) for p in m["people"] if p["id"] in IMAGES]
     credits = ("<ul>" + "".join(f'<li>{e(p["name_en"] if lang == "en" else p["name"])}: <a href="{e(i["source_url"])}" rel="noopener">{e(i["author"])}</a>（{e(i["license"])}）</li>' for p, i in used) + "</ul>"
-               if used else f"<p>{e(t['credits_none'])}</p>")
-    schema = {"@context": "https://schema.org", "@type": "WebPage", "name": page_title, "description": desc,
-              "inLanguage": lang, "about": {"@type": "Movie", "name": title},
-              "mentions": [{"@type": "Person", "name": p["actor"]} for p in people if not p["actor"].startswith(("（", "("))]}
+               if used else f"<p class=\"muted-note\">{e(t['credits_none'])}</p>")
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    return head(page_title, desc, path, prefix=prefix, schema=schema, lang=lang) + f"""
-<nav class="crumb"><a href="{site_top}">{e(t['home'])}</a> ＞ <a href="./">{e(t['menu'])}</a> ＞ {e(title)}</nav>
-<article class="article relmap-page">
-  <h1>{e(f"{title}" if lang == "en" else f"『{title}』")} {e(t['menu'] if lang == 'ja' else 'character map')}</h1>
-  <p class="updated">{'Updated' if lang == 'en' else '最終更新'} {m['updated']}</p>
-  <p>{e(lead)}</p>
-  <p class="spoiler-note">{e(t['spoiler'])}</p>
-</article>
-<section class="relmap-wrap" aria-label="{e(t['aria'])}">
+    lead = m["lead_en"] if lang == "en" else m["lead"]
+    html = f"""<p>{e(lead)}</p>
+<div class="relmap-wrap">
   <div class="rm-legend" role="group" aria-label="{e(t['filter'])}">{legend}</div>
   <div class="relmap" id="relmap">
     <div class="rm-tools">
@@ -140,21 +124,29 @@ def build_map_page(slug, title, lang, head, footer, e):
     </aside>
   </div>
   <p class="rm-hint">{e(t['hint'])}</p>
-</section>
-<section class="panel">
-  <h2>{e(t['list'])}</h2>
-  <ul class="rm-roster">{roster}</ul>
-</section>
-<section class="panel">
-  <h2>{e(t['credits'])}</h2>
-  {credits}
-</section>
-<section class="panel">
-  <div class="btns"><a class="btn primary" href="{site_top}#{slug}">{e(t['back'])}</a><a class="btn" href="./">{e(t['index'])}</a></div>
-</section>
-<script type="application/json" id="relmap-data">{data_json}</script>
+</div>
+<h3>{e(t['list'])}</h3>
+<ul class="rm-roster">{roster}</ul>
+<details class="rm-credits"><summary>{e(t['credits'])}</summary>{credits}</details>"""
+    scripts = f"""<script type="application/json" id="relmap-data">{data_json}</script>
 <script src="{prefix}assets/relmap.js"></script>
-""" + footer + "</body>\n</html>\n"
+"""
+    actors = [p["actor"] for p in people if not p["actor"].startswith(("（", "("))]
+    return html, scripts, actors
+
+
+def build_map_page(slug, title, lang, head, footer, e):
+    """以前の相関図だけのページ。作品ガイドのページに移ったので、そちらへ案内する"""
+    t = TEXT[lang]
+    target = f"../films/{slug}.html#map"
+    page_title = (f"{title} Character Map | {t['home']}" if lang == "en" else f"『{title}』キャラクター相関図｜{t['home']}")
+    return f"""<!doctype html>
+<html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{e(page_title)}</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={e(target)}">
+</head><body><p><a href="{e(target)}">{e(page_title)}</a></p></body></html>
+"""
 
 
 def build_index_page(titles_by_slug, lang, head, footer, e):
@@ -162,10 +154,10 @@ def build_index_page(titles_by_slug, lang, head, footer, e):
     prefix = "../../" if lang == "en" else "../"
     path = f"{'en/' if lang == 'en' else ''}characters/"
     cards = "".join(
-        f'<li><a class="btn primary" href="{s}.html">{e(titles_by_slug[s]["title"])}（{e(titles_by_slug[s]["year"])}）</a></li>' if lang == "ja"
-        else f'<li><a class="btn primary" href="{s}.html">{e(titles_by_slug[s]["title"])} ({e(titles_by_slug[s]["year"])})</a></li>'
+        f'<li><a class="btn primary" href="../films/{s}.html#map">{e(titles_by_slug[s]["title"])}（{e(titles_by_slug[s]["year"])}）</a></li>' if lang == "ja"
+        else f'<li><a class="btn primary" href="../films/{s}.html#map">{e(titles_by_slug[s]["title"])} ({e(titles_by_slug[s]["year"])})</a></li>'
         for s in RELATION_MAPS)
-    planned = "".join(f'<li><span class="btn" aria-disabled="true">{e(en if lang == "en" else ja)}<small class="rm-soon">{e(t["planned"])}</small></span></li>' for ja, en in PLANNED)
+    planned = "".join(f'<li><span class="btn soon" aria-disabled="true">{e(en if lang == "en" else ja)}<small class="rm-soon">{e(t["planned"])}</small></span></li>' for ja, en in PLANNED)
     title = f"{t['index_title']}｜{t['home']}" if lang == "ja" else f"{t['index_title']} | {t['home']}"
     return head(title, t["index_desc"], path, prefix=prefix, lang=lang) + f"""
 <nav class="crumb"><a href="../">{e(t['home'])}</a> ＞ {e(t['menu'])}</nav>
@@ -200,5 +192,4 @@ def write_pages(write, titles_by_slug, lang, head, footer, e):
     pages = [(f"{base}/", max(m["updated"] for m in RELATION_MAPS.values()))]
     for slug, m in RELATION_MAPS.items():
         write(f"{base}/{slug}.html", build_map_page(slug, titles_by_slug[slug]["title"], lang, head, footer, e))
-        pages.append((f"{base}/{slug}.html", m["updated"]))
     return pages
