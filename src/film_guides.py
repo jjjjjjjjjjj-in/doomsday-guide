@@ -40,6 +40,7 @@ GUIDES = {
     "love-and-thunder": ("https://jjjjjjjjjjj-in.github.io/love-and-thunder/", "https://jjjjjjjjjjj-in.github.io/love-and-thunder/en/"),
     "quantumania": ("https://jjjjjjjjjjj-in.github.io/quantumania/", "https://jjjjjjjjjjj-in.github.io/quantumania/en/"),
     "guardians-vol3": ("https://jjjjjjjjjjj-in.github.io/guardians-vol3/", "https://jjjjjjjjjjj-in.github.io/guardians-vol3/en/"),
+    "x-men": ("https://jjjjjjjjjjj-in.github.io/x-men/", "https://jjjjjjjjjjj-in.github.io/x-men/en/"),
 }
 
 
