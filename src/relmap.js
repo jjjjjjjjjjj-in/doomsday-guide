@@ -331,7 +331,9 @@
       const o = ed.a === p ? ed.b : ed.a;
       return `<li><button type="button" class="rm-rel" data-goto="${esc(o.id)}">${avatarHtml(o, 32)}<span><b>${esc(o.name)}</b><small><span class="rm-chip t-${ed.type}">${esc(T.types[ed.type])}</span>${esc(ed.label)}</small></span></button></li>`;
     }).join("");
-    const credit = p.credit
+    const credit = p.credit && p.credit.illustration
+      ? `<p class="rm-credit">${esc(T.illus)}</p>`
+      : p.credit
       ? `<p class="rm-credit">${T.photo}: <a href="${esc(p.credit.source_url)}" target="_blank" rel="noopener">${esc(p.credit.author)}</a> / <a href="${esc(p.credit.license_url)}" target="_blank" rel="noopener">${esc(p.credit.license)}</a></p>`
       : `<p class="rm-credit">${esc(T.placeholder)}</p>`;
     sheetBody.innerHTML = `

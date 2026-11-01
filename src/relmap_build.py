@@ -26,9 +26,10 @@ TEXT = {
         fit="全体表示", zoom_in="拡大", zoom_out="縮小", close="閉じる", filter="線の種類（押すと表示・非表示）",
         list="登場人物の一覧", lead_role="中心人物", main_role="主要人物", sub_role="脇役",
         spoiler="※人物の説明には、映画の結末に関わるネタバレを含みます。",
-        photo_note="※著作権の関係で、映画の場面写真やポスターなど、映画に出てくる姿の写真は使えません。顔写真はすべて、自由に使ってよい許可のある俳優本人の写真です（見つからなかった人物は頭文字のアイコン）。",
+        photo_note="※著作権の関係で、映画の場面写真やポスターなど、映画に出てくる姿の写真は使えません。顔写真はすべて、自由に使ってよい許可のある俳優本人の写真です（人間でないキャラクターはこのサイトで作ったイラスト、写真が見つからなかった人物は頭文字のアイコン）。",
+        illus="このサイトで作ったオリジナルのイラストです（映画の画像ではありません）。",
         credits="画像について",
-        credits_intro="顔写真は、Wikimedia Commons にある俳優本人の写真（自由に使えるライセンスのもの）を、正方形に切り抜いて縮小し、使っています。写真のない人物は仮のアイコン（名前の頭文字）です。",
+        credits_intro="顔写真は、Wikimedia Commons にある俳優本人の写真（自由に使えるライセンスのもの）を、正方形に切り抜いて縮小し、使っています。人間でないキャラクターはこのサイトで作ったイラスト、写真のない人物は仮のアイコン（名前の頭文字）です。",
         credits_item="{name}／{actor}：撮影 {author}",
         credits_none="この相関図の顔アイコンは、今はすべて仮のアイコン（名前の頭文字）です。俳優の写真や映画の画像は、利用許諾を確認できたものだけを、出典とライセンスを明記して載せます。",
         back="視聴順ガイドでこの作品を見る", index="相関図の一覧", home="ドゥームズデイ予習ガイド",
@@ -43,9 +44,10 @@ TEXT = {
         fit="Fit all", zoom_in="Zoom in", zoom_out="Zoom out", close="Close", filter="Line types (tap to show or hide)",
         list="All characters", lead_role="Center", main_role="Main", sub_role="Supporting",
         spoiler="The character notes contain spoilers, including the ending.",
-        photo_note="Because of copyright, we can't use stills, posters or any other images of the characters as they appear in the film. All face photos are freely licensed photos of the actors themselves (people without one are shown with initials).",
+        photo_note="Because of copyright, we can't use stills, posters or any other images of the characters as they appear in the film. All face photos are freely licensed photos of the actors themselves (non-human characters are original illustrations made for this site; people without a photo are shown with initials).",
+        illus="An original illustration made for this site (not an image from the film).",
         credits="About the images",
-        credits_intro="Face photos are freely licensed photos of the actors from Wikimedia Commons, cropped to a square and resized. People without a photo are shown with a placeholder (initials).",
+        credits_intro="Face photos are freely licensed photos of the actors from Wikimedia Commons, cropped to a square and resized. Non-human characters are original illustrations made for this site, and people without a photo are shown with a placeholder (initials).",
         credits_item="{name} — {actor}: photo by {author}",
         credits_none="All face icons on this map are placeholders (initials) for now. We will only add actor photos or film images whose license we have confirmed, with the source and license shown.",
         back="See this title in the watch guide", index="All character maps", home="Doomsday Watch Guide",
@@ -77,7 +79,7 @@ def localized_people(m, lang):
         img = IMAGES.get(p["id"])
         if img:
             q["img"] = "{prefix}assets/chars/" + img["file"]
-            q["credit"] = {k: img[k] for k in ("author", "license", "license_url", "source_url")}
+            q["credit"] = {"illustration": True} if img.get("illustration") else {k: img[k] for k in ("author", "license", "license_url", "source_url")}
         out.append(q)
     return out
 
@@ -94,7 +96,7 @@ def page_data(slug, lang, prefix):
                   **{k: l[k] for k in ("bend", "at") if k in l}) for l in m["links"]]
     groups = [dict(x=g["x"], y=g["y"], label=g.get("label_en", g["label"]) if lang == "en" else g["label"]) for g in m.get("groups", [])]
     center = next(p["id"] for p in m["people"] if p["role"] == "lead")
-    text = dict(aria=t["aria"], actor=t["actor"], relations=t["relations"], photo=t["photo"], placeholder=t["placeholder"],
+    text = dict(illus=t["illus"], aria=t["aria"], actor=t["actor"], relations=t["relations"], photo=t["photo"], placeholder=t["placeholder"],
                 types={k: v[1 if lang == "en" else 0] for k, v in LINK_TYPES.items()})
     return people, dict(center=center, people=people, links=links, groups=groups, text=text)
 
@@ -115,6 +117,8 @@ def map_section(slug, lang, e, prefix):
     used = [(p, IMAGES[p["id"]]) for p in m["people"] if p["id"] in IMAGES]
     def credit_li(p, i):
         g = (lambda k: p.get(f"{k}_en", p[k])) if lang == "en" else (lambda k: p[k])
+        if i.get("illustration"):
+            return f'<li>{e(g("name"))}{"：" if lang == "ja" else ": "}{e(t["illus"])}</li>'
         text = e(t["credits_item"].format(name=g("name"), actor=g("actor"), author="\0")).split("\0")
         return (f'<li>{text[0]}<a href="{e(i["source_url"])}" target="_blank" rel="noopener">{e(i["author"])}</a>{text[1]}'
                 f' / <a href="{e(i["license_url"])}" target="_blank" rel="noopener">{e(i["license"])}</a></li>')

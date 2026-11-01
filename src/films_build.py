@@ -18,7 +18,6 @@ TEXT = {
         tagline="映画だけでは分かりにくいところを、あらすじ・相関図・用語でやさしく解説します。",
         year="公開", runtime="上映時間", order="視聴順", imp="重要度", era="作中の時代",
         toc="このページの内容", s_summary="この作品を3行で", s_before="観る前に知っておくと分かりやすいこと", s_map="キャラクター相関図",
-        glossary_note="言葉を押すと説明が開きます。",
         s_story="あらすじ", s_glossary="用語集", s_confusing="ここが分かりにくい！Q&A", s_points="見逃しやすいポイント・小ネタ",
         s_ending="ラストとおまけ映像", s_dd="ドゥームズデイとのつながり", s_next="次に観るとよい作品",
         nospoil="ネタバレなし", spoil="ネタバレあり",
@@ -38,7 +37,6 @@ TEXT = {
         tagline="The parts that are hard to follow from the film alone, explained with a story summary, a character map and key terms.",
         year="Released", runtime="Runtime", order="Watch order", imp="Importance", era="Set in",
         toc="On this page", s_summary="The film in three lines", s_before="Good to know before watching", s_map="Character map",
-        glossary_note="Tap a term to see what it means.",
         s_story="Story", s_glossary="Key terms", s_confusing="Confusing parts, explained", s_points="Easy-to-miss details",
         s_ending="The ending and post-credits", s_dd="The Doomsday connection", s_next="What to watch next",
         nospoil="No spoilers", spoil="Spoilers",
@@ -84,7 +82,7 @@ def build_page(slug, title_rec, titles, lang, head, footer, e, shop_url_fn, raku
 
     summary = "".join(f"<li>{e(x)}</li>" for x in (g["summary_en"] if lang == "en" else g["summary"]))
     before = "".join(f'<div class="fg-card"><h3>{e(h)}</h3><p>{e(b)}</p></div>' for h, b in (g["before_en"] if lang == "en" else g["before"]))
-    glossary = "".join(f"<details><summary>{e(L(x, lang, 0, 2))}</summary><p>{e(L(x, lang, 1, 3))}</p></details>" for x in g["glossary"])
+    glossary = "".join(f"<div><dt>{e(L(x, lang, 0, 2))}</dt><dd>{e(L(x, lang, 1, 3))}</dd></div>" for x in g["glossary"])
     story = "".join(f'<section class="fg-chapter"><h3>{e(L(x, lang, 0, 2))}</h3><p>{e(L(x, lang, 1, 3))}</p></section>' for x in g["story"])
     confusing = "".join(f'<details class="fg-qa"><summary>{e(L(x, lang, 0, 2))}</summary><p>{e(L(x, lang, 1, 3))}</p></details>' for x in g["confusing"])
     points = "".join(f'<div class="fg-card"><h3>{e(L(x, lang, 0, 2))}</h3><p>{e(L(x, lang, 1, 3))}</p></div>' for x in g["points"])
@@ -152,8 +150,7 @@ try{localStorage.setItem(K,JSON.stringify(s))}catch(e){}});})();
 {shop}
 
 <section class="fg-sec" id="glossary"><h2>{e(t['s_glossary'])}</h2>
-  <p class="muted-note">{e(t['glossary_note'])}</p>
-  <div class="fg-glossary">{glossary}</div>
+  <dl class="fg-glossary">{glossary}</dl>
 </section>
 
 <section class="fg-sec" id="confusing"><h2>{e(t['s_confusing'])}<span class="tag-warn">{e(t['spoil'])}</span></h2>

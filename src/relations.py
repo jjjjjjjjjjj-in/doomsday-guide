@@ -181,6 +181,8 @@ IMAGES = {
     "raza": dict(file="faran-tahir.jpg", author="Gage Skidmore", license="CC BY-SA 3.0",
                license_url="https://creativecommons.org/licenses/by-sa/3.0/",
                source_url="https://commons.wikimedia.org/wiki/File:Faran_Tahir_by_Gage_Skidmore.jpg"),
+    # ダミーはこのサイトで作ったオリジナルのイラスト（illustration=True）。映画の画像ではない。
+    "dummy": dict(file="dum-e.svg", illustration=True),
     "abu": dict(file="sayed-badreya.jpg", author="Sayed Badreya (cropped by RanZag)", license="CC BY 2.0",
                license_url="https://creativecommons.org/licenses/by/2.0/",
                source_url="https://commons.wikimedia.org/wiki/File:Sayed_Badreya_2009.jpg"),
