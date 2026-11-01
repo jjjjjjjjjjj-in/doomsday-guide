@@ -34,6 +34,7 @@ GUIDES = {
     "wandavision": ("https://jjjjjjjjjjj-in.github.io/wandavision/", "https://jjjjjjjjjjj-in.github.io/wandavision/en/"),
     "shang-chi": ("https://jjjjjjjjjjj-in.github.io/shang-chi/", "https://jjjjjjjjjjj-in.github.io/shang-chi/en/"),
     "falcon-and-winter-soldier": ("https://jjjjjjjjjjj-in.github.io/falcon-and-winter-soldier/", "https://jjjjjjjjjjj-in.github.io/falcon-and-winter-soldier/en/"),
+    "spider-man-far-from-home": ("https://jjjjjjjjjjj-in.github.io/spider-man-far-from-home/", "https://jjjjjjjjjjj-in.github.io/spider-man-far-from-home/en/"),
 }
 
 
