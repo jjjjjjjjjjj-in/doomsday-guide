@@ -23,6 +23,7 @@ GUIDES = {
     "civil-war": ("https://jjjjjjjjjjj-in.github.io/civil-war/", "https://jjjjjjjjjjj-in.github.io/civil-war/en/"),
     "black-panther": ("https://jjjjjjjjjjj-in.github.io/black-panther/", "https://jjjjjjjjjjj-in.github.io/black-panther/en/"),
     "spider-man-homecoming": ("https://jjjjjjjjjjj-in.github.io/spider-man-homecoming/", "https://jjjjjjjjjjj-in.github.io/spider-man-homecoming/en/"),
+    "wakanda-forever": ("https://jjjjjjjjjjj-in.github.io/wakanda-forever/", "https://jjjjjjjjjjj-in.github.io/wakanda-forever/en/"),
 }
 
 
