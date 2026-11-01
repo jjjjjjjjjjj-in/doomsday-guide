@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(SRC, "en"))
 
 import build as ja  # noqa: E402
 import ads  # noqa: E402
-from build import (site_toc, BASE_URL, UPDATED, TITLES, TRAILERS, MUST_LINE, imp_class, jsonld,  # noqa: E402,F401
+from build import (site_toc, contents_box, number_headings, BASE_URL, UPDATED, TITLES, TRAILERS, MUST_LINE, imp_class, jsonld,  # noqa: E402,F401
                    amazon_url, rakuten_url, banner, e, head)
 from titles_en_a import TITLES_EN_A  # noqa: E402
 from titles_en_b import TITLES_EN_B  # noqa: E402
@@ -235,6 +235,7 @@ def build_index(titles):
 </header>
 {site_toc([("#checklist", "Checklist"), ("#list-must", "① Must-watch"), ("#list-all", "② All titles"), ("#faq", "FAQ"),
            ("#articles", "Articles"), ("#guides", "Film guides"), ("#pdf", "Printable PDF"), ("../", "日本語")], "Contents")}
+{contents_box([("#checklist", "Checklist"), ("#list-must", "① Must-watch titles"), ("#list-all", "② All titles"), ("#faq", "FAQ"), ("#articles", "Articles"), ("#guides", "Film guides"), ("#pdf", "Printable checklists (PDF)")], "Contents")}
 
 <section class="stats" aria-label="Days until release and your progress">
   <div class="stat">
@@ -333,7 +334,8 @@ def build_article(a):
 <article class="article">
   <h1>{e(a["title"])}</h1>
   <p class="updated">Last updated {a["updated"]}</p>
-  {body}
+  {contents_box(number_headings(a["body"])[1], "Contents")}
+  {number_headings(body)[0]}
   <p><a class="btn primary" href="../">Back to the checklist</a></p>
 </article>
 """ + amazon_picks() + f"""<section class="panel"><h2>More articles</h2><ul class="article-list">{others}</ul></section>

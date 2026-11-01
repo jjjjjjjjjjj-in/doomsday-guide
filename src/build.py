@@ -3,6 +3,7 @@
 使い方: python3 src/build.py  （リポジトリのルートに index.html などを書き出す）
 """
 import html
+import re
 import json
 import os
 import shutil
@@ -137,22 +138,27 @@ def site_toc(items, label, current=None):
     lis = "".join(f'<li><a href="{e(h)}"{' aria-current="page"' if h == current else ""}>{e(t)}</a></li>' for h, t in items)
     return (f'<nav class="site-toc" aria-label="{e(label)}"><ul><li><span class="toc-label">{e(label)}</span></li>{lis}</ul></nav>\n'
             '<script>document.addEventListener("click",function(ev){var a=ev.target.closest&&ev.target.closest(\'a[href="#guides"]\');'
-            'if(a){var d=document.getElementById("guides");if(d)d.open=true;}});</script>\n' + FOLD_JS)
+            'if(a){var d=document.getElementById("guides");if(d)d.open=true;}});</script>')
 
 
-# 見出しの右の▽ボタンで、その項目を閉じたり開いたりする（運営者の希望、2026-11-02）
-FOLD_JS = """<script>
-document.addEventListener('DOMContentLoaded',function(){ var en=document.documentElement.lang==='en';
-  document.querySelectorAll('.panel:not(details) > h2, .tier-section > header > h2').forEach(function(h){
-    var s=h.closest('.panel, .tier-section'); if(!s||s.id==='sticky-ad') return;
-    var b=document.createElement('button'); b.type='button'; b.className='fold-btn'; b.setAttribute('aria-expanded','true');
-    b.setAttribute('aria-label', en?'Close this section':'この項目を閉じる');
-    b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16L12 19z"/></svg>';
-    b.addEventListener('click',function(){ var c=s.classList.toggle('closed'); b.setAttribute('aria-expanded',String(!c));
-      b.setAttribute('aria-label', c?(en?'Open this section':'この項目を開く'):(en?'Close this section':'この項目を閉じる'));
-      if(c && s.getBoundingClientRect().top<0) s.scrollIntoView(); });
-    h.classList.add('has-fold'); h.appendChild(b); }); });
-</script>"""
+# ページの最初に出す番号つきの目次（運営者の希望、2026-11-02。項目を閉じるボタンはやめた）
+def contents_box(items, label="目次"):
+    """items: [(リンク先, 見出し)]"""
+    lis = "".join(f'<li><a href="{h}"><span class="cb-no">{i:02d}</span><span class="cb-t">{e(t)}</span></a></li>'
+                  for i, (h, t) in enumerate(items, 1))
+    return f'<nav class="contents-box" aria-label="{e(label)}"><p class="cb-title">{e(label)}</p><ol>{lis}</ol></nav>'
+
+
+def number_headings(body):
+    """記事の h2 に id をつけ、(新しい本文, [(#id, 見出し)]) を返す"""
+    items = []
+    def rep(m):
+        if 'class="pr"' in m.group(1):  # 広告の枠の見出しは目次に入れない
+            return m.group(0)
+        n = len(items) + 1
+        items.append((f"#h{n}", re.sub(r"<[^>]+>", "", m.group(1))))
+        return f'<h2 id="h{n}">{m.group(1)}</h2>'
+    return re.sub(r"<h2>(.*?)</h2>", rep, body), items
 
 
 def sticky_bar(prefix=""):
@@ -332,6 +338,7 @@ def build_index():
 </header>
 {site_toc([("#checklist", "チェックリスト"), ("#list-must", "① 必ず観るべき"), ("#list-all", "② 全作品"), ("#faq", "よくある質問"),
            ("#articles", "解説記事"), ("#guides", "作品ガイド"), ("#pdf", "印刷用PDF"), ("en/", "English")], "目次")}
+{contents_box([("#checklist", "チェックリスト"), ("#list-must", "① 必ず観るべき作品"), ("#list-all", "② 全作品"), ("#faq", "よくある質問"), ("#articles", "解説記事"), ("#guides", "作品ガイド"), ("#pdf", "印刷用チェックリスト（PDF）")])}
 
 <section class="stats" aria-label="公開までの日数と視聴の進み具合">
   <div class="stat">
@@ -434,7 +441,8 @@ def build_article(a):
 <article class="article">
   <h1>{e(a["title"])}</h1>
   <p class="updated">最終更新 {a["updated"]}</p>
-  {inject_article_picks(a)}
+  {contents_box(number_headings(a["body"])[1])}
+  {number_headings(inject_article_picks(a))[0]}
   <p><a class="btn primary" href="../">チェックリストに戻る</a></p>
 </article>
 """ + amazon_picks() + f"""<section class="panel"><h2>ほかの解説記事</h2><ul class="article-list">{others}</ul></section>

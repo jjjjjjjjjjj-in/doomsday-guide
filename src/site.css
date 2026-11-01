@@ -416,10 +416,11 @@ details.relmap-promo[open] > summary { margin-bottom: 10px; }
 .featured-pick { border: 2px solid var(--red); border-radius: 12px; padding: 12px 14px; margin: 0 0 14px; }
 .featured-pick p { margin: 0 0 10px; }
 
-/* 見出しの▽ボタン（項目を閉じる／開く。運営者の希望、2026-11-02） */
-h2.has-fold { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.fold-btn { margin-left: auto; flex: none; width: 36px; height: 30px; display: grid; place-items: center; padding: 0; cursor: pointer;
-  background: none; border: 0; color: #e23636; }
-.fold-btn svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linejoin: round; transition: transform .2s; }
-.closed .fold-btn svg { transform: rotate(-90deg); }
-.panel.closed > :not(h2), .tier-section.closed > :not(header), .tier-section.closed > header > :not(h2) { display: none !important; }
+/* ページの最初の番号つき目次（運営者の希望、2026-11-02） */
+.contents-box { margin: 18px 0 8px; padding: 18px 18px 10px; background: #fff; border: 5px solid #e6e8ec; }
+.contents-box .cb-title { margin: 0 0 10px; font-size: 24px; font-weight: 700; letter-spacing: .02em; }
+.contents-box ol { list-style: none; margin: 0; padding: 0; }
+.contents-box li { border-top: 1px solid #eef0f3; }
+.contents-box a { display: flex; gap: 10px; align-items: baseline; padding: 10px 2px; text-decoration: none; color: #1a1a1a; font-weight: 700; line-height: 1.5; }
+.contents-box a:hover .cb-t { text-decoration: underline; }
+.contents-box .cb-no { flex: none; font-family: "Anton", sans-serif; font-weight: 400; font-size: 18px; color: var(--navy); border-right: 2px solid var(--gold-bright); padding-right: 10px; line-height: 1.2; }
