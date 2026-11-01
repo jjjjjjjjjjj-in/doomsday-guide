@@ -6,6 +6,7 @@ TOP_URL = "https://jjjjjjjjjjj-in.github.io/"
 GUIDES = {
     # slug: (日本語ページ, 英語ページ)
     "captain-america-first-avenger": ("https://jjjjjjjjjjj-in.github.io/captain-america-first-avenger/", "https://jjjjjjjjjjj-in.github.io/captain-america-first-avenger/en/"),
+    "captain-marvel": ("https://jjjjjjjjjjj-in.github.io/captain-marvel/", "https://jjjjjjjjjjj-in.github.io/captain-marvel/en/"),
     "iron-man": ("https://jjjjjjjjjjj-in.github.io/iron-man/", "https://jjjjjjjjjjj-in.github.io/iron-man/en/"),
 }
 
