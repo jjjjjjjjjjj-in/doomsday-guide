@@ -31,6 +31,9 @@ GUIDES = {
     "endgame": ("https://jjjjjjjjjjj-in.github.io/endgame/", "https://jjjjjjjjjjj-in.github.io/endgame/en/"),
     "loki-s1": ("https://jjjjjjjjjjj-in.github.io/loki-s1/", "https://jjjjjjjjjjj-in.github.io/loki-s1/en/"),
     "loki-s2": ("https://jjjjjjjjjjj-in.github.io/loki-s2/", "https://jjjjjjjjjjj-in.github.io/loki-s2/en/"),
+    "wandavision": ("https://jjjjjjjjjjj-in.github.io/wandavision/", "https://jjjjjjjjjjj-in.github.io/wandavision/en/"),
+    "shang-chi": ("https://jjjjjjjjjjj-in.github.io/shang-chi/", "https://jjjjjjjjjjj-in.github.io/shang-chi/en/"),
+    "falcon-and-winter-soldier": ("https://jjjjjjjjjjj-in.github.io/falcon-and-winter-soldier/", "https://jjjjjjjjjjj-in.github.io/falcon-and-winter-soldier/en/"),
 }
 
 
