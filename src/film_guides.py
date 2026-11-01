@@ -8,6 +8,11 @@ GUIDES = {
     "captain-america-first-avenger": ("https://jjjjjjjjjjj-in.github.io/captain-america-first-avenger/", "https://jjjjjjjjjjj-in.github.io/captain-america-first-avenger/en/"),
     "captain-marvel": ("https://jjjjjjjjjjj-in.github.io/captain-marvel/", "https://jjjjjjjjjjj-in.github.io/captain-marvel/en/"),
     "iron-man": ("https://jjjjjjjjjjj-in.github.io/iron-man/", "https://jjjjjjjjjjj-in.github.io/iron-man/en/"),
+    "iron-man-2": ("https://jjjjjjjjjjj-in.github.io/iron-man-2/", "https://jjjjjjjjjjj-in.github.io/iron-man-2/en/"),
+    "incredible-hulk": ("https://jjjjjjjjjjj-in.github.io/incredible-hulk/", "https://jjjjjjjjjjj-in.github.io/incredible-hulk/en/"),
+    "thor": ("https://jjjjjjjjjjj-in.github.io/thor/", "https://jjjjjjjjjjj-in.github.io/thor/en/"),
+    "avengers": ("https://jjjjjjjjjjj-in.github.io/avengers/", "https://jjjjjjjjjjj-in.github.io/avengers/en/"),
+    "thor-dark-world": ("https://jjjjjjjjjjj-in.github.io/thor-dark-world/", "https://jjjjjjjjjjj-in.github.io/thor-dark-world/en/"),
 }
 
 
