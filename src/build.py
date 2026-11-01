@@ -137,7 +137,22 @@ def site_toc(items, label, current=None):
     lis = "".join(f'<li><a href="{e(h)}"{' aria-current="page"' if h == current else ""}>{e(t)}</a></li>' for h, t in items)
     return (f'<nav class="site-toc" aria-label="{e(label)}"><ul><li><span class="toc-label">{e(label)}</span></li>{lis}</ul></nav>\n'
             '<script>document.addEventListener("click",function(ev){var a=ev.target.closest&&ev.target.closest(\'a[href="#guides"]\');'
-            'if(a){var d=document.getElementById("guides");if(d)d.open=true;}});</script>')
+            'if(a){var d=document.getElementById("guides");if(d)d.open=true;}});</script>\n' + FOLD_JS)
+
+
+# 見出しの右の▽ボタンで、その項目を閉じたり開いたりする（運営者の希望、2026-11-02）
+FOLD_JS = """<script>
+document.addEventListener('DOMContentLoaded',function(){ var en=document.documentElement.lang==='en';
+  document.querySelectorAll('.panel:not(details) > h2, .tier-section > header > h2').forEach(function(h){
+    var s=h.closest('.panel, .tier-section'); if(!s||s.id==='sticky-ad') return;
+    var b=document.createElement('button'); b.type='button'; b.className='fold-btn'; b.setAttribute('aria-expanded','true');
+    b.setAttribute('aria-label', en?'Close this section':'この項目を閉じる');
+    b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16L12 19z"/></svg>';
+    b.addEventListener('click',function(){ var c=s.classList.toggle('closed'); b.setAttribute('aria-expanded',String(!c));
+      b.setAttribute('aria-label', c?(en?'Open this section':'この項目を開く'):(en?'Close this section':'この項目を閉じる'));
+      if(c && s.getBoundingClientRect().top<0) s.scrollIntoView(); });
+    h.classList.add('has-fold'); h.appendChild(b); }); });
+</script>"""
 
 
 def sticky_bar(prefix=""):

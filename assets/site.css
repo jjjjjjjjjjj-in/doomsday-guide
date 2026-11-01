@@ -415,3 +415,11 @@ details.relmap-promo[open] > summary { margin-bottom: 10px; }
 /* おすすめ商品（予習のおとも の一番上） */
 .featured-pick { border: 2px solid var(--red); border-radius: 12px; padding: 12px 14px; margin: 0 0 14px; }
 .featured-pick p { margin: 0 0 10px; }
+
+/* 見出しの▽ボタン（項目を閉じる／開く。運営者の希望、2026-11-02） */
+h2.has-fold { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.fold-btn { margin-left: auto; flex: none; width: 36px; height: 30px; display: grid; place-items: center; padding: 0; cursor: pointer;
+  background: none; border: 0; color: #e23636; }
+.fold-btn svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linejoin: round; transition: transform .2s; }
+.closed .fold-btn svg { transform: rotate(-90deg); }
+.panel.closed > :not(h2), .tier-section.closed > :not(header), .tier-section.closed > header > :not(h2) { display: none !important; }
