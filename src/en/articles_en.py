@@ -4,7 +4,7 @@ ARTICLES_EN = [
         slug="cast",
         title="Avengers: Doomsday Cast: Confirmed Actors vs. Rumors",
         desc="The officially announced cast of Avengers: Doomsday, kept separate from rumored names, with the titles to watch for each character.",
-        updated="2026-10-31",
+        updated="2026-11-02",
         body="""
 <p>Avengers: Doomsday opens in theaters on December 18, 2026, in the US and Japan. When you choose what to watch first, the most important question is <strong>who is in it</strong>. This page keeps the cast officially announced by Marvel Studios clearly separate from names that are only reported or rumored.</p>
 
@@ -43,7 +43,7 @@ ARTICLES_EN = [
 <tr><td>Sue Storm</td><td>Vanessa Kirby</td></tr>
 <tr><td>Johnny Storm</td><td>Joseph Quinn</td></tr>
 <tr><td>Ben Grimm</td><td>Ebon Moss-Bachrach</td></tr>
-<tr><td>Professor X</td><td>Patrick Stewart</td><td rowspan="4"><a href="../#x-men">X-Men</a>, <a href="../#x2">X2</a></td></tr>
+<tr><td>Professor X</td><td>Patrick Stewart (died October 28, 2026, at 86; reported to be his final screen role)</td><td rowspan="4"><a href="../#x-men">X-Men</a>, <a href="../#x2">X2</a></td></tr>
 <tr><td>Magneto</td><td>Ian McKellen</td></tr>
 <tr><td>Cyclops</td><td>James Marsden</td></tr>
 <tr><td>Mystique</td><td>Rebecca Romijn</td></tr>
@@ -72,7 +72,7 @@ ARTICLES_EN = [
         slug="x-men",
         title="How Much of the Fox X-Men Should You Watch Before Doomsday?",
         desc="Professor X, Magneto, Cyclops and more of the classic X-Men return in Doomsday. Here is how many of the Fox X-Men films you actually need.",
-        updated="2026-10-31",
+        updated="2026-11-02",
         body="""
 <p>One of the biggest talking points of Doomsday is the return of the actors from Fox's X-Men films of the 2000s. The Fox X-Men series has more than ten films with a complicated timeline. Here we sort out what to watch to understand the stories of the actors who are coming back.</p>
 
@@ -114,6 +114,8 @@ ARTICLES_EN = [
 <p>Cyclops and Professor X die in <a href="../#x-men-last-stand">X-Men: The Last Stand</a>. History is then rewritten in <a href="../#x-men-days-of-future-past">Days of Future Past</a>, which ends with Cyclops alive again.</p>
 <p>In an August 2025 interview, Cyclops actor James Marsden joked: "I'm dead. Well, maybe not." Which point in time his Cyclops comes from has not been officially revealed.</p>
 
+<h2>In memory of Patrick Stewart</h2>
+<p>Patrick Stewart, who played Professor X (Charles Xavier) in the <a href="../#x-men">X-Men</a> films, died on October 28, 2026, at the age of 86 (his family cited Alzheimer's disease and Lewy body dementia). His return as Professor X in Avengers: Doomsday is reported to be his final screen role. Our thoughts are with his family and friends.</p>
 <h2>In memory of Eric Dane</h2>
 <p>Eric Dane, who played the mutant Multiple Man in <a href="../#x-men-last-stand">X-Men: The Last Stand</a>, died of complications from ALS on February 19, 2026, at the age of 53. Our thoughts are with his family and friends.</p>
 
