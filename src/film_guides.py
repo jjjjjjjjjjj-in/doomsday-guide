@@ -51,6 +51,12 @@ GUIDES = {
     "brave-new-world": ("https://jjjjjjjjjjj-in.github.io/brave-new-world/", "https://jjjjjjjjjjj-in.github.io/brave-new-world/en/"),
     "fantastic-four-first-steps": ("https://jjjjjjjjjjj-in.github.io/fantastic-four-first-steps/", "https://jjjjjjjjjjj-in.github.io/fantastic-four-first-steps/en/"),
     "thunderbolts": ("https://jjjjjjjjjjj-in.github.io/thunderbolts/", "https://jjjjjjjjjjj-in.github.io/thunderbolts/en/"),
+    "spider-man-2002": ("https://jjjjjjjjjjj-in.github.io/spider-man-2002/", "https://jjjjjjjjjjj-in.github.io/spider-man-2002/en/"),
+    "spider-man-2-2004": ("https://jjjjjjjjjjj-in.github.io/spider-man-2-2004/", "https://jjjjjjjjjjj-in.github.io/spider-man-2-2004/en/"),
+    "spider-man-3-2007": ("https://jjjjjjjjjjj-in.github.io/spider-man-3-2007/", "https://jjjjjjjjjjj-in.github.io/spider-man-3-2007/en/"),
+    "venom": ("https://jjjjjjjjjjj-in.github.io/venom/", "https://jjjjjjjjjjj-in.github.io/venom/en/"),
+    "venom-carnage": ("https://jjjjjjjjjjj-in.github.io/venom-carnage/", "https://jjjjjjjjjjj-in.github.io/venom-carnage/en/"),
+    "venom-last-dance": ("https://jjjjjjjjjjj-in.github.io/venom-last-dance/", "https://jjjjjjjjjjj-in.github.io/venom-last-dance/en/"),
 }
 
 
