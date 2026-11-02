@@ -25,7 +25,7 @@ import film_guides  # noqa: E402
 from film_guides import GUIDES as FILM_GUIDES  # noqa: E402
 
 BASE_URL = "https://jjjjjjjjjjj-in.github.io/doomsday-guide/"
-UPDATED = "2026-10-31"
+UPDATED = "2026-11-02"
 SITE_NAME = "ドゥームズデイ予習ガイド"
 
 # Google Search Console の「HTMLタグ」で確認するときの content の値（例: "abc123..."）
