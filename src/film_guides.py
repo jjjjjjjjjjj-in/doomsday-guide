@@ -73,6 +73,7 @@ GUIDES = {
     "logan": ("https://jjjjjjjjjjj-in.github.io/logan/", "https://jjjjjjjjjjj-in.github.io/logan/en/"),
     "daredevil-born-again-s1": ("https://jjjjjjjjjjj-in.github.io/daredevil-born-again-s1/", "https://jjjjjjjjjjj-in.github.io/daredevil-born-again-s1/en/"),
     "ironheart": ("https://jjjjjjjjjjj-in.github.io/ironheart/", "https://jjjjjjjjjjj-in.github.io/ironheart/en/"),
+    "visionquest": ("https://jjjjjjjjjjj-in.github.io/visionquest/", "https://jjjjjjjjjjj-in.github.io/visionquest/en/"),
 }
 
 
