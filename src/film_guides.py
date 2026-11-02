@@ -18,6 +18,8 @@ GUIDES = {
     "guardians-of-the-galaxy": ("https://jjjjjjjjjjj-in.github.io/guardians-of-the-galaxy/", "https://jjjjjjjjjjj-in.github.io/guardians-of-the-galaxy/en/"),
     "guardians-vol2": ("https://jjjjjjjjjjj-in.github.io/guardians-vol2/", "https://jjjjjjjjjjj-in.github.io/guardians-vol2/en/"),
     "i-am-groot-1": ("https://jjjjjjjjjjj-in.github.io/i-am-groot-1/", "https://jjjjjjjjjjj-in.github.io/i-am-groot-1/en/"),
+    # シーズン2はシーズン1のガイドにつなぐ（運営者の希望、2026-11-02）
+    "i-am-groot-2": ("https://jjjjjjjjjjj-in.github.io/i-am-groot-1/", "https://jjjjjjjjjjj-in.github.io/i-am-groot-1/en/"),
     "age-of-ultron": ("https://jjjjjjjjjjj-in.github.io/age-of-ultron/", "https://jjjjjjjjjjj-in.github.io/age-of-ultron/en/"),
     "ant-man": ("https://jjjjjjjjjjj-in.github.io/ant-man/", "https://jjjjjjjjjjj-in.github.io/ant-man/en/"),
     "civil-war": ("https://jjjjjjjjjjj-in.github.io/civil-war/", "https://jjjjjjjjjjj-in.github.io/civil-war/en/"),
