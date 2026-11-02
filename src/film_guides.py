@@ -57,6 +57,20 @@ GUIDES = {
     "venom": ("https://jjjjjjjjjjj-in.github.io/venom/", "https://jjjjjjjjjjj-in.github.io/venom/en/"),
     "venom-carnage": ("https://jjjjjjjjjjj-in.github.io/venom-carnage/", "https://jjjjjjjjjjj-in.github.io/venom-carnage/en/"),
     "venom-last-dance": ("https://jjjjjjjjjjj-in.github.io/venom-last-dance/", "https://jjjjjjjjjjj-in.github.io/venom-last-dance/en/"),
+    "black-widow": ("https://jjjjjjjjjjj-in.github.io/black-widow/", "https://jjjjjjjjjjj-in.github.io/black-widow/en/"),
+    "eternals": ("https://jjjjjjjjjjj-in.github.io/eternals/", "https://jjjjjjjjjjj-in.github.io/eternals/en/"),
+    "hawkeye": ("https://jjjjjjjjjjj-in.github.io/hawkeye/", "https://jjjjjjjjjjj-in.github.io/hawkeye/en/"),
+    "moon-knight": ("https://jjjjjjjjjjj-in.github.io/moon-knight/", "https://jjjjjjjjjjj-in.github.io/moon-knight/en/"),
+    "echo": ("https://jjjjjjjjjjj-in.github.io/echo/", "https://jjjjjjjjjjj-in.github.io/echo/en/"),
+    "she-hulk": ("https://jjjjjjjjjjj-in.github.io/she-hulk/", "https://jjjjjjjjjjj-in.github.io/she-hulk/en/"),
+    "ms-marvel": ("https://jjjjjjjjjjj-in.github.io/ms-marvel/", "https://jjjjjjjjjjj-in.github.io/ms-marvel/en/"),
+    "werewolf-by-night": ("https://jjjjjjjjjjj-in.github.io/werewolf-by-night/", "https://jjjjjjjjjjj-in.github.io/werewolf-by-night/en/"),
+    "guardians-holiday-special": ("https://jjjjjjjjjjj-in.github.io/guardians-holiday-special/", "https://jjjjjjjjjjj-in.github.io/guardians-holiday-special/en/"),
+    "secret-invasion": ("https://jjjjjjjjjjj-in.github.io/secret-invasion/", "https://jjjjjjjjjjj-in.github.io/secret-invasion/en/"),
+    "the-marvels": ("https://jjjjjjjjjjj-in.github.io/the-marvels/", "https://jjjjjjjjjjj-in.github.io/the-marvels/en/"),
+    "logan": ("https://jjjjjjjjjjj-in.github.io/logan/", "https://jjjjjjjjjjj-in.github.io/logan/en/"),
+    "daredevil-born-again-s1": ("https://jjjjjjjjjjj-in.github.io/daredevil-born-again-s1/", "https://jjjjjjjjjjj-in.github.io/daredevil-born-again-s1/en/"),
+    "ironheart": ("https://jjjjjjjjjjj-in.github.io/ironheart/", "https://jjjjjjjjjjj-in.github.io/ironheart/en/"),
 }
 
 
