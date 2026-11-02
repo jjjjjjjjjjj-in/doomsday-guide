@@ -214,7 +214,7 @@ def head(title, desc, path, prefix="", schema=None, lang="ja", og_image=None, si
 <html lang="{lang}">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">{analytics}
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="apple-touch-icon" href="/doomsday-guide/apple-touch-icon.png"><link rel="icon" type="image/png" href="/doomsday-guide/apple-touch-icon.png">{analytics}
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
