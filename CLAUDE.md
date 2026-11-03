@@ -1,6 +1,6 @@
 # ドゥームズデイ予習ガイド
 
-『アベンジャーズ／ドゥームズデイ』（2026年12月18日 日米同時公開）の予習用の非公式ファンサイト。GitHub Pages（main ブランチのルート）で公開: https://jjjjjjjjjjj-in.github.io/doomsday-guide/
+『アベンジャーズ／ドゥームズデイ』（2026年12月18日 日米同時公開）の予習用の非公式ファンサイト。GitHub Pages（main ブランチのルート）で公開: https://mocchima.com/doomsday-guide/
 
 運営者は日本語で、技術に詳しくない。返答は日本語で、短く、専門用語を避ける。
 
@@ -19,7 +19,7 @@
 - `film_guides.py`: 作品ガイドへのリンク先。作品ガイド（あらすじ・相関図・用語）は 2026-11-01 から作品ごとの独立したサイトになり、別リポジトリ jjjjjjjjjjj-in.github.io の /<slug>/ に移した（運営者の希望で、ドゥームズデイとは別に考える）。このサイトはリンクを貼るだけ。作り方・ルール（顔写真・相関図・文章）はそちらの CLAUDE.md と src/mcu/ を見る。新しい作品ガイドができたら GUIDES に1件足す。以前の /films/・/characters/ のページは新しいアドレスへの転送だけを書き出す（サイトマップには入れない）。
 - トップと記事のページの最初に、番号つきの目次（`build.py` の contents_box。記事は見出しから自動で作る。2026-11-02、運営者の希望。項目を閉じるボタンはやめた）。
 - トップと記事のページには、上に「目次」の帯（`build.py` の site_toc。押すとその場所・ページへ飛ぶ。スクロールしても上に残る）を出す。トップの「作品ガイド」欄は押すと開く形（運営者の希望、2026-11-02）。
-- `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード。`GA_MEASUREMENT_ID`: Google アナリティクス（全サイト共通 G-KDFL8GPPRZ）。フッターから共通のプライバシーポリシー（https://jjjjjjjjjjj-in.github.io/privacy.html）にリンクする。
+- `build.py` の `GOOGLE_SITE_VERIFICATION`: Google Search Console の確認コード。`GA_MEASUREMENT_ID`: Google アナリティクス（全サイト共通 G-KDFL8GPPRZ）。フッターから共通のプライバシーポリシー（https://mocchima.com/privacy.html）にリンクする。
 - `site.css` / `app.js` / `sticky.js`: 見た目と動き。白背景、タイトルは濃いグリーン、見出しは紺。
 - 英語版の広告は `ads.py` の `AMAZON_TAG_US`（アメリカのAmazonアソシエイト）を入れると amazon.com に切り替わる。
 - 英語版は /en/ に出力する。`build_en.py` が `src/en/`（`titles_en_*.py` の作品の英文、`articles_en.py` の記事）を使い、並び・重要度・予告編・広告は日本語版と共通。日本語の作品や記事を直したら、英語版の同じ項目も合わせて直す。

@@ -24,7 +24,7 @@ from trailers import TRAILERS  # noqa: E402
 import film_guides  # noqa: E402
 from film_guides import GUIDES as FILM_GUIDES  # noqa: E402
 
-BASE_URL = "https://jjjjjjjjjjj-in.github.io/doomsday-guide/"
+BASE_URL = "https://mocchima.com/doomsday-guide/"
 UPDATED = "2026-11-02"
 SITE_NAME = "ドゥームズデイ予習ガイド"
 
@@ -33,7 +33,7 @@ GOOGLE_SITE_VERIFICATION = "qCmKqyCaXzHH3V_hEqM1lhQKy9os6X5RIR2zZmw4fZc"
 
 # Google アナリティクスの測定ID（全サイト共通）と、アクセス解析・広告について説明するページ
 GA_MEASUREMENT_ID = "G-KDFL8GPPRZ"
-PRIVACY_URL = "https://jjjjjjjjjjj-in.github.io/privacy.html"
+PRIVACY_URL = "https://mocchima.com/privacy.html"
 
 TITLES = TITLES_A + TITLES_B + TITLES_C
 for i, t in enumerate(TITLES, 1):
