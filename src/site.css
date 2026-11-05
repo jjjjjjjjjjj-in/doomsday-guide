@@ -424,3 +424,9 @@ details.relmap-promo[open] > summary { margin-bottom: 10px; }
 .contents-box a { display: flex; gap: 10px; align-items: baseline; padding: 10px 2px; text-decoration: none; color: #1a1a1a; font-weight: 700; line-height: 1.5; }
 .contents-box a:hover .cb-t { text-decoration: underline; }
 .contents-box .cb-no { flex: none; font-family: "Anton", sans-serif; font-weight: 400; font-size: 18px; color: var(--navy); border-right: 2px solid var(--gold-bright); padding-right: 10px; line-height: 1.2; }
+
+/* 公式15作品（Disney+ が選んだ15作品）の印 */
+.official-badge { display: inline-block; font-size: 12px; font-weight: 700; line-height: 1.4; color: var(--red); background: var(--bg); border: 1.5px solid var(--red); border-radius: 4px; padding: 1px 7px; margin: 4px 0 2px; }
+.row .official-badge { width: fit-content; justify-self: start; align-self: start; }
+.official-note { margin: 12px 0 0; font-size: 14px; }
+.official-note .official-badge { margin: 0 6px 0 0; }

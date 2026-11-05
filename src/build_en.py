@@ -184,7 +184,7 @@ def row(t, anchor=True):
   <label class="check"><input type="checkbox" data-watch="{t["slug"]}" aria-label="Watched {e(t["title"])}"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>Order {t["order"]:02d}</span><span>Set in {e(t["era"])}</span><span>{e(t["year"])} · {e(t["kind"])}</span></span>
-    <h3 class="title">{e(t["title"])}</h3>
+    {ja.official_badge(t, "Official 15")}<h3 class="title">{e(t["title"])}</h3>
     <p class="desc">{e(t["line"])}</p>{trailer_button(t) if t["goal"] else ""}{relmap_link(t)}
   </div>
   <span class="pill {imp_class(t)}">{e(imp_text(t))}</span>{detail}
@@ -288,6 +288,7 @@ def build_index(titles):
     <span><span class="pill p0">4 or less</span>If you have time</span>
     <span><span class="pill ref">Reference</span>Other universes and extras</span>
   </div>
+  <p class="official-note"><span class="official-badge">Official 15</span>The 15 titles Disney+ (Marvel) picked as essential viewing before Doomsday. <strong>Do not skip these.</strong> Loki counts as one title (Seasons 1 and 2).</p>
 </section>
 
 <section class="tier-section" id="list-must">
@@ -348,8 +349,9 @@ def build_print(items, title, subtitle):
     swaps = [
         ('<html lang="ja">', '<html lang="en">'),
         ("アベンジャーズ／ドゥームズデイ 予習チェックリスト　", "Avengers: Doomsday Watch Checklist · "),
-        ("No.は物語の視聴順です。重要度は10点満点で、5以上は必ず観てほしい作品。『ロキ』S1は『エンドゲーム』の直後に観るのがおすすめです。",
-         "No. is the story's viewing order. Importance is out of 10; titles rated 5 or higher are must-watches. Watch Loki Season 1 right after Endgame."),
+        ("No.は物語の視聴順です。重要度は10点満点で、5以上は必ず観てほしい作品。「公式15作品」はDisney+（マーベル公式）が選んだ、絶対に観てほしい15作品。『ロキ』S1は『エンドゲーム』の直後に観るのがおすすめです。",
+         "No. is the story's viewing order. Importance is out of 10; titles rated 5 or higher are must-watches. \"Official 15\" marks the 15 titles Disney+ (Marvel) picked as essential. Watch Loki Season 1 right after Endgame."),
+        (">公式15作品</span>", ">Official 15</span>"),
         ('">Importance ', '">'),
         ("<th>確認</th><th>No.</th><th>作中年代</th><th>作品・概要</th><th>重要度</th><th>公開年</th>",
          "<th>✓</th><th>No.</th><th>Set in</th><th>Title</th><th>Importance</th><th>Released</th>"),

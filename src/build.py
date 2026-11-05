@@ -20,6 +20,7 @@ from titles_c import TITLES_C  # noqa: E402
 from articles import ARTICLES  # noqa: E402
 from importance import IMPORTANCE, MUST_LINE  # noqa: E402
 import ads  # noqa: E402
+from official import OFFICIAL  # noqa: E402
 from trailers import TRAILERS  # noqa: E402
 import film_guides  # noqa: E402
 from film_guides import GUIDES as FILM_GUIDES  # noqa: E402
@@ -257,6 +258,13 @@ def relmap_link(t):
     return f'<a class="relmap-link" href="{FILM_GUIDES[t["slug"]][0]}"><span aria-hidden="true">◎</span>作品ガイド（あらすじ・相関図・用語）</a>'
 
 
+def official_badge(t, label="公式15作品"):
+    """Disney+（マーベル公式）の15作品に付ける印"""
+    if t["slug"] not in OFFICIAL:
+        return ""
+    return f'<span class="official-badge">{e(label)}</span>'
+
+
 def row(t, anchor=True):
     """anchor=False のときは id を付けない（同じ作品が2つのリストに出るため）"""
     detail = ""
@@ -285,7 +293,7 @@ def row(t, anchor=True):
   <label class="check"><input type="checkbox" data-watch="{t["slug"]}" aria-label="{e(t["title"])}を観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 {t["order"]:02d}</span><span>作中 {e(t["era"])}</span><span>{e(t["year"])}年・{e(t["kind"])}</span></span>
-    <h3 class="title">{e(t["title"])}</h3>
+    {official_badge(t)}<h3 class="title">{e(t["title"])}</h3>
     <p class="desc">{e(t["line"])}</p>{trailer_button(t) if t["goal"] else ""}{relmap_link(t)}
   </div>
   <span class="pill {imp_class(t)}">{e(imp_text(t))}</span>{detail}
@@ -391,6 +399,7 @@ def build_index():
     <span><span class="pill p0">4以下</span>余裕があれば</span>
     <span><span class="pill ref">参考</span>別の宇宙・番外</span>
   </div>
+  <p class="official-note"><span class="official-badge">公式15作品</span>Disney+（マーベル公式）が「ドゥームズデイの前に観るべき」として選んだ15作品です。<strong>絶対に観てください。</strong>『ロキ』はシーズン1・2を合わせて1作品です。</p>
 </section>
 
 <section class="tier-section" id="list-must">
@@ -454,7 +463,7 @@ def build_print(items, title, subtitle):
     rows_html = "".join(
         f'<tr class="{imp_class(t)}"><td class="cb">□</td><td class="no">{t["order"]:02d}</td>'
         f'<td class="sm">{e(t["era"])}</td>'
-        f'<td><b>{e(t["title"])}</b><br><span class="sm">{e(t["line"])}</span></td>'
+        f'<td><b>{e(t["title"])}</b>{" <span class=\"of\">公式15作品</span>" if t["slug"] in OFFICIAL else ""}<br><span class="sm">{e(t["line"])}</span></td>'
         f'<td><span class="pl {imp_class(t)}">{e(imp_text(t).replace("重要度 ", ""))}</span></td><td class="sm">{e(t["year"])}</td></tr>'
         for t in items)
     return f"""<!doctype html><html lang="ja"><head><meta charset="utf-8"><style>
@@ -475,10 +484,11 @@ tr:nth-child(even) td {{ background: #f1f4f9; }}
 .pl {{ display: inline-block; font-size: 8pt; font-weight: bold; padding: 1pt 6pt; border-radius: 8pt; color: #fff; background: #7b8aa1; white-space: nowrap; }}
 .pl.p10 {{ background: #c8192f; }} .pl.p8 {{ background: #c99500; }} .pl.p5 {{ background: #1d4a80; }}
 .pl.ref {{ background: #fff; color: #556a88; border: .6pt solid #9aa9be; }} .pl.goal {{ background: #061629; }}
+.of {{ display: inline-block; font-size: 7.5pt; font-weight: bold; padding: 0 5pt; border: .8pt solid #c8192f; color: #c8192f; border-radius: 3pt; }}
 .foot {{ margin-top: 8pt; font-size: 7.5pt; color: #556a88; }}
 </style></head><body>
 <div class="band"><h1>DOOMSDAY</h1><p class="sub">アベンジャーズ／ドゥームズデイ 予習チェックリスト　{e(title)}</p></div>
-<p class="note">{e(subtitle)} No.は物語の視聴順です。重要度は10点満点で、5以上は必ず観てほしい作品。『ロキ』S1は『エンドゲーム』の直後に観るのがおすすめです。</p>
+<p class="note">{e(subtitle)} No.は物語の視聴順です。重要度は10点満点で、5以上は必ず観てほしい作品。「公式15作品」はDisney+（マーベル公式）が選んだ、絶対に観てほしい15作品。『ロキ』S1は『エンドゲーム』の直後に観るのがおすすめです。</p>
 <table><thead><tr><th>確認</th><th>No.</th><th>作中年代</th><th>作品・概要</th><th>重要度</th><th>公開年</th></tr></thead><tbody>{rows_html}</tbody></table>
 <p class="foot">2026年12月18日 日米同時公開。キャスト情報は公式発表に基づく（{UPDATED}時点）。非公式ファンガイド：{BASE_URL}　Marvel Studios、The Walt Disney Company 等とは関係ありません。</p>
 </body></html>"""
