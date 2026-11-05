@@ -3,6 +3,7 @@
 『アベンジャーズ／ドゥームズデイ』（2026年12月18日 日米同時公開）の予習用の非公式ファンサイト。GitHub Pages（main ブランチのルート）で公開: https://mocchima.com/doomsday-guide/
 
 運営者は日本語で、技術に詳しくない。返答は日本語で、短く、専門用語を避ける。
+**返答は必ず日本語で書く（英語で返さない）。運営者から強く頼まれている（2026-11-05）。**
 
 ## ビルド
 - 生成物（index.html, articles/, assets/, PDF, og.png, sitemap.xml, robots.txt）は手で編集しない。`src/` を編集してから次を実行する:
