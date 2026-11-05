@@ -39,7 +39,7 @@ RAKUTEN_TOP = f"https://af.moshimo.com/af/c/click?a_id={MOSHIMO_A_ID}&p_id=54&pc
 BANNERS = {"top": "", "middle": "", "bottom": ""}
 
 # Google AdSense のサイト運営者ID（例: "ca-pub-1234567890"）。独自ドメインが必要
-ADSENSE_CLIENT = ""
+ADSENSE_CLIENT = "ca-pub-8047459455202561"  # 2026-11-03 申し込み
 
 # 「予習のおとも」に並べるAmazonの商品（表示名, 検索キーワード）。検索キーワードの代わりに "/gp/..." のパスも使える
 # Amazonは、リンクから24時間以内に買われた商品なら、紹介した商品以外でも報酬の対象になる
