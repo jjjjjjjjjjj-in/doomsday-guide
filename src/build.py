@@ -20,7 +20,8 @@ from titles_c import TITLES_C  # noqa: E402
 from articles import ARTICLES  # noqa: E402
 from importance import IMPORTANCE, MUST_LINE  # noqa: E402
 import ads  # noqa: E402
-from official import OFFICIAL  # noqa: E402
+from official import OFFICIAL, OFFICIAL_COUNT  # noqa: E402
+from urllib.parse import quote as _q  # noqa: E402
 from trailers import TRAILERS  # noqa: E402
 import film_guides  # noqa: E402
 from film_guides import GUIDES as FILM_GUIDES  # noqa: E402
@@ -258,6 +259,40 @@ def relmap_link(t):
     return f'<a class="relmap-link" href="{FILM_GUIDES[t["slug"]][0]}"><span aria-hidden="true">◎</span>作品ガイド（あらすじ・相関図・用語）</a>'
 
 
+def official_group(slug):
+    """公式15作品の数え方（ロキはシーズン1・2で1作品）"""
+    return "loki" if slug.startswith("loki-") else slug
+
+
+SHARE_TAGS = {"ja": "ドゥームズデイ予習", "en": "AvengersDoomsday"}
+SHARE_TEXTS = {
+    "ja": dict(head="友だちとシェア", lead="観た本数をシェアして、公開日まで一緒に予習しよう。",
+               progress="観た本数をXでシェア", x="Xでシェア", line="LINEで送る", copy="リンクをコピー", copied="コピーしました",
+               text="『アベンジャーズ／ドゥームズデイ』の前に観る作品が視聴順で分かるチェックリスト。公式15作品と重要度つき"),
+    "en": dict(head="Share with friends", lead="Share how many you have watched and catch up together before release day.",
+               progress="Share my progress on X", x="Share on X", line="Send on LINE", copy="Copy link", copied="Copied",
+               text="Avengers: Doomsday watch checklist in story order, with the Official 15 and importance ratings"),
+}
+
+
+def share_box(lang="ja", url=None):
+    """X・LINE・リンクのコピー。外部のスクリプトは読み込まず、普通のリンクだけ"""
+    tx = SHARE_TEXTS[lang]
+    url = url or BASE_URL + ("en/" if lang == "en" else "")
+    x = f"https://x.com/intent/post?text={_q(tx['text'])}&url={_q(url)}&hashtags={_q(SHARE_TAGS[lang])}"
+    line = f"https://social-plugins.line.me/lineit/share?url={_q(url)}"
+    return f"""<section class="panel share" id="share" data-url="{e(url)}" data-tag="{e(SHARE_TAGS[lang])}">
+  <h2>{e(tx["head"])}</h2>
+  <p>{e(tx["lead"])}</p>
+  <div class="btns">
+    <a class="btn primary" id="share-progress" href="{e(x)}" target="_blank" rel="noopener">{e(tx["progress"])}</a>
+    <a class="btn" href="{e(x)}" target="_blank" rel="noopener">{e(tx["x"])}</a>
+    <a class="btn" href="{e(line)}" target="_blank" rel="noopener">{e(tx["line"])}</a>
+    <button class="btn" type="button" id="copy-link" data-done="{e(tx["copied"])}">{e(tx["copy"])}</button>
+  </div>
+</section>"""
+
+
 def official_badge(t, label="公式15作品"):
     """Disney+（マーベル公式）の15作品に付ける印"""
     if t["slug"] not in OFFICIAL:
@@ -289,7 +324,7 @@ def row(t, anchor=True):
       {ad_buttons(t)}
     </div>
   </details>"""
-    return f"""<li class="row{' must' if t['must'] else ''}{' goal' if t['goal'] else ''}"{f' id="{t["slug"]}"' if anchor else ''} data-slug="{t["slug"]}" data-order="{t["order"]}">
+    return f"""<li class="row{' must' if t['must'] else ''}{' goal' if t['goal'] else ''}{' official' if t['slug'] in OFFICIAL else ''}"{f' id="{t["slug"]}"' if anchor else ''} data-slug="{t["slug"]}"{f' data-official="{official_group(t["slug"])}"' if t["slug"] in OFFICIAL else ''} data-order="{t["order"]}">
   <label class="check"><input type="checkbox" data-watch="{t["slug"]}" aria-label="{e(t["title"])}を観た"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>視聴順 {t["order"]:02d}</span><span>作中 {e(t["era"])}</span><span>{e(t["year"])}年・{e(t["kind"])}</span></span>
@@ -303,7 +338,7 @@ def row(t, anchor=True):
 def build_index():
     must_total = sum(1 for t in TITLES if t["must"])
     total = len(TITLES) - 1
-    desc = (f"『アベンジャーズ／ドゥームズデイ』の前に観るべきMCU作品を、10点満点の重要度つきで視聴順に整理。"
+    desc = (f"『アベンジャーズ／ドゥームズデイ』の前に観るべきMCU作品を、10点満点の重要度つきで視聴順に整理。Disney+公式の15作品も一目で分かる。"
             f"重要度5以上の{must_total}本は必ず観たい作品。全{total}本の各作品にあらすじ・ドゥームズデイとの関連性・ポストクレジットの解説つき。")
     articles = "".join(f'<li><a href="articles/{a["slug"]}.html">{e(a["title"])}</a></li>' for a in ARTICLES)
     # ① に出る作品は ① に id を付け、② では ① に出ない作品だけに id を付ける（記事からのリンク先）
@@ -315,6 +350,8 @@ def build_index():
     faq = [
         ("ドゥームズデイの前に、マーベル作品を全部観る必要はありますか？",
          f"全部観なくても楽しめます。このガイドでは重要度5以上の{must_total}本を「必ず観るべき作品」にしています。時間がない人は、重要度10の作品から観てください。"),
+        ("公式の予習リストはありますか？",
+         "あります。Disney+（マーベル公式）が2026年8月に、ドゥームズデイの前に観るべき15作品を発表しました。このガイドでは、その作品に「公式15作品」の印を付けています。時間がない人は、まず公式15作品から観てください。"),
         ("何から観ればいいですか？",
          "チェックリストの視聴順01『キャプテン・アメリカ／ザ・ファースト・アベンジャー』から順に観るのがおすすめです。物語の時系列順に並べているので、話のつながりが分かりやすくなります。"),
         ("一番重要な作品はどれですか？",
@@ -337,7 +374,7 @@ def build_index():
         ],
     }
 
-    return head(f"アベンジャーズ／ドゥームズデイの見る順番｜予習すべきMCU作品{must_total}本と全作品の重要度", desc, "", schema=schema) + f"""
+    return head(f"アベンジャーズ／ドゥームズデイの見る順番｜公式15作品と予習すべきMCU作品{must_total}本・全作品の重要度", desc, "", schema=schema) + f"""
 <header class="hero">
   <p class="eyebrow">Unofficial Watch Guide · {total} titles</p>
   <h1>DOOMSDAY<small><span class="nb">アベンジャーズ／</span><span class="nb">ドゥームズデイ</span> <span class="nb">予習ガイド</span></small></h1>
@@ -358,12 +395,18 @@ def build_index():
     <div class="stat-num" id="progress-must">0<span>/ {must_total}本</span></div>
     <div class="bar" aria-hidden="true"><i id="bar-must"></i></div>
   </div>
+  <div class="stat stat-official">
+    <div class="stat-label">公式15作品（Disney+が選んだ作品）</div>
+    <div class="stat-num" id="progress-official">0<span>/ {OFFICIAL_COUNT}本</span></div>
+    <div class="bar" aria-hidden="true"><i id="bar-official"></i></div>
+  </div>
   <div class="stat">
     <div class="stat-label">全作品</div>
     <div class="stat-num" id="progress-all">0<span>/ {total}本</span></div>
     <div class="bar" aria-hidden="true"><i id="bar-all"></i></div>
   </div>
 </section>
+{share_box("ja")}
 {banner("top")}
 {amazon_picks()}<section class="panel" id="pdf">
   <h2>印刷用チェックリスト（PDF）</h2>
@@ -390,6 +433,7 @@ def build_index():
   <div class="controls">
     <a class="chip" href="#list-must">① 必ず観るべき（{must_total}本）</a>
     <a class="chip" href="#list-all">② 全作品（{total}本）</a>
+    <label class="toggle"><input type="checkbox" id="only-official"> 公式15作品だけ表示</label>
     <label class="toggle"><input type="checkbox" id="hide-done"> 観た作品を隠す</label>
   </div>
   <div class="legend" aria-label="重要度の見方">

@@ -430,3 +430,7 @@ details.relmap-promo[open] > summary { margin-bottom: 10px; }
 .row .official-badge { width: fit-content; justify-self: start; align-self: start; }
 .official-note { margin: 12px 0 0; font-size: 14px; }
 .official-note .official-badge { margin: 0 6px 0 0; }
+.stat-official { border-color: var(--red); }
+.stat-official .bar i { background: var(--red); }
+.share p { margin: 0 0 10px; color: var(--muted); }
+button.btn { font-family: inherit; cursor: pointer; }
