@@ -430,3 +430,9 @@ details.relmap-promo[open] > summary { margin-bottom: 10px; }
 .row .official-badge { width: fit-content; justify-self: start; align-self: start; }
 .official-note { margin: 12px 0 0; font-size: 14px; }
 .official-note .official-badge { margin: 0 6px 0 0; }
+
+/* シェアボタン */
+.share .btn { min-height: 44px; }
+.btn.share-x { background: #0f1419; border-color: #0f1419; color: #fff; }
+.btn.share-line { background: #06c755; border-color: #06c755; color: #fff; }
+button.btn { font-family: inherit; cursor: pointer; }

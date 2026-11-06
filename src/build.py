@@ -21,6 +21,7 @@ from articles import ARTICLES  # noqa: E402
 from importance import IMPORTANCE, MUST_LINE  # noqa: E402
 import ads  # noqa: E402
 from official import OFFICIAL  # noqa: E402
+from urllib.parse import quote as _q  # noqa: E402
 from trailers import TRAILERS  # noqa: E402
 import film_guides  # noqa: E402
 from film_guides import GUIDES as FILM_GUIDES  # noqa: E402
@@ -258,6 +259,30 @@ def relmap_link(t):
     return f'<a class="relmap-link" href="{FILM_GUIDES[t["slug"]][0]}"><span aria-hidden="true">◎</span>作品ガイド（あらすじ・相関図・用語）</a>'
 
 
+SHARE_TEXTS = {
+    "ja": dict(head="このガイドをシェア", x="Xでシェア", line="LINEで送る", copy="リンクをコピー", copied="コピーしました",
+               text="『アベンジャーズ／ドゥームズデイ』の前に観る作品が視聴順で分かる予習ガイド", tag="ドゥームズデイ予習"),
+    "en": dict(head="Share this guide", x="Share on X", line="Send on LINE", copy="Copy link", copied="Copied",
+               text="Avengers: Doomsday watch guide: what to watch, in story order", tag="AvengersDoomsday"),
+}
+
+
+def share_box(lang="ja"):
+    """X・LINE・リンクのコピー（外部のスクリプトは読み込まない普通のリンク）"""
+    tx = SHARE_TEXTS[lang]
+    url = BASE_URL + ("en/" if lang == "en" else "")
+    x = f"https://x.com/intent/post?text={_q(tx['text'])}&url={_q(url)}&hashtags={_q(tx['tag'])}"
+    line = f"https://social-plugins.line.me/lineit/share?url={_q(url)}"
+    return f"""<section class="panel share" id="share">
+  <h2>{e(tx["head"])}</h2>
+  <div class="btns">
+    <a class="btn share-x" href="{e(x)}" target="_blank" rel="noopener">{e(tx["x"])}</a>
+    <a class="btn share-line" href="{e(line)}" target="_blank" rel="noopener">{e(tx["line"])}</a>
+    <button class="btn" type="button" id="copy-link" data-url="{e(url)}" data-done="{e(tx["copied"])}">{e(tx["copy"])}</button>
+  </div>
+</section>"""
+
+
 def official_badge(t, label="公式15作品"):
     """Disney+（マーベル公式）の15作品に付ける印"""
     if t["slug"] not in OFFICIAL:
@@ -364,6 +389,7 @@ def build_index():
     <div class="bar" aria-hidden="true"><i id="bar-all"></i></div>
   </div>
 </section>
+{share_box("ja")}
 {banner("top")}
 {amazon_picks()}<section class="panel" id="pdf">
   <h2>印刷用チェックリスト（PDF）</h2>

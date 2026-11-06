@@ -37,6 +37,17 @@
   });
   hideDone.addEventListener("change", paint);
 
+  // リンクをコピー
+  const copyBtn = document.getElementById("copy-link");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", () => {
+      const url = copyBtn.dataset.url;
+      const label = copyBtn.textContent;
+      const done = () => { copyBtn.textContent = copyBtn.dataset.done; setTimeout(() => { copyBtn.textContent = label; }, 2000); };
+      try { navigator.clipboard.writeText(url).then(done, () => window.prompt("URL", url)); } catch (e) { window.prompt("URL", url); }
+    });
+  }
+
   // 記事から作品へのリンクで飛んできたら詳細を開く
   function openFromHash() {
     const id = decodeURIComponent(location.hash.slice(1));

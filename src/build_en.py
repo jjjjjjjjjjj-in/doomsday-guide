@@ -253,6 +253,7 @@ def build_index(titles):
     <div class="bar" aria-hidden="true"><i id="bar-all"></i></div>
   </div>
 </section>
+{ja.share_box("en")}
 {banner("top")}
 {amazon_picks()}<section class="panel" id="pdf">
   <h2>Printable checklists (PDF)</h2>
