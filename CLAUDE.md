@@ -49,6 +49,8 @@
 
 ## ホーム画面のアイコン（2026-11-02）
 - `apple-touch-icon.png`（濃い緑に白い DOOMSDAY と「予習ガイド」）。`build.py` の head で全ページに入れている。作り直すときは画像を差し替えるだけ。
+- 2026-11-06: 運営者の希望で「ホーム画面に追加しよう」の案内（`build.py` の home_tip）をトップの進み具合の下に出す。iPhone の Safari は1週間ほど開かないとチェック（localStorage）が消えることがあるが、ホーム画面のアプリとして開けば消えにくいため。ホーム画面から開いているときは案内を隠す（app.js）。
+- そのために `manifest.webmanifest`（英語版は `en/manifest.webmanifest`）を書き出し、アプリとして開く設定（standalone）にした。アイコンは `src/icon-192.png`・`src/icon-512.png`（apple-touch-icon を大きくしたもの）。ホーム画面のアプリと Safari ではチェックが別々に保存されることも案内に書いている。
 
 ## アクセス解析ロボット（2026-11-06 から動いている）
 Google アナリティクス（GA4）の数字を、非公開リポジトリ `jjjjjjjjjjj-in/site-analytics` の GitHub Actions が毎朝9時7分（日本時間）に集めて `data/latest/` に CSV で保存する（日付ごとの控えは `data/日付/`）。設定は運営者がパソコン版の Claude と済ませた。

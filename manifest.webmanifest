@@ -1,0 +1,22 @@
+{
+ "name": "ドゥームズデイ予習ガイド",
+ "short_name": "ドゥームズデイ予習",
+ "lang": "ja",
+ "start_url": "/doomsday-guide/",
+ "scope": "/doomsday-guide/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#0e3b2b",
+ "icons": [
+  {
+   "src": "/doomsday-guide/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/doomsday-guide/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

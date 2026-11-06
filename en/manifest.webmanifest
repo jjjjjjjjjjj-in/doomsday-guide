@@ -1,0 +1,22 @@
+{
+ "name": "Doomsday Watch Guide",
+ "short_name": "Doomsday",
+ "lang": "en",
+ "start_url": "/doomsday-guide/en/",
+ "scope": "/doomsday-guide/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#0e3b2b",
+ "icons": [
+  {
+   "src": "/doomsday-guide/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/doomsday-guide/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

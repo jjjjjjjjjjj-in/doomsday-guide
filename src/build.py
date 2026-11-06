@@ -216,7 +216,7 @@ def head(title, desc, path, prefix="", schema=None, lang="ja", og_image=None, si
 <html lang="{lang}">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="apple-touch-icon" href="/doomsday-guide/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="ドゥームズデイ予習"><link rel="icon" type="image/png" href="/doomsday-guide/apple-touch-icon.png">{analytics}
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="apple-touch-icon" href="/doomsday-guide/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="ドゥームズデイ予習"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><link rel="manifest" href="/doomsday-guide/{"en/" if lang == "en" else ""}manifest.webmanifest"><link rel="icon" type="image/png" href="/doomsday-guide/apple-touch-icon.png">{analytics}
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
@@ -274,6 +274,51 @@ ICON_X = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor"
 ICON_LINE = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>')
 ICON_LINK = ('<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'
              '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>')
+
+
+# iPhone の Safari の共有ボタンの絵（四角から上向きの矢印）
+ICON_IOS_SHARE = ('<svg class="ios-share" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+                  '<path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M7 10H5.5A1.5 1.5 0 0 0 4 11.5v8A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 18.5 10H17"/></svg>')
+
+HOME_TIP = {
+    "ja": dict(head="ホーム画面に追加しよう",
+               lead="チェックした作品は、このスマホのブラウザの中に保存されます。iPhone では、1週間ほど開かないとチェックが消えてしまうことがあります。<strong>ホーム画面に追加して、そこから開けば消えにくくなります。</strong>",
+               ios="iPhone（Safari）", ios_steps=["画面下の {icon} 共有ボタンを押す", "「ホーム画面に追加」を押す", "右上の「追加」を押す"],
+               android="Android（Chrome）", android_steps=["右上の ⋮ を押す", "「ホーム画面に追加」を押す"],
+               note="※ ホーム画面のアイコンから開いたときと、Safari などで開いたときでは、チェックは別々に保存されます。追加したら、ホーム画面のアイコンから開いてチェックしてください。"),
+    "en": dict(head="Add this guide to your home screen",
+               lead="Your checks are saved in this phone's browser. On iPhone, they can be cleared if you do not open the site for about a week. <strong>Add the guide to your home screen and open it from there to keep your checks safe.</strong>",
+               ios="iPhone (Safari)", ios_steps=["Tap the {icon} Share button at the bottom", "Tap \"Add to Home Screen\"", "Tap \"Add\" at the top right"],
+               android="Android (Chrome)", android_steps=["Tap ⋮ at the top right", "Tap \"Add to Home screen\""],
+               note="Note: checks made in the home screen app and in Safari are saved separately. After adding it, open the guide from the home screen icon and check your titles there."),
+}
+
+
+def home_tip(lang="ja"):
+    """ホーム画面に追加する案内（ホーム画面から開いているときは app.js が隠す）"""
+    tx = HOME_TIP[lang]
+    steps = lambda xs: "".join(f"<li>{e(x).replace('{icon}', ICON_IOS_SHARE)}</li>" for x in xs)
+    return f"""<section class="panel home-tip" id="home-tip">
+  <h2>{e(tx["head"])}</h2>
+  <p>{tx["lead"]}</p>
+  <div class="home-steps">
+    <div><h3>{e(tx["ios"])}</h3><ol>{steps(tx["ios_steps"])}</ol></div>
+    <div><h3>{e(tx["android"])}</h3><ol>{steps(tx["android_steps"])}</ol></div>
+  </div>
+  <p class="home-note">{e(tx["note"])}</p>
+</section>"""
+
+
+def manifest(lang="ja"):
+    """ホーム画面に追加したときの設定"""
+    start = "/doomsday-guide/" + ("en/" if lang == "en" else "")
+    return json.dumps({
+        "name": "Doomsday Watch Guide" if lang == "en" else "ドゥームズデイ予習ガイド",
+        "short_name": "Doomsday" if lang == "en" else "ドゥームズデイ予習",
+        "lang": lang, "start_url": start, "scope": "/doomsday-guide/", "display": "standalone",
+        "background_color": "#ffffff", "theme_color": "#0e3b2b",
+        "icons": [{"src": f"/doomsday-guide/icon-{n}.png", "sizes": f"{n}x{n}", "type": "image/png"} for n in (192, 512)],
+    }, ensure_ascii=False, indent=1)
 
 
 def share_box(lang="ja"):
@@ -398,6 +443,7 @@ def build_index():
     <div class="bar" aria-hidden="true"><i id="bar-all"></i></div>
   </div>
 </section>
+{home_tip("ja")}
 {share_box("ja")}
 {banner("top")}
 {amazon_picks()}<section class="panel" id="pdf">
@@ -541,6 +587,10 @@ def main():
             f.write(text)
 
     write("index.html", build_index())
+    write("manifest.webmanifest", manifest("ja"))
+    write("en/manifest.webmanifest", manifest("en"))
+    for n in (192, 512):
+        shutil.copy(os.path.join(SRC, f"icon-{n}.png"), os.path.join(ROOT, f"icon-{n}.png"))
     for a in ARTICLES:
         write(f'articles/{a["slug"]}.html', build_article(a))
 

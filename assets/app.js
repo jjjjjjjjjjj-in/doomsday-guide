@@ -37,6 +37,12 @@
   });
   hideDone.addEventListener("change", paint);
 
+  // ホーム画面から開いているときは「ホーム画面に追加」の案内を出さない
+  const standalone = window.navigator.standalone === true ||
+    (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+  const tip = document.getElementById("home-tip");
+  if (tip && standalone) tip.hidden = true;
+
   // リンクをコピー
   const copyBtn = document.getElementById("copy-link");
   if (copyBtn) {

@@ -448,3 +448,14 @@ details.relmap-promo[open] > summary { margin-bottom: 10px; }
 .app:focus-visible { outline: none; }
 .app:focus-visible .app-icon { outline: 3px solid var(--navy); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { .app-icon { transition: none; } }
+
+/* ホーム画面に追加の案内 */
+.home-tip { border-left: 4px solid var(--green); }
+.home-tip p { margin: 0 0 10px; }
+.home-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px 20px; }
+.home-steps h3 { margin: 0 0 4px; font-size: 14px; color: var(--navy); }
+.home-steps ol { margin: 0; padding-left: 1.4em; font-size: 14px; }
+.home-steps li { margin: 2px 0; }
+.ios-share { width: 1.15em; height: 1.15em; vertical-align: -0.2em; color: #0a84ff; }
+.home-note { margin: 10px 0 0 !important; font-size: 12.5px; color: var(--muted); }
+@media (display-mode: standalone) { .home-tip { display: none; } }
