@@ -180,7 +180,7 @@ def row(t, anchor=True):
       {ad_buttons(t)}
     </div>
   </details>"""
-    return f"""<li class="row{' must' if t['must'] else ''}{' goal' if t['goal'] else ''}{' official' if t['slug'] in ja.OFFICIAL else ''}"{f' id="{t["slug"]}"' if anchor else ''} data-slug="{t["slug"]}"{f' data-official="{ja.official_group(t["slug"])}"' if t["slug"] in ja.OFFICIAL else ''} data-order="{t["order"]}">
+    return f"""<li class="row{' must' if t['must'] else ''}{' goal' if t['goal'] else ''}"{f' id="{t["slug"]}"' if anchor else ''} data-slug="{t["slug"]}" data-order="{t["order"]}">
   <label class="check"><input type="checkbox" data-watch="{t["slug"]}" aria-label="Watched {e(t["title"])}"><span class="box" aria-hidden="true"></span></label>
   <div class="main">
     <span class="meta"><span>Order {t["order"]:02d}</span><span>Set in {e(t["era"])}</span><span>{e(t["year"])} · {e(t["kind"])}</span></span>
@@ -195,7 +195,7 @@ def build_index(titles):
     must_total = sum(1 for t in titles if t["must"])
     total = len(titles) - 1
     desc = (f"What to watch before Avengers: Doomsday. Every MCU and related title in story order with a 10-point importance rating. "
-            f"The {must_total} titles rated 5 or higher are must-watches, and the Official 15 picked by Disney+ are marked. All {total} titles come with a story summary, the connection to Doomsday and post-credits notes.")
+            f"The {must_total} titles rated 5 or higher are must-watches. All {total} titles come with a story summary, the connection to Doomsday and post-credits notes.")
     articles = "".join(f'<li><a href="articles/{a["slug"]}.html">{e(a["title"])}</a></li>' for a in ARTICLES_EN)
     must_rows = "".join(row(t) for t in titles if t["must"] or t["goal"])
     all_rows = "".join(row(t, anchor=not (t["must"] or t["goal"])) for t in titles)
@@ -204,8 +204,6 @@ def build_index(titles):
     faq = [
         ("Do I need to watch every Marvel title before Doomsday?",
          f"No. This guide marks the {must_total} titles rated 5 or higher as must-watches. If you are short on time, start with the titles rated 10."),
-        ("Is there an official watch list?",
-         "Yes. In August 2026 Disney+ (Marvel) named 15 titles to watch before Doomsday. This guide marks them as \"Official 15\". If you are short on time, start with those."),
         ("Where should I start?",
          "Start from number 01 on the checklist, Captain America: The First Avenger, and go in order. The list follows the story's timeline, so the connections are easier to follow."),
         ("Which titles matter most?",
@@ -227,7 +225,7 @@ def build_index(titles):
                                  for i, t in enumerate([t for t in titles if t["must"]], 1)]},
         ],
     }
-    return head(f"Avengers: Doomsday Watch Order | The Official 15, {must_total} Must-Watch MCU Titles and Importance Ratings", desc, "en/",
+    return head(f"Avengers: Doomsday Watch Order | {must_total} Must-Watch MCU Titles and Importance Ratings", desc, "en/",
                 prefix="../", schema=schema, lang="en") + f"""
 <header class="hero">
   <p class="eyebrow">Unofficial Watch Guide · {total} titles</p>
@@ -249,18 +247,12 @@ def build_index(titles):
     <div class="stat-num" id="progress-must">0<span>/ {must_total}</span></div>
     <div class="bar" aria-hidden="true"><i id="bar-must"></i></div>
   </div>
-  <div class="stat stat-official">
-    <div class="stat-label">Official 15 (picked by Disney+)</div>
-    <div class="stat-num" id="progress-official">0<span>/ {ja.OFFICIAL_COUNT}</span></div>
-    <div class="bar" aria-hidden="true"><i id="bar-official"></i></div>
-  </div>
   <div class="stat">
     <div class="stat-label">All titles</div>
     <div class="stat-num" id="progress-all">0<span>/ {total}</span></div>
     <div class="bar" aria-hidden="true"><i id="bar-all"></i></div>
   </div>
 </section>
-{ja.share_box("en")}
 {banner("top")}
 {amazon_picks()}<section class="panel" id="pdf">
   <h2>Printable checklists (PDF)</h2>
@@ -287,7 +279,6 @@ def build_index(titles):
   <div class="controls">
     <a class="chip" href="#list-must">① Must-watch ({must_total})</a>
     <a class="chip" href="#list-all">② All titles ({total})</a>
-    <label class="toggle"><input type="checkbox" id="only-official"> Show only the Official 15</label>
     <label class="toggle"><input type="checkbox" id="hide-done"> Hide watched titles</label>
   </div>
   <div class="legend" aria-label="How to read the importance ratings">
