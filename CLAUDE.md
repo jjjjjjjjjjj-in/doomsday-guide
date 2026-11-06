@@ -50,10 +50,8 @@
 ## ホーム画面のアイコン（2026-11-02）
 - `apple-touch-icon.png`（濃い緑に白い DOOMSDAY と「予習ガイド」）。`build.py` の head で全ページに入れている。作り直すときは画像を差し替えるだけ。
 
-## アクセス解析ロボット（準備中、2026-11-06）
-運営者の希望で、Google アナリティクス（GA4）の数字を毎日自動で集めるロボットを作る。中身は `tools/site-analytics/`（秘密の値は入っていない）。
-- 数字は誰でも見られるこのリポジトリには置かない。運営者が作る非公開リポジトリ `site-analytics` に中身を移して動かす（GitHub Actions が毎朝9時7分に動き、`data/latest/` に CSV を保存）。
-- 必要な準備: ① 非公開リポジトリ site-analytics を作る（Claude の権限では作れなかった）② Google Cloud でサービスアカウントを作り、Analytics Data API を有効にして JSON の鍵を作る ③ アナリティクスでそのアカウントを「閲覧者」に追加し、プロパティ ID を控える ④ site-analytics の Actions の秘密の値に GA_KEY（鍵の中身）と GA_PROPERTY_ID を入れる。
-- 鍵やパスワードはチャットに貼ってもらわない。ログインは運営者がする。
-- 準備ができたら、1回手動で動かして数字が取れるか確認し、分析して報告する。
-
+## アクセス解析ロボット（2026-11-06 から動いている）
+Google アナリティクス（GA4）の数字を、非公開リポジトリ `jjjjjjjjjjj-in/site-analytics` の GitHub Actions が毎朝9時7分（日本時間）に集めて `data/latest/` に CSV で保存する（日付ごとの控えは `data/日付/`）。設定は運営者がパソコン版の Claude と済ませた。
+- 運営者に「アナリティクス見て」と言われたら: `add_repo` で site-analytics を追加して clone し、`data/latest/` を読んで分析し、日本語でやさしく報告する。数字は誰でも見られるこのリポジトリには書き写さない。
+- アナリティクスは mocchima.com 全体（ドゥームズデイ予習ガイドのほか、パラダイスシティ、マーベル映画紹介など）で共通。ページごとの数字は `pages.csv` の pagePath で分ける。昔のアドレス jjjjjjjjjjj-in.github.io の分も入っている。
+- 鍵やパスワードはチャットに貼ってもらわない。
