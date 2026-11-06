@@ -42,8 +42,9 @@
   if (copyBtn) {
     copyBtn.addEventListener("click", () => {
       const url = copyBtn.dataset.url;
-      const label = copyBtn.textContent;
-      const done = () => { copyBtn.textContent = copyBtn.dataset.done; setTimeout(() => { copyBtn.textContent = label; }, 2000); };
+      const el = copyBtn.querySelector(".app-label") || copyBtn;
+      const label = el.textContent;
+      const done = () => { el.textContent = copyBtn.dataset.done; copyBtn.classList.add("copied"); setTimeout(() => { el.textContent = label; copyBtn.classList.remove("copied"); }, 2000); };
       try { navigator.clipboard.writeText(url).then(done, () => window.prompt("URL", url)); } catch (e) { window.prompt("URL", url); }
     });
   }

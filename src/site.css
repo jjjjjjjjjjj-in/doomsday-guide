@@ -431,8 +431,20 @@ details.relmap-promo[open] > summary { margin-bottom: 10px; }
 .official-note { margin: 12px 0 0; font-size: 14px; }
 .official-note .official-badge { margin: 0 6px 0 0; }
 
-/* シェアボタン */
-.share .btn { min-height: 44px; }
-.btn.share-x { background: #0f1419; border-color: #0f1419; color: #fff; }
-.btn.share-line { background: #06c755; border-color: #06c755; color: #fff; }
-button.btn { font-family: inherit; cursor: pointer; }
+/* シェアボタン（iPhone のホーム画面のアプリ風） */
+.app-icons { display: flex; flex-wrap: wrap; gap: 14px 22px; }
+.app { display: inline-grid; justify-items: center; gap: 6px; width: 64px; padding: 0; border: 0; background: none; font: inherit; color: var(--fg); text-decoration: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.app-icon { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 14px; color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 4px 10px rgba(0, 0, 0, .12), inset 0 0 0 .5px rgba(255, 255, 255, .15); transition: transform .12s ease; }
+.app-icon svg { width: 30px; height: 30px; }
+.app-x { background: #000; }
+.app-x svg { width: 26px; height: 26px; }
+.app-line { background: #06c755; }
+.app-line svg { width: 40px; height: 40px; }
+.app-copy { background: linear-gradient(180deg, #8e8e93, #636366); }
+.app.copied .app-copy { background: linear-gradient(180deg, #34c759, #248a3d); }
+.app-label { font-size: 12px; line-height: 1.2; color: var(--fg); white-space: nowrap; }
+.app:active .app-icon { transform: scale(.92); }
+.app:focus-visible { outline: none; }
+.app:focus-visible .app-icon { outline: 3px solid var(--navy); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .app-icon { transition: none; } }

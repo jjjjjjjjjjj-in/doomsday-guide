@@ -261,10 +261,19 @@ def relmap_link(t):
 
 SHARE_TEXTS = {
     "ja": dict(head="このガイドをシェア", x="Xでシェア", line="LINEで送る", copy="リンクをコピー", copied="コピーしました",
+               x_short="X", line_short="LINE", copy_short="コピー", copied_short="コピー済み",
                text="『アベンジャーズ／ドゥームズデイ』の前に観る作品が視聴順で分かる予習ガイド", tag="ドゥームズデイ予習"),
     "en": dict(head="Share this guide", x="Share on X", line="Send on LINE", copy="Copy link", copied="Copied",
+               x_short="X", line_short="LINE", copy_short="Copy", copied_short="Copied",
                text="Avengers: Doomsday watch guide: what to watch, in story order", tag="AvengersDoomsday"),
 }
+
+
+# アプリ風アイコンの絵（X と LINE のロゴは Simple Icons 13.21.0 の形、リンクの絵は Feather Icons の形）
+ICON_X = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>')
+ICON_LINE = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>')
+ICON_LINK = ('<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'
+             '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>')
 
 
 def share_box(lang="ja"):
@@ -275,10 +284,10 @@ def share_box(lang="ja"):
     line = f"https://social-plugins.line.me/lineit/share?url={_q(url)}"
     return f"""<section class="panel share" id="share">
   <h2>{e(tx["head"])}</h2>
-  <div class="btns">
-    <a class="btn share-x" href="{e(x)}" target="_blank" rel="noopener">{e(tx["x"])}</a>
-    <a class="btn share-line" href="{e(line)}" target="_blank" rel="noopener">{e(tx["line"])}</a>
-    <button class="btn" type="button" id="copy-link" data-url="{e(url)}" data-done="{e(tx["copied"])}">{e(tx["copy"])}</button>
+  <div class="app-icons">
+    <a class="app" href="{e(x)}" target="_blank" rel="noopener" aria-label="{e(tx["x"])}"><span class="app-icon app-x">{ICON_X}</span><span class="app-label">{e(tx["x_short"])}</span></a>
+    <a class="app" href="{e(line)}" target="_blank" rel="noopener" aria-label="{e(tx["line"])}"><span class="app-icon app-line">{ICON_LINE}</span><span class="app-label">{e(tx["line_short"])}</span></a>
+    <button class="app" type="button" id="copy-link" data-url="{e(url)}" data-done="{e(tx["copied_short"])}" aria-label="{e(tx["copy"])}"><span class="app-icon app-copy">{ICON_LINK}</span><span class="app-label">{e(tx["copy_short"])}</span></button>
   </div>
 </section>"""
 
