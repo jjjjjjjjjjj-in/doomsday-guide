@@ -143,7 +143,7 @@ def footer(prefix, ja_link):
     return banner("bottom") + f"""<footer>
 {disclosure}<p>Cast information is based on official announcements from Marvel Studios and Disney (last checked {UPDATED}). Reported or rumored information is labeled as such. Importance ratings are the site owner's estimates based on official information before release and do not guarantee anything about the film.</p>
 <p>Sources: <a href="https://thewaltdisneycompany.com/news/marvel-studios-avengers-doomsday-cast/" rel="noopener">Marvel Studios Announces 'Avengers: Doomsday' Cast</a> / <a href="https://marvel.disney.co.jp/movie/avengers-doomsday" rel="noopener">Avengers: Doomsday official site (Japan)</a></p>
-<p>For how this site uses analytics (Google Analytics) and ads, see the <a href="{ja.PRIVACY_URL}#en">privacy policy</a>.</p>
+<p>For how this site uses analytics (Google Analytics) and ads, see the <a href="{ja.PRIVACY_URL}#en">privacy policy</a>. About the operator and contact: <a href="https://mocchima.com/about.html">About (Japanese)</a>.</p>
 <p>This is an unofficial fan site run by an individual. It is not affiliated with Marvel Studios, The Walt Disney Company, Sony Pictures or 20th Century Studios. Titles and character names are trademarks of their respective owners.</p>
 <p><a href="{prefix}">Home</a> · <a href="{film_guides.TOP_URL}en/">Film guides (separate sites)</a> · <a href="{prefix}articles/cast.html">Cast</a> · <a href="{prefix}articles/x-men.html">X-Men</a> · <a href="{prefix}articles/infinity-saga.html">Infinity Saga</a> · <a href="{prefix}articles/next-generation.html">Next generation</a> · <a href="{prefix}articles/multiverse.html">Multiverse</a> · <a href="{ja_link}" hreflang="ja" lang="ja">日本語</a></p>
 </footer>

@@ -244,7 +244,7 @@ def footer(prefix=""):
     return banner("bottom") + f"""<footer>
 {disclosure}<p>キャスト情報はマーベル・スタジオ／ディズニーの公式発表に基づいています（最終確認 {UPDATED}）。噂や報道の段階の情報はその旨を明記しています。重要度は公開前の公式情報をもとにした運営者の判断による目安で、公開後の内容を保証するものではありません。</p>
 <p>出典：<a href="https://thewaltdisneycompany.com/news/marvel-studios-avengers-doomsday-cast/" rel="noopener">Marvel Studios Announces 'Avengers: Doomsday' Cast</a>／<a href="https://marvel.disney.co.jp/movie/avengers-doomsday" rel="noopener">『アベンジャーズ／ドゥームズデイ』日本公式サイト</a></p>
-<p>アクセス解析（Googleアナリティクス）と広告の仕組みについては<a href="{PRIVACY_URL}">プライバシーポリシー</a>をご覧ください。</p>
+<p>アクセス解析（Googleアナリティクス）と広告の仕組みについては<a href="{PRIVACY_URL}">プライバシーポリシー</a>をご覧ください。 <a href="https://mocchima.com/about.html">運営者情報・お問い合わせ</a></p>
 <p>当サイトは個人が運営する非公式ファンサイトです。Marvel Studios、The Walt Disney Company、Sony Pictures、20th Century Studios とは関係ありません。作品名・キャラクター名は各権利者の商標です。</p>
 <p><a href="{prefix}">トップ</a> ・ <a href="{film_guides.TOP_URL}">作品ガイド（別サイト）</a> ・ <a href="{prefix}articles/cast.html">キャストまとめ</a> ・ <a href="{prefix}articles/x-men.html">X-MEN</a> ・ <a href="{prefix}articles/infinity-saga.html">インフィニティ・サーガ</a> ・ <a href="{prefix}articles/next-generation.html">次世代ヒーロー</a> ・ <a href="{prefix}articles/multiverse.html">マルチバース</a></p>
 </footer>
