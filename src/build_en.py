@@ -18,7 +18,7 @@ from titles_en_b import TITLES_EN_B  # noqa: E402
 from titles_en_c import TITLES_EN_C  # noqa: E402
 from articles_en import ARTICLES_EN  # noqa: E402
 import film_guides  # noqa: E402
-from film_guides import GUIDES as FILM_GUIDES  # noqa: E402
+from film_guides import GUIDES as FILM_GUIDES, NO_STORY  # noqa: E402
 
 SITE_NAME = ja.SITE_NAMES["en"]
 EN = {**TITLES_EN_A, **TITLES_EN_B, **TITLES_EN_C}
@@ -151,6 +151,12 @@ def footer(prefix, ja_link):
 """
 
 
+def story_link(t):
+    if t["slug"] not in FILM_GUIDES or t["slug"] in NO_STORY:
+        return ""
+    return f'<a class="story-link" href="{FILM_GUIDES[t["slug"]][1]}story/">Full scene-by-scene story →</a>'
+
+
 def relmap_link(t):
     if t["slug"] not in FILM_GUIDES:
         return ""
@@ -167,7 +173,7 @@ def row(t, anchor=True):
     <div class="detail">
       <p class="spoiler">Contains spoilers</p>
       <dl>
-        <div><dt>Story</dt><dd>{e(t["story"])}</dd></div>
+        <div><dt>Story</dt><dd>{e(t["story"])}{story_link(t)}</dd></div>
         <div><dt>Key events</dt><dd><ul>{events}</ul></dd></div>
         <div><dt>Characters</dt><dd>{e(t["chars"])}</dd></div>
         <div><dt>Connections to other titles</dt><dd>{e(t["links"])}</dd></div>

@@ -24,7 +24,7 @@ from official import OFFICIAL  # noqa: E402
 from urllib.parse import quote as _q  # noqa: E402
 from trailers import TRAILERS  # noqa: E402
 import film_guides  # noqa: E402
-from film_guides import GUIDES as FILM_GUIDES  # noqa: E402
+from film_guides import GUIDES as FILM_GUIDES, NO_STORY  # noqa: E402
 
 BASE_URL = "https://mocchima.com/doomsday-guide/"
 UPDATED = "2026-11-02"
@@ -252,6 +252,13 @@ def footer(prefix=""):
 """
 
 
+def story_link(t):
+    """作品ガイドの「シーンごとの詳しいあらすじ」ページがある作品だけ、詳しく見るの中にリンクを出す（運営者の希望、2026-11-10）"""
+    if t["slug"] not in FILM_GUIDES or t["slug"] in NO_STORY:
+        return ""
+    return f'<a class="story-link" href="{FILM_GUIDES[t["slug"]][0]}story/">くわしいあらすじ（観ながら読める）→</a>'
+
+
 def relmap_link(t):
     """作品ガイド（別サイト）がある作品だけ、視聴順ガイドからリンクを出す"""
     if t["slug"] not in FILM_GUIDES:
@@ -355,7 +362,7 @@ def row(t, anchor=True):
     <div class="detail">
       <p class="spoiler">※ネタバレを含みます</p>
       <dl>
-        <div><dt>あらすじ</dt><dd>{e(t["story"])}</dd></div>
+        <div><dt>あらすじ</dt><dd>{e(t["story"])}{story_link(t)}</dd></div>
         <div><dt>重要な出来事</dt><dd><ul>{events}</ul></dd></div>
         <div><dt>登場人物</dt><dd>{e(t["chars"])}</dd></div>
         <div><dt>他作品との関係</dt><dd>{e(t["links"])}</dd></div>

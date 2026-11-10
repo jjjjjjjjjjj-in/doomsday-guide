@@ -99,3 +99,6 @@ def write_redirects(write, lang):
         write(f"{base}characters/{slug}.html", redirect_page(urls[i] + "#map", urls[i], lang))
     write(f"{base}films/index.html", redirect_page(TOP_URL, TOP_URL, lang))
     write(f"{base}characters/index.html", redirect_page(TOP_URL, TOP_URL, lang))
+
+# くわしいあらすじページ（/<slug>/story/）がない作品。アイ・アム・グルートは短編なので作っていない。
+NO_STORY = {"i-am-groot-1", "i-am-groot-2"}
