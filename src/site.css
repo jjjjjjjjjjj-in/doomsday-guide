@@ -461,3 +461,5 @@ details.relmap-promo[open] > summary { margin-bottom: 10px; }
 @media (display-mode: standalone) { .home-tip { display: none; } }
 
 .story-link { display: table; margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--green); border: 1px solid var(--green); border-radius: 99px; padding: 3px 12px; text-decoration: none; background: var(--bg); }
+.story-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.story-links .story-link { margin-top: 0; }

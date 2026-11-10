@@ -154,7 +154,9 @@ def footer(prefix, ja_link):
 def story_link(t):
     if t["slug"] not in FILM_GUIDES or t["slug"] in NO_STORY:
         return ""
-    return f'<a class="story-link" href="{FILM_GUIDES[t["slug"]][1]}story/">Full scene-by-scene story →</a>'
+    g = FILM_GUIDES[t["slug"]][1]
+    return (f'<span class="story-links"><a class="story-link" href="{g}story/">Full scene-by-scene story →</a>'
+            f'<a class="story-link" href="{g}">Film guide (character map, terms) →</a></span>')
 
 
 def relmap_link(t):
@@ -296,7 +298,7 @@ def build_index(titles):
     <span><span class="pill p0">4 or less</span>If you have time</span>
     <span><span class="pill ref">Reference</span>Other universes and extras</span>
   </div>
-  <p class="official-note"><span class="official-badge">Official 15</span>The 15 titles Disney+ (Marvel) picked as essential viewing before Doomsday. <strong>Do not skip these.</strong> Loki counts as one title (Seasons 1 and 2).</p>
+  <p class="official-note"><span class="official-badge">Official 15</span>The 15 titles picked by Disney+ (Marvel).</p>
 </section>
 
 <section class="tier-section" id="list-must">

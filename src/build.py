@@ -256,7 +256,9 @@ def story_link(t):
     """作品ガイドの「シーンごとの詳しいあらすじ」ページがある作品だけ、詳しく見るの中にリンクを出す（運営者の希望、2026-11-10）"""
     if t["slug"] not in FILM_GUIDES or t["slug"] in NO_STORY:
         return ""
-    return f'<a class="story-link" href="{FILM_GUIDES[t["slug"]][0]}story/">くわしいあらすじ（観ながら読める）→</a>'
+    g = FILM_GUIDES[t["slug"]][0]
+    return (f'<span class="story-links"><a class="story-link" href="{g}story/">くわしいあらすじ（観ながら読める）→</a>'
+            f'<a class="story-link" href="{g}">作品ガイド（相関図・用語）→</a></span>')
 
 
 def relmap_link(t):
@@ -487,7 +489,7 @@ def build_index():
     <span><span class="pill p0">4以下</span>余裕があれば</span>
     <span><span class="pill ref">参考</span>別の宇宙・番外</span>
   </div>
-  <p class="official-note"><span class="official-badge">公式15作品</span>Disney+（マーベル公式）が「ドゥームズデイの前に観るべき」として選んだ15作品です。<strong>絶対に観てください。</strong>『ロキ』はシーズン1・2を合わせて1作品です。</p>
+  <p class="official-note"><span class="official-badge">公式15作品</span>Disney+（マーベル公式）が選んだ15作品。</p>
 </section>
 
 <section class="tier-section" id="list-must">
