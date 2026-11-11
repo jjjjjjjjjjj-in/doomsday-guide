@@ -93,7 +93,7 @@ def ad_buttons(t):
 def rakuten_url(keyword):
     """もしも経由で楽天の検索結果に飛ぶリンク（どこでもリンクと同じ形式）"""
     inner = f"https://search.rakuten.co.jp/search/mall/{quote(keyword)}/"
-    return f"{ads.RAKUTEN_TOP}&url={quote(inner, safe='')}"
+    return ads.a8_rakuten(inner)
 
 
 def amazon_url(key):
@@ -114,7 +114,7 @@ def amazon_picks(heading="予習のおとも"):
         return ""
     items = [amazon_links(ads.AMAZON_PICKS)]
     if ads.RAKUTEN_TOP:
-        items.append(f'<a class="btn ad" href="{e(ads.RAKUTEN_TOP)}" target="_blank" rel="sponsored noopener">楽天市場でお買い物</a>')
+        items.append(f'<a class="btn ad" href="{e(ads.RAKUTEN_TOP)}" target="_blank" rel="sponsored noopener">楽天市場でお買い物</a>' + ads.A8_RAKUTEN_PIXEL)
     feat = ""
     if getattr(ads, "FEATURED", None):
         ja, _en, key = ads.FEATURED

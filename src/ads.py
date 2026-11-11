@@ -31,9 +31,20 @@ ARTICLE_PICKS_US = {
     "multiverse": [("Loki goods", "Loki Marvel"), ("Deadpool goods", "Deadpool")],
 }
 
-# もしもアフィリエイト経由の楽天市場リンク（a_id はもしもの広告コードに入っているあなた専用の番号）
+# もしもアフィリエイトの番号（2026-11-10 に登録を削除されたので、今は使っていない）
 MOSHIMO_A_ID = "5875908"
-RAKUTEN_TOP = f"https://af.moshimo.com/af/c/click?a_id={MOSHIMO_A_ID}&p_id=54&pc_id=54&pl_id=616" if MOSHIMO_A_ID else ""
+# 楽天は A8.net 経由（2026-11-11 に、もしも経由から替えた。もしもの登録が削除されたため）。A8 の「任意ページリンク生成」と同じ形
+A8_RAKUTEN_MAT = "4BESUC+2A5VSY+2HOM+BW8O1"
+A8_RAKUTEN_PIXEL = f'<img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat={A8_RAKUTEN_MAT}" alt="">'
+
+
+def a8_rakuten(url):
+    """楽天のページ（url）へ行く、A8.net 経由のリンクを作る"""
+    from urllib.parse import quote as _q
+    hb = ("http://hb.afl.rakuten.co.jp/hgc/0ea62065.34400275.0ea62066.204f04c0/a26103176848_" + A8_RAKUTEN_MAT.replace("+", "_")
+          + "?pc=" + _q(url, safe="") + "&m=" + _q(url, safe=""))
+    return f"https://rpx.a8.net/svt/ejp?a8mat={A8_RAKUTEN_MAT}&rakuten=y&a8ejpredirect=" + _q(hb, safe="")
+RAKUTEN_TOP = a8_rakuten("https://www.rakuten.co.jp/")  # 楽天のトップへのリンク。空文字なら楽天ボタンを出さない
 
 # ASPのバナー広告コード（HTMLをそのまま貼る）。top=進み具合の下、middle=リストの上、bottom=ページの最後
 BANNERS = {"top": "", "middle": "", "bottom": ""}
